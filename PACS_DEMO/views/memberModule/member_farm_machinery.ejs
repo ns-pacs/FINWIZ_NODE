@@ -1,0 +1,538 @@
+<html>
+
+<head>
+  <% include ../includes/styles %>
+  <% include ../includes/scripts %>
+    <script type="text/javascript" src="/javascripts/memberDetailsJS.js"></script>
+
+</head>
+
+<body>
+
+  <div class="wrapper ">
+   <div class="sidebar" data-color="orange_light">
+            <!--
+                                  Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+                              -->
+            <div class="logo">
+                <h4><a href="" class="simple-text logo-normal">
+                            Nurture Software
+                        </a></h4>
+            </div>
+            <div class="sidebar-wrapper" id="sidebar-wrapper">
+                <ul class="nav">
+                    <!-- dashboard link moved to navbar by ranjeet -->
+
+                    <li id="sub_menu" class="active">
+
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">group</i>
+                            <strong class="fnt">Members</strong>
+                        </a>
+                        <ul class="hid sub_col">
+
+                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails_search" class="ml-1" style="color: #ffffff;">Members</a>
+                            </div>
+
+                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search" class="ml-1" style="color: #ffffff;">Members
+                                        Dividend</a></div>
+
+                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search" class="ml-1" style="color: #ffffff;">Members
+                                        Share Details</a></div>
+
+                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search" class="ml-1" style="color: #ffffff;">Farm
+                                        Machinery Details</a></div>
+
+                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser" class="ml-1" style="color: #ffffff;">House
+                                        Details</a></div>
+
+                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search" class="ml-1" style="color: #ffffff;">KCC
+                                        Details</a></div>
+
+                        </ul>
+                    </li>
+
+                    <li id="sub_menu">
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">group</i>
+                            <strong class="fnt">Accounts</strong>
+                        </a>
+                        <ul class="hid sub_col">
+                            <div class="sub_mar"><a style="color: #ffffff;" href="/accountsModule/accountsDetails/acc_search" class="">
+Accounts
+</a></div>
+                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_lmt_search" class="" style="color: #ffffff;">Account Limits</a></div>
+                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_renewal_details_search" class="" style="color: #ffffff;">Account Renewal</a></div>
+                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_trnsc_search" class="" style="color: #ffffff;">Account Transaction</a></div>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/login/deposits">
+                            <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
+                            <strong class="fnt">Deposits</strong>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="/login/loans">
+                            <i class="material-icons" style="font-size: 25px;">file_upload</i>
+                            <strong class="fnt">Loans</strong>
+                        </a>
+                    </li>
+
+
+                    <li id="sub_menu">
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                            <strong class="fnt">Bank</strong>
+                        </a>
+                        <ul class="hid mt-1 sub_col">
+
+                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search" style="color: #ffffff">Associated
+                                        Bank</a></div>
+
+                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search" style="color: #ffffff">Associated Branch</a></div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search" style="color: #ffffff">Associated Bank Account Master</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search" style="color: #ffffff">Associated Bank Cheque Book</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search" style="color: #ffffff">Associated Bank Account Type</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search" style="color: #ffffff">Associated Bank Deposit Returns</a>
+                            </div>
+
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search" style="color: #ffffff">Associated Bank Deposit Master</a>
+                            </div>
+
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="/login/market">
+                            <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
+                            <strong class="fnt">Market</strong>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/login/reports">
+                            <i class="material-icons" style="font-size: 25px;">date_range</i>
+                            <strong class="fnt">Reports</strong>
+                        </a>
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="/login/payroll">
+                            <i class="material-icons" style="font-size: 25px;">payment</i>
+                            <strong class="fnt">Payroll</strong>
+                        </a>
+
+
+
+                    </li>
+                    <li>
+                        <a href="/login/hr">
+                            <i class="material-icons" style="font-size: 25px;">account_box</i>
+                            <strong class="fnt">HR</strong>
+                        </a>
+                    </li>
+
+
+                    <li>
+
+                        <a href="/login/user">
+                            <i class="material-icons" style="font-size: 25px;">person</i>
+                            <strong class="fnt">User</strong>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel" id="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg colo">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                    <span class="navbar-toggler-bar bar1"></span>
+                                    <span class="navbar-toggler-bar bar2"></span>
+                                    <span class="navbar-toggler-bar bar3"></span>
+                                </button>
+                        </div>
+                        <a class="navbar-brand" href="#pablo"><strong>Members</strong> </a>
+                    </div>
+                    <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                        </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav">
+                            <li class="">
+                                <a class="nav-link" href="/dashboards/dashboard/dashboard">
+                                    <i class="material-icons" style="font-size: 25px;">dashboard</i>
+
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <strong class="fnt">User 1</strong>
+                                    <i class="now-ui-icons users_single-02 ml-2"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block"></span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Upload Photo<i
+                                                class=" material-icons ml-2">add_a_photo</i></a>
+                                    <a class="dropdown-item" href="#">Logout &nbsp;&nbsp;&nbsp;&nbsp;<i
+                                                class=" ml-5 material-icons">power_settings_new</i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+   
+<%if(pagetype=='ADD'){%>
+      <div class="content">
+        <div class="row-sm ">
+          <div class="col-sm-12">
+            <div class="card tp">
+              <div class="card-header hdr"><h5>FARM MACHINERY DETAILS</h5></div>
+              <div class="card-body">
+                <div class="content">
+
+                 
+                  <h6>Add Record</h6>
+                  <hr>
+                   <!-- flash msg -->
+          <% if(locals.message){ %>
+
+            <div class="text text-center" role="swal">
+                <strong style="color:green"><%= message.success_msg %></strong>
+            </div>
+        <% } %>
+                  <form autocomplete="off" action="/memberDetailsModule/memberDetails/mem_farm_machinery_add"  method="POST" id="farmmach_add_form">
+
+                    <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                          <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Select Member</label>
+
+
+                           <select class="col-sm-12 col-md-6" id="mem_sel" name="mem_sel" >
+                            <option disabled="" selected="" value="">Select</option>
+                              <% for(var i=0;i < memberdetails.length;i++) { %>
+                                <option value="<%= memberdetails[i].md_ch_member_id  %>"><%= memberdetails[i].md_ch_member_id %></option>
+                                <% } %>
+                           </select>
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <label for="vehiclename" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechicle Name</label>
+                          <input required class="col-sm-12 col-md-6" id="vehiclename" name="vehiclename" type="text" />
+
+                        </div>
+                      </div>
+
+                      <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                          <label for="vehicle_reg_num" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechilce Register Number</label>
+                          <input required type="text" class="col-sm-12 col-md-6" name="vehicle_reg_num" id="vehicle_reg_num" placeholder="" onkeypress="return alphanumeric(event)" maxlength="10">
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <label for="yearofpurchase" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Year of Purchase</label>
+                          <input required type="text" class="col-sm-12 col-md-6" name="yearofpurchase" id="yearofpurchase" onkeypress="return numeric(event)" maxlength="4"
+                            placeholder="">
+
+                        </div>
+                      </div>
+
+
+                      <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-12">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Vechicle Description</label>
+                            <div class="form-group">
+                                <label for="vehicledescription"></label>
+                                <textarea required class=" col-sm-12 col-md-9 textarea2" id="vehicledescription" name="vehicledescription" rows="3"></textarea>
+                              </div>
+
+                          </div>
+
+
+                        </div>
+
+
+                            <div class="container row mt-2">
+                                <div class="col-sm-12 col-md-6">
+                                  <label for="purchase_value" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Purchase Value</label>
+                                  <input required type="text" class="col-sm-12 col-md-6" name="purchase_value" id="purchase_value" placeholder="" onkeypress="return amount(event)">
+
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                  <label for="market_value" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Market Value</label>
+                                      <input required type="text" class=" col-sm-12 col-md-6" id="market_value" name="market_value" placeholder="" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onkeypress="return amount(event)">
+
+                                </div>
+                              </div>
+<!-- buttons -->
+                      <div class="container row mt-4">
+                        <div class="col-sm-12 col-md-2">
+                         <a type="text" class="btn" href="/memberDetailsModule/memberDetails/mem_farm_search" name="bck_search" id="bck_search" value="Back to Search">Back to Search</a>
+
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                          <input  type="reset" class="btn clr clr1" name="clear_frm" id="clear_frm" value="Clear Form">
+
+                        </div>
+                        <div class="col-sm-12 col-md-5"></div>
+                        <div class="col-sm-12 col-md-2">
+                          <input  type="button" class="btn" name="sub" id="sub" value="Submit" onclick="memberFarmMachineryValidation()">
+                        </div>
+                      </div>
+
+
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%}%>
+
+      <%if(pagetype=='EDIT'){%>
+       <div class="content">
+        <div class="row-sm ">
+          <div class="col-sm-12">
+            <div class="card tp">
+              <div class="card-header hdr"><h5>FARM MACHINERY DETAILS</h5></div>
+              <div class="card-body">
+                <div class="content">
+
+                 
+                  <h6>Edit Record</h6>
+                  <hr>
+                   <form action="/memberDetailsModule/memberDetails/update_farm_mach_save"  method="POST">
+
+
+                    <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                           <label for="memberid_ed" class="mr-sm-4 col-sm-12 col-md-5 " style="padding-left:0% !important;" >Select Member</label>
+
+
+    <select class="col-sm-12 col-md-6" id="memberid_ed" name="memberid_ed" >
+                            <option value="<%=memberid%>"><%=memberid%></option>
+                          <% for(var i=1;i < memberdetails.length;i++) { %>
+                            <option value="<%= memberdetails[i].md_ch_member_id  %>"><%= memberdetails[i].md_ch_member_id %></option>
+                            <% } %>
+    </select>
+
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <label for="vehiclename_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechicle Name</label>
+                          <input required class="col-sm-12 col-md-6" id="vehiclename_ed" name="vehiclename_ed" type="text" value="<%=vehiclename%>" />
+
+                        </div>
+                      </div>
+
+                      <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                          <label for="vehicle_reg_num_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechilce Register Number</label>
+                          <input required type="number" class="col-sm-12 col-md-6" name="vehicle_reg_num_ed" id="vehicle_reg_num_ed" value="<%=vehicle_reg_num%>">
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <label for="yearofpurchase_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Year of Purchase</label>
+                          <input required type="number" class="col-sm-12 col-md-6" name="yearofpurchase_ed" id="yearofpurchase_ed"
+                           value="<%=year_of_purchase%>">
+
+                        </div>
+                      </div>
+
+
+                      <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-12">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Vechicle Description</label>
+                            <div class="form-group">
+                                <label for="vehicledescription_ed"></label>
+                                <textarea required class=" col-sm-12 col-md-9 textarea2" id="vehicledescription_ed" name="vehicledescription_ed" rows="3" value="<%=vehicle_desc%>"><%=vehicle_desc%></textarea>
+                              </div>
+
+                          </div>
+
+
+                        </div>
+
+
+                            <div class="container row mt-2">
+                                <div class="col-sm-12 col-md-6">
+                                  <label for="purchase_value_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Purchase Value</label>
+                                  <input required type="text" class="col-sm-12 col-md-6" name="purchase_value_ed" id="purchase_value_ed" value="<%=purchase_value%>" step="0.01" onkeypress="return numeric(event)">
+
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                  <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Market Value</label>
+                                      <label for="market_value"></label>
+                                      <input required type="text" class=" col-sm-12 col-md-6" id="market_value_ed"  name="market_value_ed" value="<%=market_value%>" step="0.01" onkeypress="return numeric(event)">
+                                </div>
+                              </div>
+<!-- buttons -->
+                      <div class="container row mt-4">
+                        <div class="col-sm-12 col-md-2">
+                         <a type="text" class="btn" href="/memberDetailsModule/memberDetails/mem_farm_search" name="bck_search" id="bck_search" value="Back to Search">Back to Search</a>
+
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                          <input  type="button" class="btn clr clr1" name="clear_frm" id="clear_frm_ed" value="Clear Form" onclick="form_mechinary_clearform()">
+
+                        </div>
+                        <div class="col-sm-12 col-md-5"></div>
+                        <div class="col-sm-12 col-md-2">
+                         <input hidden type="text" class="col-sm-12 col-md-6" name="memfarmid_edit" id="memfarmid_edit" value="<%=member_farm_id%>">
+
+                          <input type="submit" class="btn" name="sub_ed" id="sub_ed" value="Submit">
+                        </div>
+                      </div>
+
+
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%}%>
+
+      <%if(pagetype=='VIEW'){%>
+      <div class="content">
+        <div class="row-sm ">
+          <div class="col-sm-12">
+            <div class="card tp">
+              <div class="card-header hdr"><h5>FARM MACHINERY DETAILS</h5></div>
+              <div class="card-body">
+                <div class="content">
+
+                 
+                  <h6>View Record</h6>
+                  <hr>
+                  <form action="">
+
+                    <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                          <label for="memberid_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Select Member</label>
+
+
+
+    <select class="col-sm-12 col-md-6" id="memberid_vw" name="memberid_vw" disabled>
+                            <option value="<%=memberid%>"><%=memberid%></option>
+                          <% for(var i=0;i < memberdetails.length;i++) { %>
+                            <option  value="<%=memberdetails[i].md_ch_member_id%>"><%=memberdetails[i].md_ch_member_id %></option>
+                            <% } %>
+    </select>
+
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <label for="vehiclename_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechicle Name</label>
+                          <input ReadOnly class="col-sm-12 col-md-6" id="vehiclename_vw" name="vehicle_reg_num_vw" type="text" value="<%=vehiclename%>" />
+
+                        </div>
+                      </div>
+
+                      <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                          <label for="vehicle_reg_num_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechilce Register Number</label>
+                          <input ReadOnly type="number" class="col-sm-12 col-md-6" name="vehicle_reg_num_vw" id="vehicle_reg_num_vw" value="<%=vehicle_reg_num%>">
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <label for="yearofpurchase_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Year of Purchase</label>
+                          <input ReadOnly type="number" class="col-sm-12 col-md-6" name="yearofpurchase_vw" id="yearofpurchase_vw"
+                            value="<%=year_of_purchase%>">
+
+                        </div>
+                      </div>
+
+
+                      <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-12">
+                            <label for="vehicledescription_vw" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Vechicle Description</label>
+                            <div class="form-group">
+                                <label for="vehicledescription_vw"></label>
+                                <textarea ReadOnly class=" col-sm-12 col-md-9 textarea2" id="vehicledescription_vw" name="vehicledescription_vw" rows="3"><%=vehicle_desc%></textarea>
+                              </div>
+
+                          </div>
+
+
+                        </div>
+
+
+                            <div class="container row mt-2">
+                                <div class="col-sm-12 col-md-6">
+                                  <label for="purchase_value_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Purchase Value</label>
+                                  <input ReadOnly type="number" class="col-sm-12 col-md-6" name="purchase_value_vw" id="purchase_value_vw" value="<%=purchase_value%>">
+
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                  <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Market Value</label>
+
+                                      <input ReadOnly type="text" class=" col-sm-12 col-md-6" id="market_value_vw" value="<%=market_value%>">
+                                    
+
+                                </div>
+                              </div>
+<!-- buttons -->
+                      <div class="container row mt-4">
+                        <div class="col-sm-12 col-md-2">
+                         <a type="text" class="btn" href="/memberDetailsModule/memberDetails/mem_farm_search" name="bck_search" id="bck_search" value="Back to Search">Back to Search</a>
+
+                        </div>
+
+
+                      </div>
+
+
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%}%>
+      <% include ../includes/footer %>
+    </div>
+  </div>
+
+  
+
+</body>
+  <% include ../includes/bottom_scripts %>
+
+</html>

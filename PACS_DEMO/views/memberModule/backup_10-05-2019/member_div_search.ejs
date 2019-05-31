@@ -1,0 +1,443 @@
+<html>
+
+    <head>
+        <% include ../includes/styles %>
+        <% include ../includes/scripts %>
+        <script type="text/javascript" src="/javascripts/memberDetailsJS.js"></script>
+    </head>
+
+
+    <body>
+
+
+            <form action="/memberDetailsModule/memberDetails/edit_data_record" method="post" id="edit_data_load_form">
+                <input id="tempmemberid" name="tempmemberid" hidden>
+
+            </form>
+
+            <form action="/memberDetailsModule/memberDetails/viewdata_record" method="post" id="viewdata_load_form">
+                <input id="tempmemberid1" name="tempmemberid1" hidden>
+
+            </form>
+
+            <form action="/memberDetailsModule/memberDetails/delete_member_dividend_record" method="post" id="delete_load_form">
+                <input id="tempmemberid2" name="tempmemberid2" hidden>
+
+            </form>
+
+
+        <div class="wrapper ">
+
+            <div class="sidebar" data-color="orange_light">
+                <!--
+                                  Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+                              -->
+                <div class="logo">
+                    <h4><a href="" class="simple-text logo-normal">
+                            Nurture Software
+                        </a></h4>
+                </div>
+                <div class="sidebar-wrapper" id="sidebar-wrapper">
+                    <ul class="nav">
+                        <li>
+                            <a href="/login/dashboard">
+                                <i class="material-icons" style="font-size: 25px;">dashboard</i>
+                                <strong class="fnt">Dashboard</strong>
+                            </a>
+                        </li>
+
+                        <li id="sub_menu" class="active">
+
+                            <a href="#">
+                                <i class="material-icons" style="font-size: 25px;">group</i>
+                                <strong class="fnt">Members</strong>
+                            </a>
+                            <ul class="hid sub_col">
+
+                                <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails"
+                                        class="ml-1" style="color: #ffffff;">Members</a>
+                                </div>
+
+                                <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search"
+                                        class="ml-1" style="color: #ffffff;">Members
+                                        Dividend</a></div>
+
+                                <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search"
+                                        class="ml-1" style="color: #ffffff;">Members
+                                        Share Details</a></div>
+
+                                <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search"
+                                        class="ml-1" style="color: #ffffff;">Farm
+                                        Machinery Details</a></div>
+
+                                <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser"
+                                        class="ml-1" style="color: #ffffff;">House
+                                        Details</a></div>
+
+                                <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search"
+                                        class="ml-1" style="color: #ffffff;">KCC
+                                        Details</a></div>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/login/deposits">
+                                <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
+                                <strong class="fnt">Deposits</strong>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/login/loans">
+                                <i class="material-icons" style="font-size: 25px;">file_upload</i>
+                                <strong class="fnt">Loans</strong>
+                            </a>
+                        </li>
+
+
+                        <li id="sub_menu">
+                            <a href="#">
+                                <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                                <strong class="fnt">Bank</strong>
+                            </a>
+                            <ul class="hid mt-1 sub_col">
+
+                                <div class="sub_mar"><a class="ml-1" href="/bankModule/bankDetails/asso_bank_search"
+                                        style="color: #ffffff">Associated
+                                        Bank</a></div>
+
+                                <div class="sub_mar"><a class="ml-1" href="/bankModule/bankDetails/asso_branch_search"
+                                        style="color: #ffffff">Associated Branch</a></div>
+
+                                <div class="sub_mar">
+                                    <a class="ml-1" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                        style="color: #ffffff">Associated Bank Account Master</a>
+                                </div>
+
+                                <div class="sub_mar">
+                                    <a class="ml-1" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
+                                        style="color: #ffffff">Associated Bank Cheque Book</a>
+                                </div>
+
+                                <div class="sub_mar">
+                                    <a class="ml-1" href="/bankModule/bankDetails/asso_bank_account_search"
+                                        style="color: #ffffff">Associated Bank Account Type</a>
+                                </div>
+
+                                <div class="sub_mar">
+                                    <a class="ml-1" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                                        style="color: #ffffff">Associated Bank Deposit Returns</a>
+                                </div>
+        
+                                
+                                <div class="sub_mar">
+                                    <a class="ml-1" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                                        style="color: #ffffff">Associated Bank Deposit Master</a>
+                                </div>
+
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a href="/login/market">
+                                <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
+                                <strong class="fnt">Market</strong>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/login/reports">
+                                <i class="material-icons" style="font-size: 25px;">date_range</i>
+                                <strong class="fnt">Reports</strong>
+                            </a>
+                        </li>
+
+
+
+                        <li>
+
+                            <a href="/login/payroll">
+                                <i class="material-icons" style="font-size: 25px;">payment</i>
+                                <strong class="fnt">Payroll</strong>
+                            </a>
+
+
+
+                        </li>
+                        <li>
+                            <a href="/login/hr">
+                                <i class="material-icons" style="font-size: 25px;">account_box</i>
+                                <strong class="fnt">HR</strong>
+                            </a>
+                        </li>
+
+
+                        <li>
+
+                            <a href="/login/user">
+                                <i class="material-icons" style="font-size: 25px;">person</i>
+                                <strong class="fnt">User</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-panel" id="main-panel">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg colo">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper">
+                            <div class="navbar-toggle">
+                                <button type="button" class="navbar-toggler">
+                                    <span class="navbar-toggler-bar bar1"></span>
+                                    <span class="navbar-toggler-bar bar2"></span>
+                                    <span class="navbar-toggler-bar bar3"></span>
+                                </button>
+                            </div>
+                            <a class="navbar-brand" href="#pablo"><strong>Members</strong> </a>
+                        </div>
+                        <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation"
+                            aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <strong class="fnt">User 1</strong>
+                                        <i class="now-ui-icons users_single-02 ml-2"></i>
+                                        <p>
+                                            <span class="d-lg-none d-md-block">Some Actions</span>
+                                        </p>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right"
+                                        aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#"></i>Upload Photo<i
+                                                class=" material-icons ml-2">add_a_photo</i></a>
+                                        <a class="dropdown-item" href="#">Logout<i
+                                                class=" ml-5 material-icons">power_settings_new</i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+        <% if(locals.message){ %>
+
+        <div class="text text-center" role="alert">
+            <strong style="color:green"><%= message.success_msg %></strong>
+
+        </div>
+    <% } %>
+                <div class="content">
+                    <div class="row-sm ">
+                        <div class="col-sm">
+                            <div class="card tp">
+                                <div class="card header"></div>
+                                <div class="card-body">
+                                    <div class="content">
+                                        <h6>Member Dividend</h6>
+                                        <hr>
+                                        <h6>Search</h6>
+                                        <hr>
+                                        <form autocomplete="off" action="/memberDetailsModule/memberDetails/mem_dividend_searcher" id="div1" method="POST">
+                                            <div class="container row mb-4">
+                                                <div class="col-sm-12 col-md-6">
+
+
+                                                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Select Member</label>
+                           <select class="col-sm-12 col-md-6" id="opn_shr_bal" name="opn_shr_bal">
+                            <option value="">Select</option>
+                              <% for(var i=0;i < memberdetails.length;i++) { %>
+                                <option value="<%= memberdetails[i].md_ch_member_id  %>"><%= memberdetails[i].md_ch_member_id %></option>
+                                <% } %>
+                           </select>
+
+
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label for="member_id" class="mr-sm-4 col-sm-3"  style="padding-left:0% !important;" >Financial
+                                                        Year</label>
+                                                        <input type="number" class="col-sm-12 col-md-6" name="opn_shr_bal1" id="opn_shr_bal1"
+                                                        placeholder="" maxlength="4";>
+
+                                                </div>
+                                            </div>
+
+                                            <input type="submit" name="btnUplEmp" id="btnUplEmp"
+                                                class="btn" value="Search"
+                                                onclick="return ValidationEvent()">
+                                            <input type="button" class="btn"
+                                                value="Reset" onclick="resetform_memdiv()">
+                                            <br>
+                                            <div class="row">
+                                                <div class="d-sm-none d-md-block col-md-10"></div>
+                                                <!--<input type="submit" name="btnUplEmp" id="btnUplEmp"
+                                                    class="butn mean-fruit-gradient  add1 add3" value="Add"
+                                                    onclick="return ValidationEvent()">
+                                                <input type="button" class="butn sunny-morning-gradient print1" id="notif"
+                                                    value="Print" onclick="resetform()">-->
+
+<a class="btn add1" id="btnUplEmp" href="/memberDetailsModule/memberDetails/mem_div?key=ADD">Add
+                                        </a>
+                                        <input type="button" class="btn print1" id="notif"
+                                        value="Print" onclick="resetform()">
+                                            </div>
+                                            <br>
+
+                                            <div id="dtBasicExample_wrapper table-responsive"
+                                                class="dataTables_wrapper dt-bootstrap4">
+
+                                                <div class="row">
+                                                    <div class="col-sm-12 table-responsive form-inlinee">
+                                                        <table id="dtBasicExample"
+                                                            class="table table-bordered table-sm dataTable"
+                                                            cellspacing="0" width="100%" role="grid"
+                                                            aria-describedby="dtBasicExample_info" style="width: 100%;">
+                                                            <thead>
+                                                                <tr role="row">
+                                                                    <th class="th-sm sorting_asc" tabindex="0"
+                                                                        aria-controls="dtBasicExample" rowspan="1"
+                                                                        colspan="1" aria-sort="ascending" aria-label="Member
+                                              : activate to sort column descending" style="width: 134.2px;">Member
+                                                                    </th>
+                                                                    <th class="th-sm sorting" tabindex="0"
+                                                                        aria-controls="dtBasicExample" rowspan="1"
+                                                                        colspan="1" aria-label="Financial
+                                              : activate to sort column ascending" style="width: 211.2px;">Financial
+                                                                        Year
+                                                                    </th>
+                                                                    <th class="th-sm sorting" tabindex="0"
+                                                                        aria-controls="dtBasicExample" rowspan="1"
+                                                                        colspan="1" aria-label="Number of Shares
+                                              : activate to sort column ascending" style="width: 94.2px;">Number of
+                                                                        Shares
+                                                                    </th>
+                                                                    <th class="th-sm sorting" tabindex="0"
+                                                                        aria-controls="dtBasicExample" rowspan="1"
+                                                                        colspan="1" aria-label="Dividend Amount
+                                              : activate to sort column ascending" style="width: 89.2px;">Divided
+                                                                        Amount
+                                                                    </th>
+                                                                    <th class="th-sm sorting" tabindex="0"
+                                                                        aria-controls="dtBasicExample" rowspan="1"
+                                                                        colspan="1" aria-label="Total Dividend Payable
+                                              : activate to sort column ascending" style="width: 93.2px;">Total
+                                                                        Dividend Payable
+                                                                    </th>
+                                                                    <th class="th-sm sorting" tabindex="0"
+                                                                        aria-controls="dtBasicExample" rowspan="1"
+                                                                        colspan="1" aria-label="Final Pay
+                                              : activate to sort column ascending" style="width: 90.2px;">Final Pay
+                                                                    </th>
+                                                                    <th class="th-sm sorting" tabindex="0"
+                                                                        aria-controls="dtBasicExample" rowspan="1"
+                                                                        colspan="1" aria-label="Balance
+                                            : activate to sort column ascending" style="width: 90.2px;">Balance
+                                                                    </th>
+                                                                    <th class="th-sm sorting" tabindex="0"
+                                                                        aria-controls="dtBasicExample" rowspan="1"
+                                                                        colspan="1" aria-label="Details
+                                          : activate to sort column ascending" style="width: 90.2px;">Details
+                                                                    </th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                        <%if(ressearch.length!=0){%>
+                                                            <% for(var i=0;i<ressearch.length;i++) { %>
+
+                                                                <tr role="row" class="odd">
+
+                                                                         
+                                                                         <input  type="radio" hidden name="radiobutton1rfed" id="radiobutton1rfed<%=ressearch[i].md_n_member_dividend_id%>" value="<%=ressearch[i].md_n_member_dividend_id%>" class="edit"/>
+                                                                         <input  type="radio" hidden name="radiobutton1rfvw" id="radiobutton1rfvw<%=ressearch[i].md_n_member_dividend_id%>" value="<%=ressearch[i].md_n_member_dividend_id%>" class="view"/>
+                                                                         <input  type="radio" hidden name="radiobutton1dl" id="radiobutton1dl<%=ressearch[i].md_n_member_dividend_id%>" value="<%=ressearch[i].md_n_member_dividend_id%>" class="del"/>
+
+
+
+                                                                         <input type="text" name="memberid1<%= ressearch[i].md_n_member_dividend_id %>" id="memberid1<%= ressearch[i].md_n_member_dividend_id %>" value="<%=ressearch[i].md_n_member_dividend_id %>" hidden >
+
+                                                                         <input type="text" name="memberid2<%= ressearch[i].md_n_member_dividend_id %>" id="memberid2<%= ressearch[i].md_n_member_dividend_id %>" value="<%=ressearch[i].md_n_member_dividend_id %>" hidden >
+                                                                         <input type="text" name="memberid3<%= ressearch[i].md_n_member_dividend_id %>" id="memberid3<%= ressearch[i].md_n_member_dividend_id %>" value="<%=ressearch[i].md_n_member_dividend_id %>" hidden >
+
+
+                                                                     
+
+                                                                        <td class="sorting_1"><%= ressearch[i].md_ch_member_id %></td>
+                                                                        <td class="sorting_1"><%= ressearch[i].md_ch_financial_year %></td>
+                                                                        <td class="sorting_1"><%= ressearch[i].md_n_num_shares %></td>
+                                                                        <!-- <td><%= ressearch[i].md_n_num_shares_included %></td> -->
+                                                                        <td class="sorting_1"><%= ressearch[i].md_n_dividend_payable %></td>
+                                                                        <td class="sorting_1"><%= ressearch[i].md_n_tot_dividend_payable %></td>
+                                                                        <td class="sorting_1"><%= ressearch[i].md_n_final_amt %></td>
+                                                                        <td class="sorting_1"><%= ressearch[i].md_n_others_income %></td>
+
+                                                                    <!-- <td><i style="font-size:15px"
+                                                                            class="fa" data-toggle="modal" data-target="#basicExampleModal">&#xf044;</i></td> -->
+ <td class="sorting_1">
+ <input type="text" name="rfed<%=ressearch[i].md_n_member_dividend_id%>" id="rfed<%=ressearch[i].md_n_member_dividend_id%>" value="<%=ressearch[i].md_n_member_dividend_id %>" hidden ><i style="font-size:16px" class="fa"  id="ed<%=ressearch[i].md_n_member_dividend_id%>" onclick="edit_row_memdiv(this)">&#xf044;</i>
+
+ <input type="text" name="vfvw<%=ressearch[i].md_n_member_dividend_id%>" id="vfvw<%=ressearch[i].md_n_member_dividend_id%>" value="<%=ressearch[i].md_n_member_dividend_id %>" hidden ><i style="font-size:16px" class="fa"  id="vw<%=ressearch[i].md_n_member_dividend_id%>" onclick="view_row_memdiv(this)">&#xf06e;</i>
+ <input type="text" name="vfdl<%=ressearch[i].md_n_member_dividend_id%>" id="vfdl<%=ressearch[i].md_n_member_dividend_id%>" value="<%=ressearch[i].md_n_member_dividend_id %>" hidden ><i style="font-size:16px" class="fa"  id="dl<%= ressearch[i].md_n_member_dividend_id %>" onclick="delete_row_memdiv(this)">&#xf2ed;</i>
+
+
+
+</td>
+
+
+
+
+                                                            </tr>
+
+                                                             <% }%>
+                                                            <% } else if(ressearch.length==0){%>
+                                                            <tr>
+                                                                <td>NO RECORD FOUND</td>
+                                                                <td>NO RECORD FOUND</td>
+                                                                <td>NO RECORD FOUND</td>
+                                                                <td>NO RECORD FOUND</td>
+                                                                <td>NO RECORD FOUND</td>
+                                                                <td>NO RECORD FOUND</td>
+                                                                <td>NO RECORD FOUND</td>
+                                                                <td>NO RECORD FOUND</td>
+                                                            </tr>
+                                                            <% } %>
+
+
+
+
+
+                                                            </tbody>
+
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <br>
+
+                                           
+                                            <div class="clearfix"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% include ../includes/footer %>
+
+    </body>
+    <% include ../includes/bottom_scripts %>
+</html>

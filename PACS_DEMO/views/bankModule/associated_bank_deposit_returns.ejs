@@ -1,0 +1,562 @@
+<html>
+
+    <head>
+        <% include ../includes/styles %>
+        <% include ../includes/scripts %>
+  <script type="text/javascript" src="/javascripts/bankDetailsJS.js"></script>
+
+    </head>
+
+    <body>
+        <div class="wrapper ">
+            
+              <div class="sidebar" data-color="orange_light">
+            <!--
+                                  Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+                              -->
+            <div class="logo">
+                <h4><a href="" class="simple-text logo-normal">
+                            Nurture Software
+                        </a></h4>
+            </div>
+            <div class="sidebar-wrapper" id="sidebar-wrapper">
+                <ul class="nav">
+                    <!-- dashboard link moved to navbar by ranjeet -->
+
+                    <li id="sub_menu" class="active">
+
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">group</i>
+                            <strong class="fnt">Members</strong>
+                        </a>
+                        <ul class="hid sub_col">
+
+                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails_search" class="ml-1" style="color: #ffffff;">Members</a>
+                            </div>
+
+                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search" class="ml-1" style="color: #ffffff;">Members
+                                        Dividend</a></div>
+
+                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search" class="ml-1" style="color: #ffffff;">Members
+                                        Share Details</a></div>
+
+                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search" class="ml-1" style="color: #ffffff;">Farm
+                                        Machinery Details</a></div>
+
+                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser" class="ml-1" style="color: #ffffff;">House
+                                        Details</a></div>
+
+                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search" class="ml-1" style="color: #ffffff;">KCC
+                                        Details</a></div>
+
+                        </ul>
+                    </li>
+
+                    <li id="sub_menu">
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">group</i>
+                            <strong class="fnt">Accounts</strong>
+                        </a>
+                        <ul class="hid sub_col">
+                            <div class="sub_mar"><a style="color: #ffffff;" href="/accountsModule/accountsDetails/acc_search" class="">
+Accounts
+</a></div>
+                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_lmt_search" class="" style="color: #ffffff;">Account Limits</a></div>
+                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_renewal_details_search" class="" style="color: #ffffff;">Account Renewal</a></div>
+                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_trnsc_search" class="" style="color: #ffffff;">Account Transaction</a></div>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/login/deposits">
+                            <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
+                            <strong class="fnt">Deposits</strong>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="/login/loans">
+                            <i class="material-icons" style="font-size: 25px;">file_upload</i>
+                            <strong class="fnt">Loans</strong>
+                        </a>
+                    </li>
+
+
+                    <li id="sub_menu">
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                            <strong class="fnt">Bank</strong>
+                        </a>
+                        <ul class="hid mt-1 sub_col">
+
+                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search" style="color: #ffffff">Associated
+                                        Bank</a></div>
+
+                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search" style="color: #ffffff">Associated Branch</a></div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search" style="color: #ffffff">Associated Bank Account Master</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search" style="color: #ffffff">Associated Bank Cheque Book</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search" style="color: #ffffff">Associated Bank Account Type</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search" style="color: #ffffff">Associated Bank Deposit Returns</a>
+                            </div>
+
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search" style="color: #ffffff">Associated Bank Deposit Master</a>
+                            </div>
+
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="/login/market">
+                            <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
+                            <strong class="fnt">Market</strong>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/login/reports">
+                            <i class="material-icons" style="font-size: 25px;">date_range</i>
+                            <strong class="fnt">Reports</strong>
+                        </a>
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="/login/payroll">
+                            <i class="material-icons" style="font-size: 25px;">payment</i>
+                            <strong class="fnt">Payroll</strong>
+                        </a>
+
+
+
+                    </li>
+                    <li>
+                        <a href="/login/hr">
+                            <i class="material-icons" style="font-size: 25px;">account_box</i>
+                            <strong class="fnt">HR</strong>
+                        </a>
+                    </li>
+
+
+                    <li>
+
+                        <a href="/login/user">
+                            <i class="material-icons" style="font-size: 25px;">person</i>
+                            <strong class="fnt">User</strong>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel" id="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg colo">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                    <span class="navbar-toggler-bar bar1"></span>
+                                    <span class="navbar-toggler-bar bar2"></span>
+                                    <span class="navbar-toggler-bar bar3"></span>
+                                </button>
+                        </div>
+                        <a class="navbar-brand" href="#pablo"><strong>Members</strong> </a>
+                    </div>
+                    <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                        </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav">
+                            <li class="">
+                                <a class="nav-link" href="/dashboards/dashboard/dashboard">
+                                    <i class="material-icons" style="font-size: 25px;">dashboard</i>
+
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <strong class="fnt">User 1</strong>
+                                    <i class="now-ui-icons users_single-02 ml-2"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block"></span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Upload Photo<i
+                                                class=" material-icons ml-2">add_a_photo</i></a>
+                                    <a class="dropdown-item" href="#">Logout &nbsp;&nbsp;&nbsp;&nbsp;<i
+                                                class=" ml-5 material-icons">power_settings_new</i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+
+            <%if(pagetype=='ADD'){%>
+            <div class="content">
+                <div class="row-sm ">
+                    <div class="col-sm-12">
+                        <div class="card tp">
+                            <div class="card-header hdr"><h5>ASSOCIATE BANK DEPOSIT RETURNS</h5></div>
+                            <div class="card-body">
+
+                                
+
+                                <!-- flash message -->
+                                <% if(locals.message){ %>
+                                    <div class="text text-center" role="alert" background-color: red;>
+                                        <strong style="color:green"><%= message.success_msg %></strong>
+                                    </div>
+                                    <% } %>
+
+                                <h6>Add Records</h6>
+                                <hr>
+                                <form autocomplete="off" action="../../bankModule/bankDetails/asso_bank_acc_deposit_insert" method="post"
+                                id="bnk_deposit_return_ad" autocomplete="off">
+                                
+                                <div class="content">
+                                    <div class="container row mb-4">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="add_assbnk_return" class="mr-sm-4 col-sm-12 col-md-5"
+                                                style="padding-left:0% !important;">
+                                                Associated Bank Deposit Master
+                                            </label>
+                                            <select class="col-sm-12 col-md-6" name="asso_depo_mstr_ad" id="asso_depo_mstr_ad">
+                                                <option disabled="" selected="" value="">Select</option>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                            </select>
+
+
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="asso_depo_date_ad" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Return Date
+                                                    <span class="astrix">*</span></label>
+                                                    <input type="text" class="col-sm-12 col-md-6" name="asso_depo_date_ad" id="asso_depo_date_ad" placeholder="" autocomplete="off" required>
+                                                    <span><i class="material-icons iicon1 iicon11 md"
+                                                        data-toggle="asso_depo_date_ad" data-target-name="asso_depo_date_ad">
+                                                        event_note
+                                                    </i></span>
+
+                                        </div>
+                                    </div>
+            
+                                    <div class="container row mt-4">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="add_tdsamount" class="mr-sm-4 col-sm-12 col-md-5"
+                                                style="padding-left:0% !important;">TDS Amount
+                                            </label>
+                                            <input type="text" class="col-sm-12 col-md-6" name="asso_depo_tdsamt_ad"
+                                                id="asso_depo_tdsamt_ad" placeholder="" maxlength="11" onkeypress="return amount(event)">
+
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="add_totalamount" class="mr-sm-4 col-sm-12 col-md-5 "
+                                                style="padding-left:0% !important;">Total Amount
+
+                                            </label>
+                                            <input type="text" class="col-sm-12 col-md-6" name="asso_depo_totalamt_ad"
+                                                id="asso_depo_totalamt_ad" placeholder="" maxlength="11" onkeypress="return amount(event)">
+
+                                        </div>
+                                    </div>
+                                    <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_recived_amunt" class="mr-sm-4 col-sm-12 col-md-5"
+                                                    style="padding-left:0% !important;">Received Amount
+    
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="asso_depo_amt_ad"
+                                                    id="asso_depo_amt_ad" placeholder="" maxlength="11" onkeypress="return amount(event)">
+    
+                                            </div>
+                                        </div>
+
+                                    <div class="container row mt-4">
+                                        <div class="col-sm-12 col-md-3">
+                                            <a type="text" class="btn"
+                                                href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                                                name="returns_search_ad" id="returns_search_ad" value="Back to Search">Back to
+                                                Search</a>
+
+                                        </div>
+                                        <div class="col-sm-12 col-md-2">
+                                            <input type="reset" class="btn bttn" name="clear_frm_ad" id="clear_frm_ad"
+                                                value="Clear Form">
+
+                                        </div>
+                                        <div class="col-sm-12 col-md-5"></div>
+                                        <div class="col-sm-12 col-md-2">
+                                            <input type="button" class="btn" name="bnk_dpst_ad" id="bnk_dpst_ad" value="Submit" onclick="associated_bank_deposit()">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+
+            <!-- ADD -END-->
+
+            <!-- EDIT -START-->
+
+            <%if(pagetype=='EDIT'){%>
+                <div class="content">
+                    <div class="row-sm ">
+                        <div class="col-sm-12">
+                            <div class="card tp">
+                                <div class="card-header hdr"><h5>ASSOCIATE BANK DEPOSIT RETURNS</h5></div>
+                                <div class="card-body">
+    
+                                   
+    
+                                    <!-- flash message -->
+                                    <% if(locals.message){ %>
+                                        <div class="text text-center" role="alert" background-color: red;>
+                                            <strong style="color:green"><%= message.success_msg %></strong>
+                                        </div>
+                                        <% } %>
+    
+                                    <h6>Edit Records</h6>
+                                    <hr>
+                                    <form action="../../bankModule/bankDetails/asso_bank_acc_deposit_update" method="post"
+                                    id="bnk_deposit_return_ed" autocomplete="off">
+                                    
+                                    <div class="content">
+                                        <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_assbnk_return" class="mr-sm-4 col-sm-12 col-md-5"
+                                                    style="padding-left:0% !important;">
+                                                    Associated Bank Deposit Master
+                                                </label>
+                                                <select class="col-sm-12 col-md-6" name="asso_depo_mstr_ed" id="asso_depo_mstr_ed">
+                                                    <option value="<%=ed_dep_master%>"><%=ed_dep_master%></option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                </select>
+    
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="deposit_opening_date" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Return Date
+                                                    <span class="astrix">*</span></label>
+                                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_opening_date" id="deposit_opening_date" placeholder="" autocomplete="off" required value="<%=moment(ed_dep_rtrndt).format("DD-MM-YYYY")%>" >
+                                                    <span><i class="material-icons iicon1 iicon11 md"
+                                                        data-toggle="deposit_opening_date" data-target-name="deposit_opening_date">
+                                                        event_note
+                                                    </i></span>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_tdsamount" class="mr-sm-4 col-sm-12 col-md-5"
+                                                    style="padding-left:0% !important;">TDS Amount
+                                                </label>
+                                                <input type="number" class="col-sm-12 col-md-6" name="asso_depo_tdsamt_ed"
+                                                    id="asso_depo_tdsamt_ed" placeholder="" value="<%=ed_dep_tdsamt%>" step="0.01">
+    
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_totalamount" class="mr-sm-4 col-sm-12 col-md-5 "
+                                                    style="padding-left:0% !important;">Total Amount
+    
+                                                </label>
+                                                <input type="number" class="col-sm-12 col-md-6" name="asso_depo_totalamt_ed"
+                                                    id="asso_depo_totalamt_ed" placeholder="" value="<%=ed_dep_ttlamt%>" step="0.01">
+    
+                                            </div>
+                                        </div>
+                                         <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_recived_amunt" class="mr-sm-4 col-sm-12 col-md-5"
+                                                    style="padding-left:0% !important;">Recived Amount
+    
+                                                </label>
+                                                <input type="number" class="col-sm-12 col-md-6" name="asso_depo_amt_ed"
+                                                    id="asso_depo_amt_ed" placeholder="" value="<%=ed_dep_recvamt%>" step="0.01">
+    
+                                            </div>
+                                        </div>
+    
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-3">
+                                                <a type="text" class="btn"
+                                                    href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                                                    name="returns_search_ed" id="returns_search_ed" value="Back to Search">Back to
+                                                    Search</a>
+    
+                                            </div>
+                                            <div class="col-sm-12 col-md-2">
+                                                <input type="button" class="btn bttn" name="clear_frm_ed" id="clear_frm_ed"
+                                                    value="Clear Form" onclick="returns_edit_clear()">
+    
+                                            </div>
+                                            <div class="col-sm-12 col-md-5"></div>
+                                            <div class="col-sm-12 col-md-2">
+                                                    <input hidden type="text" class="btn" name="return_dep_ed" id="return_dep_ed"
+                                                    value="<%=ed_dep_id%>">
+                                                <input type="Submit" class="btn" name="bnk_dpst_ed" id="bnk_dpst_ed" value="Submit">
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    </form>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+    
+                <!-- EDIT -END-->
+
+
+                <!-- VIEW -START-->
+
+                <%if(pagetype=='VIEW'){%>
+                    <div class="content">
+                        <div class="row-sm ">
+                            <div class="col-sm-12">
+                                <div class="card tp">
+                                    <div class="card-header hdr"><h5>ASSOCIATE BANK DEPOSIT RETURNS</h5></div>
+                                    <div class="card-body">
+        
+                                      
+                        
+                                        <h6>View Records</h6>
+                                        <hr>
+                                        <form action="" autocomplete="off">
+                                                <fieldset disabled="disabled">
+                                        <div class="content">
+                                            <div class="container row mb-4">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label for="add_assbnk_return" class="mr-sm-4 col-sm-12 col-md-5"
+                                                        style="padding-left:0% !important;">
+                                                        Associated Bank Deposit Master
+                                                    </label>
+                                                    <select class="col-sm-12 col-md-6" name="asso_depo_mstr_vw" id="asso_depo_mstr_vw">
+                                                        <option value="<%=vw_dep_master%>"><%=vw_dep_master%></option>
+                                                        <option value="A">A</option>
+                                                        <option value="B">B</option>
+                                                    </select>
+        
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label for="asso_depo_mstr_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Return Date
+                                                        <span class="astrix">*</span></label>
+                                                        <input value="<%=moment(vw_dep_rtrndt).format("DD-MM-YYYY")%>" type="text" class="col-sm-12 col-md-6" name="asso_depo_mstr_vw" id="asso_depo_mstr_vw" placeholder="" autocomplete="off" required>
+                                                        <span><i class="material-icons iicon1 iicon11 md"
+                                                            data-toggle="asso_depo_mstr_vw" data-target-name="asso_depo_mstr_vw">
+                                                            event_note
+                                                        </i></span>
+        
+                                                </div>
+                                            </div>
+                                            <div class="container row mt-2">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label for="add_recived_amunt" class="mr-sm-4 col-sm-12 col-md-5"
+                                                        style="padding-left:0% !important;">Recived Amount
+        
+                                                    </label>
+                                                    <input type="number" class="col-sm-12 col-md-6" name="asso_depo_amt_vw"
+                                                        id="asso_depo_amt_vw" placeholder="" value="<%=vw_dep_recvamt%>">
+        
+                                                </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                    <label for="add_tdsamount" class="mr-sm-4 col-sm-12 col-md-5"
+                                                        style="padding-left:0% !important;">TDS Amount
+                                                    </label>
+                                                    <input type="text" class="col-sm-12 col-md-6" name="asso_depo_tdsamt_vw"
+                                                        id="asso_depo_tdsamt_vw" placeholder="" value="<%=vw_dep_tdsamt%>">
+        
+                                                </div>
+                                            </div>
+                                            <div class="container row mt-4">
+                                      
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label for="add_totalamount" class="mr-sm-4 col-sm-12 col-md-5 "
+                                                        style="padding-left:0% !important;">Total Amount
+        
+                                                    </label>
+                                                    <input type="number" class="col-sm-12 col-md-6" name="asso_depo_totalamt_vw"
+                                                        id="asso_depo_totalamt_vw" placeholder="" value="<%=vw_dep_ttlamt%>">
+        
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                            <div class="container row mt-4">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <a type="text" class="btn"
+                                                        href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                                                        name="returns_search_vw" id="returns_search_vw" value="Back to Search">Back to
+                                                        Search</a>
+        
+                                                </div>
+                                                <!-- <div class="col-sm-12 col-md-2">
+                                                    <input type="reset" class="btn bttn" name="clear_frm_ed" id="clear_frm_"
+                                                        value="Clear Form">
+        
+                                                </div>
+                                                <div class="col-sm-12 col-md-5"></div>
+                                                <div class="col-sm-12 col-md-2">
+                                                       
+                                                        
+                                                    <input type="Submit" class="btn" name="bnk_dpst_ed" id="bnk_dpst_ed" value="Submit">
+                                                </div> -->
+                                            </div>
+                                        </form>
+                                        </div>
+                                        
+                                        
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                         <%}%>
+                         <% include ../includes/footer %>
+                    </div>
+                   
+        
+                    <!-- VIEW -END-->
+                </div>
+
+
+
+    
+</body>
+<% include ../includes/bottom_scripts %>
+</html>

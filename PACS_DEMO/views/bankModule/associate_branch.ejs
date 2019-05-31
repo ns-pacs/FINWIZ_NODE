@@ -1,0 +1,950 @@
+<html>
+
+<head>
+    <% include ../includes/styles %>
+    <% include ../includes/scripts %>
+
+    <script type="text/javascript" src="/javascripts/bankDetailsJS.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper ">
+            <div class="sidebar" data-color="orange_light">
+                    <!--
+                                      Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+                                  -->
+                    <div class="logo">
+                        <h4><a href="" class="simple-text logo-normal">
+                                Nurture Software
+                            </a></h4>
+                    </div>
+                    <div class="sidebar-wrapper" id="sidebar-wrapper">
+                        <ul class="nav">
+                            <!-- dashboard link moved to navbar by ranjeet -->
+
+                            <li id="sub_menu" class="active">
+
+                                <a href="#">
+                                    <i class="material-icons" style="font-size: 25px;">group</i>
+                                    <strong class="fnt">Members</strong>
+                                </a>
+                                <ul class="hid sub_col">
+
+                                    <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails_search"
+                                            class="ml-1" style="color: #ffffff;">Members</a>
+                                    </div>
+
+                                    <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search"
+                                            class="ml-1" style="color: #ffffff;">Members
+                                            Dividend</a></div>
+
+                                    <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search"
+                                            class="ml-1" style="color: #ffffff;">Members
+                                            Share Details</a></div>
+
+                                    <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search"
+                                            class="ml-1" style="color: #ffffff;">Farm
+                                            Machinery Details</a></div>
+
+                                    <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser"
+                                            class="ml-1" style="color: #ffffff;">House
+                                            Details</a></div>
+
+                                    <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search"
+                                            class="ml-1" style="color: #ffffff;">KCC
+                                            Details</a></div>
+
+                                </ul>
+                            </li>
+                   <li id="sub_menu">
+<a href="#">
+<i class="material-icons" style="font-size: 25px;">group</i>
+<strong class="fnt">Accounts</strong>
+</a>
+<ul class="hid sub_col">
+<div class="sub_mar"><a style="color: #ffffff;"
+href="/accountsModule/accountsDetails/acc_search" class="">
+Accounts
+</a></div>
+<div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_lmt_search" class=""
+style="color: #ffffff;">Account Limits</a></div>
+<div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_renewal_details_search" class=""
+style="color: #ffffff;">Account Renewal</a></div>
+<div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_trnsc_search" class=""
+style="color: #ffffff;">Account Transaction</a></div>
+</ul>
+</li>
+                            <li>
+                                <a href="/login/deposits">
+                                    <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
+                                    <strong class="fnt">Deposits</strong>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/login/loans">
+                                    <i class="material-icons" style="font-size: 25px;">file_upload</i>
+                                    <strong class="fnt">Loans</strong>
+                                </a>
+                            </li>
+
+                            <li id="sub_menu">
+                                <a href="#">
+                                    <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                                    <strong class="fnt">Bank</strong>
+                                </a>
+                                <ul class="hid mt-1 sub_col">
+    
+                                    <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
+                                            style="color: #ffffff">Associated
+                                            Bank</a></div>
+    
+                                    <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
+                                            style="color: #ffffff">Associated Branch</a></div>
+    
+                                    <div class="sub_mar">
+                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                            style="color: #ffffff">Associated Bank Account Master</a>
+                                    </div>
+    
+                                    <div class="sub_mar">
+                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
+                                            style="color: #ffffff">Associated Bank Cheque Book</a>
+                                    </div>
+    
+                                    <div class="sub_mar">
+                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
+                                            style="color: #ffffff">Associated Bank Account Type</a>
+                                    </div>
+                                     
+                                <div class="sub_mar">
+                                    <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                                        style="color: #ffffff">Associated Bank Deposit Returns</a>
+                                </div>
+    
+                                
+                                <div class="sub_mar">
+                                    <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                                        style="color: #ffffff">Associated Bank Deposit Master</a>
+                                </div>
+    
+                                </ul>
+                            </li>
+
+
+                            <li>
+                                <a href="/login/market">
+                                    <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
+                                    <strong class="fnt">Market</strong>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/login/reports">
+                                    <i class="material-icons" style="font-size: 25px;">date_range</i>
+                                    <strong class="fnt">Reports</strong>
+                                </a>
+                            </li>
+
+
+
+                            <li>
+
+                                <a href="/login/payroll">
+                                    <i class="material-icons" style="font-size: 25px;">payment</i>
+                                    <strong class="fnt">Payroll</strong>
+                                </a>
+
+
+
+                            </li>
+                            <li>
+                                <a href="/login/hr">
+                                    <i class="material-icons" style="font-size: 25px;">account_box</i>
+                                    <strong class="fnt">HR</strong>
+                                </a>
+                            </li>
+
+
+                            <li>
+
+                                <a href="/login/user">
+                                    <i class="material-icons" style="font-size: 25px;">person</i>
+                                    <strong class="fnt">User</strong>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        <div class="main-panel" id="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg colo">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand" href="#pablo"><strong>BANK</strong> </a>
+                    </div>
+                    <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav">
+                                    <li class="">
+                                            <a class="nav-link" href="/dashboards/dashboard/dashboard">
+                                                <i class="material-icons" style="font-size: 25px;">dashboard</i>
+                                                
+                                            </a>
+                                        </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <strong class="fnt">User 1</strong>
+                                        <i class="now-ui-icons users_single-02 ml-2"></i>
+                                        <p>
+                                            <span class="d-lg-none d-md-block"></span>
+                                        </p>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right"
+                                        aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Upload Photo<i
+                                                class=" material-icons ml-2">add_a_photo</i></a>
+                                        <a class="dropdown-item" href="#">Logout &nbsp;&nbsp;&nbsp;&nbsp;<i
+                                                class=" ml-5 material-icons">power_settings_new</i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <%if(pagetype=='ADD'){%>
+            <div class="content">
+                <div class="row-sm ">
+                    <div class="col-sm-12">
+                        <div class="card tp">
+                            <div class="card-header hdr"><h5>ASSOCIATE BRANCH</h5></div>
+                            <div class="card-body">
+
+                              
+
+                                <!-- flash message -->
+                                <% if(locals.message){ %>
+
+                                    <div class="text text-center" role="alert">
+                                        <strong style="color:green"><%= message.success_msg %></strong>
+                                    </div>
+                                <% } %>
+
+                                <h6>Add Records</h6>
+                                <hr>
+                                 <form autocomplete="off" action="/bankModule/bankDetails/branch_details" method="post" id="bankform">
+                                    <div class="content">
+                                        <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code
+                                                    <span class="astrix">*</span></label>
+                                                <select required class="col-sm-12 col-md-6" id="record_bnk_cd"
+                                                    name="record_bnk_cd" onchange="bankCode()">
+                                                    <option disabled="" selected="" value="">Select Bank Code
+                                                    </option>
+                                                    <% for(var i=1;i < banks.length;i++) { %>
+
+                                                        <option value="<%= banks[i].bcd_ch_bank_code  %>"> <%= banks[i].bcd_ch_bank_code %></option>
+
+                                            <% } %>
+                                                </select>
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Name
+                                                    <span class="astrix">*</span></label>
+                                                <select required class="col-sm-12 col-md-6" id="record_bnk_name"
+						 name="record_bnk_name"  onchange="bankName()">
+						 <option disabled="" selected="" value="">Select Bank Name
+                                                    </option>
+                                                    <% for(var i=1;i < banks.length;i++) { %>
+
+                                                        <option value="<%= banks[i].bcd_ch_bank_name  %>"> <%= banks[i].bcd_ch_bank_name %></option>
+
+                                            <% } %>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="emp_code" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Code
+
+                                                    <span class="astrix">*</span></label>
+                                                <select name="record_branch_code" id="record_branch_code" onchange="branchCode()"
+                                                    class="col-sm-12 col-md-6" style="width:50%;">
+                                                    <option disabled="" selected="" value="">Select Branch Code</option>
+                                                    <% for(var i=1;i < branch.length;i++) { %>
+
+                                                        <option value="<%= branch[i].bcd_ch_branch_code  %>"> <%= branch[i].bcd_ch_branch_code %></option>
+
+                                            <% } %>
+                                                </select>
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6 ">
+                                                <label for="doj" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Name<span
+                                                        class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="record_branch_name"
+                                                    id="record_branch_name" placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code NEFT
+                                                    <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="ifsc_cd"
+                                                    id="ifsc_cd" placeholder="" maxlength="11"
+                                                    onkeypress="return alphanumeric(event)"
+                                                    style="text-transform:uppercase">
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code RTGS
+                                                    <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="ifsc_rtgs"
+                                                    id="ifsc_rtgs" placeholder="" maxlength="11"
+                                                    onkeypress="return alphanumeric(event)"
+                                                    style="text-transform:uppercase">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">MICR Code
+                                                    <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="micr_code"
+                                                    id="micr_code" onkeypress="return numeric(event)" maxlength="9"
+                                                    placeholder="">
+
+
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">ADDRESS LINE 1 <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="add_line1"
+                                                    id="add_line1" placeholder="">
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="container row mt-4">
+                                            <div id="datepicker" name="datepicker" class="col-sm-12 col-md-6">
+                                                <label for="dob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">District <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="district"   onkeypress="return alpha(event)"
+                                                    id="district" placeholder="  ">
+
+                                            </div>
+                                            <div id="datepicker" class="col-sm-12 col-md-6">
+                                                <label for="bnk_acc_num" class="mr-sm-4 col-sm-12 col-md-5 ste" style="padding-left:0% !important;">State <span class="astrix">*</span>
+                                                </label>
+                                                <select name="state" class="col-sm-12 col-md-6" id="state">
+                                                    <option selected="" disabled="" value="">Select State</option>
+                                                    <% for(var i=1;i < states.length;i++) { %>
+
+                                                    <option value="<%= states[i].comm_code_desc  %>">
+                                                        <%= states[i].comm_code_desc %></option>
+
+                                                    <% } %>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="adm_no" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Pincode <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="pincode"
+                                                    id="pincode" onkeypress="return numeric(event)" maxlength="6"
+                                                    placeholder=" ">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="dept" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Land Mark
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="land_mark"
+                                                    id="land_mark" placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Phone Number1 <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="ph_num1"
+                                                    id="ph_num1" minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Phone Number2 <span class="astrix">*</span>
+
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="ph_num2"
+                                                    id="ph_num2" minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="coun_pay" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Email
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="email" id="email"
+                                                    placeholder="">
+
+
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="thrif_dept" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">URL
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="url" id="url"
+                                                    placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="dras" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Contact Person1 <span class="astrix">*</span>
+                                                    </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="con_per1"
+                                                    id="con_per1" minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="bnk_acc_no" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Contact Person2<span class="astrix">*</span>
+
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="con_per2"
+                                                    id="con_per2"  minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-2">
+                                                <a type="text" class="btn"
+                                                    href="/bankModule/bankDetails/asso_branch_search" name="bck_search"
+                                                    id="bck_search" value="Back to Search">Back to Search</a>
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-3">
+                                                <input type="button" class="btn clr clr1" name="clear_frm" id="clear_frm"
+                                                    value="Clear Form" onclick="clearBranchTab()">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-5"></div>
+                                            <div class="col-sm-12 col-md-2">
+                                                <input type="button" class="btn" name="sub" id="sub" value="Submit"
+                                                    onclick="branchdetails()">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                    <%}%>
+
+                                    <!-- EDIT -START-->
+    <%if(pagetype=='EDIT'){%>
+        <div class="content">
+            <div class="row-sm ">
+                <div class="col-sm-12">
+                    <div class="card tp">
+                        <div class="card-header  hdr"><h5>ASSOCIATE BRANCH DETAILS</h5></div>
+                        <div class="card-body">
+                            <form action="../../bankModule/bankDetails/update_branch_edit" method="post" id="bankdetailsform_edit">
+                           
+
+                            <!-- flash message -->
+                            <% if(locals.message){ %>
+                                <div class="text text-center" role="alert"
+                                background-color: red;>
+                                <strong style="color:green"><%= message.success_msg %></strong>
+                                </div>
+                            <% } %>
+
+                            
+                            <h6>Edit Records</h6>
+                            <hr>
+                            <div class="content">
+                                <div class="container row mb-4">
+                                    <div class="col-sm-12 col-md-6">
+                                        <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code
+                                            <span class="astrix">*</span></label>
+                                        <select class="col-sm-12 col-md-6" id="bank_cd_ed" name="bank_cd_ed" onchange="bankEditCode()">
+                                            <option  ><%=br_brcode%> </option>
+                                            <% for(var i=1;i < banks.length;i++) { %>
+                                                <option value="<%= banks[i].bcd_ch_bank_code  %>"> <%= banks[i].bcd_ch_bank_code %></option>
+                                                                          <% } %>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-12 col-md-6">
+                                        <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Name
+                                            <span class="astrix">*</span></label>
+                                        <select class="col-sm-12 col-md-6" id="bnk_name_ed" name="bnk_name_ed" onchange= "bankEditName()">
+                                            <option ><%=br_brname%></option>
+                                            <% for(var i=1;i < banks.length;i++) { %>
+                                                <option value="<%= banks[i].bcd_ch_bank_name  %>"> <%= banks[i].bcd_ch_bank_name %></option>
+                                                                          <% } %>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="container row mb-4">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Code
+                                                <span class="astrix">*</span></label>
+                                            <select class="col-sm-12 col-md-6" id="branch_cd_ed" name="branch_cd_ed" onchange="branchEditCode()">
+                                                <option ><%=br_code%> </option>
+                                                <% for(var i=1;i < branch.length;i++) { %>
+                                                    <option value="<%= branch[i].bcd_ch_branch_code  %>"> <%= branch[i].bcd_ch_branch_code %></option>
+                                                                              <% } %>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Name
+                                                <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6" class="form-contro" value="<%=br_name%>" id="branch_name_ed" name="branch_name_ed">
+
+                                        </div>
+                                    </div>
+
+                                <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code NEFT
+                                                    <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="ifsc_cd_ed" value="<%=br_neft%>"
+                                                    id="ifsc_cd_ed" placeholder="" maxlength="11"
+                                                    onkeypress="return alphanumeric(event)"
+                                                    style="text-transform:uppercase">
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code RTGS
+                                                    <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="ifsc_rtgs_ed" value="<%=br_rtgs%>"
+                                                    id="ifsc_rtgs_ed" placeholder="" maxlength="11"
+                                                    onkeypress="return alphanumeric(event)"
+                                                    style="text-transform:uppercase">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">MICR Code
+                                                    <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="micr_code_ed" value="<%=br_micr_code%>"
+                                                    id="micr_code_ed" onkeypress="return numeric(event)" maxlength="9"
+                                                    placeholder="">
+
+
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">ADDRESS LINE 1 <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="add_line1_ed" value="<%=br_add_linebr1%>"
+                                                    id="add_line1_ed" placeholder="">
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="container row mt-4">
+                                            <div id="datepicker" name="datepicker" class="col-sm-12 col-md-6">
+                                                <label for="dob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">District <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="district_ed" value="<%=br_dist%>"  onkeypress="return alpha(event)"
+                                                    id="district_ed" placeholder="  ">
+
+                                            </div>
+                                            <div id="datepicker" class="col-sm-12 col-md-6">
+                                                <label for="bnk_acc_num" class="mr-sm-4 col-sm-12 col-md-5 ste">State <span class="astrix">*</span>
+                                                </label>
+                                                <select name="state_ed" class="col-sm-12 col-md-6" id="state_ed">
+                                                    <option selected="" disabled="" value=""><%=br_state%></option>
+                                                    <% for(var i=1;i < states.length;i++) { %>
+
+                                                    <option value="<%= states[i].comm_code_desc  %>">
+                                                        <%= states[i].comm_code_desc %></option>
+
+                                                    <% } %>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="adm_no" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Pincode <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="pincode_ed" value="<%=br_pin%>"
+                                                    id="pincode_ed" onkeypress="return numeric(event)" maxlength="6"
+                                                    placeholder=" ">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="dept" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Land Mark
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="land_mark_ed" value="<%=br_land%>"
+                                                    id="land_mark_ed" placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Phone Number1 <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="ph_num1_ed" value="<%=br_phone1%>"
+                                                    id="ph_num1_ed" minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Phone Number2 <span class="astrix">*</span>
+
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="ph_num2_ed" value="<%=br_phone2%>"
+                                                    id="ph_num2_ed" minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="coun_pay" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Email
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="email_ed" id="email_ed" value="<%=br_email%>"
+                                                    placeholder="">
+
+
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="thrif_dept" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">URL
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="br_url" id="br_url" value="<%=br_url%>"
+                                                    placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="dras" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Contact Person1 <span class="astrix">*</span>
+                                                    </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="con_per1_ed" value="<%=br_con1%>"
+                                                    id="con_per1_ed" minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="bnk_acc_no" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Contact Person2<span class="astrix">*</span>
+
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="con_per2_ed" value="<%=br_con2%>"
+                                                    id="con_per2_ed"  minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                        </div>
+                                <div class="container row mt-4">
+                                   
+                                     <div class="col-sm-12 col-md-2">
+                                            <input hidden type="number" class="col-sm-12 col-md-6" name="branch_edit" id="branch_edit"
+                                            placeholder="" value="<%=branch_edit_id%>">
+                                        <a type="text" class="btn" href="/bankModule/bankDetails/asso_branch_search"
+                                            name="bck_search_ed" id="bck_search_ed" value="Back to Search">Back to Search</a>
+                                    </div>
+                                    <div class="col-sm-12 col-md-3">
+                                        <input type="button" class="btn clr clr1" name="clear_frm_ed" id="clear_frm_ed"
+                                            value="Clear Form" onclick="clearBranchEdit()">
+                                    </div>
+                                    <div class="col-sm-12 col-md-5"></div>
+                                    <div class="col-sm-12 col-md-2">
+                                        <input type="submit" class="btn" name="sub_ed" id="sub_ed" value="Submit" onclick="branchDetails()">
+                                    </div>
+        
+                            </div>
+                            <!-- end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+        <%}%>
+        <!-- EDIT -END-->
+
+         <!-- VIEW -START-->
+<%if(pagetype=='VIEW'){%>
+         <div class="content">
+            <div class="row-sm ">
+                <div class="col-sm-12">
+                    <div class="card tp">
+                        <div class="card-header  hdr"><h5>ASSOCIATE BRANCH DETAILS</h5></div>
+                        <div class="card-body">
+                            <form action="../../bankModule/bankDetails/view_branch_data" method="post" id="bankdetailsform_view">
+                          
+
+                            <!-- flash message -->
+                            <% if(locals.message){ %>
+                                <div class="text text-center" role="alert"
+                                background-color: red;>
+                                <strong style="color:green"><%= message.success_msg %></strong>
+                                </div>
+                            <% } %>
+
+                          
+                            <h6>View Records</h6>
+                            <hr>
+
+                            <div class="content">
+                                    <fieldset disabled>
+                                <div class="container row mb-4">
+                                    <div class="col-sm-12 col-md-6">
+                                        <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code
+                                            <span class="astrix">*</span></label>
+                                        <select required class="col-sm-12 col-md-6" read only id="bank_cd_vw" name="bank_cd_vw" onchange="setBankName()">
+                                            <option ><%=br_brcode%> </option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-12 col-md-6">
+                                        <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Name
+                                            <span class="astrix">*</span></label>
+                                        <select required class="col-sm-12 col-md-6" read only id="bnk_name_vw" name="bnk_name_vw" onchange= "setBankCode()">
+                                            <option ><%=br_brname%>  </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="content">
+                                    <div class="container row mb-4">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Code
+                                                <span class="astrix">*</span></label>
+                                            <select required class="col-sm-12 col-md-6" read only id="branch_cd_vw" name="branch_cd_vw" onchange="setBankName()">
+                                                <option><%=br_code%> </option>
+
+                                            </select>
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Name
+                                                <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6"  class="form-contro" value="<%=br_name%> " id="branch_name_vw" name="branch_name_vw">
+
+                                        </div>
+                                    </div>
+
+                                <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code NEFT
+                                                    <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6"  value="<%=br_brcode%> " name="ifsc_cd_vw"
+                                                    id="ifsc_cd_vw" placeholder="" maxlength="11"
+                                                    onkeypress="return alphanumeric(event)"
+                                                    style="text-transform:uppercase">
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code RTGS
+                                                    <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="ifsc_rtgs_vw"  value="<%=br_rtgs%> "
+                                                    id="ifsc_rtgs_vw" placeholder="" maxlength="11"
+                                                    onkeypress="return alphanumeric(event)"
+                                                    style="text-transform:uppercase">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">MICR Code
+                                                    <span class="astrix">*</span></label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="micr_code_vw"  value="<%=br_micr_code%> "
+                                                    id="micr_code_vw" onkeypress="return numeric(event)" maxlength="9"
+                                                    placeholder="">
+
+
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">ADDRESS LINE 1 <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="add_line1_vw"  value="<%=br_add_linebr1%> "
+                                                    id="add_line1_vw" placeholder="">
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="container row mt-4">
+                                            <div id="datepicker" name="datepicker" class="col-sm-12 col-md-6">
+                                                <label for="dob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">District <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="district_vw"  value="<%=br_dist%> "  onkeypress="return alpha(event)"
+                                                    id="district_vw" placeholder="  ">
+
+                                            </div>
+                                            <div id="datepicker" class="col-sm-12 col-md-6">
+                                                <label for="bnk_acc_num" class="mr-sm-4 col-sm-12 col-md-5 ste" style="padding-left:0% !important;">State <span class="astrix">*</span>
+                                                </label>
+                                                <select name="state_vw" class="col-sm-12 col-md-6" read only id="state_vw">
+                                                    <option> <%=br_state%></option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="adm_no" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Pincode <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="pincode_vw"  value="<%=br_pin%> "
+                                                    id="pincode_vw" onkeypress="return numeric(event)" maxlength="6"
+                                                    placeholder=" ">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="dept" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Land Mark
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="land_mark_vw"  value="<%=br_land%> "
+                                                    id="land_mark_vw" placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Phone Number1 <span class="astrix">*</span>
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only  name="ph_num1_vw"  value="<%=br_phone1%> "
+                                                    id="ph_num1_vw" minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Phone Number2 <span class="astrix">*</span>
+
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="ph_num2_vw"
+                                                    id="ph_num2_vw" minlength="0" maxlength="10"  value="<%=br_phone2%> "
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="coun_pay" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Email
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="email_vw" id="email_vw"  value="<%=br_email%> "
+                                                    placeholder="">
+
+
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="thrif_dept" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">URL
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="url_vw" id="url_vw"  value="<%=br_url%> "
+                                                    placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="dras" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Contact Person1 <span class="astrix">*</span>
+                                                    </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="con_per1_vw"  value="<%=br_con1%> "
+                                                    id="con_per1_vw" minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="bnk_acc_no" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Contact Person2<span class="astrix">*</span>
+
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" read only name="con_per2_vw"  value="<%=br_con2%> "
+                                                    id="con_per2_vw"  minlength="0" maxlength="10"
+                                                    onkeypress="return numeric(event)" placeholder="">
+
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                <div class="container row mt-4">
+                                    <div class="col-sm-12 col-md-2">
+                                        <a type="text" class="btn" href="/bankModule/bankDetails/asso_branch_search"
+                                            name="bck_search_vw" id="bck_search_vw" value="Back to Search">Back to
+                                            Search</a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <!-- end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%}%>
+        <% include ../includes/footer %>
+        </div>
+    </div>
+
+                                <!-- end -->
+
+                            
+
+    
+
+</body>
+<% include ../includes/bottom_scripts %>
+</html>

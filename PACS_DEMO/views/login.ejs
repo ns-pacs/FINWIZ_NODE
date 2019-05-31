@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <% include includes/styles %>
+        <% include includes/scripts %>
+    </head>
+    <body>
+
+            <% include includes/footer %>
+            <!-- /memberDetailsModule/memberDetails/logintemp -->
+     <form action="/loginModule/login/logincheck" id="loginform" name="loginform" method="post">
+            <label>Enter User ID</label>
+            <input id="username" name="username" value=''>
+             <label>Enter Password</label>
+            <input id="password" name="password" value=''>
+            <input type="submit" id="loginsubmit" name="loginsubmit" value="submitHere">
+            </form>
+    </body>
+</html>

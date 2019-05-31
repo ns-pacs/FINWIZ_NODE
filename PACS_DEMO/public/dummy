@@ -1,0 +1,254 @@
+pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+    {
+        if(err) throw err;
+        console.log("result1 is", result1);
+
+
+    /*states*/
+
+    // var state = req.body.state;                 
+    // console.log(state);
+    pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2) 
+    {
+        if(err) throw err;
+        console.log("result2 is", result2);
+
+    
+
+
+    /*country*/
+
+    // var country = req.body.country;                 
+    // console.log(country);
+
+    pgdbconnect.query("select * from common_code_tbl where code_id='CTRY'",function(err,result3)
+    {
+        if(err) throw err;
+        console.log("result3 is", result3);
+
+    res.render('memberModule/memberAddDetails',{
+        cities:result1.rows,
+        states:result2.rows,
+        countries:result3.rows
+    });
+    });
+});
+});
+
+
+router.post('/mem_details',function(req,res){
+    console.log("Hii");
+
+    //Member details-start//
+
+    var  mem_typ = req.body.mem_typ;             
+    var mem_id = req.body.mem_id;
+    var emp_code = req.body.emp_code;
+    var doj = req.body.doj;
+    var dob = req.body.dob;
+    var dor = req.body.dor;
+    var adm_no = req.body.adm_no;
+    var dept = req.body.dept;
+    var ent_fee = req.body.ent_fee;
+    var crncytyp = req.body.crncytyp;
+    var shr_bal = req.body.shr_bal;
+    var cntr_pay = req.body.cntr_pay;
+    var thrift_dept = req.body.thrift_dept;
+    var dras = req.body.dras;
+    var bnk_acc_no = req.body.bnk_acc_no;
+    var opn_bal = req.body.opn_bal;
+    var cls_bal = req.body.cls_bal;
+    var remarks = req.body.remarks;                          
+    
+    console.log("Member Details",mem_typ,mem_id,emp_code,doj,dob,dor,adm_no,dept,ent_fee,crncytyp,shr_bal,cntr_pay,thrift_dept,dras,bnk_acc_no,opn_bal,cls_bal,remarks);
+
+    //Member details-end//
+
+    /////////////////////////////////////////////////////////////////////////
+    
+    //Personal details-start//
+
+
+    var title = req.body.title;                      
+    var fname = req.body.fname;
+    var mname = req.body.mname;
+    var lname = req.body.lname;
+    var father_name = req.body.father_name;
+    var spouse = req.body.spouse;
+    var gender = req.body.gender;
+    var sgender = req.body.sgender;
+    var pob = req.body.pob;
+    var mar_status = req.body.mar_status;
+    var religion = req.body.religion;
+    var caste = req.body.caste;
+    var occupation = req.body.occupation;
+    var cust_category = req.body.cust_category;
+    var cust_type = req.body.cust_type;
+    var buss_segment = req.body.buss_segment;
+    var mem_comm = req.body.mem_comm;
+    var guardian = req.body.guardian;
+    var ph_no = req.body.ph_no;
+    var email_id = req.body.email_id;
+    var adhar_no = req.body.adhar_no;
+    var ration_no = req.body.ration_no;
+    var voter_id = req.body.voter_id;
+    var pan_id = req.body.pan_id;
+    var under_poverty = req.body.under_poverty;
+    var fam_members = req.body.fam_members;
+    var dept_no = req.body.dept_no;
+    var minority = req.body.minority;
+    var minority1 = req.body.minority1;
+    var land_owner = req.body.land_owner;
+    var resd_status = req.body.resd_status;
+    var shg_no = req.body.shg_no;
+    var kcc = req.body.kcc;
+    var s_mem = req.body.s_mem;
+    var s_staf = req.body.s_staf;
+    var acc_holder = req.body.acc_holder;
+    var high_edu = req.body.high_edu;
+    
+    console.log("Personal Details",title,fname,mname,lname,father_name,spouse,gender,sgender,pob,mar_status,religion,caste,occupation,cust_category,cust_type,buss_segment,mem_comm,guardian,ph_no,email_id,adhar_no,ration_no,voter_id,pan_id,under_poverty,fam_members,dept_no,minority,minority1,land_owner,resd_status,shg_no,kcc,s_mem,s_staf,acc_holder,high_edu);
+
+    //Personal details-end//
+
+    ///////////////////////////////////////////////////////////////////////////////
+
+     //Present address-start//
+
+    var add_type = req.body.add_type;                 
+    var add_line = req.body.add_line;
+    var village = req.body.village;
+    var panchayat = req.body.panchayat;
+    var city = req.body.city;                  
+    var state = req.body.state;                 
+    var country = req.body.country;                 
+    var pincode = req.body.pincode;
+    var rsm = req.body.rsm;
+    var rsy = req.body.rsy;
+
+    console.log("Present Address",add_type,add_line,village,city,state,country,panchayat,pincode,rsm,rsy);
+
+    //Present address-end//
+
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    //Permanent address-start//
+
+    var address_type = req.body.address_type;                
+    var address_line = req.body.address_line;                 
+    var vilg = req.body.vilg;                 
+    var panc = req.body.panc;
+    var citie = req.body.citie;                  
+    var stat = req.body.stat;                 
+    var ctry = req.body.ctry;                 
+    var picd = req.body.picd;                 
+    var mnth = req.body.mnth;                 
+    var year = req.body.year;                                
+    
+    console.log("Permanent Address",address_type,address_line,vilg,panc,citie,stat,ctry,picd,mnth,year);
+    
+    //Permanent address-end//         
+
+    /////////////////////////////////////////////////////////////////////////////////////////////
+
+    //Loans - start//
+
+    var e_month = req.body.e_month;                              
+    var loan_amt = req.body.loan_amt;                 
+    var amt_used = req.body.amt_used;                                
+
+    console.log("Loans",e_month,loan_amt,amt_used);
+
+    //Loans - end//
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    //Nominee - start//
+
+    var nominee_type = req.body.nominee_type;                                     
+    var fst_name = req.body.fst_name;                                
+    var mid_name = req.body.mid_name;                                
+    var lst_name = req.body.lst_name;                                
+    var fath_name = req.body.fath_name;                                
+    var rel = req.body.rel;                                 
+    var gen = req.body.gen;                                 
+    var occup = req.body.occup;                                  
+    var date_ob = req.body.date_ob;                                
+    var ac_num = req.body.ac_num;                                 
+    var addr_type = req.body.addr_type;                                 
+    var addr_line = req.body.addr_line;                                 
+    var vilge = req.body.vilge;                                
+    var panch = req.body.panch;                                
+    var distcity = req.body.distcity;                                
+    var stat1 = req.body.stat1;                                
+    var countr = req.body.countr;                                
+    var pin_cd = req.body.pin_cd;                                
+    var phone_no = req.body.phone_no;                                
+    var email = req.body.email;                                
+    var adh_no = req.body.adh_no;                                
+    var ism = req.body.ism;                                
+    
+    console.log("Nominee Address",nominee_type,fst_name,mid_name,lst_name,fath_name,rel,gen,occup,date_ob,ac_num,addr_type,addr_line,vilge,panch,distcity,stat1,countr,pin_cd,phone_no,email,adh_no,ism);
+    
+    pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+    {
+        if(err) throw err;
+        console.log("result1 is", result1);
+
+
+    /*states*/
+
+    // var state = req.body.state;                 
+    // console.log(state);
+    pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2) 
+    {
+        if(err) throw err;
+        console.log("result2 is", result2);
+
+    
+
+
+    /*country*/
+
+    // var country = req.body.country;                 
+    // console.log(country);
+
+    pgdbconnect.query("select * from common_code_tbl where code_id='CTRY'",function(err,result3)
+    {
+        if(err) throw err;
+        console.log("result3 is", result3);
+
+
+    //Nominee - end//
+
+    /////////////////////////////////////////////////////////////////////////////////////
+
+    pgdbconnect.query("insert into member_details ( md_ch_member_id, md_ch_member_type_code, md_d_doj, md_d_dor, md_ch_admission_number, md_ch_department, md_n_entrance_fee_amt, md_n_opening_share_balance, md_ch_counter_pay, md_n_thrift_deposit, md_ch_dras, md_ch_bank_account_number, md_n_opening_balance, md_n_closing_balance, md_ch_del_flg,md_n_employee_code,md_ch_entrance_fee_cur) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17)",[mem_id,mem_typ,doj,dor,adm_no,dept,ent_fee,shr_bal,cntr_pay,thrift_dept,dras,bnk_acc_no,opn_bal,cls_bal,'N',emp_code,crncytyp],function(err,loginres){
+    if(err) throw err;
+    console.log("Result of Member Details",loginres);
+
+        pgdbconnect.query("insert into member_personal_details (mpd_ch_member_id, mpd_ch_title, mpd_ch_first_name, mpd_ch_middle_name, mpd_ch_last_name, mpd_ch_gender, mpd_d_dob, mpd_ch_pob, mpd_n_phone_number, mpd_ch_emailid, mpd_ch_father_name, mpd_ch_marital_status, mpd_ch_spouse_name, mpd_ch_spouse_gender, mpd_n_total_family_members, mpd_n_no_of_dependents, mpd_ch_higher_qualification, mpd_ch_religion, mpd_ch_caste, mpd_ch_occupation, mpd_n_aadhar_card_number, mpd_n_pan_card_number, mpd_n_voterid, mpd_n_ration_card_number, mpd_ch_residential_status, mpd_ch_customer_category, mpd_ch_customer_type, mpd_ch_business_segment, mpd_ch_member_community, mpd_ch_guardian, mpd_ch_under_poverty, mpd_ch_minority, mpd_ch_land_owned_by, mpd_ch_shg_member, mpd_ch_kcc_holdercharacter, mpd_ch_is_society_member, mpd_ch_is_society_staff, mpd_ch_is_account_holder, mpd_ch_address_type1, mpd_ch_address_line1, mpd_ch_village1, mpd_ch_panchayat1, mpd_ch_city1, mpd_ch_state1, mpd_ch_country1, mpd_n_pincode1, mpd_d_residing_since_month1, mpd_d_residing_since_year1, mpd_ch_address_type2, mpd_ch_address_line2, mpd_ch_village2, mpd_ch_panchayat2, mpd_ch_city2, mpd_ch_state2, mpd_ch_country2, mpd_n_pincode2, mpd_d_residing_since_month2, mpd_d_residing_since_year2, mpd_ch_del_flg) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39,$40,$41,$42,$43,$44,$45,$46,$47,$48,$49,$50,$51,$52,$53,$54,$55,$56,$57,$58,$59)",[mem_id,title,fname,mname,lname,gender,dob,pob,ph_no,email_id,father_name,mar_status,spouse,sgender,fam_members,dept_no,high_edu,religion,caste,occupation,adhar_no,pan_id,voter_id,ration_no,resd_status,cust_category,cust_type,buss_segment,mem_comm,guardian,under_poverty,minority,land_owner,shg_no,kcc,s_mem,s_staf,acc_holder,add_type,add_line,village,panchayat,city,state,country,pincode,rsm,rsy,address_type,address_line,vilg,panc,citie,stat,ctry,picd,mnth,year,'N'],function(err,loginres1){
+        if(err) throw err;
+        console.log("Result of Personal Details",loginres1);
+
+            pgdbconnect.query("insert into member_loan_details ( mld_ch_member_id, mld_ch_eligible_for_loan, mld_n_total_eligible_loan_amount, mld_n_total_amount_used, mld_n_employee_code,mld_ch_del_flg) values ($1,$2,$3,$4,$5,$6)",[mem_id,e_month,loan_amt,amt_used,emp_code,'N'],function(err,resu){
+            if(err) throw err;
+            console.log("Result of Loan Details",resu);
+
+                pgdbconnect.query("insert into member_nominee_details ( mnd_ch_member_id, mnd_ch_title, mnd_ch_first_name, mnd_ch_middle_name, mnd_ch_last_name, mnd_ch_father_name, mnd_ch_relation, mnd_ch_gender, mnd_d_dob, mnd_n_account_num, mnd_ch_address_type, mnd_ch_address_line, mnd_ch_village, mnd_ch_panchayat, mnd_ch_city, mnd_ch_states, mnd_ch_country, mnd_n_pincode, mnd_n_phone_number, mnd_ch_emailid, mnd_ch_aadhar_card_number, mnd_ch_del_flg, mnd_ch_is_society_member) values  ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23)",[mem_id,nominee_type,fst_name,mid_name,lst_name,fath_name,rel,gen,date_ob,ac_num,addr_type,addr_line,vilge,panch,distcity,state,countr,pin_cd,phone_no,email,adh_no,'N',ism],function(err,resul){
+                if(err) throw err;
+                console.log("Result of Nominee Details",resul);
+                });
+            });
+        });
+    });
+    res.render('memberModule/memberAddDetails',{
+        cities:result1.rows,
+        states:result2.rows,
+        countries:result3.rows
+    });
+    });
+});
+});
+});  //res.render('memberModule/memberAddDetails');
+        

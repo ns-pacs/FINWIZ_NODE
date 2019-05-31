@@ -1,0 +1,870 @@
+<html>
+
+    <head>
+        <% include ../includes/styles %>
+        <% include ../includes/scripts %>
+        <script type="text/javascript" src="/javascripts/bankDetailsJS.js"></script>
+    </head>
+
+    <body>
+            <div class="wrapper ">
+                    <div class="sidebar" data-color="orange_light">
+                            <!--
+                                              Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+                                          -->
+                            <div class="logo">
+                                <h4><a href="" class="simple-text logo-normal">
+                                        Nurture Software
+                                    </a></h4>
+                            </div>
+                            <div class="sidebar-wrapper" id="sidebar-wrapper">
+                                <ul class="nav">
+                                    <!-- dashboard link moved to navbar by ranjeet -->
+            
+                                    <li id="sub_menu" class="active">
+            
+                                        <a href="#">
+                                            <i class="material-icons" style="font-size: 25px;">group</i>
+                                            <strong class="fnt">Members</strong>
+                                        </a>
+                                        <ul class="hid sub_col">
+            
+                                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails_search"
+                                                    class="ml-1" style="color: #ffffff;">Members</a>
+                                            </div>
+            
+                                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search"
+                                                    class="ml-1" style="color: #ffffff;">Members
+                                                    Dividend</a></div>
+            
+                                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search"
+                                                    class="ml-1" style="color: #ffffff;">Members
+                                                    Share Details</a></div>
+            
+                                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search"
+                                                    class="ml-1" style="color: #ffffff;">Farm
+                                                    Machinery Details</a></div>
+            
+                                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser"
+                                                    class="ml-1" style="color: #ffffff;">House
+                                                    Details</a></div>
+            
+                                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search"
+                                                    class="ml-1" style="color: #ffffff;">KCC
+                                                    Details</a></div>
+            
+                                        </ul>
+                                    </li>
+                               <li id="sub_menu">
+<a href="#">
+<i class="material-icons" style="font-size: 25px;">group</i>
+<strong class="fnt">Accounts</strong>
+</a>
+<ul class="hid sub_col">
+<div class="sub_mar"><a style="color: #ffffff;"
+href="/accountsModule/accountsDetails/acc_search" class="">
+Accounts
+</a></div>
+<div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_lmt_search" class=""
+style="color: #ffffff;">Account Limits</a></div>
+<div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_renewal_details_search" class=""
+style="color: #ffffff;">Account Renewal</a></div>
+<div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_trnsc_search" class=""
+style="color: #ffffff;">Account Transaction</a></div>
+</ul>
+</li>
+                                    <li>
+                                        <a href="/login/deposits">
+                                            <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
+                                            <strong class="fnt">Deposits</strong>
+                                        </a>
+                                    </li>
+            
+            
+                                    <li>
+                                        <a href="/login/loans">
+                                            <i class="material-icons" style="font-size: 25px;">file_upload</i>
+                                            <strong class="fnt">Loans</strong>
+                                        </a>
+                                    </li>
+            
+            
+                                    <li id="sub_menu">
+                                        <a href="#">
+                                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                                            <strong class="fnt">Bank</strong>
+                                        </a>
+                                        <ul class="hid mt-1 sub_col">
+            
+                                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
+                                                    style="color: #ffffff">Associated
+                                                    Bank</a></div>
+            
+                                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
+                                                    style="color: #ffffff">Associated Branch</a></div>
+            
+                                            <div class="sub_mar">
+                                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                                    style="color: #ffffff">Associated Bank Account Master</a>
+                                            </div>
+            
+                                            <div class="sub_mar">
+                                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
+                                                    style="color: #ffffff">Associated Bank Cheque Book</a>
+                                            </div>
+            
+                                            <div class="sub_mar">
+                                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
+                                                    style="color: #ffffff">Associated Bank Account Type</a>
+                                            </div>
+                                             
+                                        <div class="sub_mar">
+                                            <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                                                style="color: #ffffff">Associated Bank Deposit Returns</a>
+                                        </div>
+            
+                                        
+                                        <div class="sub_mar">
+                                            <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                                                style="color: #ffffff">Associated Bank Deposit Master</a>
+                                        </div>
+            
+                                        </ul>
+                                    </li>
+            
+                                    <li>
+                                        <a href="/login/market">
+                                            <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
+                                            <strong class="fnt">Market</strong>
+                                        </a>
+                                    </li>
+            
+                                    <li>
+                                        <a href="/login/reports">
+                                            <i class="material-icons" style="font-size: 25px;">date_range</i>
+                                            <strong class="fnt">Reports</strong>
+                                        </a>
+                                    </li>
+            
+            
+            
+                                    <li>
+            
+                                        <a href="/login/payroll">
+                                            <i class="material-icons" style="font-size: 25px;">payment</i>
+                                            <strong class="fnt">Payroll</strong>
+                                        </a>
+            
+            
+            
+                                    </li>
+                                    <li>
+                                        <a href="/login/hr">
+                                            <i class="material-icons" style="font-size: 25px;">account_box</i>
+                                            <strong class="fnt">HR</strong>
+                                        </a>
+                                    </li>
+            
+            
+                                    <li>
+            
+                                        <a href="/login/user">
+                                            <i class="material-icons" style="font-size: 25px;">person</i>
+                                            <strong class="fnt">User</strong>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+            <div class="main-panel" id="main-panel">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg colo">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper">
+                            <div class="navbar-toggle">
+                                <button type="button" class="navbar-toggler">
+                                    <span class="navbar-toggler-bar bar1"></span>
+                                    <span class="navbar-toggler-bar bar2"></span>
+                                    <span class="navbar-toggler-bar bar3"></span>
+                                </button>
+                            </div>
+                            <a class="navbar-brand" href="#pablo"><strong>BANK</strong> </a>
+                        </div>
+                        <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation"
+                            aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                            <ul class="navbar-nav">
+                                    <li class="">
+                                            <a class="nav-link" href="/dashboards/dashboard/dashboard">
+                                                <i class="material-icons" style="font-size: 25px;">dashboard</i>
+                                                
+                                            </a>
+                                        </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <strong class="fnt">User 1</strong>
+                                        <i class="now-ui-icons users_single-02 ml-2"></i>
+                                        <p>
+                                            <span class="d-lg-none d-md-block"></span>
+                                        </p>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right"
+                                        aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Upload Photo<i
+                                                class=" material-icons ml-2">add_a_photo</i></a>
+                                        <a class="dropdown-item" href="#">Logout &nbsp;&nbsp;&nbsp;&nbsp;<i
+                                                class=" ml-5 material-icons">power_settings_new</i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+
+                <%if(pagetype=='ADD'){%>
+                    <div class="content">
+                        <div class="row-sm ">
+                            <div class="col-sm-12">
+                                <div class="card tp">
+                                    <div class="card-header hdr"><h5>ASSOCIATE BANK DEPOSIT MASTER</h5></div>
+                                    <div class="card-body">
+                                        <form action="/bankModule/bankDetails/asso_bank_deposit_master_add" method="post" id="depositdetailsform" autocomplete="off">
+                                       
+                
+                                        <!-- flash message -->                    
+                                        <% if(locals.message){ %>
+                                            <div class="text text-center" role="alert"
+                                            background-color: red;>
+                                            <strong style="color:green"><%= message.success_msg %></strong> 
+                                            </div>
+                                        <% } %>
+        
+                                      
+                                    <h6>Add Records</h6>
+                                    <hr>
+
+                                    <div class="content">
+                                        <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="Short_name" class="mr-sm-4 col-sm-12 col-md-5"  style="padding-left:0% !important;">
+                                                    Short Name
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="Short_name"
+                                                    id="Short_name" placeholder="" onkeypress="return alpha(event)">
+
+
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="master_name" class="mr-sm-4 col-sm-12 col-md-5"  style="padding-left:0% !important;">
+                                                    Name
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="master_deposit_name"
+                                                    id="master_deposit_name" placeholder="" onkeypress="return alpha(event)">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_gl_cd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                    GL Code
+                                                </label>
+                                                <select required class="col-sm-12 col-md-6" id="deposit_gl_name" name="deposit_gl_name" >
+                                                    <option disabled="" selected="" value="">Select GL Code</option>
+                                                    <% for(var i=0;i < glcode.length;i++) { %>           
+                                                        <option value="<%= glcode[i].gl_ch_gl_code  %>"> <%= glcode[i].gl_ch_gl_code %></option>       
+                                                                                  <% } %>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6 ">
+                                                <label for="add_accnum" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Number
+                                                    
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="deposit_accnum"
+                                                    id="deposit_accnum" placeholder="  " maxlength="16" onkeypress="return numeric(event)">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_bnkdep_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Deposit Type
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="add_bnkdep_typ" id="add_bnkdep_typ"
+                                                    placeholder="  ">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_bnk_depnum" class="mr-sm-4 col-sm-12 col-md-5 " style="padding-left:0% !important;">Bank Deposit Number
+                                                    
+                                                </label>
+                                                <input type="number" class="col-sm-12 col-md-6" name="add_bnk_depnum"
+                                                    id="add_bnk_depnum" placeholder="  " onkeypress="return numeric(event)">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_ob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Balance
+                                                    
+                                                </label>
+                                                <input type="number" class="col-sm-12 col-md-6" name="deposit_opening_bal"
+                                                    id="deposit_opening_bal" placeholder="" step="0.01" onkeypress="return numeric(event)">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_cb" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Current Balance
+                                                </label>
+                                                <input type="number" class="col-sm-12 col-md-6" name="deposit_closing_bal"
+                                                    id="deposit_closing_bal" placeholder="" step="0.01" onkeypress="return numeric(event)">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                                <div class="col-sm-12 col-md-6">
+                                                        <label for="deposit_opening_date" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Date
+                                                        <span class="astrix">*</span></label>
+                                                        <input type="text" class="col-sm-12 col-md-6" name="deposit_opening_date" id="deposit_opening_date" placeholder="" autocomplete="off" required>
+                                                        <span><i class="material-icons iicon1 iicon11 od"
+                                                            data-toggle="deposit_opening_date" data-target-name="deposit_opening_date">            
+                                                           event_note 
+                                                        </i></span>
+                                                    </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_favor" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                Favoring
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="deposit_favor"
+                                                    id="deposit_favor" placeholder="">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_ir" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                    Interest Rate
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="deposit_interest_rate"
+                                                    id="deposit_interest_rate" placeholder="" onkeypress="return numeric(event)">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                    <label for="deposit_md" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Maturity Date
+                                                            <span class="astrix">*</span></label>
+                                                            <input type="text" class="col-sm-12 col-md-6" name="deposit_maturity_date" id="deposit_maturity_date" placeholder="" autocomplete="off" required>
+                                                            <span><i class="material-icons iicon1 iicon11 md"
+                                                                data-toggle="deposit_maturity_date" data-target-name="deposit_maturity_date">
+                                                                 event_note
+                                                            </i></span>
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                    <label for="deposit_interest_date" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Interest Paid Date
+                                                        <span class="astrix">*</span></label>
+                                                        <input type="text" class="col-sm-12 col-md-6" name="deposit_interest_date" id="deposit_interest_date" placeholder="" autocomplete="off" required>
+                                                        <span><i class="material-icons iicon1 iicon11 md"
+                                                            data-toggle="deposit_interest_date" data-target-name="deposit_interest_date">
+                                                             event_note
+                                                        </i></span>
+
+
+
+
+
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_matrdate" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                Account Type
+                                                </label>
+                                                <select class="col-sm-12 col-md-6" id="account_dep_type" name="account_dep_type">
+                                                    <option disabled="" selected="" value="">Select</option>
+                                                    <option value="Savings Account">Savings Account</option>
+                                                    <option value="Current Account">Current Account</option>
+                                                    <option value="OverDraft">OverDraft</option>
+                                                    <option value="Cash Credit">Cash Credit</option>
+                                                    <option value=""></option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="add_branchmaster" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                    Associated Branch Master
+                                                </label>
+                                                <select class="col-sm-12 col-md-6" id="account_dep_master" name="account_dep_master">
+                                                    <option disabled="" selected="" value="">Select</option>
+                                                    <option value="HDFC">HDFC</option>
+                                                    <option value="SBI">SBI</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="disp_master" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlTextarea2"></label>
+                                                    <textarea class=" col-sm-12 col-md-6" id="exampleFormControlTextarea2" name="exampleFormControlTextarea2"></textarea>
+                                                  </div>
+              
+                                              </div>
+                                        </div>
+
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-3">
+       <a type="text" class="btn" href="/bankModule/bankDetails/asso_bank_deposit_master_search" name="deposit_ser" id="deposit_search" value="Back to Search">Back to Search</a>
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-2">
+                                                <input type="reset" class="btn bttn" name="clear_frm_" id="clear_frm_" value="Clear Form">
+                                                    
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-5"></div>
+                                            <div class="col-sm-12 col-md-2">
+                                                <input type="button" class="btn" name="sub" id="sub" value="Submit" onclick="associated_deposit_master()">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                        </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+        <%}%>
+
+
+<!-- EDIT -START-->
+<%if(pagetype=='EDIT'){%>
+   
+    <div class="content">
+        <div class="row-sm ">
+            <div class="col-sm-12">
+                <div class="card tp">
+                    <div class="card-header hdr"><h5>ASSOCIATE BANK DEPOSIT MASTER DETAILS</h5></div>
+                    <div class="card-body">
+                        <form action="../../bankModule/bankDetails/update_deposit_edit" method="post" id="edit" autocomplete="off">
+                        
+                        <h6>Edit Records</h6>
+                        <hr>
+                        <div class="content">
+                            <div class="container row mb-4">
+                                <div class="col-sm-12 col-md-6">
+                                        <label for="Short_name" class="mr-sm-4 col-sm-12 col-md-5"  style="padding-left:0% !important;">
+                                            Short Name
+                                        </label>
+                                        <input type="text" class="col-sm-12 col-md-6" name="Short_name_ed"
+                                            id="Short_name_ed" placeholder="" value="<%=dep_short_name%>" onkeypress="return alpha(event)">
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="master_name" class="mr-sm-4 col-sm-12 col-md-5"  style="padding-left:0% !important;">
+                                        Name
+                                    </label>
+                                    <input type="text" class="col-sm-12 col-md-6" name="master_deposit_name_ed"
+                                        id="master_deposit_name_ed" placeholder="" value="<%=dep_name%>" onkeypress="return alpha(event)">
+                                </div>
+                            </div>
+
+                            <div class="container row mt-2">
+                                <div class="col-sm-12 col-md-6">
+                                        <label for="add_gl_cd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                            GL Code
+                                        </label>
+                                        <select  class="col-sm-12 col-md-6" id="deposit_gl_name_ed" name="deposit_gl_name_ed" >
+                                            <option><%=dep_code%></option>
+                                            <% for(var i=1;i < glcode.length;i++) { %>           
+                                                <option value="<%= glcode[i].gl_ch_gl_code  %>"> <%= glcode[i].gl_ch_gl_code %></option>       
+                                                                          <% } %>
+                                        </select>
+                                </div>
+
+                                <div class="col-sm-12 col-md-6 ">
+                                    <label for="add_accnum" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Number
+                                                    
+                                    </label>
+                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_accnum_ed"
+                                        id="deposit_accnum_ed" placeholder="  " value="<%=dep_acc_num%>">
+                                </div>
+                            </div>
+
+                            <div class="container row mt-4">
+                                <div id="datepicker" name="datepicker" class="col-sm-12 col-md-6">
+                                    <label for="add_bnkdep_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Deposit Type
+                                    </label>
+                                    <input type="text" class="col-sm-12 col-md-6" name="add_bnkdep_typ_ed" id="add_bnkdep_typ_ed"
+                                        placeholder="  " value="<%=dep_type%>">
+                                </div>
+
+                                <div id="datepicker" class="col-sm-12 col-md-6">
+                                    <label for="add_bnk_depnum" class="mr-sm-4 col-sm-12 col-md-5 " style="padding-left:0% !important;">Bank Deposit Number
+                                                    
+                                    </label>
+                                    <input type="number" class="col-sm-12 col-md-6" name="add_bnk_depnum_ed"
+                                        id="add_bnk_depnum_ed" placeholder="  " value="<%=dep_depnum%>">
+
+
+                                </div>
+                            </div>
+
+                            <div class="container row mt-4">
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="add_ob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Balance
+                                                    
+                                    </label>
+                                    <input type="number" class="col-sm-12 col-md-6" name="deposit_opening_bal_ed"
+                                        id="deposit_opening_bal_ed" placeholder=" " value="<%=dep_obal%>" step="0.01">
+
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="add_cb" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Current Balance
+                                    </label>
+                                    <input type="number" class="col-sm-12 col-md-6" name="deposit_closing_bal_ed"
+                                        id="deposit_closing_bal_ed" placeholder="" value="<%=deposit_closing_bal%>" step="0.01">
+                                </div>
+                            </div>
+
+                            <div class="container row mt-2">
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="deposit_od" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Date
+                                        <span class="astrix">*</span></label>
+                                        <input type="text" class="col-sm-12 col-md-6" name="deposit_opening_date_ed" id="deposit_opening_date_ed" value="<%=moment(dep_odate).format("DD-MM-YYYY")%>" placeholder="" autocomplete="off" required>
+                                        <span><i class="material-icons iicon1 iicon11 od"
+                                            data-toggle="deposit_opening_date_ed" data-target-name="deposit_opening_date_ed">
+                                           event_note 
+                                        </i></span>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="add_favor" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                        Favoring
+                                        </label>
+                                        <input type="text" class="col-sm-12 col-md-6" name="deposit_favor_ed" value="<%=dep_fav%>"
+                                            id="deposit_favor_ed" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="container row mt-4">
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="add_ir" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                        Interest Rate
+                                    </label>
+                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_interest_rate_ed" value="<%=dep_int_rate%>"
+                                        id="deposit_interest_rate_ed" placeholder="">
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="deposit_md" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Maturity Date
+                                        <span class="astrix">*</span></label>
+                                        <input type="text" class="col-sm-12 col-md-6" name="deposit_maturity_date_ed" id="deposit_maturity_date_ed" value="<%=moment(dep_mdate).format("DD-MM-YYYY")%>" placeholder="" autocomplete="off" required>
+                                        <span><i class="material-icons iicon1 iicon11 md"
+                                            data-toggle="deposit_maturity_date_ed" data-target-name="deposit_maturity_date_ed">
+                                           event_note 
+                                        </i></span>
+                                </div>
+                            </div>
+
+                            <div class="container row mt-4">
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="deposit_interest_date_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Interest Paid Date
+                                        <span class="astrix">*</span></label>
+                                        <input type="text" class="col-sm-12 col-md-6" name="deposit_interest_date_ed" id="deposit_interest_date_ed" value="<%=moment(dep_pdate).format("DD-MM-YYYY")%>" placeholder="" autocomplete="off" required>
+                                        <span><i class="material-icons iicon1 iicon11 md"
+                                            data-toggle="deposit_interest_date_ed" data-target-name="deposit_interest_date_ed">
+                                           event_note 
+                                        </i></span>
+
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="add_matrdate" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                        Account Type
+                                        </label>
+                                        <select class="col-sm-12 col-md-6" id="acc_type_ed" name="acc_type_ed">
+                                            <option><%=dep_acc_type%> </option>
+                                            <option value="Savings Account">Savings Account</option>
+                                            <option value="Current Account">Current Account</option>
+                                            <option value="OverDraft">OverDraft</option>
+                                            <option value="Cash Credit">Cash Credit</option>
+                                            </select>
+                                </div>
+                            </div>
+
+                                
+                                <div class="container row mt-4">
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="add_branchmaster" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                        Associated Branch Master
+                                    </label>
+                                    <select class="col-sm-12 col-md-6" id="acc_br_master_ed" name="acc_br_master_ed">
+                                        <option ><%=dep_br_master%></option>
+                                        <option value="HDFC">HDFC</option>
+                                        <option value="SBI">SBI</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="disp_master" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea2"></label>
+                                        <textarea class=" col-sm-12 col-md-6" id="exampleFormControlTextarea2" name="exampleFormControlTextarea2" ><%=dep_desc%></textarea>
+                                      </div>
+  
+                                  </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+                            <div class="container row mt-4">
+                                <div class="col-sm-12 col-md-2">
+                                       <input hidden type="number" class="col-sm-12 col-md-6" name="deposit_edit" id="deposit_edit"
+                                        placeholder="" value="<%=dep_edit_id%>">
+                                    <a type="text" class="btn" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                                        name="bck_search_ed" id="bck_search_ed" value="Back to Search">Back to Search</a>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <input type="button" class="btn" name="clear_frm_ed" id="clear_frm_ed"
+                                        value="Clear Form" onclick="deposit_master_edit_clear()">
+                                </div>
+                                <div class="col-sm-12 col-md-5"></div>
+                                <div class="col-sm-12 col-md-2">
+                                    <input type="submit" class="btn" name="sub_ed" id="sub_ed" value="Submit" >
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                        <!-- end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    <%}%>
+    <!-- EDIT -END-->
+
+    <%if(pagetype=='VIEW'){%>
+        <div class="content">
+           <div class="row-sm ">
+               <div class="col-sm-12">
+                   <div class="card tp">
+                       <div class="card-header hdr"><h5>ASSOCIATE BANK DEPOSIT MASTER DETAILS</h5></div>
+                       <div class="card-body">
+                           <form action="../../bankModule/bankDetails/view_deposit_data" method="post" id="bankdetailsform_view">
+                          
+   
+                           <!-- flash message -->                    
+                           <% if(locals.message){ %>
+                               <div class="text text-center" role="alert"
+                               background-color: red;>
+                               <strong style="color:green"><%= message.success_msg %></strong> 
+                               </div>
+                           <% } %>
+
+                          
+                           <h6>View Records</h6>
+                           <hr>
+
+                           <div class="content">
+                               <fieldset disabled>
+                                    <div class="container row mt-2">
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="Short_name" class="mr-sm-4 col-sm-12 col-md-5"  style="padding-left:0% !important;">
+                                        Short Name
+                                    </label>
+                                    <input type="text" class="col-sm-12 col-md-6" name="Short_name_vw"
+                                        id="Short_name_vw" placeholder="" value="<%=dep_short_name%>">
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <label for="master_name" class="mr-sm-4 col-sm-12 col-md-5"  style="padding-left:0% !important;">
+                                    Name
+                                </label>
+                                <input type="text" class="col-sm-12 col-md-6" name="master_deposit_name_vw"
+                                    id="master_deposit_name_vw" placeholder="" value="<%=dep_name%>">
+                            </div>
+                            </div>
+                        
+                        <div class="container row mt-2">
+                            <div class="col-sm-12 col-md-6">
+                                    <label for="add_gl_cd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                        GL Code
+                                    </label>
+                                    <select  class="col-sm-12 col-md-6" id="deposit_gl_name_vw" name="deposit_gl_name_vw" >
+                                        <option><%=dep_code%></option>
+                                      
+                                    </select>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 ">
+                                <label for="add_accnum" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Number
+                                                
+                                </label>
+                                <input type="number" class="col-sm-12 col-md-6" name="deposit_accnum_vw"
+                                    id="deposit_accnum_vw" placeholder="  " value="<%=dep_acc_num%>">
+                            </div>
+                        </div>
+
+                        <div class="container row mt-4">
+                            <div id="datepicker" name="datepicker" class="col-sm-12 col-md-6">
+                                <label for="add_bnkdep_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Deposit Type
+                                </label>
+                                <input type="text" class="col-sm-12 col-md-6" name="add_bnkdep_typ_vw" id="add_bnkdep_typ_vw"
+                                    placeholder="  " value="<%=dep_type%>">
+                            </div>
+
+                            <div id="datepicker" class="col-sm-12 col-md-6">
+                                <label for="add_bnk_depnum" class="mr-sm-4 col-sm-12 col-md-5 " style="padding-left:0% !important;">Bank Deposit Number
+                                                
+                                </label>
+                                <input type="number" class="col-sm-12 col-md-6" name="add_bnk_depnum_vw"
+                                    id="add_bnk_depnum_vw" placeholder="  " value="<%=dep_depnum%>">
+
+
+                            </div>
+                        </div>
+
+                        <div class="container row mt-4">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="add_ob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Balance
+                                                
+                                </label>
+                                <input type="number" class="col-sm-12 col-md-6" name="deposit_opening_bal_vw"
+                                    id="deposit_opening_bal_vw" placeholder=" " value="<%=dep_obal%>">
+
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <label for="add_cb" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Current Balance
+                                </label>
+                                <input type="number" class="col-sm-12 col-md-6" name="deposit_closing_bal_vw"
+                                    id="deposit_closing_bal_vw" placeholder="" value="<%=deposit_closing_bal%>">
+                            </div>
+                        </div>
+
+                        <div class="container row mt-2">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="deposit_od" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Date
+                                    <span class="astrix">*</span></label>
+                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_opening_date" id="deposit_opening_date" value="<%=moment(dep_odate).format("DD-MM-YYYY")%>" placeholder="" autocomplete="off" required>
+                                    <span><i class="material-icons iicon1 iicon11 od"
+                                        data-toggle="deposit_opening_date_vw" data-target-name="deposit_opening_date_vw">
+                                       <!-- event_note -->
+                                    </i></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="add_favor" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                    Favoring
+                                    </label>
+                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_favor_vw" value="<%=dep_fav%>"
+                                        id="deposit_favor_vw" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="container row mt-4">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="add_ir" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                    Interest Rate
+                                </label>
+                                <input type="text" class="col-sm-12 col-md-6" name="deposit_interest_rate_vw" value="<%=dep_int_rate%>"
+                                    id="deposit_interest_rate_vw" placeholder="">
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <label for="deposit_md" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Maturity Date
+                                    <span class="astrix">*</span></label>
+                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_maturity_date" id="deposit_maturity_date" value="<%=moment(dep_mdate).format("DD-MM-YYYY")%>" placeholder="" autocomplete="off" required>
+                                    <span><i class="material-icons iicon1 iicon11 md"
+                                        data-toggle="deposit_maturity_date_vw" data-target-name="deposit_maturity_date_vw">
+                                        event_note 
+                                    </i></span>
+                            </div>
+                        </div>
+
+                        <div class="container row mt-4">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="add_irpaid" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                    Interest Paid Date
+                                </label>
+                                <input type="text" class="col-sm-12 col-md-6" name="deposit_interest_date_vw" value="<%=moment(dep_pdate).format("DD-MM-YYYY")%>"
+                                    id="deposit_interest_date_vw" placeholder="">
+
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="add_matrdate" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                    Account Type
+                                    </label>
+                                    <select class="col-sm-12 col-md-6" id="acc_type_vw" name="acc_type_vw">
+                                        <option ><%=dep_acc_type%></option>
+                                        <option value="Savings Account">Savings Account</option>
+                                        <option value="Current Account">Current Account</option>
+                                        <option value="OverDraft">OverDraft</option>
+                                        <option value="Cash Credit">Cash Credit</option>
+                                        </select>
+                            </div>
+                        </div>
+
+                            
+                        <div class="container row mt-2">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="add_branchmaster" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                    Associated Branch Master
+                                </label>
+                                <select class="col-sm-12 col-md-6" id="acc_br_master_vw" name="acc_br_master_vw" >
+                                    <option><%=dep_br_master%></option>
+                                    <option value="HDFC">HDFC</option>
+                                    <option value="SBI">SBI</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <label for="disp_master" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea2"></label>
+                                    <textarea class=" col-sm-12 col-md-6" id="exampleFormControlTextarea2_vw" name="exampleFormControlTextarea2_vw" ><%=dep_desc%></textarea>
+                                  </div>
+
+                              </div>
+
+                              </div>
+                           </fieldset>
+                               <div class="container row mt-4">
+                                     
+                                       <div class="col-sm-12 col-md-2">
+                                   <div class="col-sm-12 col-md-2">
+                                       <a type="text" class="btn" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                                           name="bck_search_ed" id="bck_search_ed" value="Back to Search">Back to
+                                           Search</a>
+                                   </div> 
+                               </div>
+                           </div>
+                        </form>
+                           <!-- end -->
+                        </div>
+
+                       </div>
+                   </div>
+               </div>
+           </div>
+      
+       <%}%>
+       <% include ../includes/footer %>
+            </div>
+            </div>
+       <!-- VIEW -END-->
+
+        
+        
+    </body>
+ <% include ../includes/bottom_scripts %>
+</html>

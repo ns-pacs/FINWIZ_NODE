@@ -1,0 +1,2148 @@
+.nav-color.nav-col-transparent {
+    background-color: #ff9900bb !important;
+}
+/* material input after effects */
+.md-form input[type=date]:focus:not([readonly])+label,
+.md-form input[type=datetime-local]:focus:not([readonly])+label,
+.md-form input[type=email]:focus:not([readonly])+label,
+.md-form input[type=number]:focus:not([readonly])+label,
+.md-form input[type=password]:focus:not([readonly])+label,
+.md-form input[type=search-md]:focus:not([readonly])+label,
+.md-form input[type=search]:focus:not([readonly])+label,
+.md-form input[type=tel]:focus:not([readonly])+label,
+.md-form input[type=text]:focus:not([readonly])+label,
+.md-form input[type=time]:focus:not([readonly])+label,
+.md-form input[type=url]:focus:not([readonly])+label,
+.md-form textarea.md-textarea:focus:not([readonly])+label {
+    color: #5a5849 !important
+
+}
+
+.md-form input[type=date]:focus:not([readonly]),
+.md-form input[type=datetime-local]:focus:not([readonly]),
+.md-form input[type=email]:focus:not([readonly]),
+.md-form input[type=number]:focus:not([readonly]),
+.md-form input[type=password]:focus:not([readonly]),
+.md-form input[type=search-md]:focus:not([readonly]),
+.md-form input[type=search]:focus:not([readonly]),
+.md-form input[type=tel]:focus:not([readonly]),
+.md-form input[type=text]:focus:not([readonly]),
+.md-form input[type=time]:focus:not([readonly]),
+.md-form input[type=url]:focus:not([readonly]),
+.md-form textarea.md-textarea:focus:not([readonly]) {
+    -webkit-box-shadow: 0 1px 0 0 #5a5849 !important;
+    box-shadow: 0 1px 0 0 #5a5849 !important;
+    border-bottom: 1px solid #5a5849 !important
+}
+
+.nav-pills .nav-link.active {
+    color: #ffffff !important;
+    background-color: #5a5849 !important;
+}
+
+.txt_col {
+    color: #6e4320;
+}
+
+.sub_mar {
+    margin-top: 3%;
+    padding: 3%;
+}
+
+.custom-file-input {
+    min-width: 10rem !important;
+    max-width: 100%;
+    margin: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(2.25rem + 2px)
+}
+
+
+
+/* login page */
+.bod{
+    border: 1px solid #c7cacc !important;
+}
+
+
+.loghead{
+    background-color: #5a5849;
+}
+
+/* image */
+.bg_img{
+background-image: url('../images/grey2.jpg');
+
+}
+
+
+@media (min-width:576px) {
+    /* member share details textarea */
+    
+    .nav_nom {
+        margin-right: 0%;
+    }
+    .textarea1 {
+        margin-left: 0;
+    }
+        /* farm machinery and associate bank acc master details textarea */
+    .textarea2 {
+        margin-left: 0;
+    }
+    .iicon {
+        font-size: 20px;
+        margin-left: -24px;
+        position: absolute;
+        margin-top: 30px;
+        z-index: 10;
+        color: grey;
+    }
+    .textarea3 {
+        margin-left: 180px;
+        margin-top: -25px;
+    }
+  
+}
+
+@media (min-width:320px) {
+    .choose{
+        padding-left: 5% !important;
+        border: 1px solid lightgray !important;
+    }
+  .adtyp{
+        display:inline;
+        margin-top:5px;
+    }  
+    .adtyp1{
+        display:table-row;
+        margin-top:5px;
+    } 
+    /* login page css */
+    .fgt1{
+        color: #744c31;
+        margin-left: 27%;
+    }
+    .logicon1{
+        margin-top: 10%;
+        margin-left: -3%;
+    }
+    .loginp1{
+        margin-left: 9% !important;
+        margin-top: -22% !important;
+        width:93% !important;
+    }
+    .loglabel1{
+        margin-left: 9%;
+
+    }
+    .loghead1{
+        width: 93%;
+        margin-left: 3.5%;
+        margin-top: -5%;
+    }
+    .divs{
+        margin-left: 9%;
+        margin-top: -19%;
+    }
+    .cardtp{
+        width: 90%;
+    }
+    /* login page forgot password */
+    .fgt{
+        margin-left: 34%
+    }
+     /* member share details textarea */
+    .textarea1 {
+        margin-left: 2%;
+    }
+    /* members page clearform */
+    .bttn{
+        margin-left: 0%;
+    }
+/* members page checkbox */
+    .chk{
+        margin-left: 7%;
+    }
+      /* farm machinery and associate bank acc master details textarea */
+    .textarea2 {
+        margin-left: 2%;
+    }
+    .textarea3 {
+        margin-left: 0% !important;
+        width: 113% !important;
+    }
+    /* navbar allignment */
+    .dot {
+        margin-left: 39%;
+    }
+    /* members page radio-button */
+    .rad3 {
+        margin-left: 0% !important;
+    }
+    .iicon {
+        font-size: 20px;
+        margin-left: -16%;
+        position: absolute;
+        margin-top: 4.5%;
+        
+        color: grey;
+    }
+       /* icon for member details */
+    .iicon1 {
+        font-size: 20px;
+        margin-left: 61%;
+        position: absolute;
+        
+        margin-top: -18.5%;
+        color: grey;
+    }
+    .iicon4 {
+        font-size: 20px;
+        margin-left: -4.5%;
+        position: absolute;
+        
+        margin-top: 1%;
+        color: grey;
+    }
+    .iicon3 {
+        font-size: 20px;
+        margin-left: 67%;
+        position: absolute;
+        
+        margin-top: -15.5%;
+        color: grey;
+    }
+       /* icon for nominee details */
+    .iicon2 {
+        font-size: 20px;
+        margin-left: 61%;
+        position: absolute;
+        
+        margin-top: -18.5%;
+        color: grey;
+    }
+       .nav_nom {
+        margin-right: 30%;
+    }
+
+        
+     /* members submenu search_screen add button */
+    .add1 {
+        margin-left: 9% !important;
+    }
+      /* members submenu search_screen print button */
+    .print1 {
+        margin-left: 3% !important;
+    }
+   
+}
+
+@media (min-width:375px) {
+.nav_nom {
+        margin-right: 60%;
+    }
+    /* login page css */
+    .fgt1{
+        color: #744c31;
+        margin-left: 42%;
+    }
+    .logicon1{
+        margin-top: 10%;
+        margin-left: -3%;
+    }
+    .loginp1{
+        margin-left: 6% !important;
+        margin-top: -17% !important;
+    }
+    .loglabel1{
+        margin-left: 9%;
+
+    }
+    .loghead1{
+        width: 93%;
+        margin-left: 3.5%;
+        margin-top: -5%;
+    }
+    .divs{
+        margin-left: 9%;
+        margin-top: -15%;
+    }
+    .cardtp{
+        width: 90%;
+    }
+   
+     /* login page forgot password */
+    .fgt{
+        margin-left: 43%
+    }
+     /* member share details textarea */
+    .textarea1 {
+        margin-left: -44px;
+    }
+     /* members page clearform */
+    .bttn{
+        margin-left: 0%;
+    }
+    .textarea3 {
+        margin-left: 0% !important;
+        width: 109% !important;
+    }
+     /* farm machinery and associate bank acc master details textarea */
+    .textarea2 {
+        margin-left: 0px;
+    }
+    /* members page checkbox */
+    .chk{
+        margin-left: 6%;
+    }
+    .dot {
+        margin-left: 50%;
+    }
+    .iicon {
+        font-size: 20px;
+        margin-left: -12%;
+        position: absolute;
+        margin-top: 2.5%;
+        
+        color: grey;
+    }
+       /* icon for member details */
+    .iicon1 {
+        font-size: 20px;
+        margin-left: 72%;
+        position: absolute;
+        
+        margin-top: -13.5%;
+        color: grey;
+    }
+   
+       /* icon for nominee details */
+    .iicon2 {
+        font-size: 20px;
+        margin-left: 72%;
+        position: absolute;
+        
+        margin-top: -13.5%;
+        color: grey;
+    }
+    .iicon3 {
+        font-size: 20px;
+        margin-left: 67%;
+        position: absolute;
+        
+        margin-top: -15.5%;
+        color: grey;
+    }
+    .iicon4 {
+        font-size: 20px;
+    margin-left: 75.5%;
+    position: absolute;
+    
+    margin-top: -11%;
+    color: grey;
+    }
+
+    .iicon5{
+        font-size: 20px;
+        margin-left: 75%;
+        position: absolute;
+        
+        margin-top: -11.5%;
+        color: grey;
+    }
+   
+     /* members submenu search_screen add button */
+    .add1 {
+        margin-left: 7% !important;
+    }
+      /* members submenu search_screen print button */
+    .print1 {
+        margin-left: 3% !important;
+    }
+   
+}
+
+@media (min-width:425px) {
+    /* login page css */
+    .fgt1{
+        color: #744c31;
+        margin-left: 51%;
+    }
+    .logicon1{
+        margin-top: 10%;
+        margin-left: -2%;
+    }
+    .loginp1{
+        margin-left: 4% !important;
+        margin-top: -14% !important;
+    }
+    .loglabel1{
+        margin-left: 9%;
+
+    }
+    .loghead1{
+        width: 93%;
+        margin-left: 3.5%;
+        margin-top: -5%;
+    }
+    .divs{
+        margin-left: 8%;
+        margin-top: -11%;
+    }
+    .cardtp{
+        width: 90%;
+    }
+        .nav_nom {
+        margin-right: 65%;
+    }
+  
+     /* login page forgot password */
+    .fgt{
+        margin-left: 50%
+    }
+     /* member share details textarea */
+    .textarea1 {
+        margin-left: -44px;
+    }
+    .textarea3 {
+        margin-left: 0% !important;
+        width: 107% !important;
+    }
+    /* members page checkbox */
+    .chk{
+        margin-left: 5%;
+    }
+     /* members page clearform */
+    .bttn{
+        margin-left: 0%;
+    }
+    
+    .dot {
+        margin-left: 56%;
+    }
+    .iicon {
+        font-size: 20px;
+        margin-left: -10%;
+        position: absolute;
+        
+        margin-top: 2.5%;
+        color: grey;
+    }
+       /* icon for member details */
+    .iicon1 {
+        font-size: 20px;
+        margin-left: 78%;
+        position: absolute;
+        
+        margin-top: -10.5%;
+        color: grey;
+    }
+    .iicon2 {
+        font-size: 20px;
+        margin-left: 77%;
+        
+        position: absolute;
+        margin-top: -10.5%;
+        color: grey;
+    }
+    .iicon3 {
+        font-size: 20px;
+        margin-left: 67%;
+        position: absolute;
+        
+        margin-top: -15.5%;
+        color: grey;
+    }
+    .iicon4 {
+        font-size: 20px;
+        margin-left: 79.5%;
+        position: absolute;
+        
+        margin-top: -9.3%;
+        color: grey;
+    }
+    .iicon5{
+        font-size: 20px; 
+    margin-left: 80%;
+    position: absolute;
+    
+    margin-top: -9.5%;
+    color: grey;
+    }
+       /* icon for nominee details */
+   
+  
+     /* members submenu search_screen add button */
+    .add1 {
+        margin-left: 5% !important;
+    }
+      /* members submenu search_screen print button */
+    .print1 {
+        margin-left: 2% !important;
+    }
+   
+}
+
+@media (min-width:768px) {
+.adtyp{
+        display:inline-flex;
+        margin-top:0px;
+    }
+        .adtyp1{
+        display:inline-row;
+        margin-top:0px;
+    }
+    .nav_nom {
+        margin-right: 0%;
+    }
+
+    /* login page css */
+    .fgt1{
+        color: #744c31;
+        margin-left: -117%;
+    }
+    .logicon1{
+        margin-top: 88%;
+        margin-left: 158%;
+    }
+    .loginp1{
+        margin-left: 5% !important;
+        margin-top: -5% !important;
+    }
+    .loglabel1{
+        margin-left: 9%;
+
+    }
+    .loghead1{
+        width: 93%;
+        margin-left: 3.5%;
+        margin-top: -5%;
+    }
+    .divs{
+        margin-left: 0%;
+        margin-top: -6%;
+    }
+    .cardtp{
+        width: 90%;
+    }
+      .sign{
+    margin-left: -132px;
+    margin-top: 26px;
+    }
+    .sel{
+height: 1.85em;
+margin-top: 12%;
+margin-left: -26%;
+}
+.inp{
+margin-left: -51%;
+margin-top: 12%
+}
+  
+    .iicon3 {
+        font-size: 20px;
+        margin-left: 67%;
+        position: absolute;
+        
+        margin-top: -15.5%;
+        color: grey;
+    }
+    .iicon5{
+        font-size: 20px;
+    margin-left: -8%;
+    position: absolute;
+    
+    margin-top: 16.5%;
+    color: grey;
+    }
+     /* login page forgot password */
+    .fgt{
+        margin-left: 39%
+    }
+     /* member share details textarea */
+    .textarea1 {
+        margin-left: -44px;
+    }
+     /* members page clearform */
+    .bttn{
+        margin-left: 0%;
+    }
+    .textarea3 {
+        margin-left: 0% !important;
+        margin-top: 1%;
+        width: 100% !important;
+    }
+     /* farm machinery and associate bank acc master details textarea */
+    .textarea2 {
+        margin-left: -44px;
+    }
+    /* members page checkbox */
+    .chk{
+        margin-left: 2%;
+    }
+    /* members submenu and bank menu clear button */
+    .clr{
+        margin-left: 35%;
+    }
+    .dot {
+        margin-left: 77%;
+    }
+    .rad1 {
+        margin-left: -51%;
+        margin-top: 10%;
+    }
+    .rad4 {
+        margin-left: -51%;
+        margin-top: 15%;
+    }
+    .iicon {
+        font-size: 20px;
+        margin-left: -24px;
+        position: absolute;
+        
+        margin-top: 30px;
+        color: grey;
+    }
+    .iicon1 {
+        font-size: 20px;
+        
+        margin-left: -8.5%;
+        position: absolute;
+        margin-top: 10%;
+        color: grey;
+    }
+    .iicon4 {
+        font-size: 20px;
+    margin-left: -8.5%;
+    position: absolute;
+    
+    margin-top: 10%;
+    color: grey;
+    }
+    
+    /* icon for member details */
+    .iicon11 {
+        font-size: 20px;
+        
+        margin-left: -8.5%;
+        position: absolute;
+        margin-top: 10%;
+        color: grey;
+    }
+    
+       /* icon for nominee details */
+    .iicon2 {
+        font-size: 20px;
+        margin-left: -9.5%;
+        
+        position: absolute;
+        margin-top: 9.6%;
+        color: grey;
+    }
+    
+     /* members submenu search_screen add button */
+    .add1 {
+        margin-left: -6% !important;
+    }
+      /* members submenu search_screen print button */
+    .print1 {
+        margin-left: 1% !important;
+    }
+  
+}
+
+@media (min-width:992px) {
+  
+     /* member share details textarea */
+    .textarea1 {
+        margin-left: -44px;
+    }
+    .textarea3 {
+        margin-left: 75% !important;
+        margin-top: -10%;
+        width: 80% !important;
+    }
+/* farm machinery and associate bank acc master details textarea */
+    .textarea2 {
+        margin-left: -44px;
+    }
+   
+    .rad2 {
+        margin-left: 0%;
+        margin-top: 0%;
+    }
+    .iicon {
+        font-size: 20px;
+        margin-left: -5%;
+        
+        position: absolute;
+        margin-top: 1.5%;
+        color: grey;
+    }
+}
+
+@media (min-width:1200px) {
+    /* login page css */
+    .fgt1{
+        color: #744c31;
+        margin-left: -83%;
+    }
+    .logicon1{
+        margin-top: 88%;
+        margin-left: 158%;
+    }
+    .loginp1{
+        margin-left: 5% !important;
+        margin-top: -5% !important;
+    }
+    .loglabel1{
+        margin-left: 9%;
+
+    }
+  
+     /* member share details textarea */
+    .textarea1 {
+        margin-left: -44px;
+    }
+    .textarea3 {
+        margin-left: 75% !important;
+        margin-top: -10%;
+        width: 79% !important;
+    }
+    .textarea4 {
+        margin-left: 73% !important;
+        margin-top: -10%;
+        width: 78% !important;
+    }
+      /* farm machinery and associate bank acc master details textarea */
+    .textarea2 {
+        margin-left: -44px;
+    }
+    .rad2 {
+        margin-left: 0%;
+        margin-top: 0%;
+    }
+        /* members submenu and bank menu clear button */
+    .clr1{
+        margin-left: 0%;
+    }
+    .iicon {
+        font-size: 20px;
+        margin-left: -4.5%;
+        position: absolute;
+        
+        margin-top: 1%;
+        color: grey;
+    }
+}
+
+
+/* member card add_record calender @media */
+
+@media (min-width:1024px) {
+   .sign{
+    margin-left: 0px;
+    margin-top: 0px;
+    }
+    .sel{
+margin-top: 0%;
+margin-left: 0%;
+}
+.inp{
+margin-left: 0%;
+margin-top: 0%
+}
+    /* login page css */
+    .fgt1{
+        color: #744c31;
+        margin-left: -35%;
+    }
+    .logicon1{
+        margin-top: 88%;
+        margin-left: 158%;
+    }
+    .loginp1{
+        margin-left: 8% !important;
+        margin-top: 11% !important;
+    }
+    .loglabel1{
+        margin-left: 9%;
+
+    }
+    .loghead1{
+        width: 93%;
+        margin-left: 3.5%;
+        margin-top: -5%;
+    }
+    .divs{
+        margin-left: -1%;
+        margin-top: -5%;
+    }
+    .cardtp{
+        width: 90%;
+    }
+    .iicon3 {
+        font-size: 20px;
+        margin-left: 67%;
+        position: absolute;
+        
+        margin-top: -15.5%;
+        color: grey;
+    }
+     /* login page forgot password */
+    .fgt{
+        margin-left:54%
+    }
+       /* icon for member details */
+    .iicon1 {
+        font-size: 20px;
+        margin-left: -5.8%;
+        
+        position: absolute;
+        margin-top: 1%;
+        color: grey;
+    }
+    .iicon4 {
+        font-size: 20px;
+        margin-left: -5.7%;
+        position: absolute;
+        
+        margin-top: 1%;
+        color: grey;
+    }
+    .iicon5{
+        font-size: 20px;
+        margin-left: -6%;
+        position: absolute;
+        
+        margin-top: 1%;
+        color: grey;
+    }
+     /* members page clearform */
+    .bttn{
+        margin-left: -20%;
+    }
+       /* associate bank account type  details textarea */
+    .textarea6{
+        margin-left: 3%;
+    }
+   
+    .textarea5{
+    margin-left: 23%;
+    margin-top: -3%;
+}
+/* members page checkbox */
+    .chk{
+        margin-left: 2%;
+    }
+        /* members submenu and bank menu clear button */
+    .clr1{
+        margin-left: 0%;
+    }
+       /* icon for nominee details */
+    .iicon2 {
+        font-size: 20px;
+        margin-left: -6%;
+    
+        position: absolute;
+        margin-top: 1%;
+        color: grey;
+    }
+  
+     /* members submenu search_screen add button */
+    .add1 {
+        margin-left: 0% !important;
+    }
+         /* members submenu dividend_screen print button */
+    .add3 {
+        margin-left: -2% !important;
+    }
+    
+}
+
+@media (min-width:1440px) { 
+     /* login page css */
+     .fgt1{
+        color: #744c31;
+        margin-left: -22%;
+    }
+    .logicon1{
+        margin-top: 88%;
+        margin-left: 158%;
+    }
+    .loginp1{
+        margin-left: 10% !important;
+        margin-top: 14% !important;
+    }
+    .loglabel1{
+        margin-left: 10%;
+
+    }
+    .loghead1{
+        width: 93%;
+        margin-left: 3.5%;
+        margin-top: -5%;
+    }
+    .divs{
+        margin-left: -12%;
+        margin-top: 3%;
+    }
+    .cardtp{
+        width: 90%;
+    }
+    .iicon3 {
+        font-size: 20px;
+        margin-left: 67%;
+        position: absolute;
+        
+        margin-top: -15.5%;
+        color: grey;
+    }
+     /* login page forgot password */
+    .fgt{
+        margin-left: 65%
+    }
+       /* icon for member details */
+    .iicon1 {
+        font-size: 20px;
+        margin-left: -5.4%;
+        position: absolute;
+        
+        margin-top: 1%;
+        color: grey;
+    }
+    .iicon4 {
+        font-size: 20px;
+        margin-left: -4.9%;
+        position: absolute;
+        
+        margin-top: 1%;
+        color: grey;
+    }
+    .iicon5{
+        font-size: 20px;
+        margin-left: -5%;
+        position: absolute;
+        
+        margin-top: 0.5%;
+        color: grey;
+    }
+     /* members page clearform */
+    .bttn{
+        margin-left: -30%;
+    }
+       /* icon for nominee details */
+    .iicon2 {
+        font-size: 20px;
+        margin-left: -5%;
+        
+        position: absolute;
+        margin-top: 0.5%;
+        color: grey;
+    }
+   
+    /* members page checkbox */
+    .chk{
+        margin-left: 1%;
+    }
+     /* members submenu search_screen add button */
+    .add1 {
+        margin-left: 2% !important;
+    }
+      /* members submenu dividend_screen print button */
+    .add3 {
+        margin-left: 1% !important;
+    }
+    
+}
+
+@media (min-width:2560px) {
+    /* login page css */
+    .fgt1{
+        color: #744c31;
+        margin-left: -22%;
+    }
+    .logicon1{
+        margin-top: 88%;
+        margin-left: 158%;
+    }
+    .loginp1{
+        margin-left: 10% !important;
+    margin-top: 16% !important;
+    }
+    .loglabel1{
+        margin-left: 10%;
+
+    }
+    .loghead1{
+        width: 93%;
+        margin-left: 3.5%;
+        margin-top: -5%;
+    }
+    .divs{
+        margin-left: -59%;
+        margin-top: -2%;
+    }
+    .cardtp{
+        width: 90%;
+    }
+    .iicon3 {
+        font-size: 20px;
+        margin-left: 67%;
+        position: absolute;
+        
+        margin-top: -15.5%;
+        color: grey;
+    }
+     /* login page forgot password */
+    .fgt{
+        margin-left: 60%
+    }
+    /* icon for member details */
+    .iicon1 {
+        font-size: 20px;
+        margin-left: -4.5%;
+        position: absolute;
+        
+        margin-top: 1%;
+        color: grey;
+    }
+    .iicon4 {
+        font-size: 20px;
+        margin-left: -4.5%;
+        position: absolute;
+        
+        margin-top: 1%;
+        color: grey;
+    }
+    .iicon5{
+        font-size: 20px;
+    margin-left: -5%;
+    position: absolute;
+    
+    margin-top: 0.5%;
+    color: grey;
+    }
+     /* members page clearform */
+    .bttn{
+        margin-left: -40%;
+    }
+       /* icon for nominee details */
+    .iicon2 {
+        font-size: 20px;
+        margin-left: -5%;
+        
+        position: absolute;
+        margin-top: 0.5%;
+        color: grey;
+    }
+  
+    /* members page checkbox */
+    .chk{
+        margin-left: 1%;
+    }
+    /* members submenu search_screen add button */
+    .add1 {
+        margin-left: 9% !important;
+    }
+     /* members submenu dividend_search_screen add button */
+    .add3 {
+        margin-left: 8% !important;
+    }
+    
+}
+
+
+.sub_mar:hover {
+    box-shadow: #495057;
+}
+
+.ul_col {
+    background: #fdf5e6;
+    border-radius: 5px;
+}
+
+.txt_col:hover {
+    background-color: #92715534;
+    color: #9e5f34;
+}
+
+.chip.chip-md {
+    height: 30px;
+    line-height: 30px;
+    border-radius: 21px;
+}
+
+.fnt {
+    font-size: 12px;
+}
+
+.chip {
+    display: inline-block;
+    height: 32px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 32px;
+    padding: 0 12px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    background-color: rgb(167, 164, 164);
+    margin-bottom: 1rem;
+    margin-right: 0.3rem;
+    cursor: pointer;
+    -webkit-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    transition: all .3s linear;
+}
+
+.overflo {
+    overflow-x: scroll;
+}
+
+.astrix {
+    color: red;
+    font-size: 10pt;
+    margin-left: 8px;
+}
+
+.hid {
+    display: none;
+}
+
+.form-control1 {
+    display: block;
+    width: 50%;
+    height: calc(1.5em + 5rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e9f0e6;
+    border-radius: 1.5rem;
+}
+
+.purple-border {
+    border: 1px solid #ba68c8 !important;
+}
+
+.butn-info {
+    background-color: #ff9d2c;
+    color: #FFFFFF;
+}
+
+.butn-info:hover, .butn-info:focus, .butn-info:not(:disabled):not(.disabled):active, .butn-info:not(:disabled):not(.disabled).active, .butn-info:not(:disabled):not(.disabled):active:focus, .butn-info:not(:disabled):not(.disabled).active:focus, .butn-info:active:hover, .butn-info.active:hover, .show>.butn-info.dropdown-toggle, .show>.butn-info.dropdown-toggle:focus, .show>.butn-info.dropdown-toggle:hover {
+    background-color: #ff9d2c;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #ff9d2c;
+}
+
+.butn-info:not([data-action]):not([class*="btn-outline-"]):hover {
+    box-shadow: 0 3px 8px 0 #0000002b;
+}
+
+.butn-info.disabled, .butn-info.disabled:hover, .butn-info.disabled:focus, .butn-info.disabled.focus, .butn-info.disabled:active, .butn-info.disabled.active, .butn-info:disabled, .butn-info:disabled:hover, .butn-info:disabled:focus, .butn-info:disabled.focus, .butn-info:disabled:active, .butn-info:disabled.active, .butn-info[disabled], .butn-info[disabled]:hover, .butn-info[disabled]:focus, .butn-info[disabled].focus, .butn-info[disabled]:active, .butn-info[disabled].active, fieldset[disabled] .butn-info, fieldset[disabled] .butn-info:hover, fieldset[disabled] .butn-info:focus, fieldset[disabled] .butn-info.focus, fieldset[disabled] .butn-info:active, fieldset[disabled] .butn-info.active {
+    background-color: #ff9d2c;
+    border-color: #ff9d2c;
+}
+
+.butn-info.butn-link {
+    color: #ff9d2c;
+}
+
+.butn-info.butn-link:hover, .butn-info.butn-link:focus, .butn-info.butn-link:active {
+    background-color: transparent;
+    color: #ff9d2c;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.butn, .navbar .navbar-nav>a.butn {
+    border-width: 2px;
+    font-weight: 400;
+    font-size: 0.8571em;
+    line-height: 1.35em;
+    border: none;
+    margin: 10px 1px;
+    border-radius: 0.1875rem;
+    padding: 11px 22px;
+    cursor: pointer;
+}
+
+.butn:not([data-action]):not([class*="btn-outline-"]):hover, .navbar .navbar-nav>a.butn:not([data-action]):not([class*="btn-outline-"]):hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+
+.butn.disabled, .butn.disabled:hover, .butn.disabled:focus, .butn.disabled.focus, .butn.disabled:active, .butn.disabled.active, .butn:disabled, .butn:disabled:hover, .butn:disabled:focus, .butn:disabled.focus, .butn:disabled:active, .butn:disabled.active, .butn[disabled], .butn[disabled]:hover, .butn[disabled]:focus, .butn[disabled].focus, .butn[disabled]:active, .butn[disabled].active, fieldset[disabled] .butn, fieldset[disabled] .butn:hover, fieldset[disabled] .butn:focus, fieldset[disabled] .butn.focus, fieldset[disabled] .butn:active, fieldset[disabled] .butn.active, .navbar .navbar-nav>a.butn.disabled, .navbar .navbar-nav>a.butn.disabled:hover, .navbar .navbar-nav>a.butn.disabled:focus, .navbar .navbar-nav>a.butn.disabled.focus, .navbar .navbar-nav>a.butn.disabled:active, .navbar .navbar-nav>a.butn.disabled.active, .navbar .navbar-nav>a.butn:disabled, .navbar .navbar-nav>a.butn:disabled:hover, .navbar .navbar-nav>a.butn:disabled:focus, .navbar .navbar-nav>a.butn:disabled.focus, .navbar .navbar-nav>a.butn:disabled:active, .navbar .navbar-nav>a.butn:disabled.active, .navbar .navbar-nav>a.butn[disabled], .navbar .navbar-nav>a.butn[disabled]:hover, .navbar .navbar-nav>a.butn[disabled]:focus, .navbar .navbar-nav>a.butn[disabled].focus, .navbar .navbar-nav>a.butn[disabled]:active, .navbar .navbar-nav>a.butn[disabled].active, fieldset[disabled] .navbar .navbar-nav>a.butn, fieldset[disabled] .navbar .navbar-nav>a.butn:hover, fieldset[disabled] .navbar .navbar-nav>a.butn:focus, fieldset[disabled] .navbar .navbar-nav>a.butn.focus, fieldset[disabled] .navbar .navbar-nav>a.butn:active, fieldset[disabled] .navbar .navbar-nav>a.butn.active {
+    background-color: #888;
+    border-color: #888;
+}
+
+.butn.butn-link, .navbar .navbar-nav>a.butn.butn-link {
+    color: #888;
+}
+
+.butn.butn-link:hover, .butn.butn-link:focus, .butn.butn-link:active, .navbar .navbar-nav>a.butn.butn-link:hover, .navbar .navbar-nav>a.butn.butn-link:focus, .navbar .navbar-nav>a.butn.butn-link:active {
+    background-color: transparent;
+    color: #979797;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.butn:hover, .butn:focus, .navbar .navbar-nav>a.butn:hover, .navbar .navbar-nav>a.butn:focus {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    outline: 0 !important;
+}
+
+.butn:active, .butn.active, .open>.butn.dropdown-toggle, .navbar .navbar-nav>a.butn:active, .navbar .navbar-nav>a.butn.active, .open>.navbar .navbar-nav>a.butn.dropdown-toggle {
+    box-shadow: none;
+    outline: 0 !important;
+}
+
+.butn .badge, .navbar .navbar-nav>a.butn .badge {
+    margin: 0;
+}
+
+.butn.butn-icon, .navbar .navbar-nav>a.butn.butn-icon {
+    height: 2.375rem;
+    min-width: 2.375rem;
+    width: 2.375rem;
+    padding: 0;
+    font-size: 0.9375rem;
+    overflow: hidden;
+    position: relative;
+    line-height: normal;
+}
+
+.butn.butn-icon[class*="btn-outline-"], .navbar .navbar-nav>a.butn.butn-icon[class*="btn-outline-"] {
+    padding: 0 !important;
+}
+
+.butn.butn-icon.butn-sm, .navbar .navbar-nav>a.butn.butn-icon.butn-sm {
+    height: 1.875rem;
+    min-width: 1.875rem;
+    width: 1.875rem;
+}
+
+.butn.butn-icon.butn-sm .fa, .butn.butn-icon.butn-sm .far, .butn.butn-icon.butn-sm .fas, .butn.butn-icon.butn-sm .now-ui-icons, .navbar .navbar-nav>a.butn.butn-icon.butn-sm .fa, .navbar .navbar-nav>a.butn.butn-icon.butn-sm .far, .navbar .navbar-nav>a.butn.butn-icon.butn-sm .fas, .navbar .navbar-nav>a.butn.butn-icon.butn-sm .now-ui-icons {
+    font-size: 0.6875rem;
+}
+
+.butn.butn-icon.butn-lg, .navbar .navbar-nav>a.butn.butn-icon.butn-lg {
+    height: 3.6rem;
+    min-width: 3.6rem;
+    width: 3.6rem;
+}
+
+.butn.butn-icon.butn-lg .fa, .butn.butn-icon.butn-lg .far, .butn.butn-icon.butn-lg .fas, .butn.butn-icon.butn-lg .now-ui-icons, .navbar .navbar-nav>a.butn.butn-icon.butn-lg .fa, .navbar .navbar-nav>a.butn.butn-icon.butn-lg .far, .navbar .navbar-nav>a.butn.butn-icon.butn-lg .fas, .navbar .navbar-nav>a.butn.butn-icon.butn-lg .now-ui-icons {
+    font-size: 1.325rem;
+}
+
+.butn.butn-icon:not(.butn-footer) .now-ui-icons, .butn.butn-icon:not(.butn-footer) .fa, .butn.butn-icon:not(.butn-footer) .far, .butn.butn-icon:not(.butn-footer) .fas, .navbar .navbar-nav>a.butn.butn-icon:not(.butn-footer) .now-ui-icons, .navbar .navbar-nav>a.butn.butn-icon:not(.butn-footer) .fa, .navbar .navbar-nav>a.butn.butn-icon:not(.butn-footer) .far, .navbar .navbar-nav>a.butn.butn-icon:not(.butn-footer) .fas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-12px, -12px);
+    transform: translate(-12px, -12px);
+    line-height: 1.5626rem;
+    width: 24px;
+}
+
+.butn:not(.butn-icon) .now-ui-icons, .navbar .navbar-nav>a.butn:not(.butn-icon) .now-ui-icons {
+    position: relative;
+    top: 1px;
+}
+
+.butn-primary {
+    background-color: #f96332;
+    color: #FFFFFF;
+}
+
+.butn-primary:hover, .butn-primary:focus, .butn-primary:not(:disabled):not(.disabled):active, .butn-primary:not(:disabled):not(.disabled).active, .butn-primary:not(:disabled):not(.disabled):active:focus, .butn-primary:not(:disabled):not(.disabled).active:focus, .butn-primary:active:hover, .butn-primary.active:hover, .show>.butn-primary.dropdown-toggle, .show>.butn-primary.dropdown-toggle:focus, .show>.butn-primary.dropdown-toggle:hover {
+    background-color: #fa7a50;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #fa7a50;
+}
+
+.butn-primary:not([data-action]):not([class*="btn-outline-"]):hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+
+.butn-primary.disabled, .butn-primary.disabled:hover, .butn-primary.disabled:focus, .butn-primary.disabled.focus, .butn-primary.disabled:active, .butn-primary.disabled.active, .butn-primary:disabled, .butn-primary:disabled:hover, .butn-primary:disabled:focus, .butn-primary:disabled.focus, .butn-primary:disabled:active, .butn-primary:disabled.active, .butn-primary[disabled], .butn-primary[disabled]:hover, .butn-primary[disabled]:focus, .butn-primary[disabled].focus, .butn-primary[disabled]:active, .butn-primary[disabled].active, fieldset[disabled] .butn-primary, fieldset[disabled] .butn-primary:hover, fieldset[disabled] .butn-primary:focus, fieldset[disabled] .butn-primary.focus, fieldset[disabled] .butn-primary:active, fieldset[disabled] .butn-primary.active {
+    background-color: #f96332;
+    border-color: #f96332;
+}
+
+.butn-primary.butn-link {
+    color: #f96332;
+}
+
+.butn-primary.butn-link:hover, .butn-primary.butn-link:focus, .butn-primary.butn-link:active {
+    background-color: transparent;
+    color: #fa7a50;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.butn-success {
+    background-color: #18ce0f;
+    color: #FFFFFF;
+}
+
+.butn-success:hover, .butn-success:focus, .butn-success:not(:disabled):not(.disabled):active, .butn-success:not(:disabled):not(.disabled).active, .butn-success:not(:disabled):not(.disabled):active:focus, .butn-success:not(:disabled):not(.disabled).active:focus, .butn-success:active:hover, .butn-success.active:hover, .show>.butn-success.dropdown-toggle, .show>.butn-success.dropdown-toggle:focus, .show>.butn-success.dropdown-toggle:hover {
+    background-color: #1beb11;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #1beb11;
+}
+
+.butn-success:not([data-action]):not([class*="btn-outline-"]):hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+
+.butn-success.disabled, .butn-success.disabled:hover, .butn-success.disabled:focus, .butn-success.disabled.focus, .butn-success.disabled:active, .butn-success.disabled.active, .butn-success:disabled, .butn-success:disabled:hover, .butn-success:disabled:focus, .butn-success:disabled.focus, .butn-success:disabled:active, .butn-success:disabled.active, .butn-success[disabled], .butn-success[disabled]:hover, .butn-success[disabled]:focus, .butn-success[disabled].focus, .butn-success[disabled]:active, .butn-success[disabled].active, fieldset[disabled] .butn-success, fieldset[disabled] .butn-success:hover, fieldset[disabled] .butn-success:focus, fieldset[disabled] .butn-success.focus, fieldset[disabled] .butn-success:active, fieldset[disabled] .butn-success.active {
+    background-color: #18ce0f;
+    border-color: #18ce0f;
+}
+
+.butn-success.butn-link {
+    color: #18ce0f;
+}
+
+.butn-success.butn-link:hover, .butn-success.butn-link:focus, .butn-success.butn-link:active {
+    background-color: transparent;
+    color: #1beb11;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.butn-info {
+    background-color: #2CA8FF;
+    color: #FFFFFF;
+}
+
+.butn-info:hover, .butn-info:focus, .butn-info:not(:disabled):not(.disabled):active, .butn-info:not(:disabled):not(.disabled).active, .butn-info:not(:disabled):not(.disabled):active:focus, .butn-info:not(:disabled):not(.disabled).active:focus, .butn-info:active:hover, .butn-info.active:hover, .show>.butn-info.dropdown-toggle, .show>.butn-info.dropdown-toggle:focus, .show>.butn-info.dropdown-toggle:hover {
+    background-color: #4bb5ff;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #4bb5ff;
+}
+
+.butn-info:not([data-action]):not([class*="btn-outline-"]):hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+
+.butn-info.disabled, .butn-info.disabled:hover, .butn-info.disabled:focus, .butn-info.disabled.focus, .butn-info.disabled:active, .butn-info.disabled.active, .butn-info:disabled, .butn-info:disabled:hover, .butn-info:disabled:focus, .butn-info:disabled.focus, .butn-info:disabled:active, .butn-info:disabled.active, .butn-info[disabled], .butn-info[disabled]:hover, .butn-info[disabled]:focus, .butn-info[disabled].focus, .butn-info[disabled]:active, .butn-info[disabled].active, fieldset[disabled] .butn-info, fieldset[disabled] .butn-info:hover, fieldset[disabled] .butn-info:focus, fieldset[disabled] .butn-info.focus, fieldset[disabled] .butn-info:active, fieldset[disabled] .butn-info.active {
+    background-color: #2CA8FF;
+    border-color: #2CA8FF;
+}
+
+.butn-info.butn-link {
+    color: #2CA8FF;
+}
+
+.butn-info.butn-link:hover, .butn-info.butn-link:focus, .butn-info.butn-link:active {
+    background-color: transparent;
+    color: #4bb5ff;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.butn-warning {
+    background-color: #FFB236;
+    color: #FFFFFF;
+}
+
+.butn-warning:hover, .butn-warning:focus, .butn-warning:not(:disabled):not(.disabled):active, .butn-warning:not(:disabled):not(.disabled).active, .butn-warning:not(:disabled):not(.disabled):active:focus, .butn-warning:not(:disabled):not(.disabled).active:focus, .butn-warning:active:hover, .butn-warning.active:hover, .show>.butn-warning.dropdown-toggle, .show>.butn-warning.dropdown-toggle:focus, .show>.butn-warning.dropdown-toggle:hover {
+    background-color: #ffbe55;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #ffbe55;
+}
+
+.butn-warning:not([data-action]):not([class*="btn-outline-"]):hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+
+.butn-warning.disabled, .butn-warning.disabled:hover, .butn-warning.disabled:focus, .butn-warning.disabled.focus, .butn-warning.disabled:active, .butn-warning.disabled.active, .butn-warning:disabled, .butn-warning:disabled:hover, .butn-warning:disabled:focus, .butn-warning:disabled.focus, .butn-warning:disabled:active, .butn-warning:disabled.active, .butn-warning[disabled], .butn-warning[disabled]:hover, .butn-warning[disabled]:focus, .butn-warning[disabled].focus, .butn-warning[disabled]:active, .butn-warning[disabled].active, fieldset[disabled] .butn-warning, fieldset[disabled] .butn-warning:hover, fieldset[disabled] .butn-warning:focus, fieldset[disabled] .butn-warning.focus, fieldset[disabled] .butn-warning:active, fieldset[disabled] .butn-warning.active {
+    background-color: #FFB236;
+    border-color: #FFB236;
+}
+
+.butn-warning.butn-link {
+    color: #FFB236;
+}
+
+.butn-warning.butn-link:hover, .butn-warning.butn-link:focus, .butn-warning.butn-link:active {
+    background-color: transparent;
+    color: #ffbe55;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.butn-danger {
+    background-color: #FF3636;
+    color: #FFFFFF;
+}
+
+.butn-danger:hover, .butn-danger:focus, .butn-danger:not(:disabled):not(.disabled):active, .butn-danger:not(:disabled):not(.disabled).active, .butn-danger:not(:disabled):not(.disabled):active:focus, .butn-danger:not(:disabled):not(.disabled).active:focus, .butn-danger:active:hover, .butn-danger.active:hover, .show>.butn-danger.dropdown-toggle, .show>.butn-danger.dropdown-toggle:focus, .show>.butn-danger.dropdown-toggle:hover {
+    background-color: #ff5555;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #ff5555;
+}
+
+.butn-danger:not([data-action]):not([class*="btn-outline-"]):hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+
+.butn-danger.disabled, .butn-danger.disabled:hover, .butn-danger.disabled:focus, .butn-danger.disabled.focus, .butn-danger.disabled:active, .butn-danger.disabled.active, .butn-danger:disabled, .butn-danger:disabled:hover, .butn-danger:disabled:focus, .butn-danger:disabled.focus, .butn-danger:disabled:active, .butn-danger:disabled.active, .butn-danger[disabled], .butn-danger[disabled]:hover, .butn-danger[disabled]:focus, .butn-danger[disabled].focus, .butn-danger[disabled]:active, .butn-danger[disabled].active, fieldset[disabled] .butn-danger, fieldset[disabled] .butn-danger:hover, fieldset[disabled] .butn-danger:focus, fieldset[disabled] .butn-danger.focus, fieldset[disabled] .butn-danger:active, fieldset[disabled] .butn-danger.active {
+    background-color: #FF3636;
+    border-color: #FF3636;
+}
+
+.butn-danger.butn-link {
+    color: #FF3636;
+}
+
+.butn-danger.butn-link:hover, .butn-danger.butn-link:focus, .butn-danger.butn-link:active {
+    background-color: transparent;
+    color: #ff5555;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.butn-neutral {
+    background-color: #FFFFFF;
+    color: #f96332;
+}
+
+.butn-neutral:hover, .butn-neutral:focus, .butn-neutral:not(:disabled):not(.disabled):active, .butn-neutral:not(:disabled):not(.disabled).active, .butn-neutral:not(:disabled):not(.disabled):active:focus, .butn-neutral:not(:disabled):not(.disabled).active:focus, .butn-neutral:active:hover, .butn-neutral.active:hover, .show>.butn-neutral.dropdown-toggle, .show>.butn-neutral.dropdown-toggle:focus, .show>.butn-neutral.dropdown-toggle:hover {
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+    box-shadow: none;
+    border-color: #FFFFFF;
+}
+
+.butn-neutral:not([data-action]):not([class*="btn-outline-"]):hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+}
+
+.butn-neutral.disabled, .butn-neutral.disabled:hover, .butn-neutral.disabled:focus, .butn-neutral.disabled.focus, .butn-neutral.disabled:active, .butn-neutral.disabled.active, .butn-neutral:disabled, .butn-neutral:disabled:hover, .butn-neutral:disabled:focus, .butn-neutral:disabled.focus, .butn-neutral:disabled:active, .butn-neutral:disabled.active, .butn-neutral[disabled], .butn-neutral[disabled]:hover, .butn-neutral[disabled]:focus, .butn-neutral[disabled].focus, .butn-neutral[disabled]:active, .butn-neutral[disabled].active, fieldset[disabled] .butn-neutral, fieldset[disabled] .butn-neutral:hover, fieldset[disabled] .butn-neutral:focus, fieldset[disabled] .butn-neutral.focus, fieldset[disabled] .butn-neutral:active, fieldset[disabled] .butn-neutral.active {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+.butn-neutral.butn-danger {
+    color: #FF3636;
+}
+
+.butn-neutral.butn-danger:hover, .butn-neutral.butn-danger:focus, .butn-neutral.butn-danger:active, .butn-neutral.butn-danger:active:focus {
+    color: #ff5555 !important;
+}
+
+.butn-neutral.butn-info {
+    color: #2CA8FF;
+}
+
+.butn-neutral.butn-info:hover, .butn-neutral.butn-info:focus, .butn-neutral.butn-info:active, .butn-neutral.butn-info:active:focus {
+    color: #4bb5ff !important;
+}
+
+.butn-neutral.butn-warning {
+    color: #FFB236;
+}
+
+.butn-neutral.butn-warning:hover, .butn-neutral.butn-warning:focus, .butn-neutral.butn-warning:active, .butn-neutral.butn-warning:active:focus {
+    color: #ffbe55 !important;
+}
+
+.butn-neutral.butn-success {
+    color: #18ce0f;
+}
+
+.butn-neutral.butn-success:hover, .butn-neutral.butn-success:focus, .butn-neutral.butn-success:active, .butn-neutral.butn-success:active:focus {
+    color: #1beb11 !important;
+}
+
+.butn-neutral.butn-default {
+    color: #888;
+}
+
+.butn-neutral.butn-default:hover, .butn-neutral.butn-default:focus, .butn-neutral.butn-default:active, .butn-neutral.butn-default:active:focus {
+    color: #979797 !important;
+}
+
+.butn-neutral.active, .butn-neutral:active, .butn-neutral:active:focus, .butn-neutral:active:hover, .butn-neutral.active:focus, .butn-neutral.active:hover, .show>.butn-neutral.dropdown-toggle, .show>.butn-neutral.dropdown-toggle:focus, .show>.butn-neutral.dropdown-toggle:hover {
+    background-color: #FFFFFF;
+    color: #fa7a50 !important;
+    box-shadow: none;
+}
+
+.butn-neutral:hover, .butn-neutral:focus {
+    color: #fa7a50;
+}
+
+.butn-neutral:hover:not(.nav-link), .butn-neutral:focus:not(.nav-link) {
+    box-shadow: none !important;
+}
+
+.butn-neutral.butn-link {
+    color: #FFFFFF;
+}
+
+.butn-neutral.butn-link:hover, .butn-neutral.butn-link:focus, .butn-neutral.butn-link:active {
+    background-color: transparent;
+    color: #FFFFFF;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.butn-outline-primary {
+    color: #f96332;
+    border-color: #f96332;
+}
+
+.butn-outline-primary:hover, .butn-outline-primary:focus, .butn-outline-primary:not(:disabled):not(.disabled):active, .butn-outline-primary:not(:disabled):not(.disabled).active, .butn-outline-primary:not(:disabled):not(.disabled):active:focus, .butn-outline-primary:not(:disabled):not(.disabled).active:focus, .butn-outline-primary:active:hover, .butn-outline-primary.active:hover, .show>.butn-outline-primary.dropdown-toggle, .show>.butn-outline-primary.dropdown-toggle:focus, .show>.butn-outline-primary.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #fa7a50;
+    border-color: #fa7a50;
+    box-shadow: none;
+}
+
+.butn-outline-success {
+    color: #18ce0f;
+    border-color: #18ce0f;
+}
+
+.butn-outline-success:hover, .butn-outline-success:focus, .butn-outline-success:not(:disabled):not(.disabled):active, .butn-outline-success:not(:disabled):not(.disabled).active, .butn-outline-success:not(:disabled):not(.disabled):active:focus, .butn-outline-success:not(:disabled):not(.disabled).active:focus, .butn-outline-success:active:hover, .butn-outline-success.active:hover, .show>.butn-outline-success.dropdown-toggle, .show>.butn-outline-success.dropdown-toggle:focus, .show>.butn-outline-success.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #1beb11;
+    border-color: #1beb11;
+    box-shadow: none;
+}
+
+.butn-outline-info {
+    color: #2CA8FF;
+    border-color: #2CA8FF;
+}
+
+.butn-outline-info:hover, .butn-outline-info:focus, .butn-outline-info:not(:disabled):not(.disabled):active, .butn-outline-info:not(:disabled):not(.disabled).active, .butn-outline-info:not(:disabled):not(.disabled):active:focus, .butn-outline-info:not(:disabled):not(.disabled).active:focus, .butn-outline-info:active:hover, .butn-outline-info.active:hover, .show>.butn-outline-info.dropdown-toggle, .show>.butn-outline-info.dropdown-toggle:focus, .show>.butn-outline-info.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #4bb5ff;
+    border-color: #4bb5ff;
+    box-shadow: none;
+}
+
+.butn-outline-warning {
+    color: #FFB236;
+    border-color: #FFB236;
+}
+
+.butn-outline-warning:hover, .butn-outline-warning:focus, .butn-outline-warning:not(:disabled):not(.disabled):active, .butn-outline-warning:not(:disabled):not(.disabled).active, .butn-outline-warning:not(:disabled):not(.disabled):active:focus, .butn-outline-warning:not(:disabled):not(.disabled).active:focus, .butn-outline-warning:active:hover, .butn-outline-warning.active:hover, .show>.butn-outline-warning.dropdown-toggle, .show>.butn-outline-warning.dropdown-toggle:focus, .show>.butn-outline-warning.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #ffbe55;
+    border-color: #ffbe55;
+    box-shadow: none;
+}
+
+.butn-outline-danger {
+    color: #FF3636;
+    border-color: #FF3636;
+}
+
+.butn-outline-danger:hover, .butn-outline-danger:focus, .butn-outline-danger:not(:disabled):not(.disabled):active, .butn-outline-danger:not(:disabled):not(.disabled).active, .butn-outline-danger:not(:disabled):not(.disabled):active:focus, .butn-outline-danger:not(:disabled):not(.disabled).active:focus, .butn-outline-danger:active:hover, .butn-outline-danger.active:hover, .show>.butn-outline-danger.dropdown-toggle, .show>.butn-outline-danger.dropdown-toggle:focus, .show>.butn-outline-danger.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #ff5555;
+    border-color: #ff5555;
+    box-shadow: none;
+}
+
+.butn-outline-default {
+    color: #888;
+    border-color: #888;
+}
+
+.butn-outline-default:hover, .butn-outline-default:focus, .butn-outline-default:not(:disabled):not(.disabled):active, .butn-outline-default:not(:disabled):not(.disabled).active, .butn-outline-default:not(:disabled):not(.disabled):active:focus, .butn-outline-default:not(:disabled):not(.disabled).active:focus, .butn-outline-default:active:hover, .butn-outline-default.active:hover, .show>.butn-outline-default.dropdown-toggle, .show>.butn-outline-default.dropdown-toggle:focus, .show>.butn-outline-default.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #979797;
+    border-color: #979797;
+    box-shadow: none;
+}
+
+.butn:disabled, .butn[disabled], .butn.disabled {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    pointer-events: none;
+}
+
+[class*="btn-outline-"] {
+    border: 1px solid;
+    padding: 10px 22px;
+    background-color: transparent;
+}
+
+[class*="btn-outline-"].disabled, [class*="btn-outline-"].disabled:hover, [class*="btn-outline-"].disabled:focus, [class*="btn-outline-"].disabled.focus, [class*="btn-outline-"].disabled:active, [class*="btn-outline-"].disabled.active, [class*="btn-outline-"]:disabled, [class*="btn-outline-"]:disabled:hover, [class*="btn-outline-"]:disabled:focus, [class*="btn-outline-"]:disabled.focus, [class*="btn-outline-"]:disabled:active, [class*="btn-outline-"]:disabled.active, [class*="btn-outline-"][disabled], [class*="btn-outline-"][disabled]:hover, [class*="btn-outline-"][disabled]:focus, [class*="btn-outline-"][disabled].focus, [class*="btn-outline-"][disabled]:active, [class*="btn-outline-"][disabled].active, fieldset[disabled] [class*="btn-outline-"], fieldset[disabled] [class*="btn-outline-"]:hover, fieldset[disabled] [class*="btn-outline-"]:focus, fieldset[disabled] [class*="btn-outline-"].focus, fieldset[disabled] [class*="btn-outline-"]:active, fieldset[disabled] [class*="btn-outline-"].active, .butn-link.disabled, .butn-link.disabled:hover, .butn-link.disabled:focus, .butn-link.disabled.focus, .butn-link.disabled:active, .butn-link.disabled.active, .butn-link:disabled, .butn-link:disabled:hover, .butn-link:disabled:focus, .butn-link:disabled.focus, .butn-link:disabled:active, .butn-link:disabled.active, .butn-link[disabled], .butn-link[disabled]:hover, .butn-link[disabled]:focus, .butn-link[disabled].focus, .butn-link[disabled]:active, .butn-link[disabled].active, fieldset[disabled] .butn-link, fieldset[disabled] .butn-link:hover, fieldset[disabled] .butn-link:focus, fieldset[disabled] .butn-link.focus, fieldset[disabled] .butn-link:active, fieldset[disabled] .butn-link.active {
+    background-color: transparent;
+}
+
+.butn-link {
+    border: 0;
+    padding: 0.5rem 0.7rem;
+    background-color: transparent;
+}
+
+.butn-lg {
+    font-size: 1em;
+    border-radius: 0.25rem;
+    padding: 15px 48px;
+}
+
+.butn-lg[class*="btn-outline-"] {
+    padding: 14px 47px;
+}
+
+.butn-sm {
+    font-size: 14px;
+    border-radius: 0.1875rem;
+    padding: 5px 15px;
+}
+
+.butn-sm[class*="btn-outline-"] {
+    padding: 4px 14px;
+}
+
+.butn-wd {
+    min-width: 140px;
+}
+
+.butn-group.select {
+    width: 100%;
+}
+
+.butn-group.select .butn {
+    text-align: left;
+}
+
+.butn-group.select .caret {
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    right: 8px;
+}
+
+.butn-round {
+    border-width: 1px;
+    border-radius: 30px;
+    padding-right: 23px;
+    padding-left: 23px;
+}
+
+.butn-round.butn-simple:not(.butn-sm):not(.butn-lg) {
+    padding: 10px 22px;
+}
+
+.sunny-morning-gradient {
+    border-radius: 20px;
+    font-size: 13px;
+    background: #6e4320;
+    color: #ffffff;
+}
+
+/* .sunny-morning-gradient:hover {
+    background-color: #443f3a;
+    color: #ffffff;
+} */
+
+.mean-fruit-gradient {
+    border-radius: 20px;
+    font-size: 13px;
+    background: #6e4320;
+    color: #ffffff;
+}
+
+/* .mean-fruit-gradient:hover {
+    background-color: #db0daf;
+    color: #ffffff;
+} */
+
+.pan-head {
+    height: 260px;
+    padding-top: 80px;
+    padding-bottom: 45px;
+    background: #4b350ce3;
+    /* fallback for old browsers */
+    /* background: linear-gradient(250deg,#e7717d , #ff6f2e ); */
+    position: relative;
+    overflow: hidden;
+}
+
+.pan-head .header .title {
+    color: #FFFFFF;
+}
+
+.pan-head .header .category {
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+    font-size: 13px;
+}
+
+.pan-head .header .category a {
+    color: #FFFFFF;
+}
+
+.pan-head-sm {
+    height: 135px;
+}
+
+.pan-head-lg {
+    height: 380px;
+}
+
+.sidebar[data-color="orange_light"]:after, .off-canvas-sidebar[data-color="orange_light"]:after {
+    background: #5a5849;
+    /* background: linear-gradient(270deg, #88760d, #958007); */
+}
+
+.sidebar[data-color="orange_light"] .nav li.active>a:not([data-toggle="collapse"]), .off-canvas-sidebar[data-color="orange_light"] .nav li.active>a:not([data-toggle="collapse"]) {
+    color: #6e4320;
+}
+
+.sidebar[data-color="orange_light"] .nav li.active>a:not([data-toggle="collapse"]) i, .off-canvas-sidebar[data-color="orange_light"] .nav li.active>a:not([data-toggle="collapse"]) i {
+    color: #6e4320;
+}
+
+.colo {
+    background: #a2a190 !important;
+}
+
+.tp {
+    margin-top: 6%;
+}
+
+.bgc {
+    background: #f346aba1;
+}
+
+.thed {
+    width: 100%;
+}
+
+.custom-select.is-valid, .was-validated .custom-select:valid {
+    border-color: #28a745;
+    padding-right: calc((1em + .75rem) * 3 / 4 + 1.75rem);
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(.75em + .375rem) calc(.75em + .375rem)
+}
+
+.custom-select.is-valid:focus, .was-validated .custom-select:valid:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .25)
+}
+
+.custom-select.is-valid~.valid-feedback, .custom-select.is-valid~.valid-tooltip, .was-validated .custom-select:valid~.valid-feedback, .was-validated .custom-select:valid~.valid-tooltip {
+    display: block
+}
+
+.custom-select.is-invalid, .was-validated .custom-select:invalid {
+    border-color: #dc3545;
+    padding-right: calc((1em + .75rem) * 3 / 4 + 1.75rem);
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E") #fff no-repeat center right 1.75rem/calc(.75em + .375rem) calc(.75em + .375rem)
+}
+
+.custom-select.is-invalid:focus, .was-validated .custom-select:invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .25)
+}
+
+.custom-select.is-invalid~.invalid-feedback, .custom-select.is-invalid~.invalid-tooltip, .was-validated .custom-select:invalid~.invalid-feedback, .was-validated .custom-select:invalid~.invalid-tooltip {
+    display: block
+}
+
+.ui-datepicker {
+    width: 17em;
+    padding: .2em .2em 0;
+    display: none;
+}
+
+.ui-datepicker .ui-datepicker-header {
+    position: relative;
+    padding: .2em 0;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    top: 2px;
+    width: 1.8em;
+    height: 1.8em;
+}
+
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover {
+    top: 1px;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+    left: 2px;
+}
+
+.ui-datepicker .ui-datepicker-next {
+    right: 2px;
+}
+
+.ui-datepicker .ui-datepicker-prev-hover {
+    left: 1px;
+}
+
+.ui-datepicker .ui-datepicker-next-hover {
+    right: 1px;
+}
+
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    margin: 0 2.3em;
+    line-height: 1.8em;
+    text-align: center;
+}
+
+.ui-datepicker .ui-datepicker-title select {
+    font-size: 1em;
+    margin: 1px 0;
+}
+
+.ui-datepicker select.ui-datepicker-month-year {
+    width: 100%;
+}
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+    width: 49%;
+}
+
+.ui-datepicker table {
+    width: 100%;
+    font-size: .9em;
+    border-collapse: collapse;
+    margin: 0 0 .4em;
+}
+
+.ui-datepicker th {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: bold;
+    border: 0;
+}
+
+.ui-datepicker td {
+    border: 0;
+    padding: 1px;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    display: block;
+    padding: .2em;
+    text-align: right;
+    text-decoration: none;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane {
+    background-image: none;
+    margin: .7em 0 0 0;
+    padding: 0 .2em;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button {
+    float: right;
+    margin: .5em .2em .4em;
+    cursor: pointer;
+    padding: .2em .6em .3em .6em;
+    width: auto;
+    overflow: visible;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+    float: left;
+}
+
+/* with multiple calendars */
+
+.ui-datepicker.ui-datepicker-multi {
+    width: auto;
+}
+
+.ui-datepicker-multi .ui-datepicker-group {
+    float: left;
+}
+
+.ui-datepicker-multi .ui-datepicker-group table {
+    width: 95%;
+    margin: 0 auto .4em;
+}
+
+.ui-datepicker-multi-2 .ui-datepicker-group {
+    width: 50%;
+}
+
+.ui-datepicker-multi-3 .ui-datepicker-group {
+    width: 33.3%;
+}
+
+.ui-datepicker-multi-4 .ui-datepicker-group {
+    width: 25%;
+}
+
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header, .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+    border-left-width: 0;
+}
+
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+    clear: left;
+}
+
+.ui-datepicker-row-break {
+    clear: both;
+    width: 100%;
+    font-size: 0;
+}
+
+/* RTL support */
+
+.ui-datepicker-rtl {
+    direction: rtl;
+}
+
+.ui-datepicker-rtl .ui-datepicker-prev {
+    right: 2px;
+    left: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-next {
+    left: 2px;
+    right: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+    right: 1px;
+    left: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+    left: 1px;
+    right: auto;
+}
+
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+    clear: right;
+}
+
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+    float: left;
+}
+
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current, .ui-datepicker-rtl .ui-datepicker-group {
+    float: right;
+}
+
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header, .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+    border-right-width: 0;
+    border-left-width: 1px;
+}
+
+/* radio button */
+
+.custom-switch .custom-control-input1:checked~.custom-control-label1::after {
+    background-color: #fff;
+    -webkit-transform: translateX(.75rem);
+    transform: translateX(.75rem)
+}
+
+.custom-switch .custom-control-input1:disabled:checked~.custom-control-label1::before {
+    background-color: rgba(0, 123, 255, .5)
+}
+
+.custom-control-input1 {
+    position: absolute;
+    z-index: -1;
+    opacity: 0
+}
+
+.custom-control-input1:checked~.custom-control-label1::before {
+    color: #fff;
+    border-color: #007bff;
+    background-color: #007bff
+}
+
+.custom-control-input1:focus~.custom-control-label1::before {
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+}
+
+.custom-control-input1:focus:not(:checked)~.custom-control-label1::before {
+    border-color: #80bdff
+}
+
+.custom-control-input1:not(:disabled):active~.custom-control-label1::before {
+    color: #fff;
+    background-color: #b3d7ff;
+    border-color: #b3d7ff
+}
+
+.custom-control-input1:disabled~.custom-control-label1 {
+    color: #6c757d
+}
+
+.custom-control-input1:disabled~.custom-control-label1::before {
+    background-color: #e9ecef
+}
+
+.custom-control-label1 {
+    position: relative;
+    margin-bottom: 0;
+    color: #000000 !important;
+    /* vertical-align: top */
+}
+
+.custom-control-label1::before {
+    position: absolute;
+    top: .25rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    content: "";
+    background-color: #fff;
+    border: #adb5bd solid 1px
+}
+
+.custom-control-label1::after {
+    position: absolute;
+    top: .25rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%
+}
+
+.custom-checkbox .custom-control-label1::before {
+    border-radius: .25rem
+}
+
+.custom-checkbox .custom-control-input1:checked~.custom-control-label1::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e")
+}
+
+.custom-checkbox .custom-control-input1:indeterminate~.custom-control-label1::before {
+    border-color: #007bff;
+    background-color: #007bff
+}
+
+.custom-checkbox .custom-control-input1:indeterminate~.custom-control-label1::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3e%3cpath stroke='%23fff' d='M0 2h4'/%3e%3c/svg%3e")
+}
+
+.custom-checkbox .custom-control-input1:disabled:checked~.custom-control-label1::before {
+    background-color: rgba(0, 123, 255, .5)
+}
+
+.custom-checkbox .custom-control-input1:disabled:indeterminate~.custom-control-label1::before {
+    background-color: rgba(0, 123, 255, .5)
+}
+
+.custom-radio .custom-control-label1::before {
+    border-radius: 50%
+}
+
+.custom-radio .custom-control-input1:checked~.custom-control-label1::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")
+}
+
+.custom-radio .custom-control-input1:disabled:checked~.custom-control-label1::before {
+    background-color: rgba(0, 123, 255, .5)
+}
+
+.custom-control {
+    position: relative;
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5rem
+}
+
+.custom-control-inline {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-right: 1rem
+}
+
+.custom-control-input1.is-invalid~.custom-control-label1, .was-validated .custom-control-input1:invalid~.custom-control-label1 {
+    color: #dc3545
+}
+
+.custom-control-input1.is-invalid~.custom-control-label1::before, .was-validated .custom-control-input1:invalid~.custom-control-label1::before {
+    border-color: #dc3545
+}
+
+.custom-control-input1.is-invalid~.invalid-feedback, .custom-control-input1.is-invalid~.invalid-tooltip, .was-validated .custom-control-input1:invalid~.invalid-feedback, .was-validated .custom-control-input1:invalid~.invalid-tooltip {
+    display: block
+}
+
+.custom-control-input1.is-invalid:checked~.custom-control-label1::before, .was-validated .custom-control-input1:invalid:checked~.custom-control-label1::before {
+    border-color: #e4606d;
+    background-color: #e4606d
+}
+
+.custom-control-input1.is-invalid:focus~.custom-control-label1::before, .was-validated .custom-control-input1:invalid:focus~.custom-control-label1::before {
+    box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .25)
+}
+
+.custom-control-input1.is-invalid:focus:not(:checked)~.custom-control-label1::before, .was-validated .custom-control-input1:invalid:focus:not(:checked)~.custom-control-label1::before {
+    border-color: #dc3545
+}
+
+.custom-control-input1.is-valid~.custom-control-label1, .was-validated .custom-control-input1:valid~.custom-control-label1 {
+    color: #28a745
+}
+
+.custom-control-input1.is-valid~.custom-control-label1::before, .was-validated .custom-control-input1:valid~.custom-control-label1::before {
+    border-color: #28a745
+}
+
+.custom-control-input1.is-valid~.valid-feedback, .custom-control-input1.is-valid~.valid-tooltip, .was-validated .custom-control-input1:valid~.valid-feedback, .was-validated .custom-control-input1:valid~.valid-tooltip {
+    display: block
+}
+
+.custom-control-input1.is-valid:checked~.custom-control-label1::before, .was-validated .custom-control-input1:valid:checked~.custom-control-label1::before {
+    border-color: #34ce57;
+    background-color: #34ce57
+}
+
+.custom-control-input1.is-valid:focus~.custom-control-label1::before, .was-validated .custom-control-input1:valid:focus~.custom-control-label1::before {
+    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .25)
+}
+
+.custom-control-input1.is-valid:focus:not(:checked)~.custom-control-label1::before, .was-validated .custom-control-input1:valid:focus:not(:checked)~.custom-control-label1::before {
+    border-color: #28a745
+}
+
