@@ -1339,7 +1339,7 @@ pgdbconnect.query("select * from farm_machinery_details",function(err,result) {
         farmmachineryid='1'
   pgdbconnect.query("select * from member_details where md_ch_del_flg='N' order by md_ch_member_id",function(err,result2) {
 
-pgdbconnect.query("insert into farm_machinery_details(fmd_n_farm_mach_id,fmd_ch_member_id,fmd_ch_vehicle_name,fmd_n_vehicle_reg_num,fmd_ch_year_of_purchase,fmd_ch_vehicle_description,fmd_n_purchase_value,fmd_n_market_value,fmd_ch_del_flg)values($1,$2,$3,$4,$5,$6,$7,$8,$9)",[farmmachineryid,memid,VechicleName,VechilceRegisterNumber,YearofPurchase,VechicleDescription,PurchaseValue,marketValue,'N'],function(err,formres){
+pgdbconnect.query("insert into farm_machinery_details(fmd_n_farm_mach_id,fmd_ch_member_id,fmd_ch_vehicle_name,fmd_ch_vehicle_reg_num,fmd_ch_year_of_purchase,fmd_ch_vehicle_description,fmd_n_purchase_value,fmd_n_market_value,fmd_ch_del_flg)values($1,$2,$3,$4,$5,$6,$7,$8,$9)",[farmmachineryid,memid,VechicleName,VechilceRegisterNumber,YearofPurchase,VechicleDescription,PurchaseValue,marketValue,'N'],function(err,formres){
 
     if (err)
     {
@@ -1370,7 +1370,7 @@ else{
         farmmachineryid=parseInt(result.rows[0].max)+1;
         console.log("when more rows exxxists",farmmachineryid)
 
-pgdbconnect.query("insert into farm_machinery_details(fmd_n_farm_mach_id,fmd_ch_member_id,fmd_ch_vehicle_name,fmd_n_vehicle_reg_num,fmd_ch_year_of_purchase,fmd_ch_vehicle_description,fmd_n_purchase_value,fmd_n_market_value,fmd_ch_del_flg)values($1,$2,$3,$4,$5,$6,$7,$8,$9)",[farmmachineryid,memid,VechicleName,VechilceRegisterNumber,YearofPurchase,VechicleDescription,PurchaseValue,PurchaseValue,'N'],function(err,formres){
+pgdbconnect.query("insert into farm_machinery_details(fmd_n_farm_mach_id,fmd_ch_member_id,fmd_ch_vehicle_name,fmd_ch_vehicle_reg_num,fmd_ch_year_of_purchase,fmd_ch_vehicle_description,fmd_n_purchase_value,fmd_n_market_value,fmd_ch_del_flg)values($1,$2,$3,$4,$5,$6,$7,$8,$9)",[farmmachineryid,memid,VechicleName,VechilceRegisterNumber,YearofPurchase,VechicleDescription,PurchaseValue,PurchaseValue,'N'],function(err,formres){
 
     if (err)
     {
@@ -1413,7 +1413,7 @@ pgdbconnect.query("select * from member_details where md_ch_del_flg='N' order by
     var member_farm_id = searchres.rows[0].fmd_n_farm_mach_id;
     var memberid= searchres.rows[0].fmd_ch_member_id;
     var vehiclename = searchres.rows[0].fmd_ch_vehicle_name;
-    var vehicle_reg_num =  searchres.rows[0].fmd_n_vehicle_reg_num;
+    var vehicle_reg_num =  searchres.rows[0].fmd_ch_vehicle_reg_num;
     var year_of_purchase =  searchres.rows[0].fmd_ch_year_of_purchase;
 
     var vehicle_desc = searchres.rows[0].fmd_ch_vehicle_description;
@@ -1454,7 +1454,7 @@ router.post('/update_farm_mach_save',update_farm_mach_save)
 
 console.log("Data to update FARM MACHINERY",memberid,vehiclename,vehicle_reg_num,year_of_purchase,vehicle_desc,purchase_value,market_value,member_farm_id);
 
-  pgdbconnect.query("UPDATE farm_machinery_details SET fmd_ch_member_id=$1, fmd_ch_vehicle_name=$2, fmd_n_vehicle_reg_num=$3, fmd_ch_year_of_purchase=$4, fmd_ch_vehicle_description=$5, fmd_n_purchase_value=$6, fmd_n_market_value=$7,fmd_n_farm_mach_id=$8  WHERE fmd_n_farm_mach_id=$9 ",[memberid,vehiclename,vehicle_reg_num,year_of_purchase,vehicle_desc,purchase_value,market_value,member_farm_id,member_farm_id],function(err,farmmachupdate){
+  pgdbconnect.query("UPDATE farm_machinery_details SET fmd_ch_member_id=$1, fmd_ch_vehicle_name=$2, fmd_ch_vehicle_reg_num=$3, fmd_ch_year_of_purchase=$4, fmd_ch_vehicle_description=$5, fmd_n_purchase_value=$6, fmd_n_market_value=$7,fmd_n_farm_mach_id=$8  WHERE fmd_n_farm_mach_id=$9 ",[memberid,vehiclename,vehicle_reg_num,year_of_purchase,vehicle_desc,purchase_value,market_value,member_farm_id,member_farm_id],function(err,farmmachupdate){
 
     if (err) throw err;
     console.log("FARM MACHINERY UPDATED RESULT",farmmachupdate)
@@ -1493,7 +1493,7 @@ pgdbconnect.query("select * from member_details where md_ch_del_flg='N' order by
     var member_farm_id = searchres.rows[0].fmd_n_farm_mach_id;
     var memberid= searchres.rows[0].fmd_ch_member_id;
     var vehiclename = searchres.rows[0].fmd_ch_vehicle_name;
-    var vehicle_reg_num =  searchres.rows[0].fmd_n_vehicle_reg_num;
+    var vehicle_reg_num =  searchres.rows[0].fmd_ch_vehicle_reg_num;
     var year_of_purchase =  searchres.rows[0].fmd_ch_year_of_purchase;
     var vehicle_desc = searchres.rows[0].fmd_ch_vehicle_description;
     var purchase_value =  searchres.rows[0].fmd_n_purchase_value;
