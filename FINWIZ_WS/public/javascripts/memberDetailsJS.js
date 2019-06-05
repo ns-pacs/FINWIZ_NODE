@@ -697,7 +697,7 @@ function clearNomineeTab(){
     document.getElementById('mid_name').value="";
     document.getElementById('lst_name').value="";
     document.getElementById('fath_name').value="";
-    document.getElementById('rel').value="";
+    document.getElementById('relation').value="";
     document.getElementById('genmale_nominee').checked=false;
     document.getElementById('genfemale_nominee').checked=false;
     document.getElementById('occup').value="";
