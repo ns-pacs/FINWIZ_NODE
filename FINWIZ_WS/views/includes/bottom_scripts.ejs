@@ -6,7 +6,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.13/js/dataTables.bootstrap4.min.js"></script>
 
 
-<!-- TypeHead-->
+<!-- TypeHead--> 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 <!-- <script src="/js/typehead.js"></script> -->
@@ -161,7 +161,7 @@
             numberOfMonths: 1,
             changeYear:true,
             yearRange:"1947:today",
-            
+
         });
 
          var toDate = $("#shr_sch_to_date").datepicker({
@@ -169,14 +169,14 @@
             changeMonth: true,
             changeYear:true,
             yearRange:"1947:2019",
-           
+
             numberOfMonths: 1,
             onSelect: function (dateStr) {
                 member_share_date();
             }
 
         });
-       
+
     });
 
  function member_share_date(){
@@ -608,7 +608,7 @@
             t.datepicker("show");
         });
     });
-    // EDIT Account Date Pickers  
+    // EDIT Account Date Pickers
     $('[data-toggle=acc_openg_date_ed]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="acc_openg_date_ed"]');
@@ -841,7 +841,7 @@
         font-family: sans-serif;
         position: relative;
     }
-    
+
     .tt-menu {
         background-color: #FFFFFF;
         border: 1px solid rgba(0, 0, 0, 0.2);
@@ -860,7 +860,7 @@
         font-family: sans-serif;
         position: relative;
     }
-    
+
     .tt-menu {
         background-color: #FFFFFF;
         border: 1px solid rgba(0, 0, 0, 0.2);
@@ -870,19 +870,19 @@
         padding: 8px 0;
         width: 200px;
     }
-    
+
     .tt-suggestion {
         font-size: 15px;
         /* Set suggestion dropdown font size */
         padding: 3px 20px;
     }
-    
+
     .tt-suggestion:hover {
         cursor: pointer;
         background-color: #0097CF;
         color: #FFFFFF;
     }
-    
+
     .tt-suggestion p {
         margin: 0;
     }
