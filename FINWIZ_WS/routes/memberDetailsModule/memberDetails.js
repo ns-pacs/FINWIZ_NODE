@@ -12,7 +12,7 @@ router.post('/logintemp',function(req,res){
 /* Member Details -START*/
 router.post('/check_memberid_existence',function(req,res){
     var memid=req.body.memid;
-    console.log("member id existence check",)
+    console.log("member id existence check",memid)
         pgdbconnect.query("select * from member_details where md_ch_member_id=$1",[memid],function(err,result){ 
 if(err) throw err;
 console.log("result on memid existence",result)
