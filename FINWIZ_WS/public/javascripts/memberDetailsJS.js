@@ -697,7 +697,7 @@ function clearNomineeTab(){
     document.getElementById('mid_name').value="";
     document.getElementById('lst_name').value="";
     document.getElementById('fath_name').value="";
-    document.getElementById('relation').value="";
+    document.getElementById('rel').value="";
     document.getElementById('genmale_nominee').checked=false;
     document.getElementById('genfemale_nominee').checked=false;
     document.getElementById('occup').value="";
@@ -871,26 +871,35 @@ function edit_clearNomineeTab(){
 
 function memberDetails(){
 
-// Member Type Code
-
+var memid=document.getElementById('mem_id').value;
+console.log("memid to check",memid)
+$.ajax({ // to check whether the member id already exists or not
+   type:"post",
+   data:{memid:memid},
+       
+   url:"/memberDetailsModule/memberDetails/check_memberid_existence",
+success:function(response,data){  
+    console.log("response from ajax call",response)
+         
 var mem_typ = document.getElementById("mem_typ").value;
                                     if(mem_typ == ""){
                                                     document.getElementById("mem_typ").focus();
                                                     
-                                                    swal("Oops!","Please Enter Member Type","error");
+                                                    swal("Oops!","Please Enter Member Type in Member Details","error");
                                                     return false;
                                                 }
-
-
-// Member ID
-
 var mem_id = document.getElementById("mem_id").value;
                                     if(mem_id == ""){
                                         document.getElementById("mem_id").focus();
                                         
-                                        swal("Oops!","Please Enter Member ID","error");
+                                        swal("Oops!","Please Enter Member ID in Member Details","error");
                                         return false;
                                     }
+         if(response>0){
+              document.getElementById("mem_id").focus();
+               swal("Oops!","Member Id is already taken.Please use other Id","error");
+               return false;
+         }
 
 
 // Employee Code
@@ -899,7 +908,7 @@ var emp_code = document.getElementById("emp_code").value;
                                     if(emp_code == ""){
                                         document.getElementById("emp_code").focus();
                                         
-                                        swal("Oops!","Please Enter Employee Code","error");
+                                        swal("Oops!","Please Enter Employee Code in Member Details","error");
                                         return false;
                                     }
                                     
@@ -909,7 +918,7 @@ var emp_code = document.getElementById("emp_code").value;
                                     if(doj == ""){
                                         document.getElementById("doj").focus();
                                         
-                                        swal("Oops!","Please Enter Date Of joining","error");
+                                        swal("Oops!","Please Enter Date Of joining in Member Details","error");
                                         return false;
                                     }
    
@@ -920,7 +929,7 @@ var dob = document.getElementById("dob").value;
                                     if(dob == ""){
                                         document.getElementById("dob").focus();
                                         
-                                        swal("Oops!","Please Date Of Birth","error");
+                                        swal("Oops!","Please Date Of Birth in Member Details","error");
                                         return false;
                                     }
 
@@ -930,7 +939,7 @@ var adm_no = document.getElementById("adm_no").value;
                                     if(adm_no == ""){
                                         document.getElementById("adm_no").focus();
                                         
-                                        swal("Oops!","Please Enter Addmission Number","error");
+                                        swal("Oops!","Please Enter Addmission Number in Member Details","error");
                                         return false;
                                     }
                                 
@@ -941,7 +950,7 @@ var dept = document.getElementById("dept").value;
                                     if(dept == ""){
                                         document.getElementById("dept").focus();
                                         
-                                        swal("Oops!","Please Enter Department","error");
+                                        swal("Oops!","Please Enter Department in Member Details","error");
                                         return false;
                                     }
 
@@ -951,7 +960,7 @@ var ent_fee = document.getElementById("ent_fee").value;
                                     if(ent_fee == ""){
                                         document.getElementById("ent_fee").focus();
                                         
-                                        swal("Oops!","Please Enter Entrance Fee","error");
+                                        swal("Oops!","Please Enter Entrance Fee in Member Details","error");
                                         return false;
                                     }
 
@@ -961,7 +970,7 @@ var crncytyp = document.getElementById("crncytyp").value;
 if(crncytyp == ""){
     document.getElementById("crncytyp").focus();
     
-    swal("Oops!","Please Enter Currency Type","error");
+    swal("Oops!","Please Enter Currency Type in Member Details","error");
     return false;
 }
 
@@ -972,7 +981,7 @@ var shr_bal = document.getElementById("shr_bal").value;
                                     if(shr_bal == ""){
                                         document.getElementById("shr_bal").focus();
                                         
-                                        swal("Oops!","Please Enter Opening Share Baalance","error");
+                                        swal("Oops!","Please Enter Opening Share Baalance in Member Details","error");
                                         return false;
                                     }
 
@@ -984,7 +993,7 @@ var thrift_dept = document.getElementById("thrift_dept").value;
                                     if(thrift_dept == ""){
                                         document.getElementById("thrift_dept").focus();
                                         
-                                        swal("Oops!","Please Enter Deposit","error");
+                                        swal("Oops!","Please Enter Deposit in Member Details","error");
                                         return false;
                                     }
 
@@ -994,7 +1003,7 @@ var dras = document.getElementById("dras").value;
                                     if(dras == ""){
                                         document.getElementById("dras").focus();
                                         
-                                        swal("Oops!","Please Enter DRAS","error");
+                                        swal("Oops!","Please Enter DRAS in Member Details","error");
                                         return false;
                                     }
                                     
@@ -1006,7 +1015,7 @@ var bnk_acc_no = document.getElementById("bnk_acc_no").value;
                                     if(bnk_acc_no == ""){
                                         document.getElementById("bnk_acc_no").focus();
                                         
-                                        swal("Oops!","Please Enter Account Number","error");
+                                        swal("Oops!","Please Enter Account Number in Member Details","error");
                                         return false;
                                     }
                                    
@@ -1018,7 +1027,7 @@ var opn_bal = document.getElementById("opn_bal").value;
                                     if(opn_bal == ""){
                                         document.getElementById("opn_bal").focus();
                                         
-                                        swal("Oops!","Please Enter Opening Balance","error");
+                                        swal("Oops!","Please Enter Opening Balance in Member Details","error");
                                         return false;
                                     }
                                     
@@ -1030,14 +1039,17 @@ var cls_bal = document.getElementById("cls_bal").value;
                                     if(cls_bal == ""){
                                         document.getElementById("cls_bal").focus();
                                         
-                                        swal("Oops!","Please Enter Close Balance","error");
+                                        swal("Oops!","Please Enter Close Balance in Member Details","error");
                                         return false;
                                     }
-                                    
 
-                                            $('#tabs a[href=#personal_details]').tab('show').addClass("active");
+                                      $('#tabs a[href=#personal_details]').tab('show').addClass("active");
                                             $('#tabs a[href=#member_details]').removeClass("active");
-                                    }
+}
+})
+
+                                            
+   }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1063,7 +1075,7 @@ var title = document.getElementById("title").value;
                                     if(title == ""){
                                                     document.getElementById("title").focus();
                                                     
-                                                    swal("Oops!","Please Enter Title","error");
+                                                    swal("Oops!","Please Enter Title in personal details","error");
                                                     return false;
                                                 }
 
@@ -1075,7 +1087,7 @@ var title = document.getElementById("title").value;
                                         if(fname == ""){
                                             document.getElementById("fname").focus();
                                             
-                                            swal("Oops!","Please Enter First name","error");
+                                            swal("Oops!","Please Enter First name in personal details","error");
                                             return false;
                                         }
                                        
@@ -1092,7 +1104,7 @@ var title = document.getElementById("title").value;
                                                 {
                                                     document.getElementById("mname").focus();
                                                     
-                                                    swal("Oops!","Invalid, Please Enter valid Middle name","warning");
+                                                    swal("Oops!","Invalid, Please Enter valid Middle name in personal details","warning");
                                                     return false;
                                                 }
                                             }
@@ -1106,7 +1118,7 @@ var title = document.getElementById("title").value;
     if(lname == ""){
                     document.getElementById("lname").focus();
                     
-                    swal("Oops!","Please Enter Last name","error");
+                    swal("Oops!","Please Enter Last name in personal details","error");
                     return false;
                                         }
     
@@ -1119,7 +1131,7 @@ var title = document.getElementById("title").value;
     if(father_name == ""){
                     document.getElementById("father_name").focus();
                     
-                    swal("Oops!","Please Enter Father name","error");
+                    swal("Oops!","Please Enter Father name in personal details","error");
                     return false;
                     }
     
@@ -1130,7 +1142,7 @@ var mar_status = document.getElementById("mar_status").value;
 if(mar_status == ""){
                 document.getElementById("mar_status").focus();
                 
-                swal("Oops!","Please Enter Marital Status","error");
+                swal("Oops!","Please Enter Marital Status in personal details","error");
                 return false;
             }
 
@@ -1146,7 +1158,7 @@ if (male.checked){
 }
 else{
     document.getElementById("male").autofocus;
-    swal("Oops!","please select the Gender");
+    swal("Oops!","please select the Gender in personal details");
     return false;
 }
 
@@ -1158,7 +1170,7 @@ else{
     if(pob == ""){
                     document.getElementById("pob").focus();
                     
-                    swal("Oops!","Please Enter Place of Birth","error");
+                    swal("Oops!","Please Enter Place of Birth in personal details","error");
                     return false;
                      }
     
@@ -1167,7 +1179,7 @@ else{
                      if(occupation == ""){
                                      document.getElementById("occupation").focus();
                                      
-                                     swal("Oops!","Please Enter Occupation","error");
+                                     swal("Oops!","Please Enter Occupation in personal details","error");
                                      return false;
                                      }
     
@@ -1177,7 +1189,7 @@ else{
      if(cust_category == ""){
          document.getElementById("cust_category").focus();
          
-         swal("Oops!","Please Enter Customer category","error");
+         swal("Oops!","Please Enter Customer category in personal details","error");
          return false;
      }
      
@@ -1193,7 +1205,7 @@ else{
                                                 {
                                                     document.getElementById("mem_comm").focus();
                                                     
-                                                    swal("Oops!","Invalid, Please Enter valid Member Community","error");
+                                                    swal("Oops!","Invalid, Please Enter valid Member Community in personal details","error");
                                                     return false;
                                                 }
                                             }
@@ -1212,7 +1224,7 @@ else{
                                                 {
                                                     document.getElementById("guardian").focus();
                                                     
-                                                    swal("Oops!","Invalid, Please Enter valid Guardian name","error");
+                                                    swal("Oops!","Invalid, Please Enter valid Guardian name in personal details","error");
                                                     return false;
                                                 }
                                             }
@@ -1224,7 +1236,7 @@ else{
     if(ph_no == ""){
             document.getElementById("ph_no").focus();
             
-            swal("Oops!","Please Enter Phone Number","error");
+            swal("Oops!","Please Enter Phone Number in personal details","error");
                     return false;
              }
              else
@@ -1233,7 +1245,7 @@ else{
                      if(ph_no.length < 10){
                      document.getElementById("ph_no").focus();
                      
-                     swal("Invalid","Please Enter valid Phone Number","warning");
+                     swal("Invalid","Please Enter valid Phone Number in personal details","warning");
                         return false;
                         }
                 }
@@ -1250,7 +1262,7 @@ else{
             
                             document.getElementById("email_id").focus();
                             
-                            swal("Oops!","Please Enter a Valid E-mail ID","warning");
+                            swal("Oops!","Please Enter a Valid E-mail ID in personal details","warning");
                             return false;
                      }
                     }
@@ -1260,7 +1272,7 @@ else{
             if(adhar_no == ""){
                             document.getElementById("adhar_no").focus();
                             
-                            swal("Oops!","Please Enter AADHAR Number","error");
+                            swal("Oops!","Please Enter AADHAR Number in personal details","error");
                             return false;
                      }
     
@@ -1270,7 +1282,7 @@ else{
                     {
                             document.getElementById("adhar_no").focus();
                             
-                            swal("Invalid","Please Enter Valid AADHAR Number","warning");
+                            swal("Invalid","Please Enter Valid AADHAR Number in personal details","warning");
                             return false;
                      }
                             
@@ -1284,7 +1296,7 @@ else{
             if(voter_id == ""){
                     document.getElementById("voter_id").focus();
                     
-                    swal("Oops!","Please Enter Voter ID","error");
+                    swal("Oops!","Please Enter Voter ID in personal details","error");
                     return false;
                      }
                     
@@ -1294,7 +1306,7 @@ else{
             {
                     document.getElementById("voter_id").focus();
                     
-                    swal("Invalid","Please Enter Valid Voter ID","warning");
+                    swal("Invalid","Please Enter Valid Voter ID in personal details","warning");
                     return false;
                      }
              
@@ -1303,7 +1315,7 @@ else{
             {
                     document.getElementById("voter_id").focus();
                     
-                    swal("Invalid","Please Enter Valid Voter ID","warning");
+                    swal("Invalid","Please Enter Valid Voter ID in personal details","warning");
                     return false;
                      }
     
@@ -1317,7 +1329,7 @@ else{
                                         {
                                                         document.getElementById("pan_id").focus();
                                                         
-                                                        swal("Oops!","Please Enter PAN Number","error");
+                                                        swal("Oops!","Please Enter PAN Number in personal details","error");
                                                         return false;
                      }
                                         else
@@ -1327,7 +1339,7 @@ else{
                                                 {
                                                         document.getElementById("pan_id").focus();
                                                         
-                                                         swal("Invalid","Please Enter Valid PAN Number","warning");
+                                                         swal("Invalid","Please Enter Valid PAN Number in personal details","warning");
                                                         return false;
                                                 }
             
@@ -1336,7 +1348,7 @@ else{
                                                 {
                                                         document.getElementById("pan_id").focus();
                                                         
-                                                        swal("Invalid!","Please Enter PAN Number","warning");
+                                                        swal("Invalid!","Please Enter PAN Number in personal details","warning");
                                                         return false;
                                                 }
     
@@ -1354,7 +1366,7 @@ else{
                                                 {
                                                     document.getElementById("land_owner").focus();
                                                     
-                                                    swal("Invalid","Please Enter valid Land owner name","warning");
+                                                    swal("Invalid","Please Enter valid Land owner name in personal details","warning");
                                                     return false;
                                                 }
      }
@@ -1366,7 +1378,7 @@ else{
     {
          document.getElementById("uploadDoc_signature").focus();
                                                         
-                                                        swal("Oops!","Please Upload Signature Document","error");
+                                                        swal("Oops!","Please Upload Signature Document in personal details","error");
                                                         return false;
     }
        var photoupload = document.getElementById("uploadDoc_photograph").value;
@@ -1374,7 +1386,7 @@ else{
     {
          document.getElementById("uploadDoc_photograph").focus();
                                                         
-                                                        swal("Oops!","Please Upload Photograph","error");
+                                                        swal("Oops!","Please Upload Photograph in personal details","error");
                                                         return false;
     }
 
@@ -1399,7 +1411,7 @@ function presentAddDetails(){
                                         if(add_type == ""){
                                                         document.getElementById("add_type").focus();
                                                         
-                                                        swal("Oops!","Please Enter Address Type","error");
+                                                        swal("Oops!","Please Enter Address Type in present address","error");
                                                         return false;
                                                             }
 
@@ -1410,7 +1422,7 @@ function presentAddDetails(){
                                         if(add_line == ""){
                                                         document.getElementById("add_line").focus();
                                                         
-                                                        swal("Oops!","Please Enter Address Line","error");
+                                                        swal("Oops!","Please Enter Address Line in present address","error");
                                                         return false;
                                                             }
     
@@ -1421,7 +1433,7 @@ function presentAddDetails(){
                                         if(village == ""){
                                                         document.getElementById("village").focus();
                                                         
-                                                        swal("Oops!","Please Enter Village","error");
+                                                        swal("Oops!","Please Enter Village in present address","error");
                                                         return false;
                                                             } 
     
@@ -1431,7 +1443,7 @@ function presentAddDetails(){
                                         if(panchayat == ""){
                                                         document.getElementById("panchayat").focus();
                                                         
-                                                        swal("Oops!","Please Enter Panchayat","error");
+                                                        swal("Oops!","Please Enter Panchayat in present address","error");
                                                         return false;
                                                             }
     
@@ -1441,7 +1453,7 @@ function presentAddDetails(){
                                         if(city == ""){
                                                         document.getElementById("city").focus();
                                                         
-                                                        swal("Oops!","Please Enter City","error");
+                                                        swal("Oops!","Please Enter City in present address","error");
                                                         return false;
                                                             }
     
@@ -1451,7 +1463,7 @@ function presentAddDetails(){
                                         if(state1 == ""){
                                                         document.getElementById("state").focus();
                                                         
-                                                        swal("Oops!","Please Enter State","error");
+                                                        swal("Oops!","Please Enter State in present address","error");
                                                         return false;
                                                             }       
     
@@ -1471,7 +1483,7 @@ function presentAddDetails(){
                                         if(pin_code == ""){
                                                           document.getElementById("pincode").focus();
                                                           
-                                                          swal("Oops!","Please Enter pincode","error");
+                                                          swal("Oops!","Please Enter pincode in present address","error");
                                                           return false;
                                                         }
                                         else
@@ -1480,7 +1492,7 @@ function presentAddDetails(){
                                                         if(pin_code.length < 6){
                                                         document.getElementById("pincode").focus();
                                                         
-                                                        swal("Invalid","Please Enter valid Pin Code","warning");
+                                                        swal("Invalid","Please Enter valid Pin Code in present address","warning");
                                                         return false;
                                                             }
                                                  }
@@ -1490,7 +1502,7 @@ function presentAddDetails(){
                                        if(mont == ""){
                                                      document.getElementById("rsm").focus();
                                                      
-                                                     swal("Oops!","Please Enter month","error");
+                                                     swal("Oops!","Please Enter month in present address","error");
                                                      return false;
                                                    }
 
@@ -1499,7 +1511,7 @@ var yea = document.getElementById("rsy").value;
                                         if(yea == ""){
                                                      document.getElementById("rsy").focus();
                                                     
-                                                    swal("Oops!","Please Enter year","error");
+                                                    swal("Oops!","Please Enter year in present address","error");
                                                     return false;
                                                 }
                                   
@@ -1533,7 +1545,7 @@ function permanentAddDetails(){
                                         if(address_line == ""){
                                                         document.getElementById("address_line").focus();
                                                         
-                                                        swal("Oops!","Please Enter Address Line","error");
+                                                        swal("Oops!","Please Enter Address Line in permanent address","error");
                                                         return false;
                                                             }
     
@@ -1544,7 +1556,7 @@ function permanentAddDetails(){
                                         if(vilg == ""){
                                                         document.getElementById("vilg").focus();
                                                         
-                                                        swal("Oops!","Please Enter Village","error");
+                                                        swal("Oops!","Please Enter Village in permanent address","error");
                                                         return false;
                                                             } 
     
@@ -1554,7 +1566,7 @@ function permanentAddDetails(){
                                         if(panc == ""){
                                                         document.getElementById("panc").focus();
                                                         
-                                                        swal("Oops!","Please Enter Panchayat","error");
+                                                        swal("Oops!","Please Enter Panchayat in permanent address","error");
                                                         return false;
                                                             }
     
@@ -1564,7 +1576,7 @@ function permanentAddDetails(){
                                         if(citie == ""){
                                                         document.getElementById("citie").focus();
                                                         
-                                                        swal("Oops!","Please Enter City","error");
+                                                        swal("Oops!","Please Enter City in permanent address","error");
                                                         return false;
                                                             }
     
@@ -1574,7 +1586,7 @@ function permanentAddDetails(){
                                         if(stat == ""){
                                                         document.getElementById("stat").focus();
                                                         
-                                                        swal("Oops!","Please Enter State","error");
+                                                        swal("Oops!","Please Enter State in permanent address","error");
                                                         return false;
                                                             }
     
@@ -1592,7 +1604,7 @@ function permanentAddDetails(){
                                             if(pincode == ""){
                                                             document.getElementById("picd").focus();
                                                             
-                                                            swal("Oops!","Please Enter pincode","error");
+                                                            swal("Oops!","Please Enter pincode in permanent address","error");
                                                             return false;
                                                             }
                                             else
@@ -1601,7 +1613,7 @@ function permanentAddDetails(){
                                                             if(pincode.length < 6){
                                                             document.getElementById("picd").focus();
                                                             
-                                                            swal("Invalid","Please Enter valid Pin Code","warning");
+                                                            swal("Invalid","Please Enter valid Pin Code in permanent address","warning");
                                                              return false;
                                                                 }
                                                                }
@@ -1611,7 +1623,7 @@ function permanentAddDetails(){
                            if(mnth == ""){
                                document.getElementById("mnth").focus();
                                                 
-                                      swal("Oops!","Please Enter month","error");
+                                      swal("Oops!","Please Enter month in permanent address","error");
                                  return false;
                            }
 
@@ -1620,7 +1632,7 @@ function permanentAddDetails(){
                            if(year == ""){
                                document.getElementById("year").focus();
                                                 
-                                      swal("Oops!","Please Enter year","error");
+                                      swal("Oops!","Please Enter year in permanent address","error");
                                  return false;
 
 
@@ -1648,7 +1660,7 @@ function loanDetails(){
 
                   document.getElementById("loan_amt").focus();
                                                              
-                   swal("Oops!","Please Enter Loan Amount","error");
+                   swal("Oops!","Please Enter Loan Amount in Loan Details","error");
                   return false;
               }
             
@@ -1656,7 +1668,7 @@ function loanDetails(){
         else{
             document.getElementById("e_monthyes").focus();
                                                              
-                   swal("Oops!","Please select loan options","error");
+                   swal("Oops!","Please select loan options in Loan Details","error");
                   return false;
         }
         
@@ -1672,8 +1684,10 @@ function loanDetails(){
 
 
  function nomineedetails(){
-
-
+memberDetails();
+presentAddDetails();
+permanentAddDetails();
+loanDetails();
     // Title
 
 var nominee_type = document.getElementById("nominee_type").value;
@@ -4047,10 +4061,3 @@ function resetform_housedetails(){
 
 
 /* MEMBER HOUSE DETAILS- END*/
-
-
-
-// function uploadsub(){
-//     alert("fjs")
-//     document.getElementById('memberform').submit();
-// }

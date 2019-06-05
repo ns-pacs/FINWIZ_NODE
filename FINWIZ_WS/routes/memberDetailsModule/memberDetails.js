@@ -9,8 +9,16 @@ router.post('/logintemp',function(req,res){
    res.render('memberModule/memberAddDetails');
 });
 
-
-
+/* Member Details -START*/
+router.post('/check_memberid_existence',function(req,res){
+    var memid=req.body.memid;
+    console.log("member id existence check",)
+        pgdbconnect.query("select * from member_details where md_ch_member_id=$1",[memid],function(err,result){ 
+if(err) throw err;
+console.log("result on memid existence",result)
+res.json(result.rowCount)
+});
+});
 
 router.post('/mem_details_add',function(req,res){
     console.log("Hii hellooooooooooooo");
