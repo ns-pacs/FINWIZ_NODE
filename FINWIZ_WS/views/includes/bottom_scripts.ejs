@@ -995,7 +995,7 @@ minDate:'now',
 
 </script>
 
-<!-- date validation function in holiday list-->
+<!-- date validation function in holiday list add and edit screen-->
 
 <script>
     //holiday date validation function//
@@ -1047,7 +1047,31 @@ minDate:'now',
     }
 
 
-   
+/*date validation in holiday list search*/
+function holiday_date_search() {
+        var d1 = $('#holi_from_date').datepicker('getDate');
+        // alert(d1)
+        var d2 = $('#holi_to_date').datepicker('getDate');
+        //alert(d2)
+        if (d2 <= d1) {
+            //alert("entering")
+            swal("Oops!", "Holiday ToDate must be greater than Holiday FromDate. Please Select Valid Holiday ToDate", "error");
+            document.getElementById('holi_to_date').value = null;
+        }
+    }
+//compensation date validation function//
+ function compensation_date_search() {
+        var d1 = $('#comp_from_date').datepicker('getDate');
+        // alert(d1)
+        var d2 = $('#comp_to_date').datepicker('getDate');
+        //alert(d2)
+        if (d2 <= d1) {
+            //alert("entering")
+            swal("Oops!", "Compensation ToDate must be greater than Compensation FromDate. Please Select Valid Compensation ToDate", "error");
+            document.getElementById('comp_to_date').value = null;
+        }
+    }
+    
 
 </script>
 
