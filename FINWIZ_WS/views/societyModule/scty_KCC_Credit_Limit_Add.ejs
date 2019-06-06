@@ -392,8 +392,8 @@ Holiday List
                                                          <div class="col-sm-12 col-md-6">
                                                             <label for="sacn_crd_lmt" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Sanctioned credit Limit
                                                                </label>
-                                                               <input type="number" class="col-sm-12 col-md-6" name="sacn_crd_lmt"
-                                                                            id="sacn_crd_lmt" value="" placeholder="">
+                                                               <input type="text" class="col-sm-12 col-md-6" name="sacn_crd_lmt"
+                                                                            id="sacn_crd_lmt" onkeypress="return numeric(event)" placeholder="">
 
                                                         </div>
                                                     </div>
@@ -590,8 +590,8 @@ Holiday List
                                                         <div class="col-sm-12 col-md-12">
                                                             <label for="sacn_crd_lmt" class="mr-sm-4 col-sm-12 col-md-2" style="padding-left:0% !important;">Sanctioned credit Limit
                                                                </label>
-                                                               <input type="number" class="col-sm-12 col-md-6" name="sacn_crd_lmt" value="<%= sanction_amt %>"
-                                                                            id="sacn_crd_lmt" value="" placeholder="">
+                                                               <input type="text" class="col-sm-12 col-md-6" name="sacn_crd_lmt" value="<%= sanction_amt %>"
+                                                                            id="sacn_crd_lmt" onkeypress="return numeric(event)" placeholder="">
 
                                                         </div>
                                                     </div>
