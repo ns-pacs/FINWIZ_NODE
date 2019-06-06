@@ -678,6 +678,24 @@
         });
     });
 </script>
+
+<script>
+    // date picker for Kcc_Credit_Limit add record
+       $('[data-toggle=kcc_crd_dt]').each(function () {
+           var target = $(this).data('target-name');
+           var t = $('input[name="kcc_crd_dt"]');
+           t.datepicker({
+               dateFormat: 'dd-mm-yy',
+               changeMonth: true,
+               changeYear: true,
+               YearRange: '1947:2019',
+               minDate: 'now',
+           });
+           $(this).on("click", function () {
+               t.datepicker("show");
+           });
+       });
+       </script>
 <!-- DatePicker End -->
 <script>
     $(function () {
