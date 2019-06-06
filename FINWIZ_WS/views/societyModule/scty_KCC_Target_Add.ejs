@@ -3,7 +3,8 @@
     <head>
         <% include ../includes/styles %>
         <% include ../includes/scripts %>
-        <script type="text/javascript" src=""></script>
+        <script type="text/javascript" src="/javascripts/societyDetailsJS.js"></script>
+       
     </head>
 
     <body>
@@ -248,7 +249,7 @@ Holiday List
                             <% } %>
                                         <h6>Add Records</h6>
                                         <hr>
-                                        <form autocomplete="off" action="" method="post" id="crdlmt" autocomplete="off">
+                                        <form autocomplete="off" action="/societyModule/societyDetails/kcc_target_insert " method="post" id="crdlmt" autocomplete="off">
                                               <div class="content">
                                                     <div class="container row mb-4">
                                         <div class="col-sm-12 col-md-6">
@@ -381,14 +382,14 @@ Holiday List
                                                                 <label for="trgt_qty" class="mr-sm-4 col-sm-12 col-md-5"
                                                                     style="padding-left:0% !important;">Target Quantity
                                                                 <span class="astrix">*</span></label>
-                                                                <input type="number" class="col-sm-12 col-md-6"
-                                                                    name="trgt_qty" id="trgt_qty" placeholder="">
+                                                                <input type="text" class="col-sm-12 col-md-6"
+                                                                    name="trgt_qty" id="trgt_qty"  maxlength="6" onkeypress="return numeric(event)" placeholder="">
                                                             </div>
                                                     </div>
 
                                                     <div class="container row mt-4">
                                                         <div class="col-sm-12 col-md-2">
-                                                           <a type="text" class="btn" href=""
+                                                           <a type="text" class="btn" href="/societyModule/societyDetails/scty_kcc_trgt_search"
                                                                 name="tgt_qty_srch" id="tgt_qty_srch" value="Back to Search">Back to
                                                                 Search</a>
 
@@ -400,7 +401,7 @@ Holiday List
                                                         </div>
                                                         <div class="col-sm-12 col-md-5"></div>
                                                         <div class="col-sm-12 col-md-2">
-                                                            <input type="button" class="btn" name="sub_ad" id="sub_ad" value="Submit" onclick="">
+                                                            <input type="button" class="btn" name="sub_ad" id="sub_ad" value="Submit" onclick="kcc_target()">
                                                         </div>
                                                     </div>
 
@@ -411,7 +412,7 @@ Holiday List
                                     </div>
                                 </div>
                             </div>
-                        </div
+                        </div>
                         <%}%>
 
                         <!-- EDIT -START-->
@@ -427,23 +428,25 @@ Holiday List
                                                 
                                                     <h6>Edit Records</h6>
                                                     <hr>
-                                                    <form action="" method="post" id="u">
+                                                    <form action="/societyModule/societyDetails/kcctarget_update_record" method="post" id="kcc_target_editform">
                                                     <div class="content">
                                                                 <div class="container row mb-4">
                                                                     <div class="col-sm-12 col-md-6">
-                                                                          <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Financial Year</label>
-                          <input type="text" class="col-sm-12 col-md-6" name="opn_shr_bal" id="opn_shr_bal" onkeypress=""  maxlength="9"
-                           placeholder="yyyy-yyyy">
+                                                                          <!-- <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Financial Year</label>
+                          <input type="text" class="col-sm-12 col-md-6" name="fin_year_ed" id="fin_year_ed" onkeypress=""  maxlength="9"
+                           placeholder="yyyy-yyyy" value="<%=financial_year%>"> -->
                            
-
+                           <label for="fin_year" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Financial Year</label>
+                           <input type="text" class="col-sm-12 col-md-6" name="fin_year_ed" id="fin_year_ed" onkeypress="return years(event)"  maxlength="9"
+                            placeholder="yyyy-yyyy" value="<%=financial_year%>">
                         </div>
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="cust_category" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Member Category
                                                             </label>
                                                    
-                                                                    <select class="col-sm-12 col-md-6" id="cust_category"
-                                                                    name="cust_category">
-                                                                    <option disabled="" selected="" value="">Select
+                                                                    <select class="col-sm-12 col-md-6" id="cust_category_ed"
+                                                                    name="cust_category_ed">
+                                                                    <option value="<%=member_cat%>"><%=member_cat%>
                                                                     </option>
                                                                     <option value="PROPRIETORY CONCERNS ">PROPRIETORY
                                                                         CONCERNS </option>
@@ -558,28 +561,34 @@ Holiday List
                                                         <div class="col-sm-12 col-md-12">
                                                             <label for="trgt_qty" class="mr-sm-4 col-sm-12 col-md-2" style="padding-left:0% !important;">Target Quantity
                                                                </label>
-                                                               <input type="number" class="col-sm-12 col-md-6" name="trgt_qty"
-                                                                            id="trgt_qty" value="" placeholder="">
+                                                               <input type="text" class="col-sm-12 col-md-6" name="trgt_qty_ed"
+                                                                            id="trgt_qty_ed"  maxlength="6" onkeypress="return numeric(event)" value="<%=target_qty%>" placeholder="" >
 
                                                         </div>
                                                     </div>
                                                                 
                                                                 <div class="container row mt-4">
                                                                     <div class="col-sm-12 col-md-2">
-                                                                            <a type="text" class="btn" href=""
+
+
+                                                                            <input hidden type="number" class="col-sm-12 col-md-6" name="kcc_target_id_ed" id="kcc_target_id_ed"
+                                                                            placeholder="" value="<%=kcc_target_id%>">
+
+                                                                            <a type="text" class="btn" href="/societyModule/societyDetails/scty_kcc_trgt_search"
                                                                             name="kcc_trgt_srch" id="kcc_trgt_srch" value="Back to Search">Back to
                                                                             Search</a>
 
                                                                     </div>
                                                                     <div class="col-sm-12 col-md-3">
-                                                                        <input type="button" class="btn clr clr1" name="clear_frm_ed" id="clear_frm_ed"
-                                                                            value="Clear Form" onclick="">
+
+                                                                          
+                                                                         <input type="button" class="btn clr clr1" name="clear_frm_ed" id="clear_frm_ed"
+                                                                            value="Clear Form" onclick="kcc_taget_edit_clear()">
 
                                                                     </div>
                                                                     <div class="col-sm-12 col-md-5"></div>
                                                                     <div class="col-sm-12 col-md-2">
-                                                                            <input hidden type="text" class="btn" name="" id="" value="">
-                                                                        <input type="submit" class="btn" name="" id="" value="Submit">
+                                                                        <input type="button" class="btn" name="sub" id="sub" value="Submit" onclick="kcc_target_submit_form()">
                                                                     </div>
                                                                 </div>
 
@@ -623,7 +632,7 @@ Holiday List
                                             <div class="col-sm-12 col-md-6">
                                                     <label for="fin_year" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Financial Year</label>
                           <input type="text" class="col-sm-12 col-md-6" name="fin_year" id="fin_year" onkeypress=""  maxlength="9"
-                           placeholder="yyyy-yyyy">
+                           placeholder="yyyy-yyyy" value="<%=financial_year%>">
                            
 
                         </div>
@@ -632,8 +641,8 @@ Holiday List
                                                             </label>
                                                         
                                                                     <select class="col-sm-12 col-md-6" id="cust_category"
-                                                                    name="cust_category">
-                                                                    <option disabled="" selected="" value="">Select
+                                                                    name="cust_category" > 
+                                                                     <option disabled="" selected="" value="<%=member_cat%>" readonly><%=member_cat%> 
                                                                     </option>
                                                                     <option value="PROPRIETORY CONCERNS ">PROPRIETORY
                                                                         CONCERNS </option>
@@ -737,7 +746,7 @@ Holiday List
                                                                     <option
                                                                         value="PSUS/COS/TRADING CORPNS/ROAD TRANSPORT/EBS/HOUSING ">
                                                                         PSUS/COS/TRADING CORPNS/ROAD
-                                                                        TRANSPORT/EBS/HOUSING </option>
+                                                                        TRANSPORT/EBS/HOUSING </option> 
                                                                 </select>
 
                                                         </div>
@@ -749,14 +758,14 @@ Holiday List
                                                             <label for="trgt_qty" class="mr-sm-4 col-sm-12 col-md-2" style="padding-left:0% !important;">Target Quantity
                                                                </label>
                                                                <input type="number" class="col-sm-12 col-md-6" name="trgt_qty"
-                                                                            id="trgt_qty" value="" placeholder="">
+                                                                            id="trgt_qty" placeholder="" value="<%=target_qty%>" readonly>
 
                                                         </div>
                                                     </div>
                                     </fieldset>
                                         <div class="container row mt-4">
                                             <div class="col-sm-12 col-md-2">
-                                                    <a type="text" class="btn" href=""
+                                                    <a type="text" class="btn" href="/societyModule/societyDetails/scty_kcc_trgt_search"
                                                     name="kcc_trgt_srch" id="kcc_trgt_srch" value="Back to Search">Back to
                                                     Search</a>
 

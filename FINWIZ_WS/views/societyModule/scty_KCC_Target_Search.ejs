@@ -3,14 +3,19 @@
 <head>
     <% include ../includes/styles %>
         <% include ../includes/scripts %>
-<script type="text/javascript" src=""></script>
+        <!-- <script type="text/javascript" src="/javascripts/accountsDetailsJS.js"></script> -->
+<script type="text/javascript" src="/javascripts/societyDetailsJS.js"></script>
 
 </head>
 
 <body>
 
-    <form action="" method="post" id="" hidden>
-        <input id="" name="" hidden>
+    <form action="/societyModule/societyDetails/kcc_target_edit" method="post" id="kcc_target_edit" hidden>
+        <input id="kcctargettempid1" name="kcctargettempid1" hidden>
+    </form>
+
+    <form action="/societyModule/societyDetails/kcc_target_view" method="post" id="kcc_target_view" hidden>
+        <input id="kcctargettempid2" name="kcctargettempid2" hidden>
     </form>
 
 
@@ -286,14 +291,17 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
                                             <strong style="color:green"><%= message.success_msg %></strong>
                                         </div>
                                         <% } %>
-                                            <form autocomplete="off" action="" method="post">
+                                            <form autocomplete="off" action="/societyModule/societyDetails/kcc_target_searcher" method="post">
 
 
                                                        <div class="container row mb-4">
-                                                                         <div class="col-sm-12 col-md-6">
-                                                                          <label for="fin_year" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Financial Year</label>
-                          <input type="number" class="col-sm-12 col-md-6" name="fin_year" id="fin_year" onkeypress=""  maxlength="9"
-                           placeholder="yyyy-yyyy">
+                                                                         <div class="col-sm-12 col-md-6">             
+                                                                         
+
+
+                           <label for="fin_year" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Financial Year</label>
+                           <input type="text" class="col-sm-12 col-md-6" name="fin_year" id="fin_year" onkeypress="return years(event)"  maxlength="9"
+                            placeholder="yyyy-yyyy">
                            
 
                         </div>
@@ -413,7 +421,7 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
                                                     </div>
 
                                                 <input type="submit" class="btn sr" id="ins_reset" value="Search">
-                                                <input type="button" class="btn sr" value="Reset" onclick="">
+                                                <input type="button" class="btn sr" value="Reset" onclick="kcc_target_search()">
 
 
                                                 <div class="row">
@@ -446,64 +454,82 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
                                                                 </thead>
                                                                 <tbody>
                                                         
-
+                                                                    <% for(var i=0;i<kcctarget.length;i++) { %>
 
                                                                         <tr id="" role="row" class="odd">
 
-                                                                            <input type="radio" hidden name="" id="" value=""
+                                                                           
+
+                                                                                <input type="radio" hidden name="radiobutton1kcc_target"
+                                                                                id="radiobutton1kcc_target<%=kcctarget[i].skcc_n_target_id%>"
+                                                                                value="<%=kcctarget[i].skcc_n_target_id%>"
                                                                                 class="edit" />
 
 
-                                                                            <input type="radio" hidden name="" id="" value=""
+                                                                            <!-- <input type="radio" hidden name="" id="" value=""
+                                                                                class="view" /> -->
+
+                                                                                <input type="radio" hidden name="radiobutton2kcc_target"
+                                                                                id="radiobutton2kcc_target<%=kcctarget[i].skcc_n_target_id%>"
+                                                                                value="<%=kcctarget[i].skcc_n_target_id%>"
                                                                                 class="view" />
 
-                                                                            <input type="radio" hidden name="" id="" value=""
+
+
+                                                                           
+
+
+                                                                                <input type="radio" hidden name="radiobutton3kcc_target"
+                                                                                id="radiobutton3kcc_target<%=kcctarget[i].skcc_n_target_id%>"
+                                                                                value="<%=kcctarget[i].skcc_n_target_id%>"
                                                                                 class="delete" />
 
 
 
-
-
-
-                                                                            <input type="text" name="" id="" value=""
+                                                                                <input type="text"
+                                                                                name="kcc_target_id<%= kcctarget[i].skcc_n_target_id %>"
+                                                                                id="kcc_target_id<%= kcctarget[i].skcc_n_target_id %>"
+                                                                                value="<%=kcctarget[i].skcc_n_target_id %>"
                                                                                 hidden>
 
 
-                                                                            <input type="text" name="" id=""
-                                                                                value="" hidden>
+                                                                                <input type="text"
+                                                                                name="kcc_target_id1<%= kcctarget[i].skcc_n_target_id %>"
+                                                                                id="kcc_target_id1<%= kcctarget[i].skcc_n_target_id %>"
+                                                                                value="<%=kcctarget[i].skcc_n_target_id %>"
+                                                                                hidden>
 
 
 
-                                                                            <input type="text" name="" id=""
-                                                                                value="" hidden>
+                                                                                <input type="text"
+                                                                                name="kcc_target_id2<%= kcctarget[i].skcc_n_target_id %>"
+                                                                                id="kcc_target_id2<%= kcctarget[i].skcc_n_target_id %>"
+                                                                                value="<%=kcctarget[i].skcc_n_target_id %>"
+                                                                                hidden>
 
 
 
-                                                                            <td align="left" class="sorting_1">
+                                                                            <td align="left" class="sorting_1"><%= kcctarget[i].skcc_ch_financial_year %>
                                                                 
                                                                             </td>
-                                                                            <td align="right" class="sorting_1">
+                                                                            <td align="left" class="sorting_1"><%= kcctarget[i].skcc_ch_mem_category %>
                                                                              
                                                                             </td>
 
                                                                             <td>
-                                                                                <input type="text" name="" id="" value=""
-                                                                                    hidden><i style="font-size:16px" class="fa" data-toggle="tooltip"
-                                                                                    title="Edit" id=""
-                                                                                    onclick="">&#xf044;</i>
-                                                                                <input type="text" name="" id="" value=""
-                                                                                    hidden> <i style="font-size:16px" class="fa" data-toggle="tooltip"
-                                                                                    title="View" id=""
-                                                                                    onclick="">&#xf06e;</i>
-                                                                                <input type="text" name="" id="" value=""
-                                                                                    hidden>
-                                                                                <i class="fa" data-target="" data-toggle="modal" title="Delete" <i style="font-size:16px" class="fa"
-                                                                                    data-toggle="tooltip" title="Delete" id=""
-                                                                                    onclick="">&#xf2ed;</i>
+                                                                               
+
+                                                                                    <input type="text" name="rfed<%=kcctarget[i].skcc_n_target_id%>" id="rfed<%=kcctarget[i].skcc_n_target_id%>" value="<%=kcctarget[i].skcc_n_target_id%>" hidden > <i style="font-size:16px" class="fa" data-toggle="tooltip" title="Edit" id="ed<%=kcctarget[i].skcc_n_target_id%>"onclick="edit_kcc_target(this)">&#xf044;</i>
+                                                                                    <input type="text" name="vfvw<%=kcctarget[i].skcc_n_target_id%>" id="vfvw<%=kcctarget[i].skcc_n_target_id%>" value="<%=kcctarget[i].skcc_n_target_id%>" hidden > <i style="font-size:16px" class="fa" data-toggle="tooltip" title="Edit" id="vw<%=kcctarget[i].skcc_n_target_id%>"onclick="view_kcc_target(this)">&#xf06e;</i>
+                                                                                    <input type="text" name="rfdl<%=kcctarget[i].skcc_n_target_id%>" id="rfdl<%=kcctarget[i].skcc_n_target_id%>" value="<%=kcctarget[i].skcc_n_target_id%>" hidden > 
+                                                                                    <i class="fa" data-target="#remove_kcc_target_modal"  data-toggle="modal" title="Delete" <i style="font-size:16px" class="fa" data-toggle="tooltip" title="Delete" id="dl<%=kcctarget[i].skcc_n_target_id%>"onclick="delete_kcc_target(this)">&#xf2ed;</i>
+
+                                                                          
 
                                                                             </td>
 
                                                                         </tr>
+                                                                        <% }%>
                                                                       
                                                                 </tbody>
                                                             </table>
@@ -528,35 +554,36 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
     </div>
 
 
-    <form action="" method="post" id="" autocomplete="off">
-        <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+    <form action="/societyModule/societyDetails/kcc_target_delete" method="post" id="delete_kcc_target_form">
+        <div class="modal fade" id="remove_kcc_target_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-notify modal-warning" style="width: 30%; margin-top: 10%;" role="document">
                 <div class="modal-content">
-
-                    <div class="row">
-                        <div class="col-8"></div>
-                        <div class="col-4">
-                            <button type="button" class="close mr-1" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true" class="white-text">&times;</span>
-                  </button></div>
-                    </div>
-
-
+                    
+                        <div class="row">
+                <div class="col-8"></div>
+                <div class="col-4">
+                  <button type="button" class="close mr-1" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button></div>
+              </div>
+                        
+                    
                     <div class="modal-body">
-                        <p align="center" class="content1 setcontent" id=""> </p> <br>
-                        <p align="center">Are you sure want to delete this record!?<br> Please note that this action is irreversible.</p>
-                        <input id="" name="" hidden> </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn col-4 mr-1" onclick="">Confirm</button>
-                        <button type="submit" class="btn col-4 ml-1" data-dismiss="modal">Cancel</button>
-                    </div>
+                            <p align="center" class="content1 setcontent" id=""> </p> <br>
+                            <p align="center">Are you sure want to delete this record!?<br> 
+                  Please note that this action is irreversible.</p> 
+                  <input id="tempkccid3" name="tempkccid3" hidden>  </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn col-4 mr-1" onclick="delete_acclmt_detail_onconfirm()">Confirm</button>
+                    <button type="submit" class="btn col-4 ml-1" data-dismiss="modal">Cancel</button>
                 </div>
-
             </div>
+      
         </div>
-    </form>
-
-
+      </div>
+      </form>
+      
 
 
 
