@@ -36,7 +36,7 @@
                 <ul class="nav">
                     <!-- dashboard link moved to navbar by ranjeet -->
 
-                    <li id="sub_menu" class="active">
+                    <li id="sub_menu" >
 
                         <a href="#">
                             <i class="material-icons" style="font-size: 25px;">group</i>
@@ -546,7 +546,7 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
 
                                                                             <td>
                                                                                     <input type="text" name="rfed<%=kcclmt[i].scl_n_credit_limit_id%>" id="rfed<%=kcclmt[i].scl_n_credit_limit_id%>" value="<%=kcclmt[i].scl_n_credit_limit_id%>" hidden > <i style="font-size:16px" class="fa" data-toggle="tooltip" title="Edit" id="ed<%=kcclmt[i].scl_n_credit_limit_id%>"onclick="edit_kcc_credit_lmt(this)">&#xf044;</i>
-                                                                                    <input type="text" name="vfvw<%=kcclmt[i].scl_n_credit_limit_id%>" id="vfvw<%=kcclmt[i].scl_n_credit_limit_id%>" value="<%=kcclmt[i].scl_n_credit_limit_id%>" hidden > <i style="font-size:16px" class="fa" data-toggle="tooltip" title="Edit" id="vw<%=kcclmt[i].scl_n_credit_limit_id%>"onclick="view_kcc_credit_lmt(this)">&#xf06e;</i>
+                                                                                    <input type="text" name="vfvw<%=kcclmt[i].scl_n_credit_limit_id%>" id="vfvw<%=kcclmt[i].scl_n_credit_limit_id%>" value="<%=kcclmt[i].scl_n_credit_limit_id%>" hidden > <i style="font-size:16px" class="fa" data-toggle="tooltip" title="View" id="vw<%=kcclmt[i].scl_n_credit_limit_id%>"onclick="view_kcc_credit_lmt(this)">&#xf06e;</i>
 
                                                                                     <input type="text" name="rfdl<%=kcclmt[i].scl_n_credit_limit_id%>" id="rfdl<%=kcclmt[i].scl_n_credit_limit_id%>" value="<%=kcclmt[i].scl_n_credit_limit_id%>" hidden > 
                                                                                     <i class="fa" data-target="#remove_kcc_credit_modal"  data-toggle="modal" title="Delete" <i style="font-size:16px" class="fa" data-toggle="tooltip" title="Delete" id="dl<%=kcclmt[i].scl_n_credit_limit_id%>"onclick="delete_credit_lmt(this)">&#xf2ed;</i>
