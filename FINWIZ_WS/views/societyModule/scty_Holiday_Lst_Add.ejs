@@ -2,648 +2,638 @@
 
 <head>
 
-    <% include ../includes/styles %>
-        <% include ../includes/scripts %>
-
-
-
-
-
+ <% include ../includes/styles %>
+ <% include ../includes/scripts %>
+ <script type="text/javascript" src="/javascripts/societyDetailsJS.js"></script>
 </head>
 
 <body>
-    <div class="wrapper ">
-        <div class="sidebar" data-color="orange_light">
-            <!--
-                                  Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-                              -->
-            <div class="logo">
-                <h4><a href="" class="simple-text logo-normal">
-                        Nurture Software
-                    </a></h4>
-            </div>
-            <div class="sidebar-wrapper" id="sidebar-wrapper">
-                <ul class="nav">
-                    <!-- dashboard link moved to navbar by ranjeet -->
-
-                    <li id="sub_menu" class="active">
-
-                        <a href="#">
-                            <i class="material-icons" style="font-size: 25px;">group</i>
-                            <strong class="fnt">Members</strong>
-                        </a>
-                        <ul class="hid sub_col">
-
-                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails_search" class="ml-1" style="color: #ffffff;">Members</a>
-                            </div>
-
-                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search" class="ml-1" style="color: #ffffff;">Members
-                                    Dividend</a></div>
-
-                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search" class="ml-1" style="color: #ffffff;">Members
-                                    Share Details</a></div>
-
-                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search" class="ml-1" style="color: #ffffff;">Farm
-                                    Machinery Details</a></div>
-
-                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser" class="ml-1" style="color: #ffffff;">House
-                                    Details</a></div>
-
-                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search" class="ml-1" style="color: #ffffff;">KCC
-                                    Details</a></div>
-
-                        </ul>
-                    </li>
-                      <li id="sub_menu">
-                        <a href="#">
-                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
-                            <strong class="fnt">Bank</strong>
-                        </a>
-                        <ul class="hid mt-1 sub_col">
-
-                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search" style="color: #ffffff">Associated
-                                    Bank</a></div>
-
-                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search" style="color: #ffffff">Associated Branch</a></div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search" style="color: #ffffff">Associated Bank Account Master</a>
-                            </div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search" style="color: #ffffff">Associated Bank Cheque Book</a>
-                            </div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search" style="color: #ffffff">Associated Bank Account Type</a>
-                            </div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search" style="color: #ffffff">Associated Bank Deposit Returns</a>
-                            </div>
+ <div class="wrapper ">
+ <div class="sidebar" data-color="orange_light">
+ <!--
+ Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+ -->
+ <div class="logo">
+ <h4><a href="" class="simple-text logo-normal">
+ Nurture Software
+ </a></h4>
+ </div>
+ <div class="sidebar-wrapper" id="sidebar-wrapper">
+ <ul class="nav">
+ <!-- dashboard link moved to navbar by ranjeet -->
+
+ <li id="sub_menu" class="active">
+
+ <a href="#">
+ <i class="material-icons" style="font-size: 25px;">group</i>
+ <strong class="fnt">Members</strong>
+ </a>
+ <ul class="hid sub_col">
+
+ <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails_search" class="ml-1" style="color: #ffffff;">Members</a>
+ </div>
+
+ <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search" class="ml-1" style="color: #ffffff;">Members
+ Dividend</a></div>
+
+ <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search" class="ml-1" style="color: #ffffff;">Members
+ Share Details</a></div>
+
+ <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search" class="ml-1" style="color: #ffffff;">Farm
+ Machinery Details</a></div>
+
+ <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser" class="ml-1" style="color: #ffffff;">House
+ Details</a></div>
+
+ <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search" class="ml-1" style="color: #ffffff;">KCC
+ Details</a></div>
+
+ </ul>
+ </li>
+ <li id="sub_menu">
+ <a href="#">
+ <i class="material-icons" style="font-size: 25px;">account_balance</i>
+ <strong class="fnt">Bank</strong>
+ </a>
+ <ul class="hid mt-1 sub_col">
+
+ <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search" style="color: #ffffff">Associated
+ Bank</a></div>
+
+ <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search" style="color: #ffffff">Associated Branch</a></div>
+
+ <div class="sub_mar">
+ <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search" style="color: #ffffff">Associated Bank Account Master</a>
+ </div>
+
+ <div class="sub_mar">
+ <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search" style="color: #ffffff">Associated Bank Cheque Book</a>
+ </div>
+
+ <div class="sub_mar">
+ <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search" style="color: #ffffff">Associated Bank Account Type</a>
+ </div>
+
+ <div class="sub_mar">
+ <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search" style="color: #ffffff">Associated Bank Deposit Returns</a>
+ </div>
 
 
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search" style="color: #ffffff">Associated Bank Deposit Master</a>
-                            </div>
-
-                        </ul>
-                    </li>
-                    <li id="sub_menu">
-                        <a href="#">
-                            <i class="material-icons" style="font-size: 25px;">group</i>
-                            <strong class="fnt">Accounts</strong>
-                        </a>
-                        <ul class="hid sub_col">
-                            <div class="sub_mar"><a style="color: #ffffff;" href="/accountsModule/accountsDetails/acc_search" class="">
-                                    Accounts
-                                </a></div>
-                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_lmt_search" class="" style="color: #ffffff;">Account Limits</a></div>
-                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_renewal_details_search" class="" style="color: #ffffff;">Account Renewal</a></div>
-                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_trnsc_search" class="" style="color: #ffffff;">Account Transaction</a></div>
-                        </ul>
-                    </li>
-
-                  
-                    <!-- societies -->
-
-                    <li id="sub_menu">
-                        <a href="#">
-                            <i class="material-icons" style="font-size: 25px;">group</i>
-                            <strong class="fnt">Society</strong>
-                        </a>
-                        <ul class="hid sub_col">
+ <div class="sub_mar">
+ <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search" style="color: #ffffff">Associated Bank Deposit Master</a>
+ </div>
+
+ </ul>
+ </li>
+ <li id="sub_menu">
+ <a href="#">
+ <i class="material-icons" style="font-size: 25px;">group</i>
+ <strong class="fnt">Accounts</strong>
+ </a>
+ <ul class="hid sub_col">
+ <div class="sub_mar"><a style="color: #ffffff;" href="/accountsModule/accountsDetails/acc_search" class="">
+ Accounts
+ </a></div>
+ <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_lmt_search" class="" style="color: #ffffff;">Account Limits</a></div>
+ <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_renewal_details_search" class="" style="color: #ffffff;">Account Renewal</a></div>
+ <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_trnsc_search" class="" style="color: #ffffff;">Account Transaction</a></div>
+ </ul>
+ </li>
+
+ 
+ <!-- societies -->
+
+ <li id="sub_menu">
+ <a href="#">
+ <i class="material-icons" style="font-size: 25px;">group</i>
+ <strong class="fnt">Society</strong>
+ </a>
+ <ul class="hid sub_col">
 
 
-                            <div class="sub_mar"><a href="/societyModule/societyDetails/scty_holiday_lst_search" class="" style="color: #ffffff;">Holiday List</a></div>
-                            <div class="sub_mar"><a class="ml" href="/societyModule/societyDetails/scty_dept_search" style="color: #ffffff">Department</a></div>
-                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_bank_search" class="ml" style="color: #ffffff;">Bank</a></div>
-
-                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_branch_search" class="ml" style="color: #ffffff;">Branch</a></div>
-
-                            <div class="sub_mar"><a href="/societyModule/societyDetails/scty_chq_book_det_search" class="ml" style="color: #ffffff;">ChequeBook Details</a></div>
-
-                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_acc_schm_search" class="ml" style="color: #ffffff;">Account Scheme</a></div>
-
-                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_acc_typ_search" class="ml" style="color: #ffffff;">Account Type</a></div>
-
-                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_insurance_search" class="ml" style="color: #ffffff;">Insurance</a></div>
-
-                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_kcc_trgt_search" class="ml" style="color: #ffffff;">KCC Targets</a></div>
-
-                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_kcc_cr_lim_search" class="ml" style="color: #ffffff;">KCC Credit Limit</a></div>
-
-                        </ul>
-                    </li>
-                    <!-- societies end -->
-                      <li>
-                        <a href="/login/deposits">
-                            <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
-                            <strong class="fnt">Deposits</strong>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="/login/loans">
-                            <i class="material-icons" style="font-size: 25px;">file_upload</i>
-                            <strong class="fnt">Loans</strong>
-                        </a>
-                    </li>
-
-                  
-
-
-                    <li>
-                        <a href="/login/market">
-                            <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
-                            <strong class="fnt">Market</strong>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/login/reports">
-                            <i class="material-icons" style="font-size: 25px;">date_range</i>
-                            <strong class="fnt">Reports</strong>
-                        </a>
-                    </li>
-
-
-
-                    <li>
-
-                        <a href="/login/payroll">
-                            <i class="material-icons" style="font-size: 25px;">payment</i>
-                            <strong class="fnt">Payroll</strong>
-                        </a>
-
-
-
-                    </li>
-                    <li>
-                        <a href="/login/hr">
-                            <i class="material-icons" style="font-size: 25px;">account_box</i>
-                            <strong class="fnt">HR</strong>
-                        </a>
-                    </li>
-
-
-                    <li>
-
-                        <a href="/login/user">
-                            <i class="material-icons" style="font-size: 25px;">person</i>
-                            <strong class="fnt">User</strong>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="main-panel" id="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg colo">
-                <div class="container-fluid">
-                    <div class="navbar-wrapper">
-                        <div class="navbar-toggle">
-                            <button type="button" class="navbar-toggler">
-                                <span class="navbar-toggler-bar bar1"></span>
-                                <span class="navbar-toggler-bar bar2"></span>
-                                <span class="navbar-toggler-bar bar3"></span>
-                            </button>
-                        </div>
-                        <a class="navbar-brand" href="#pablo"><strong>Societies</strong> </a>
-                    </div>
-                    <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                        <span class="navbar-toggler-bar navbar-kebab"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <ul class="navbar-nav">
-                            <li class="">
-                                <a class="nav-link" href="/dashboards/dashboard/dashboard">
-                                    <i class="material-icons" style="font-size: 25px;">dashboard</i>
-
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <strong class="fnt">User 1</strong>
-                                    <i class="now-ui-icons users_single-02 ml-2"></i>
-                                    <p>
-                                        <span class="d-lg-none d-md-block"></span>
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Upload Photo<i
-                                            class=" material-icons ml-2">add_a_photo</i></a>
-                                    <a class="dropdown-item" href="#">Logout &nbsp;&nbsp;&nbsp;&nbsp;<i
-                                            class=" ml-5 material-icons">power_settings_new</i></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- End Navbar -->
-
-
-            <div class="content">
-                <div class="row-sm ">
-                    <div class="col-sm-12">
-                        <div class="card tp">
-                            <div class="card-header hdr">
-                                <h5>HOLIDAY LIST</h5>
-                            </div>
-                            <div class="card-body">
-
-
-                                <div class="content">
-
-
-
-
-
-
-                                    <!-- Form Start -->
-
-
-
-
-
-                                    <h6>ADD RECORD</h6>
-                                    <hr>
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="holi_from_date_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday date Between</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="holi_from_date_add" id="holi_from_date_add" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon6 md" data-toggle="holi_from_date_add"
-                                                    data-target-name="holi_from_date_add">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="holi_to_date_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="holi_to_date_add" id="holi_to_date_add" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon6 md" data-toggle="holi_to_date_add"
-                                                    data-target-name="holi_to_date_add">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="comp_from_date_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Compensation date Between</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="comp_from_date_add" id="comp_from_date_add" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon8 md" data-toggle="comp_from_date_add"
-                                                    data-target-name="comp_from_date_add">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="comp_to_date_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="comp_to_date_add" id="comp_to_date_add" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon8 md" data-toggle="comp_to_date_add"
-                                                    data-target-name="comp_to_date_add">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-                                    </div>
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="Iscomp_holi" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Is Compensation Holiday</label>
-                                            <select class="col-sm-12 col-md-6" id="Iscomp_holi" name="Iscomp_holi">
-                                                <option disabled="" selected="" value="">Select
-                                                </option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-
-                                            </select>
-
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="purp" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Purpose</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="purp" id="purp" placeholder="" style="text-transform: capitalize" onkeypress="return numeric(event)">
-
-                                        </div>
-
-                                    </div>
-                                    <div class="container row mt-2">
-
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="holi_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday</label>
-                                            <select class="col-sm-12 col-md-6" id="holi_add" name="holi_add">
-                                                <option disabled="" selected="" value="">Select
-                                                </option>
-                                                <option value="First-Off">First-Off</option>
-                                                <option value="Sec-Off">Second-Off</option>
-
-                                            </select>
-
-                                        </div>
-                                    </div>
-
-
-
-
-
-                                    <!-- buttons -->
-                                    <div class="container row mt-4">
-                                        <div class="col-sm-12 col-md-2">
-                                            <a type="text" class="btn" href="/societyModule/societyDetails/scty_holiday_lst_search" name="bck_search" id="bck_search"
-                                                value="Back to Search">Back to
-                                                Search</a>
-
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <input type="reset" class="btn clr clr1" name="clear_frm" id="clear_frm" value="Clear Form">
-
-                                        </div>
-                                        <div class="col-sm-12 col-md-5"></div>
-                                        <div class="col-sm-12 col-md-2">
-                                            <input type="button" class="btn" name="sub" id="sub" value="Submit">
-                                        </div>
-                                    </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <!-- add record end -->
-
-
-            <!--view start-->
-
-
-
-
-            <div class="content">
-                <div class="row-sm ">
-                    <div class="col-sm-12">
-                        <div class="card tp">
-                            <div class="card-header hdr">
-                                <h5>HOLIDAY LIST</h5>
-                            </div>
-                            <div class="card-body">
-
-
-                                <div class="content">
-
-
-                                    <!-- Form Start -->
-
-
-
-
-
-                                    <h6>VIEW RECORD</h6>
-                                    <hr>
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="holi_from_date_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday date Between</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="holi_from_date_vw" id="holi_from_date_vw" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon6 md" data-toggle="holi_from_date_vw"
-                                                    data-target-name="holi_from_date_vw">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="holi_to_date_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="holi_to_date_vw" id="holi_to_date_vw" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon6 md" data-toggle="holi_to_date_vw"
-                                                    data-target-name="holi_to_date_vw">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-                                    </div>
-
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="comp_from_date_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Compensation date Between</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="comp_from_date_vw" id="comp_from_date_vw" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon8 md" data-toggle="comp_from_date_vw"
-                                                    data-target-name="comp_from_date_vw">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="comp_to_date_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="comp_to_date_vw" id="comp_to_date_vw" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon8 md" data-toggle="comp_to_date_vw"
-                                                    data-target-name="comp_to_date_vw">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-                                    </div>
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="Iscomp_holi_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Is Compensation Holiday</label>
-                                            <select class="col-sm-12 col-md-6" id="Iscomp_holi_vw" name="Iscomp_holi_vw">
-                                                <option disabled="" selected="" value="">Select
-                                                </option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-
-                                            </select>
-
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="purp_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Purpose</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="purp_vw" id="purp_vw" placeholder="" style="text-transform: capitalize"
-                                                onkeypress="return numeric(event)">
-
-                                        </div>
-
-                                    </div>
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="holi_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday</label>
-                                            <select class="col-sm-12 col-md-6" id="holi_vw" name="holi_vw">
-                                                <option disabled="" selected="" value="">Select
-                                                </option>
-                                                <option value="First-Off">First-Off</option>
-                                                <option value="Sec-Off">Second-Off</option>
-
-                                            </select>
-
-                                        </div>
-                                    </div>
-
-
-                                    <!-- buttons -->
-                                    <div class="container row mt-4">
-                                        <div class="col-sm-12 col-md-2">
-                                            <a type="text" class="btn" href="/societyModule/societyDetails/scty_holiday_lst_search" name="bck_search" id="bck_search"
-                                                value="Back to Search">Back to
-                                                Search</a>
-
-                                        </div>
-
-                                    </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <!--view end-->
-
-            <!--edit start-->
-
-
-
-
-            <div class="content">
-                <div class="row-sm ">
-                    <div class="col-sm-12">
-                        <div class="card tp">
-                            <div class="card-header hdr">
-                                <h5>HOLIDAY LIST</h5>
-                            </div>
-                            <div class="card-body">
-
-
-                                <div class="content">
-
-
-
-
-                                    <!-- Form Start -->
-
-
-
-
-
-                                    <h6>EDIT RECORD</h6>
-
-                                    <hr>
-
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="holi_from_date_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday date Between</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="holi_from_date_ed" id="holi_from_date_ed" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon6 md" data-toggle="holi_from_date_ed"
-                                                    data-target-name="holi_from_date_ed">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="holi_to_date_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="holi_to_date_ed" id="holi_to_date_ed" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon6 md" data-toggle="holi_to_date_ed"
-                                                    data-target-name="holi_to_date_ed">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-                                    </div>
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="comp_from_date_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Compensation date Between</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="comp_from_date_ed" id="comp_from_date_ed" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon8 md" data-toggle="comp_from_date_ed"
-                                                    data-target-name="comp_from_date_ed">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="comp_to_date_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="comp_to_date_ed" id="comp_to_date_ed" placeholder="" autocomplete="off">
-                                            <span><i class="material-icons iicon8 md" data-toggle="comp_to_date_ed"
-                                                    data-target-name="comp_to_date_ed">
-                                                    event_note
-                                                </i></span>
-                                        </div>
-                                    </div>
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="Iscomp_holi_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Is Compensation Holiday</label>
-                                            <select class="col-sm-12 col-md-6" id="Iscomp_holi_ed" name="Iscomp_holi_ed">
-                                                <option disabled="" selected="" value="">Select
-                                                </option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-
-                                            </select>
-
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="purp_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Purpose</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="purp_ed" id="purp_ed" placeholder="" style="text-transform: capitalize"
-                                                onkeypress="return numeric(event)">
-
-                                        </div>
-
-                                    </div>
-                                    <div class="container row mt-2">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="holi_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday</label>
-                                            <select class="col-sm-12 col-md-6" id="holi_vw" name="holi_vw">
-                                                <option disabled="" selected="" value="">Select
-                                                </option>
-                                                <option value="First-Off">First-Off</option>
-                                                <option value="Sec-Off">Second-Off</option>
-
-                                            </select>
-
-                                        </div>
-                                    </div>
-                                    <!-- buttons -->
-                                    <div class="container row mt-4">
-                                        <div class="col-sm-12 col-md-2">
-                                            <input hidden type="number" class="col-sm-12 col-md-6" name="acc_lmt_ed" id="acc_lmt_ed" placeholder="" value="">
-                                            <a type="text" class="btn" href="/societyModule/societyDetails/scty_holiday_lst_search" name="bck_search" id="bck_search"
-                                                value="Back to Search">Back to
-                                                Search</a>
-
-                                        </div>
-                                        <div class="col-sm-12 col-md-3">
-                                            <input type="button" class="btn clr clr1" name="clear_frm" id="clear_frm" value="Clear Form">
-
-                                        </div>
-                                        <div class="col-sm-12 col-md-5"></div>
-                                        <div class="col-sm-12 col-md-2">
-                                            <input type="button" class="btn" name="sub" id="sub" value="Submit">
-                                        </div>
-                                    </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <% include ../includes/footer %>
-
-        </div>
-    </div>
-
-
-
-
+ <div class="sub_mar"><a href="/societyModule/societyDetails/scty_holiday_lst_search" class="" style="color: #ffffff;">Holiday List</a></div>
+ <div class="sub_mar"><a class="ml" href="/societyModule/societyDetails/scty_dept_search" style="color: #ffffff">Department</a></div>
+ <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_bank_search" class="ml" style="color: #ffffff;">Bank</a></div>
+
+ <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_branch_search" class="ml" style="color: #ffffff;">Branch</a></div>
+
+ <div class="sub_mar"><a href="/societyModule/societyDetails/scty_chq_book_det_search" class="ml" style="color: #ffffff;">ChequeBook Details</a></div>
+
+ <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_acc_schm_search" class="ml" style="color: #ffffff;">Account Scheme</a></div>
+
+ <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_acc_typ_search" class="ml" style="color: #ffffff;">Account Type</a></div>
+
+ <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_insurance_search" class="ml" style="color: #ffffff;">Insurance</a></div>
+
+ <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_kcc_trgt_search" class="ml" style="color: #ffffff;">KCC Targets</a></div>
+
+ <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_kcc_cr_lim_search" class="ml" style="color: #ffffff;">KCC Credit Limit</a></div>
+
+ </ul>
+ </li>
+ <!-- societies end -->
+ <li>
+ <a href="/login/deposits">
+ <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
+ <strong class="fnt">Deposits</strong>
+ </a>
+ </li>
+
+
+ <li>
+ <a href="/login/loans">
+ <i class="material-icons" style="font-size: 25px;">file_upload</i>
+ <strong class="fnt">Loans</strong>
+ </a>
+ </li>
+
+ 
+
+
+ <li>
+ <a href="/login/market">
+ <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
+ <strong class="fnt">Market</strong>
+ </a>
+ </li>
+
+ <li>
+ <a href="/login/reports">
+ <i class="material-icons" style="font-size: 25px;">date_range</i>
+ <strong class="fnt">Reports</strong>
+ </a>
+ </li>
+
+
+
+ <li>
+
+ <a href="/login/payroll">
+ <i class="material-icons" style="font-size: 25px;">payment</i>
+ <strong class="fnt">Payroll</strong>
+ </a>
+
+
+
+ </li>
+ <li>
+ <a href="/login/hr">
+ <i class="material-icons" style="font-size: 25px;">account_box</i>
+ <strong class="fnt">HR</strong>
+ </a>
+ </li>
+
+
+ <li>
+
+ <a href="/login/user">
+ <i class="material-icons" style="font-size: 25px;">person</i>
+ <strong class="fnt">User</strong>
+ </a>
+ </li>
+ </ul>
+ </div>
+ </div>
+ <div class="main-panel" id="main-panel">
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg colo">
+ <div class="container-fluid">
+ <div class="navbar-wrapper">
+ <div class="navbar-toggle">
+ <button type="button" class="navbar-toggler">
+ <span class="navbar-toggler-bar bar1"></span>
+ <span class="navbar-toggler-bar bar2"></span>
+ <span class="navbar-toggler-bar bar3"></span>
+ </button>
+ </div>
+ <a class="navbar-brand" href="#pablo"><strong>Societies</strong> </a>
+ </div>
+ <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
+ aria-expanded="false" aria-label="Toggle navigation">
+ <span class="navbar-toggler-bar navbar-kebab"></span>
+ <span class="navbar-toggler-bar navbar-kebab"></span>
+ <span class="navbar-toggler-bar navbar-kebab"></span>
+ </button>
+ <div class="collapse navbar-collapse justify-content-end" id="navigation">
+ <ul class="navbar-nav">
+ <li class="">
+ <a class="nav-link" href="/dashboards/dashboard/dashboard">
+ <i class="material-icons" style="font-size: 25px;">dashboard</i>
+
+ </a>
+ </li>
+ <li class="nav-item dropdown">
+ <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ <strong class="fnt">User 1</strong>
+ <i class="now-ui-icons users_single-02 ml-2"></i>
+ <p>
+ <span class="d-lg-none d-md-block"></span>
+ </p>
+ </a>
+ <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+ <a class="dropdown-item" href="#">Upload Photo<i
+ class=" material-icons ml-2">add_a_photo</i></a>
+ <a class="dropdown-item" href="#">Logout &nbsp;&nbsp;&nbsp;&nbsp;<i
+ class=" ml-5 material-icons">power_settings_new</i></a>
+ </div>
+ </li>
+ </ul>
+ </div>
+ </div>
+ </nav>
+ <!-- End Navbar -->
+
+ <%if(pagetype=='ADD'){%>
+ <div class="content">
+ <div class="row-sm ">
+ <div class="col-sm-12">
+ <div class="card tp">
+ <div class="card-header hdr">
+ <h5>HOLIDAY LIST</h5>
+ </div>
+ <div class="card-body">
+
+
+ <!-- flash message -->
+ <% if(locals.message){ %>
+ <div class="text text-center" role="alert" background-color: red;>
+ <strong style="color:green"><%= message.success_msg %></strong>
+ </div>
+ <% } %>
+
+ <div class="content">
+ <!-- Form Start -->
+
+ <h6>ADD RECORD</h6>
+ <hr>
+ <form autocomplete="off" action="../../societyModule/societyDetails/holiday_details" method="post"
+ id="holiday_list" autocomplete="off">
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="holi_from_date_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday date Between<span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="holi_from_date_add" id="holi_from_date_add" placeholder="" autocomplete="off">
+ <span><i class="material-icons iicon6 md" data-toggle="holi_from_date_add"
+ data-target-name="holi_from_date_add">
+ event_note
+ </i></span>
+ </div>
+
+ <div class="col-sm-12 col-md-6">
+ <label for="holi_to_date_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And<span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="holi_to_date_add" id="holi_to_date_add" placeholder="" autocomplete="off">
+ <span><i class="material-icons iicon6 md" data-toggle="holi_to_date_add"
+ data-target-name="holi_to_date_add">
+ event_note
+ </i></span>
+ </div>
+ </div>
+
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="comp_from_date_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Compensation date Between<span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="comp_from_date_add" id="comp_from_date_add" placeholder="" autocomplete="off">
+ <span><i class="material-icons iicon8 md" data-toggle="comp_from_date_add"
+ data-target-name="comp_from_date_add">
+ event_note
+ </i></span>
+ </div>
+
+ <div class="col-sm-12 col-md-6">
+ <label for="comp_to_date_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And<span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="comp_to_date_add" id="comp_to_date_add" placeholder="" autocomplete="off">
+ <span><i class="material-icons iicon8 md" data-toggle="comp_to_date_add"
+ data-target-name="comp_to_date_add">
+ event_note
+ </i></span>
+ </div>
+ </div>
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="Iscomp_holi" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Is Compensation Holiday<span class="astrix">*</span></label>
+ <select class="col-sm-12 col-md-6" id="Iscomp_holi" name="Iscomp_holi">
+ <option disabled="" selected="" value="">Select
+ </option>
+ <option value="Yes">Yes</option>
+ <option value="No">No</option>
+
+ </select>
+
+ </div>
+ <div class="col-sm-12 col-md-6">
+ <label for="purp" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Purpose<span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="purp" id="purp" placeholder="" style="text-transform: capitalize" onkeypress="return alpha(event)">
+
+ </div>
+
+ </div>
+ <div class="container row mt-2">
+
+ <div class="col-sm-12 col-md-6">
+ <label for="holi_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday Type<span class="astrix">*</span></label>
+ <select class="col-sm-12 col-md-6" id="holi_add" name="holi_add">
+ <option disabled="" selected="" value="">Select
+ </option>
+ <option value="First-Half">First-Half</option>
+ <option value="Sec-Half">Second-Half</option>
+
+ </select>
+
+ </div>
+ </div>
+
+ <!-- buttons -->
+ <div class="container row mt-4">
+ <div class="col-sm-12 col-md-2">
+ <a type="text" class="btn" href="/societyModule/societyDetails/scty_holiday_lst_search" name="bck_search" id="bck_search"
+ value="Back to Search">Back to
+ Search</a>
+
+ </div>
+ <div class="col-sm-12 col-md-3">
+ <input type="button" class="btn clr clr1" name="clear_frm" id="clear_frm" value="Clear Form" onclick="holiday_add_clear()">
+
+ </div>
+ <div class="col-sm-12 col-md-5"></div>
+ <div class="col-sm-12 col-md-2">
+ <input type="button" class="btn" name="sub" id="sub" value="Submit" onclick="listDetails()">
+ </div>
+ </div>
+ </form>
+
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <%}%>
+
+
+ <!-- add record end -->
+
+
+ 
+
+ <!--edit start-->
+
+
+
+ <%if(pagetype=='EDIT'){%>
+ <div class="content">
+ <div class="row-sm ">
+ <div class="col-sm-12">
+ <div class="card tp">
+ <div class="card-header hdr">
+ <h5>HOLIDAY LIST</h5>
+ </div>
+ <div class="card-body">
+
+
+ <div class="content">
+
+
+
+
+ <!-- Form Start -->
+
+
+
+
+
+ <h6>EDIT RECORD</h6>
+
+ <hr>
+ <form action="../../societyModule/societyDetails/holiday_list_update" method="post"
+ id="holiday_list_ed" autocomplete="off">
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="holi_from_date_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday date Between<span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="holi_from_date_ed" id="holi_from_date_ed" placeholder="" autocomplete="off" value="<%=moment(holi_from_date_ed).format("DD-MM-YYYY")%>">
+ <span><i class="material-icons iicon6 md" data-toggle="holi_from_date_ed"
+ data-target-name="holi_from_date_ed">
+ event_note
+ </i></span>
+ </div>
+
+ <div class="col-sm-12 col-md-6">
+ <label for="holi_to_date_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And<span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="holi_to_date_ed" id="holi_to_date_ed" placeholder="" autocomplete="off" value="<%=moment(holi_to_date_ed).format("DD-MM-YYYY")%>">
+ <span><i class="material-icons iicon6 md" data-toggle="holi_to_date_ed"
+ data-target-name="holi_to_date_ed">
+ event_note
+ </i></span>
+ </div>
+ </div>
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="comp_from_date_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Compensation date Between<span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="comp_from_date_ed" id="comp_from_date_ed" placeholder="" autocomplete="off" value="<%=moment(comp_from_date_ed).format("DD-MM-YYYY")%>">
+ <span><i class="material-icons iicon8 md" data-toggle="comp_from_date_ed"
+ data-target-name="comp_from_date_ed">
+ event_note
+ </i></span>
+ </div>
+
+ <div class="col-sm-12 col-md-6">
+ <label for="comp_to_date_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And<span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="comp_to_date_ed" id="comp_to_date_ed" placeholder="" autocomplete="off" value="<%=moment(comp_to_date_ed).format("DD-MM-YYYY")%>">
+ <span><i class="material-icons iicon8 md" data-toggle="comp_to_date_ed"
+ data-target-name="comp_to_date_ed">
+ event_note
+ </i></span>
+ </div>
+ </div>
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="Iscomp_holi_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Is Compensation Holiday<span class="astrix">*</span></label>
+ <select class="col-sm-12 col-md-6" id="Iscomp_holi_ed" name="Iscomp_holi_ed">
+ <option ><%=Iscomp_holi_ed%></option>
+ <option value="Yes">Yes</option>
+ <option value="No">No</option>
+
+ </select>
+
+ </div>
+ <div class="col-sm-12 col-md-6">
+ <label for="purp_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Purpose <span class="astrix">*</span></label>
+ <input type="text" class="col-sm-12 col-md-6" name="purp_ed" id="purp_ed" placeholder="" style="text-transform: capitalize"
+ onkeypress="return alpha()" value="<%=purp_ed%>">
+
+ </div>
+
+ </div>
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="holi_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday Type<span class="astrix">*</span></label>
+ <select class="col-sm-12 col-md-6" id="holi_vw" name="holi_vw">
+ <option ><%=holi_vw%></option>
+ <option value="First-Half">First-Half</option>
+ <option value="Sec-Half">Second-Half</option>
+
+ </select>
+
+ </div>
+ </div>
+ <!-- buttons -->
+ <div class="container row mt-4">
+ <div class="col-sm-12 col-md-2">
+ <input hidden type="number" class="col-sm-12 col-md-6" name="acc_lmt_ed" id="acc_lmt_ed" placeholder="" value="">
+ <a type="text" class="btn" href="/societyModule/societyDetails/scty_holiday_lst_search" name="bck_search" id="bck_search"
+ value="Back to Search">Back to
+ Search</a>
+
+ </div>
+ <div class="col-sm-12 col-md-3">
+ <input type="button" class="btn clr clr1" name="clear_frm" id="clear_frm" value="Clear Form" onclick="holiday_edit_clear()">
+
+ </div>
+ <div class="col-sm-12 col-md-5"></div>
+ <div class="col-sm-12 col-md-2">
+ <input hidden type="text" class="btn" name="edit_list" id="edit_list"
+ value="<%=holiday_edit_id%>">
+ <input type="button" class="btn" name="sub" id="sub" value="Submit" onclick="listEditDetails()">
+ </div>
+ </div>
+ </form>
+
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <%}%>
+
+ <!--view start-->
+
+
+
+ <%if(pagetype=='VIEW'){%>
+ <div class="content">
+ <div class="row-sm ">
+ <div class="col-sm-12">
+ <div class="card tp">
+ <div class="card-header hdr">
+ <h5>HOLIDAY LIST</h5>
+ </div>
+ <div class="card-body">
+
+
+ <div class="content">
+
+
+ <!-- Form Start -->
+
+
+
+
+
+ <h6>VIEW RECORD</h6>
+ <hr>
+ <form action="../../societyModule/societyDetails/holiday_list_view" autocomplete="off">
+ <fieldset disabled="disabled">
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="holi_from_date_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday date Between</label>
+ <input type="text" class="col-sm-12 col-md-6" name="holi_from_date_vw" id="holi_from_date_vw" placeholder="" autocomplete="off" value="<%=moment(holi_from_date_vw).format("DD-MM-YYYY")%>">
+ <span><i class="material-icons iicon6 md" data-toggle="holi_from_date_vw"
+ data-target-name="holi_from_date_vw">
+ event_note
+ </i></span>
+ </div>
+
+ <div class="col-sm-12 col-md-6">
+ <label for="holi_to_date_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And</label>
+ <input type="text" class="col-sm-12 col-md-6" name="holi_to_date_vw" id="holi_to_date_vw" placeholder="" autocomplete="off" value="<%=moment(holi_to_date_vw).format("DD-MM-YYYY")%>">
+ <span><i class="material-icons iicon6 md" data-toggle="holi_to_date_vw"
+ data-target-name="holi_to_date_vw">
+ event_note
+ </i></span>
+ </div>
+ </div>
+
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="comp_from_date_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Compensation date Between</label>
+ <input type="text" class="col-sm-12 col-md-6" name="comp_from_date_vw" id="comp_from_date_vw" placeholder="" autocomplete="off" value="<%=moment(comp_from_date_vw).format("DD-MM-YYYY")%>">
+ <span><i class="material-icons iicon8 md" data-toggle="comp_from_date_vw"
+ data-target-name="comp_from_date_vw">
+ event_note
+ </i></span>
+ </div>
+
+ <div class="col-sm-12 col-md-6">
+ <label for="comp_to_date_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">And</label>
+ <input type="text" class="col-sm-12 col-md-6" name="comp_to_date_vw" id="comp_to_date_vw" placeholder="" autocomplete="off" value="<%=moment(comp_to_date_vw).format("DD-MM-YYYY")%>">
+ <span><i class="material-icons iicon8 md" data-toggle="comp_to_date_vw"
+ data-target-name="comp_to_date_vw">
+ event_note
+ </i></span>
+ </div>
+ </div>
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="Iscomp_holi_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Is Compensation Holiday</label>
+ <select class="col-sm-12 col-md-6" id="Iscomp_holi_vw" name="Iscomp_holi_vw">
+ <option value=""><%=Iscomp_holi_vw%></option>
+ <option value="Yes">Yes</option>
+ <option value="No">No</option>
+
+ </select>
+
+ </div>
+ <div class="col-sm-12 col-md-6">
+ <label for="purp_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Purpose</label>
+ <input type="text" class="col-sm-12 col-md-6" name="purp_vw" id="purp_vw" placeholder="" style="text-transform: capitalize"
+ onkeypress="return numeric(event)" value="<%=purp_vw%>" onkeypress="return alpha()">
+
+ </div>
+
+ </div>
+ <div class="container row mt-2">
+ <div class="col-sm-12 col-md-6">
+ <label for="holi_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Holiday Type</label>
+ <select class="col-sm-12 col-md-6" id="holi_vw" name="holi_vw">
+ <option value=""><%=holi_vw%></option>
+ <option value="First-Half">First-Half</option>
+ <option value="Sec-Half">Second-Half</option>
+
+ </select>
+
+ </div>
+ </div>
+</fieldset>
+
+ <!-- buttons -->
+ <div class="container row mt-4">
+ <input hidden type="text" class="btn" name="view_holiday" id="view_holiday"
+ value="<%=view_holiday%>">
+ <div class="col-sm-12 col-md-2">
+ <a type="text" class="btn" href="/societyModule/societyDetails/scty_holiday_lst_search" name="bck_search" id="bck_search"
+ value="Back to Search">Back to
+ Search</a>
+
+ </div>
+
+ </div>
+ </form>
+
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+
+<%}%>
+
+
+<!--view end-->
+ <% include ../includes/footer %>
+
+ </div>
+ </div>
 
 </body>
 <% include ../includes/bottom_scripts %>

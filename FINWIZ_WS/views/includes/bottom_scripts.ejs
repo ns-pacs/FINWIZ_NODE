@@ -49,7 +49,236 @@
     })
 
 </script>
+
+<!-- holiday between search screen -->
 <script>
+$(function() {
+var fromDate = $("#holi_from_date").datepicker({
+defaultDate: "+1w",
+changeMonth: true,
+numberOfMonths: 1,
+changeYear:true,
+YearRange:'1947:2019',
+minDate:'now',
+dateFormat:'dd-mm-yy',
+});
+
+var toDate = $("#holi_to_date").datepicker({
+defaultDate: "+1w",
+changeMonth: true,
+minDate: new Date(),
+dateFormat:'dd-mm-yy',
+numberOfMonths: 1,
+changeYear:true,
+YearRange:'1947:2019',
+minDate:'now',
+});
+});
+</script>
+<!-- end -->
+<!-- compensation between search screen -->
+<script>
+    $(function() {
+    var fromDate = $("#comp_from_date").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    dateFormat:'dd-mm-yy',
+    });
+    
+    var toDate = $("#comp_to_date").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    minDate: new Date(),
+    dateFormat:'dd-mm-yy',
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    });
+    });
+    </script>
+<!-- end -->
+
+<!-- holiday between add_record -->
+<script>
+    $(function() {
+    var fromDate = $("#holi_from_date_add").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    dateFormat:'dd-mm-yy',
+    });
+    
+    var toDate = $("#holi_to_date_add").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    minDate: new Date(),
+    dateFormat:'dd-mm-yy',
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+   onSelect: function (dateStr) {
+                holiday_date();
+            }
+    });
+    });
+    </script>
+    <!-- end -->
+
+    <!-- holiday between view_record -->
+<script>
+    $(function() {
+    var fromDate = $("#holi_from_date_vw").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    dateFormat:'dd-mm-yy',
+    });
+    
+    var toDate = $("#holi_to_date_vw").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    minDate: new Date(),
+    dateFormat:'dd-mm-yy',
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    });
+    });
+    </script>
+    <!-- end -->
+
+ <!-- holiday between edit_record -->
+ <script>
+    $(function() {
+    var fromDate = $("#holi_from_date_ed").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    dateFormat:'dd-mm-yy',
+    });
+    
+    var toDate = $("#holi_to_date_ed").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    minDate: new Date(),
+    dateFormat:'dd-mm-yy',
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+      onSelect: function (dateStr) {
+                holiday_date_ed();
+            }
+    });
+    });
+    </script>
+    <!-- end -->
+
+    <!-- compensation date add_record -->
+    <script>
+  $(function() {
+    var fromDate = $("#comp_from_date_add").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    dateFormat:'dd-mm-yy',
+    });
+    
+    var toDate = $("#comp_to_date_add").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    minDate: new Date(),
+    dateFormat:'dd-mm-yy',
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+      onSelect: function (dateStr) {
+                compensation_date();
+            }
+    });
+    });
+
+</script>
+
+ <!-- compensation date view_record -->
+ <script>
+    $(function() {
+    var fromDate = $("#comp_from_date_vw").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    dateFormat:'dd-mm-yy',
+    });
+    
+    var toDate = $("#comp_to_date_vw").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    minDate: new Date(),
+    dateFormat:'dd-mm-yy',
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    });
+    });
+    
+    </script>
+
+    <!-- compensation date edit_record -->
+ <script>
+    $(function() {
+    var fromDate = $("#comp_from_date_ed").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+    dateFormat:'dd-mm-yy',
+    });
+    
+    var toDate = $("#comp_to_date_ed").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    minDate: new Date(),
+    dateFormat:'dd-mm-yy',
+    numberOfMonths: 1,
+    changeYear:true,
+    YearRange:'1947:2019',
+    minDate:'now',
+      onSelect: function (dateStr) {
+                compensation_date_ed();
+            }
+    });
+    });
+    
+    </script>
+
+<script>
+    
     $('[data-toggle=dob]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="dob"]');
@@ -765,6 +994,64 @@
     });
 
 </script>
+
+<!-- date validation function in holiday list-->
+
+<script>
+    //holiday date validation function//
+    function holiday_date() {
+        var d1 = $('#holi_from_date_add').datepicker('getDate');
+        // alert(d1)
+        var d2 = $('#holi_to_date_add').datepicker('getDate');
+        //alert(d2)
+        if (d2 <= d1) {
+            //alert("entering")
+            swal("Oops!", "Holiday ToDate must be greater than Holiday FromDate. Please Select Valid Holiday ToDate", "error");
+            document.getElementById('holi_to_date_add').value = null;
+        }
+    }
+//compensation date validation function//
+ function compensation_date() {
+        var d1 = $('#comp_from_date_add').datepicker('getDate');
+        // alert(d1)
+        var d2 = $('#comp_to_date_add').datepicker('getDate');
+        //alert(d2)
+        if (d2 <= d1) {
+            //alert("entering")
+            swal("Oops!", "Compensation ToDate must be greater than Compensation FromDate. Please Select Valid Compensation ToDate", "error");
+            document.getElementById('comp_to_date_add').value = null;
+        }
+    }
+    
+    function holiday_date_ed() {
+        var d1 = $('#holi_from_date_ed').datepicker('getDate');
+        //alert(d1)
+        var d2 = $('#holi_to_date_ed').datepicker('getDate');
+        //alert(d2)
+        if (d2 <= d1) {
+            // alert("entering")
+            swal("Oops!", "Holiday ToDate must be greater than Holiday FromDate. Please Select Valid Holiday ToDate", "error");
+            document.getElementById('holi_to_date_ed').value = null;
+        }
+    }
+     function compensation_date_ed() {
+        var d1 = $('#comp_from_date_ed').datepicker('getDate');
+        // alert(d1)
+        var d2 = $('#comp_to_date_ed').datepicker('getDate');
+        //alert(d2)
+        if (d2 <= d1) {
+            //alert("entering")
+            swal("Oops!", "Compensation ToDate must be greater than Compensation FromDate. Please Select Valid Compensation ToDate", "error");
+            document.getElementById('comp_to_date_ed').value = null;
+        }
+    }
+
+
+   
+
+</script>
+
+
 
 <!-- Navigate between tabs -->
 <script type="text/javascript">

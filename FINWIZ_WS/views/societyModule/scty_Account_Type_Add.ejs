@@ -127,36 +127,36 @@
                             <ul class="hid sub_col">
 
                                 <div class="sub_mar"><a href="/societyModule/societyDetails/scty_holiday_lst_search"
-                                        class="ml" style="color: #ffffff;">Holiday List</a>
+                                        class="ml-1" style="color: #ffffff;">Holiday List</a>
                                 </div>
 
                                 <div class="sub_mar"><a href="/societyModule/societyDetails/scty_dept_search"
-                                        class="ml" style="color: #ffffff;">Department
+                                        class="ml-1" style="color: #ffffff;">Department
                                         Dividend</a></div>
 
                                 <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_bank_search"
-                                        class="ml" style="color: #ffffff;">Bank</a></div>
+                                        class="ml-1" style="color: #ffffff;">Bank</a></div>
 
                                 <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_branch_search"
-                                        class="ml" style="color: #ffffff;">Branch</a></div>
+                                        class="ml-1" style="color: #ffffff;">Branch</a></div>
 
                                 <div class="sub_mar"><a href="/societyModule/societyDetails/scty_chq_book_det_search"
-                                        class="ml" style="color: #ffffff;">ChequeBook Details</a></div>
+                                        class="ml-1" style="color: #ffffff;">ChequeBook Details</a></div>
 
                                 <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_acc_schm_search"
-                                        class="ml" style="color: #ffffff;">Account Scheme</a></div>
+                                        class="ml-1" style="color: #ffffff;">Account Scheme</a></div>
 
                                 <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_acc_typ_search"
                                         class="ml-1" style="color: #ffffff;">Account Type</a></div>
 
                                 <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_insurance_search"
-                                        class="ml" style="color: #ffffff;">Insurance</a></div>
+                                        class="ml-1" style="color: #ffffff;">Insurance</a></div>
 
                                 <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_kcc_trgt_search"
-                                        class="ml" style="color: #ffffff;">KCC Targets</a></div>
+                                        class="ml-1" style="color: #ffffff;">KCC Targets</a></div>
 
                                 <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_kcc_cr_lim_search"
-                                        class="ml" style="color: #ffffff;">KCC Credit Limit</a></div>
+                                        class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
                             </ul>
                         </li>
 
@@ -276,7 +276,7 @@
                 </nav>
                 <!-- End Navbar -->
 
-
+                <%if (pagetype=='ADD'){ %>
                 <div class="content">
                     <div class="row-sm ">
                         <div class="col-sm-12">
@@ -286,7 +286,13 @@
                                     <h5>SOCIETY ACCOUNT TYPE</h5>
                                 </div>
                                 <div class="card-body">
-
+                            <!-- flash message -->
+                            <% if(locals.message){ %>
+                                <div class="text text-center" role="alert"
+                                background-color: red;>
+                                <strong style="color:green"><%= message.success_msg %></strong>
+                                </div>
+                            <% } %>
                                     <h6>Add Record</h6>
                                     <!-- flash message -->
 
@@ -296,21 +302,38 @@
 
 
                                     <hr>
-                                    <form autocomplete="off" action="" method="post" id="">
+                                    <form action="/societyModule/societyDetails/acc_details" autocomplete="off"  method="post" id="account_add_type">
 
                                         <div class="content">
                                             <div class="container row mt-2">
+                                                    
+                                                            <div class="col-sm-12 col-md-6">
+                                                                    <label for="scty_acc_typ" class="mr-sm-4 col-sm-12 col-md-5"
+                                                                        style="padding-left:0% !important;">Account Type<span class="astrix">*</span></label>
+                                                                    <!-- <input type="text" class="col-sm-12 col-md-6"
+                                                                        name="scty_ctgry" id="scty_ctgry"
+                                                                        placeholder=""> -->
+                                                                        <select class="col-sm-12 col-md-6" name="scty_acc_typ" id="scty_acc_typ" >
+                                                                            <option selected="" disabled="" value="">Select</option>
+                                                                            <option value="SB">SB</option>
+                                                                            <option value="CA">CA</option>
+                                                                            <option value="OD">OD</option>
+                                                                            <option value="CC">CC</option>
+                                                                        </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="container row mt-2">
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="scty_acc_typ_shrt_nme_add" class="mr-sm-4 col-sm-12 col-md-5"
-                                                        style="padding-left:0% !important;">Short Name</label>
+                                                        style="padding-left:0% !important;">Short Name<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_acc_typ_shrt_nme_add"
-                                                        id="scty_acc_typ_shrt_nme_add" placeholder="">
+                                                        id="scty_acc_typ_shrt_nme_add" placeholder="" onkeypress="return alpha(event)">
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="scty_acc_typ_desc_add" class="mr-sm-4 col-sm-12 col-md-5"
-                                                        style="padding-left:0% !important;">Description</label>
+                                                        style="padding-left:0% !important;">Description<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_acc_typ_desc_add"
-                                                        id="scty_acc_typ_desc_add" placeholder="">
+                                                        id="scty_acc_typ_desc_add" placeholder="" onkeypress="return alpha(event)">
                                                 </div>
                                             </div>
 
@@ -325,13 +348,13 @@
                                                 </div>
                                                 <div class="col-sm-12 col-md-3">
                                                     <input type="button" class="btn clr clr1" name="scty_clear_frm"
-                                                        id="scty_clear_frm" value="Clear Form">
+                                                        id="scty_clear_frm" value="Clear Form" onclick="account_add_clear()">
 
                                                 </div>
                                                 <div class="col-sm-12 col-md-5"></div>
                                                 <div class="col-sm-12 col-md-2">
                                                     <input type="button" class="btn" name="scty_acc_typ_add"
-                                                        id="scty_acc_typ_add" value="Submit">
+                                                        id="scty_acc_typ_add" value="Submit" onclick="accountDetails()">
                                                 </div>
                                             </div>
 
@@ -343,12 +366,12 @@
                         </div>
                     </div>
                 </div>
-
+                <% } %>
                 <!-- ADD -END-->
 
                 <!-- EDIT -START-->
-
-                <div class="content" hidden>
+                <%if (pagetype=='EDIT'){ %>
+                <div class="content" >
                     <div class="row-sm ">
                         <div class="col-sm-12">
                             <div class="card tp">
@@ -360,21 +383,34 @@
 
                                     <h6>EDIT RECORD</h6>
                                     <hr>
-                                    <form action="" method="post">
+                                    <form action="/societyModule/societyDetails/acc_tye_update" method="post" id="account_edit_type">
 
                                         <div class="content">
                                             <div class="container row mt-2">
                                                 <div class="col-sm-12 col-md-6">
+                                                        <label for="scty_acc_typ_ed" class="mr-sm-4 col-sm-12 col-md-5"
+                                                            style="padding-left:0% !important;">Account Type<span class="astrix">*</span></label>
+                                                            <select class="col-sm-12 col-md-6" name="scty_acc_typ_ed" id="scty_acc_typ_ed" >
+                                                                <option ><%=scty_acc_typ_ed%></option>
+                                                                <option value="SB">SB</option>
+                                                                <option value="CA">CA</option>
+                                                                <option value="OD">OD</option>
+                                                                <option value="CC">CC</option>
+                                                            </select>
+                                                    </div>
+                                                </div>
+                                            <div class="container row mt-4">
+                                                <div class="col-sm-12 col-md-6">
                                                     <label for="scty_acc_typ_shrt_nme_ed" class="mr-sm-4 col-sm-12 col-md-5"
-                                                        style="padding-left:0% !important;">Short Name</label>
+                                                        style="padding-left:0% !important;">Short Name<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_acc_typ_shrt_nme_ed"
-                                                        id="scty_acc_typ_shrt_nme_ed" placeholder="">
+                                                        id="scty_acc_typ_shrt_nme_ed" placeholder="" value="<%=scty_acc_typ_shrt_nme_ed%>" onkeypress="return alpha(event)">
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="scty_acc_typ_desc_ed" class="mr-sm-4 col-sm-12 col-md-5"
-                                                        style="padding-left:0% !important;">Description</label>
+                                                        style="padding-left:0% !important;">Description<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_acc_typ_desc_ed"
-                                                        id="scty_acc_typ_desc_ed" placeholder="">
+                                                        id="scty_acc_typ_desc_ed" placeholder="" value="<%=scty_acc_typ_desc_ed%>" onkeypress="return alpha(event)">
                                                 </div>
                                             </div>
 
@@ -390,13 +426,15 @@
                                                 <div class="col-sm-12 col-md-3">
                                                     <input type="button" class="btn clr clr1" name="scty_clear_frm_ed"
                                                         id="scty_clear_frm_ed" value="Clear Form"
-                                                        onclick="cheque_add_clear()">
+                                                        onclick="account_edit_clear()">
 
                                                 </div>
                                                 <div class="col-sm-12 col-md-5"></div>
                                                 <div class="col-sm-12 col-md-2">
+                                                        <input hidden type="text" class="btn" name="scty_acc_id" id="scty_acc_id"
+                                                        value="<%=scty_acc_id%>">
                                                     <input type="button" class="btn" name="scty_acc_typ_ed"
-                                                        id="scty_acc_typ_ed" value="Submit" onclick="chequebooks()">
+                                                        id="scty_acc_typ_ed" value="Submit" onclick="accountEditDetails()">
                                                 </div>
                                             </div>
 
@@ -408,11 +446,11 @@
                         </div>
                     </div>
                 </div>
-
+                <%}%>
                 <!--EDIT END-->
                 <!-- VIEW -START-->
-
-                <div class="content" hidden>
+                <%if(pagetype=='VIEW'){%>
+                <div class="content" >
                     <div class="row-sm ">
                         <div class="col-sm-12">
                             <div class="card tp">
@@ -424,27 +462,44 @@
 
                                     <h6>VIEW RECORD</h6>
                                     <hr>
-                                    <form action="" method="post" id="">
+                                    <form action="/societyModule/societyDetails/view_acc_data" method="post" id="">
                                         <fieldset disabled="disabled">
                                             <div class="content">
+                                                    <div class="container row mt-2">
+                                                            <div class="col-sm-12 col-md-6">
+                                                                    <label for="scty_acc_typ_vw" class="mr-sm-4 col-sm-12 col-md-5"
+                                                                        style="padding-left:0% !important;">Account Type</label>
+                                                                    <!-- <input type="text" class="col-sm-12 col-md-6"
+                                                                        name="scty_ctgry" id="scty_ctgry"
+                                                                        placeholder=""> -->
+                                                                        <select class="col-sm-12 col-md-6" name="scty_acc_typ_vw" id="scty_acc_typ_vw" >
+                                                                            <option ><%=scty_acc_typ_vw%></option>   
+                                                                            <option value="SB">SB</option>
+                                                                            <option value="CA">CA</option>
+                                                                            <option value="OD">OD</option>
+                                                                            <option value="CC">CC</option>
+                                                                        </select>
+                                                                </div>
+                                                            </div>
                                                 <div class="container row mt-2">
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="scty_acc_typ_shrt_nme_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Short Name</label>
                                                         <input type="text" class="col-sm-12 col-md-6" name="scty_acc_typ_shrt_nme_vw"
-                                                            id="scty_acc_typ_shrt_nme_vw" placeholder="">
+                                                            id="scty_acc_typ_shrt_nme_vw" placeholder=""  value="<%=scty_acc_typ_shrt_nme_vw%>">
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="scty_acc_typ_desc_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Description</label>
                                                         <input type="text" class="col-sm-12 col-md-6" name="scty_acc_typ_desc_vw"
-                                                            id="scty_acc_typ_desc_vw" placeholder="">
+                                                            id="scty_acc_typ_desc_vw" placeholder=""  value="<%=scty_acc_typ_desc_vw%>">
                                                     </div>
                                                 </div>
 
                                             </div>
                                         </fieldset>
-
+                                        <input hidden type="text" class="btn" name="scty_acc_id_vw" id="scty_acc_id_vw"
+                                        value="<%=scty_acc_id_vw%>">
                                         <a type="text" class="btn"
                                             href="/societyModule/societyDetails/scty_acc_typ_search"
                                             name="scty_acc_typ_search_vw" id="scty_acc_typ_search_vw"
@@ -460,60 +515,9 @@
                     </div>
 
                 </div>
-
+                <%}%>
                 <!-- VIEW -END-->
-                <!-- DELETE -START-->
-
-                <!-- <div class="content">
-                    <div class="row-sm ">
-                        <div class="col-sm-12">
-                            <div class="card tp">
-                                <div class="card-header"></div>
-                                <div class="card-body">
-
-                                    <h6>SOCIETY ACCOUNT TYPE</h6>
-
-                                    <hr>
-                                    <h6>Delete RECORD</h6>
-                                    <hr>
-                                    <form action="" method="post" id="">
-                                        <fieldset disabled="disabled">
-                                            <div class="content">
-                                                <div class="container row mt-2">
-                                                    <div class="col-sm-12 col-md-6">
-                                                        <label for="scty_acc_typ_shrt_nme_del" class="mr-sm-4 col-sm-12 col-md-5"
-                                                            style="padding-left:0% !important;">Short Name</label>
-                                                        <input type="text" class="col-sm-12 col-md-6" name="scty_acc_typ_shrt_nme_del"
-                                                            id="scty_acc_typ_shrt_nme_del" placeholder="">
-                                                    </div>
-                                                    <div class="col-sm-12 col-md-6">
-                                                        <label for="scty_acc_typ_desc_del" class="mr-sm-4 col-sm-12 col-md-5"
-                                                            style="padding-left:0% !important;">Description</label>
-                                                        <input type="text" class="col-sm-12 col-md-6" name="scty_acc_typ_desc_del"
-                                                            id="scty_acc_typ_desc_del" placeholder="">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </fieldset>
-                                        <a type="text" class="btn"
-                                            href="/societyModule/societyDetails/scty_acc_typ_search"
-                                            name="scty_bck_search_del" id="scty_bck_search_del"
-                                            value="Back to Search">Back to
-                                            Search</a>
-                                    </form>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div> -->
-
-                <!-- DELETE -END-->
-
+              
                 <% include ../includes/footer %>
 
             </div>
