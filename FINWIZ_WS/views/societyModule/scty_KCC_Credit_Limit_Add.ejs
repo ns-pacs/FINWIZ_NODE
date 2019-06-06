@@ -3,7 +3,7 @@
     <head>
         <% include ../includes/styles %>
         <% include ../includes/scripts %>
-        <script type="text/javascript" src=""></script>
+        <script type="text/javascript" src="/javascripts/societyDetailsJS.js"></script>
     </head>
 
     <body>
@@ -244,7 +244,7 @@ Holiday List
                             <% } %>
                                         <h6>Add Records</h6>
                                         <hr>
-                                        <form autocomplete="off" action="" method="post" id="crdlmt" autocomplete="off">
+                                        <form autocomplete="off" action="/societyModule/societyDetails/kcc_credit_insert" method="post" id="crdlmt" autocomplete="off">
                                         <div class="content">
                                                     <div class="container row mb-4">
                                                         <div class="col-sm-12 col-md-6">
@@ -254,7 +254,7 @@ Holiday List
                                                                 id="kc_crd_lmt">
                                                                 <option disabled="" selected="" value="">Select</option>
                                                                 <option value="Crop Loan">Crop Loan</option>
-                                                                <option value="Retail Trader">Overdraft</option>
+                                                                <option value="Retail Trader">Retail Trader</option>
                                                                 <option value="Professional & Self Employed">Professional & Self Employed</option>
                                                              </select>
 
@@ -392,14 +392,14 @@ Holiday List
                                                          <div class="col-sm-12 col-md-6">
                                                             <label for="sacn_crd_lmt" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Sanctioned credit Limit
                                                                </label>
-                                                               <input type="number" class="col-sm-12 col-md-6" name="sacn_crd_lmt"
-                                                                            id="sacn_crd_lmt" value="" placeholder="">
+                                                               <input type="text" class="col-sm-12 col-md-6" name="sacn_crd_lmt"
+                                                                            id="sacn_crd_lmt" onkeypress="return numeric(event)" placeholder="">
 
                                                         </div>
                                                     </div>
                                                     <div class="container row mt-4">
                                                         <div class="col-sm-12 col-md-2">
-                                                           <a type="text" class="btn" href=""
+                                                           <a type="text" class="btn" href="/societyModule/societyDetails/scty_kcc_cr_lim_search"
                                                                 name="kcc_crd_lmt_srch" id="kcc_crd_lmt_srch" value="Back to Search">Back to
                                                                 Search</a>
 
@@ -411,7 +411,7 @@ Holiday List
                                                         </div>
                                                         <div class="col-sm-12 col-md-5"></div>
                                                         <div class="col-sm-12 col-md-2">
-                                                            <input type="button" class="btn" name="sub_ad" id="sub_ad" value="Submit" onclick="">
+                                                            <input type="button" class="btn" name="sub_ad" id="sub_ad" value="Submit" onclick="credit_limit_validation()">
                                                         </div>
                                                     </div>
 
@@ -422,12 +422,12 @@ Holiday List
                                     </div>
                                 </div>
                             </div>
-                        </div
+                        </div>
                         <%}%>
 
                         <!-- EDIT -START-->
 
-                        <%if(pagetype=='EDIT'){%>
+                        <% if(pagetype=='EDIT'){ %>
                             <div class="content">
                                 <div class="row-sm ">
                                     <div class="col-sm-12">
@@ -438,17 +438,17 @@ Holiday List
                                                 
                                                     <h6>Edit Records</h6>
                                                     <hr>
-                                                    <form action="" method="post" id="u">
+                                                    <form action="/societyModule/societyDetails/kcct_credit_lmt_update_record" method="post" id="credit_lmt_edit">
                                                     <div class="content">
                                                                 <div class="container row mb-4">
                                                                     <div class="col-sm-12 col-md-6">
                                                                           <label for="lmt_crdt" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Loan type
                                                                 </label>
                                                                  <select class="col-sm-12 col-md-6" name="kc_crd_lmt"
-                                                                id="kc_crd_lmt">
-                                                                <option disabled="" selected="" value="">Select</option>
+                                                                id="kc_crd_lmt" >
+                                                                <option value="<%= loan_type %>"><%= loan_type %></option>
                                                                 <option value="Crop Loan">Crop Loan</option>
-                                                                <option value="Retail Trader">Overdraft</option>
+                                                                <option value="Retail Trader">Retail Trader</option>
                                                                 <option value="Professional & Self Employed">Professional & Self Employed</option>
                                                              </select>
 
@@ -461,7 +461,7 @@ Holiday List
 
                                                                     <select class="col-sm-12 col-md-6" id="cust_category"
                                                                     name="cust_category">
-                                                                    <option disabled="" selected="" value="">Select
+                                                                    <option value="<%=mem_cat %>"><%=mem_cat%>
                                                                     </option>
                                                                     <option value="PROPRIETORY CONCERNS ">PROPRIETORY
                                                                         CONCERNS </option>
@@ -578,8 +578,8 @@ Holiday List
                                                                     style="padding-left:0% !important;">Sanctioned Date
                                                                 <span class="astrix">*</span></label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
-                                                                    name="kcc_crd_dt" id="kcc_crd_dt" placeholder=""
-                                                                    onkeypress="">
+                                                                    name="kcc_crd_dt" id="kcc_crd_dt" value="<%=moment(kcc_date).format("DD-MM-YYYY")%>" >  
+                                                                    
                                                                     <span><i class="material-icons iicon1 iicon11"
                                                                         name="kcc_crd_dt" id="kcc_crd_dt" data-toggle="kcc_crd_dt"
                                                                         data-target-name="kcc_crd_dt">
@@ -590,27 +590,31 @@ Holiday List
                                                         <div class="col-sm-12 col-md-12">
                                                             <label for="sacn_crd_lmt" class="mr-sm-4 col-sm-12 col-md-2" style="padding-left:0% !important;">Sanctioned credit Limit
                                                                </label>
-                                                               <input type="number" class="col-sm-12 col-md-6" name="sacn_crd_lmt"
-                                                                            id="sacn_crd_lmt" value="" placeholder="">
+                                                               <input type="text" class="col-sm-12 col-md-6" name="sacn_crd_lmt" value="<%= sanction_amt %>"
+                                                                            id="sacn_crd_lmt" onkeypress="return numeric(event)" placeholder="">
 
                                                         </div>
                                                     </div>
                                                                 <div class="container row mt-4">
                                                                     <div class="col-sm-12 col-md-2">
-                                                                            <a type="text" class="btn" href=""
+
+                                                                            <input hidden type="number" class="col-sm-12 col-md-6" name="kcc_credit_id_ed" id="kcc_credit_id_ed"
+                                                                            placeholder="" value="<%=kcc_credit_lmt_id%>">
+
+                                                                            <a type="text" class="btn" href="/societyModule/societyDetails/scty_kcc_cr_lim_search"
                                                                             name="kcc_crd_lmt_srch" id="kcc_crd_lmt_srch" value="Back to Search">Back to
                                                                             Search</a>
 
                                                                     </div>
                                                                     <div class="col-sm-12 col-md-3">
                                                                         <input type="button" class="btn clr clr1" name="clear_frm_ed" id="clear_frm_ed"
-                                                                            value="Clear Form" onclick="">
+                                                                            value="Clear Form" onclick="kcc_credit_lmt_edit_clear()">
 
                                                                     </div>
                                                                     <div class="col-sm-12 col-md-5"></div>
                                                                     <div class="col-sm-12 col-md-2">
-                                                                            <input hidden type="text" class="btn" name="" id="" value="">
-                                                                        <input type="submit" class="btn" name="" id="" value="Submit">
+                                                                            <!-- <input hidden type="text" class="btn" name="" id="" value=""> -->
+                                                                        <input type="button" class="btn" name="" id="" value="Submit" onclick="edit_credit_lmt_val()">
                                                                     </div>
                                                                 </div>
 
@@ -647,9 +651,9 @@ Holiday List
                                                                 </label>
                                                                <select class="col-sm-12 col-md-6" name="kc_crd_lmt"
                                                                 id="kc_crd_lmt">
-                                                                <option disabled="" selected="" value="">Select</option>
+                                                                <option value="<%= loan_type %>"><%= loan_type %></option>
                                                                 <option value="Crop Loan">Crop Loan</option>
-                                                                <option value="Retail Trader">Overdraft</option>
+                                                                <option value="Retail Trader">Retail Trader</option>
                                                                 <option value="Professional & Self Employed">Professional & Self Employed</option>
                                                              </select>
 
@@ -662,7 +666,7 @@ Holiday List
 
                                                                     <select class="col-sm-12 col-md-6" id="cust_category"
                                                                     name="cust_category">
-                                                                    <option disabled="" selected="" value="">Select
+                                                                    <option  value="<%=mem_cat %>" readonly><%=mem_cat%>
                                                                     </option>
                                                                     <option value="PROPRIETORY CONCERNS ">PROPRIETORY
                                                                         CONCERNS </option>
@@ -779,8 +783,7 @@ Holiday List
                                                                     style="padding-left:0% !important;">Sanctioned Date
                                                                 <span class="astrix">*</span></label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
-                                                                    name="kcc_crd_dt" id="kcc_crd_dt" placeholder=""
-                                                                    onkeypress="">
+                                                                    name="kcc_crd_dt" id="kcc_crd_dt" value="<%=moment(kcc_date).format("DD-MM-YYYY")%>" readonly>
                                                                     <span><i class="material-icons iicon1 iicon11"
                                                                         name="kcc_crd_dt" id="kcc_crd_dt" data-toggle="kcc_crd_dt"
                                                                         data-target-name="kcc_crd_dt">
@@ -792,14 +795,14 @@ Holiday List
                                                             <label for="sacn_crd_lmt" class="mr-sm-4 col-sm-12 col-md-2" style="padding-left:0% !important;">Sanctioned credit Limit
                                                                </label>
                                                                <input type="number" class="col-sm-12 col-md-6" name="sacn_crd_lmt"
-                                                                            id="sacn_crd_lmt" value="" placeholder="">
+                                                                            id="sacn_crd_lmt" value="<%= sanction_amt %>" readonly>
 
                                                         </div>
                                                     </div>
                                     </fieldset>
                                         <div class="container row mt-4">
                                             <div class="col-sm-12 col-md-2">
-                                                    <a type="text" class="btn" href=""
+                                                    <a type="text" class="btn" href="/societyModule/societyDetails/scty_kcc_cr_lim_search"
                                                     name="kcc_crd_lmt_srch" id="kcc_crd_lmt_srch" value="Back to Search">Back to
                                                     Search</a>
 
