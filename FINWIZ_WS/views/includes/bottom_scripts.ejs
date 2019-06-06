@@ -61,6 +61,7 @@ changeYear:true,
 YearRange:'1947:2019',
 minDate:'now',
 dateFormat:'dd-mm-yy',
+ 
 });
 
 var toDate = $("#holi_to_date").datepicker({
@@ -72,6 +73,10 @@ numberOfMonths: 1,
 changeYear:true,
 YearRange:'1947:2019',
 minDate:'now',
+onSelect: function (dateStr) {
+                holiday_date_search();
+            }
+
 });
 });
 </script>
@@ -98,6 +103,10 @@ minDate:'now',
     changeYear:true,
     YearRange:'1947:2019',
     minDate:'now',
+    onSelect: function (dateStr) {
+                compensation_date_search();
+            }
+
     });
     });
     </script>
