@@ -2818,15 +2818,7 @@ router.post('/delete_scty_br_populate',function(req,res){
     res.render('societyModule/scty_Branch_Search');
  });
 
- //ChequeBook Details Add screen
- router.get('/scty_chq_book_det_add',function(req,res){
-    res.render('societyModule/scty_ChequeBook_Details_Add');
- });
 
- //ChequeBook Details Search screen
- router.get('/scty_chq_book_det_search',function(req,res){
-    res.render('societyModule/scty_ChequeBook_Details_Search');
- });
  
 
 
