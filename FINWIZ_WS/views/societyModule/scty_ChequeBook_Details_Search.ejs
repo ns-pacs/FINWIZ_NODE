@@ -9,12 +9,12 @@
 
     <body>
 
-        <form action="" method="post" id="edit_data_load_form" hidden>
+        <form action="/societyModule/societyDetails/scty_chq_edit" method="post" id="edit_data_load_form" hidden>
             <input id="tempchequeid" name="tempchequeid" hidden>
 
         </form>
 
-        <form action="" method="post" id="view_data_load_form" hidden>
+        <form action="/societyModule/societyDetails/scty_chq_view" method="post" id="view_data_load_form" hidden>
             <input id="tempviewchequeid" name="tempviewchequeid" hidden>
 
         </form>
@@ -316,17 +316,19 @@
                                 <div class="card-body">
                                     <div class="content">
 
-                                        <!-- flash message -->
+                                       <!-- flash message -->
 
+                                    <% if(locals.message){ %>
                                         <div class="text text-center" role="alert" background-color: red;>
-                                            <strong style="color:green"></strong>
+                                            <strong style="color:green"><%= message.success_msg %></strong>
                                         </div>
+                                        <% } %>
 
                                         <h6>Search</h6>
                                         <hr>
 
 
-                                        <form action="" method="post" autocomplete="off">
+                                                <form action="../../societyModule/societyDetails/scty_chq_part_srch" method="post" autocomplete="off">
 
 
                                             <div class="container row mt-2">
@@ -334,13 +336,13 @@
                                                     <label for="scty_brch_name" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Branch Name</label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_brch_name"
-                                                        id="scty_brch_name" placeholder="">
+                                                        id="scty_brch_name" value="" onkeypress="return alpha(event)" placeholder="">
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="scty_acc_num" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Account Number</label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_acc_num"
-                                                        id="scty_acc_num" placeholder="" maxlength="16">
+                                                        id="scty_acc_num" value="" placeholder="" onkeypress="return numeric(event)"  maxlength="16">
                                                 </div>
                                             </div>
 
@@ -352,6 +354,8 @@
                                                         name="scty_ctgry" id="scty_ctgry"
                                                         placeholder=""> -->
                                                         <select class="col-sm-12 col-md-6" name="scty_ctgry" id="scty_ctgry" >
+                                                                <option>Select
+                                                                    </option>
                                                             <option value="SB">SB</option>
                                                             <option value="CA">CA</option>
                                                             <option value="OD">OD</option>
@@ -362,7 +366,7 @@
                                                     <label for="scty_chq_bk_num" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Cheque Book Number</label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_chq_bk_num"
-                                                        id="scty_chq_bk_num" placeholder="" maxlength="6">
+                                                        id="scty_chq_bk_num" placeholder="" onkeypress="return numeric(event)" value="" maxlength="6">
 
 
                                                 </div>
@@ -374,7 +378,7 @@
                                                         style="padding-left:0% !important;">No of Leaves Per Book</label>
                                                     <input type="text" class="col-sm-12 col-md-6"
                                                         name="scty_no_lev_per_bk" id="scty_no_lev_per_bk"
-                                                        placeholder="">
+                                                        placeholder="" onkeypress="return numeric(event)" maxlength="3" value="">
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="scty_chq_bk_stat" class="mr-sm-4 col-sm-12 col-md-5"
@@ -382,8 +386,10 @@
                                                     <!-- <input type="text" class="col-sm-12 col-md-6" name="scty_chq_bk_stat"
                                                         id="scty_chq_bk_stat" placeholder="" maxlength="6"> -->
                                                         <select class="col-sm-12 col-md-6" name="scty_chq_bk_stat" id="scty_chq_bk_stat" >
+                                                                <option>Select
+                                                                    </option>
                                                             <option value="Active">Active</option>
-                                                            <option value="Inavtive">Inavtive</option>
+                                                            <option value="Inactive">Inactive</option>
                                                             <option value="Dormant">Dormant</option>
                                                         </select>
 
@@ -394,7 +400,7 @@
 
                                             <input type="submit" name="btnUplEmp" id="btnUplEmp" class="btn"
                                                 value="Search">
-                                            <input type="button" class="btn" value="Reset">
+                                            <input type="button" class="btn" value="Reset" onclick="clearSearchChq()">
                                             <br>
                                             <div class="row">
                                                 <div class="d-sm-none d-md-block col-md-10"></div>
@@ -460,44 +466,73 @@
                                                             <tbody>
 
 
-                                                                <tr id="" role="row" class="odd">
+                                                                    <%if(chqdtls!=0){%>
+                                                                        <% for(var i=0;i < chqdtls.length; i++) { %>
+                                                                        <tr id="depid<%=chqdtls[i].scb_n_chq_id%>" role="row" class="odd">
+                                          
+                                          
+                                          
+                                                                          <input type="radio" hidden name="radio_cheque_edit"
+                                                                            id="radio_cheque_edit<%=chqdtls[i].scb_n_chq_id%>"
+                                                                            value="<%=chqdtls[i].scb_n_chq_id%>" class="edit" />
+                                          
+                                                                          <input type="radio" hidden name="radio_cheque_view"
+                                                                            id="radio_cheque_view<%=chqdtls[i].scb_n_chq_id%>"
+                                                                            value="<%=chqdtls[i].scb_n_chq_id%>" class="view" />
+                                          
+                                                                          <input type="radio" hidden name="radio_cheque_delete"
+                                                                            id="radio_cheque_delete<%=chqdtls[i].scb_n_chq_id%>"
+                                                                            value="<%=chqdtls[i].scb_n_chq_id%>" class="delete" />
+                                          
+                                                                          <input type="text" name="asso_rtrn_mstr"
+                                                                            id="asso_rtrn_mstr<%=chqdtls[i].scb_n_chq_id%>"
+                                                                            value="<%=chqdtls[i].scb_n_chq_id%>" hidden>
+                                                                          <input type="text" name="asso_rtrn_date"
+                                                                            id="asso_rtrn_date<%=chqdtls[i].scb_n_chq_id%>"
+                                                                            value="<%=chqdtls[i].scb_n_chq_id%>" hidden>
+                                                                          <input type="text" name="asso_rtrn_amt"
+                                                                            id="asso_rtrn_amt<%=chqdtls[i].scb_n_chq_id%>"
+                                                                            value="<%=chqdtls[i].scb_n_chq_id%>" hidden>
+                                                                          <input type="text" name="asso_rtrn_tds"
+                                                                            id="asso_rtrn_tds<%=chqdtls[i].scb_n_chq_id%>"
+                                                                            value="<%=chqdtls[i].scb_n_chq_id%>" hidden>
+                                          
+                                          
+                                                                          <td class="sorting_1"><%= chqdtls[i].scb_ch_branch_name %></td>
+                                                                          <td class="sorting_1"><%= chqdtls[i].scb_n_acct_num %></td>
+                                                                          <td align="sorting_1"><%= chqdtls[i].scb_ch_category %></td>
+                                                                          <td class="sorting_1"><%= chqdtls[i].scb_n_cheque_book_num %></td>
+                                                                          <td class="sorting_1"><%= chqdtls[i].scb_n_no_of_leaves_per_book %></td>
+                                                                          <td align="sorting_1"><%= chqdtls[i].scb_ch_cheque_book_status %></td>
 
-
-                                                                    <input type="radio" hidden name=""
-                                                                        id="" value="" class="edit" />
-                                                                    <input type="radio" hidden name=""
-                                                                        id="" value="" class="view" />
-                                                                    <input type="radio" hidden name=""
-                                                                        id="" value="" class="delete" />
-
-
-
-                                                                    <td class="sorting_1"></td>
-                                                                    <td class="sorting_1"></td>
-                                                                    <td class="sorting_1"></td>
-                                                                    <td class="sorting_1"></td>
-                                                                    <td class="sorting_1"></td>
-                                                                    <td class="sorting_1"></td>
-
-                                                                    <td><input type="text" name="" id="" value=""
-                                                                            hidden><i style="font-size:16px" class="fa"
-                                                                            data-toggle="tooltip" title="Edit"
-                                                                            id="">&#xf044;</i>
-                                                                        <input type="text" name="" id="" value=""
-                                                                            hidden><i style="font-size:16px" class="fa"
-                                                                            data-toggle="tooltip" title="view"
-                                                                            id="">&#xf06e;</i>
+                                                                          <!-- <td align="right"><%= chqdtls[i].abdr_n_tds_amt %></td> -->
+                                          
+                                                                          <td>
+                                                                            <input type="text" name="chq_dtls_ededit_chq<%=chqdtls[i].scb_n_chq_id%>"
+                                                                              id="chq_dtls_ededit_chq<%=chqdtls[i].scb_n_chq_id%>"
+                                                                              value="<%=chqdtls[i].scb_n_chq_id%>" hidden> <i style="font-size:16px"
+                                                                              class="fa"  data-toggle="tooltip" title="Edit" id="edit_chq<%=chqdtls[i].scb_n_chq_id%>"
+                                                                              onclick="chq_edit(this)">&#xf044;</i>
+                                                                            <input type="text" name="chq_dtls_vwview_chq<%=chqdtls[i].scb_n_chq_id%>"
+                                                                              id="chq_dtls_vwview_chq<%=chqdtls[i].scb_n_chq_id%>"
+                                                                              value="<%=chqdtls[i].scb_n_chq_id%>" hidden><i style="font-size:16px"
+                                                                              class="fa"  data-toggle="tooltip" title="View" id="view_chq<%=chqdtls[i].scb_n_chq_id%>"
+                                                                              onclick="chq_view(this)">&#xf06e;</i>
                                                                         <!-- <input type="text" name="" id="" value="" hidden ><i style="font-size:16px" class="fa"  id="">&#xf2ed;</i> -->
 
-                                                                        <input type="text" name="" id="" value=""
-                                                                            hidden>
+                                                                        <input type="text"
+                                                                        name="chq_dtls_deldelete_chq<%=chqdtls[i].scb_n_chq_id%>"
+                                                                        id="chq_dtls_deldelete_chq<%=chqdtls[i].scb_n_chq_id%>"
+                                                                        value="<%=chqdtls[i].scb_n_chq_id%>" hidden>
                                                                         <i class="fa" data-target="#remove_cheque_modal"
-                                                                            data-toggle="modal" title="Delete"
-                                                                            id="">&#xf2ed;</i>
+                                                                        data-toggle="modal" title="Delete" id="delete_chq<%=chqdtls[i].scb_n_chq_id%>"
+                                                                       onclick="chq_delete(this)">&#xf2ed;</i>
+                                                                       </td>
                                                                 </tr>
 
 
-
+                                                                <% } %>
+                                                                <% } %>
 
 
                                                             </tbody>
@@ -523,7 +558,7 @@
             </div>
         </div>
 
-        <form action="" method="post" id="">
+        <form action="/societyModule/societyDetails/scty_chq_delete" method="post" id="chq_dtls_del">
             <div class="modal fade" id="remove_cheque_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-notify modal-warning" style="width: 30%; margin-top: 10%;"
@@ -546,7 +581,7 @@
                             <input id="tempchequedeleteid" name="tempchequedeleteid" hidden>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn col-4 mr-1">Confirm</button>
+                            <button type="button" class="btn col-4 mr-1" onclick="confirm_chq_del()">Confirm</button>
                             <button type="submit" class="btn col-4 ml-1" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -554,7 +589,6 @@
                 </div>
             </div>
         </form>
-
 
 
     </body>
