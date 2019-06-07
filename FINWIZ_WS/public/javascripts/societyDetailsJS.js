@@ -910,7 +910,7 @@ function years(empcd)
 
 /* Society- KCC Credit Limits- START*/
 ///edit kcc credit limit
-function edit_kcc_credit_lmt(oObject)  
+function edit_kcc_credit_lmt(oObject)
 {
 
     var id = oObject.id;
