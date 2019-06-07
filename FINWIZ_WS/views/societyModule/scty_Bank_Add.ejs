@@ -329,7 +329,7 @@ Accounts
                                                             <!-- <input type="text" class="col-sm-12 col-md-6" name="soc_add_bnk_name" id="soc_add_bnk_name" placeholder="" value="" style="text-transform: capitalize"> -->
                                                             <select required class="col-sm-12 col-md-6" id="soc_add_bnk_name" name="soc_add_bnk_name" onchange= "setSocietyBankCode()">
                                                                 <option disabled="" selected="" value="" >Select Bank Name </option>
-                                                                <% for(var i=1;i < bank.length;i++) { %>
+                                                                <% for(var i=0;i < bank.length;i++) { %>
                                                                     <option value="<%= bank[i].bcd_ch_bank_name  %>"> <%= bank[i].bcd_ch_bank_name %></option>
                                                                                               <% } %>
                                                             </select>
@@ -703,7 +703,7 @@ Accounts
                                                                 style="text-transform: capitalize"> -->
                                                                 <select required class="col-sm-12 col-md-6" id="soc_add_bnk_name_ed" name="soc_add_bnk_name_ed" onchange= "setSocietyBankCode_ed()">
                                                                     <option><%=edit_soc_add_bnk_name%> </option>
-                                                                    <% for(var i=1;i < bank.length;i++) { %>
+                                                                    <% for(var i=0;i < bank.length;i++) { %>
                                                                         <option value="<%= bank[i].bcd_ch_bank_name  %>"> <%= bank[i].bcd_ch_bank_name %></option>
                                                                                                   <% } %>
                                                                 </select>
@@ -925,7 +925,7 @@ Accounts
                                                             <select class="col-sm-12 col-md-3 " id="soc_bnk_address_key_con_per1_ed"
                                                             name="soc_bnk_address_key_con_per1_ed" style="height: 1.85em"
                                                             onchange="">
-                                                            <option disabled="" selected="" value="<%=edit_soc_bnk_address_key_con_per1%>"><%=edit_soc_bnk_address_key_con_per1%>
+                                                            <option  selected="" value="<%=edit_soc_bnk_address_key_con_per1%>"><%=edit_soc_bnk_address_key_con_per1%>
                                                             </option>
                                                             <option value="Mr">Mr</option>
                                                             <option value="Ms">Ms</option>
@@ -951,7 +951,7 @@ Accounts
                                                             <select class="col-sm-12 col-md-3 " id="soc_bnk_address_key_con_per2_ed"
                                                             name="soc_bnk_address_key_con_per2_ed" style="height: 1.85em"
                                                             onchange="">
-                                                            <option disabled="" selected="" value="<%=edit_soc_bnk_address_key_con_per2%>"><%=edit_soc_bnk_address_key_con_per2%>
+                                                            <option  selected="" value="<%=edit_soc_bnk_address_key_con_per2%>"><%=edit_soc_bnk_address_key_con_per2%>
                                                             </option>
                                                             <option value="Mr">Mr</option>
                                                             <option value="Ms">Ms</option>

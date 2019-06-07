@@ -1973,21 +1973,18 @@ router.post('/search_particular_socbnkrec', function(req,res){
     if(err) throw err;
     console.log("searchres is", searchres.rows);
 
-   pgdbconnect.query("select * from society_bank where sb_ch_del_flg='N'",function(err,bankreslt){
-    
-    if(err) throw err;
-    console.log("per res", searchres.rows);
-    
-   //  pgdbconnect.query("select * from bank_code_details limit 50",function(err,result6) 
 
-   //  {
-   //    if(err) throw err;
-   //    console.log(" res", searchres.rows);
+    
+    pgdbconnect.query("select * from bank_code_details limit 50",function(err,result6) 
+
+    {
+      if(err) throw err;
+      console.log(" res", searchres.rows);
 
     res.render('societyModule/scty_Bank_Search',{
 
       societybankdetails:searchres.rows,
-      banksrch:bankreslt.rows
+      banksrch:result6.rows
     
     });
 });
