@@ -1,3 +1,11 @@
+function desc(alpbts)
+{
+   var charCode = (alpbts.which) ? alpbts.which : alpbts.keyCode;
+   if (charCode > 32 
+         && (charCode < 65 || charCode > 90 ) && (charCode < 97 || charCode > 122)  && (charCode > 47 || charCode < 58) )
+      return false;
+   return true;
+}
 function alpha(alpbts)
 {
    var charCode = (alpbts.which) ? alpbts.which : alpbts.keyCode;
@@ -1739,3 +1747,451 @@ function credit_limit_validation()
               document.getElementById("credit_lmt_edit").submit();
             }
  /* Society- KCC Credit Limits- END*/
+ 
+ /* ------------------------------------------------------------------------ DEPARTMENT START ------------------------------------------------------------------------------- */
+
+
+// Clear Functions for Department
+
+function clearDepartmentDetails(){
+document.getElementById('dept_code_add').value="";
+document.getElementById('dept_name_add').value="";
+document.getElementById('desc_add').value="";
+document.getElementById('sec_name_add').value="";
+}
+
+
+// Clear Functions for Department in Edit
+
+function edit_ClrDepartmentDetails(){
+   document.getElementById('dept_code_ed').value="";
+   document.getElementById('dept_name_ed').value="";
+   document.getElementById('desc_ed').value="";
+   document.getElementById('sec_name_ed').value="";
+   }
+
+function srch_ClrDepartment(){
+   document.getElementById('dept_code').value="";
+   document.getElementById('dept_name').value="";
+   document.getElementById('sec_name').value="";
+      }   
+
+
+//  Functions for Department
+
+function departmentDetails(){
+
+    //Department Code
+    
+    var dept_code_add = document.getElementById("dept_code_add").value;
+    if(dept_code_add == ""){
+    document.getElementById("dept_code_add").focus();
+    
+    swal("Oops!","Please Enter Department Code","error");
+    return false;
+    }
+    
+    
+    // Department Name
+    
+    var dept_name_add = document.getElementById("dept_name_add").value;
+    if(dept_name_add == ""){
+    document.getElementById("dept_name_add").focus();
+    swal("Oops!","Please Enter Department Name","error");
+    return false;
+    }
+    
+        
+    // Department description
+    
+    var desc_add = document.getElementById("desc_add").value;
+    if(desc_add == ""){
+    document.getElementById("desc_add").focus(); 
+    swal("Oops!","Please Write Description","error");
+    return false;
+    }
+    
+    // Department Section
+    
+    var sec_name_add = document.getElementById("sec_name_add").value;
+    if(sec_name_add == ""){
+    document.getElementById("sec_name_add").focus();
+    swal("Oops!","Please Enter Section Name","error");
+    return false;
+    }
+
+    document.getElementById('scty_dept_ad').submit();
+}
+
+
+// EDIT Functions for Department
+
+function edit_departmentDetails(){
+
+   //Department Code
+   
+   var dept_code_ed = document.getElementById("dept_code_ed").value;
+   if(dept_code_ed == ""){
+   document.getElementById("dept_code_ed").focus();
+   
+   swal("Oops!","Please Enter Department Code","error");
+   return false;
+   }
+   
+   
+   // Department Name
+   
+   var dept_name_ed = document.getElementById("dept_name_ed").value;
+   if(dept_name_ed == ""){
+   document.getElementById("dept_name_ed").focus();
+   swal("Oops!","Please Enter Department Name","error");
+   return false;
+   }
+   
+       
+   // Department description
+   
+   var desc_ed = document.getElementById("desc_ed").value;
+   if(desc_ed == ""){
+   document.getElementById("desc_ed").focus(); 
+   swal("Oops!","Please Write Description","error");
+   return false;
+   }
+   
+   // Department Section
+   
+   var sec_name_ed = document.getElementById("sec_name_ed").value;
+   if(sec_name_ed == ""){
+   document.getElementById("sec_name_ed").focus();
+   swal("Oops!","Please Enter Section Name","error");
+   return false;
+   }
+
+   document.getElementById('scty_dept_ed').submit();
+}
+
+// Department Edit
+
+function dept_edit(edt)
+{
+var edtid = edt.id;
+ var ed1=document.getElementById("soc_dept_ed"+edtid).value;
+document.getElementById("radio_society_edit"+ed1).checked=true;
+var edtidchecked=$("input[name='radio_society_edit']:checked").val();
+var dept_id=document.getElementById('radio_society_edit'+edtidchecked).value;
+document.getElementById("edit_sctydep_id").value=dept_id;
+document.getElementById("soc_dept_edit").submit();
+}
+
+
+// Department View
+
+function dept_view(vew)
+{
+var vewid = vew.id;
+ var vw1=document.getElementById("soc_dept_vw"+vewid).value;
+document.getElementById("radio_society_view"+vw1).checked=true;
+var vewidchecked=$("input[name='radio_society_view']:checked").val();
+var dept_id_vw=document.getElementById('radio_society_view'+vewidchecked).value;
+document.getElementById("view_sctydep_id").value=dept_id_vw;
+document.getElementById("soc_dept_view").submit();
+}
+
+// Department Delete
+
+function dept_delete(dlt)
+{
+var dltid = dlt.id;
+ var dlt1=document.getElementById("soc_dept_dl"+dltid).value;
+document.getElementById("radio_society_delete"+dlt1).checked=true;
+var dltidchecked=$("input[name='radio_society_delete']:checked").val();
+var dept_id_del=document.getElementById('radio_society_delete'+dltidchecked).value;
+document.getElementById("del_sctydep_id").value=dept_id_del;
+}
+
+function confirm_dept_del(){
+   document.getElementById("soc_dept_del").submit();
+}
+
+/* ------------------------------------------------------------------------ DEPARTMENT END --------------------------------------------------------------------------------- */
+
+
+
+
+/* ------------------------------------------------------------------------ CHEQUE DETAILS START ---------------------------------------------------------------------------- */
+
+
+// Function for Cheque Details
+
+function chequeDetails(){
+
+   // Cheque Details Branch
+
+   var scty_brch_add = document.getElementById("scty_brch_add").value;
+   if(scty_brch_add == ""){
+   document.getElementById("scty_brch_add").focus();
+   
+   swal("Oops!","Please Enter Department Code","error");
+   return false;
+   }
+   
+   
+   // Cheque Details Account Number
+   
+   var scty_acc_add = document.getElementById("scty_acc_add").value;
+   if(scty_acc_add == ""){
+   document.getElementById("scty_acc_add").focus();
+   swal("Oops!","Please Enter Department Name","error");
+   return false;
+   }
+   
+       
+   // Cheque Details Category
+   
+   var scty_ctgry_add = document.getElementById("scty_ctgry_add").value;
+   if(scty_ctgry_add == ""){
+   document.getElementById("scty_ctgry_add").focus(); 
+   swal("Oops!","Please Write Description","error");
+   return false;
+   }
+   
+   // Cheque Details Cheque Book Number
+   
+   var scty_chq_bok_num_add = document.getElementById("scty_chq_bok_num_add").value;
+   if(scty_chq_bok_num_add == ""){
+   document.getElementById("scty_chq_bok_num_add").focus();
+   swal("Oops!","Please Enter Section Name","error");
+   return false;
+   }
+
+      // Cheque Details Series
+
+      var scty_series_add = document.getElementById("scty_series_add").value;
+      if(scty_series_add == ""){
+      document.getElementById("scty_series_add").focus();
+      
+      swal("Oops!","Please Enter Department Code","error");
+      return false;
+      }
+      
+      
+      // Cheque Details Number Of Leaves Per Book
+      
+      var scty_no_lev_per_bk_add = document.getElementById("scty_no_lev_per_bk_add").value;
+      if(scty_no_lev_per_bk_add == ""){
+      document.getElementById("scty_no_lev_per_bk_add").focus();
+      swal("Oops!","Please Enter Department Name","error");
+      return false;
+      }
+      
+          
+      // Cheque Details Starting Number
+      
+      var scty_star_num_add = document.getElementById("scty_star_num_add").value;
+      if(scty_star_num_add == ""){
+      document.getElementById("scty_star_num_add").focus(); 
+      swal("Oops!","Please Write Description","error");
+      return false;
+      }
+      
+      // Cheque Details End Number
+      
+      var scty_end_num_add = document.getElementById("scty_end_num_add").value;
+      if(scty_end_num_add == ""){
+      document.getElementById("scty_end_num_add").focus();
+      swal("Oops!","Please Enter Section Name","error");
+      return false;
+      }
+   
+      // Cheque Details Cheque Book Status
+      
+      var scty_chq_book_status_add = document.getElementById("scty_chq_book_status_add").value;
+      if(scty_chq_book_status_add == ""){
+      document.getElementById("scty_chq_book_status_add").focus();
+      swal("Oops!","Please Enter Section Name","error");
+      return false;
+      }
+
+   document.getElementById("scty_chq_ad").submit();
+}
+
+//Clear Function for Cheque Details
+
+function clearChequeDetails(){
+   document.getElementById('scty_brch_add').value="";
+   document.getElementById('scty_acc_add').value="";
+   document.getElementById('scty_ctgry_add').value="";
+   document.getElementById('scty_chq_bok_num_add').value="";
+   document.getElementById('scty_series_add').value="";
+   document.getElementById('scty_no_lev_per_bk_add').value="";
+   document.getElementById('scty_star_num_add').value="";
+   document.getElementById('scty_end_num_add').value="";
+   document.getElementById('scty_chq_book_status_add').value="";
+   }
+
+
+// Function for Cheque Details in EDIT
+
+function editChequeDetails(){
+
+   // Cheque Details Branch
+
+   var scty_brch_add_ed = document.getElementById("scty_brch_add_ed").value;
+   if(scty_brch_add_ed == ""){
+   document.getElementById("scty_brch_add_ed").focus();
+   
+   swal("Oops!","Please Enter Department Code","error");
+   return false;
+   }
+   
+   
+   // Cheque Details Account Number
+   
+   var scty_acc_add_ed = document.getElementById("scty_acc_add_ed").value;
+   if(scty_acc_add_ed == ""){
+   document.getElementById("scty_acc_add_ed").focus();
+   swal("Oops!","Please Enter Department Name","error");
+   return false;
+   }
+   
+       
+   // Cheque Details Category
+   
+   var scty_ctgry_add_ed = document.getElementById("scty_ctgry_add_ed").value;
+   if(scty_ctgry_add_ed == ""){
+   document.getElementById("scty_ctgry_add_ed").focus(); 
+   swal("Oops!","Please Write Description","error");
+   return false;
+   }
+   
+   // Cheque Details Cheque Book Number
+   
+   var scty_chq_bok_num_add_ed = document.getElementById("scty_chq_bok_num_add_ed").value;
+   if(scty_chq_bok_num_add_ed == ""){
+   document.getElementById("scty_chq_bok_num_add_ed").focus();
+   swal("Oops!","Please Enter Section Name","error");
+   return false;
+   }
+
+      // Cheque Details Series
+
+      var scty_series_add_ed = document.getElementById("scty_series_add_ed").value;
+      if(scty_series_add_ed == ""){
+      document.getElementById("scty_series_add_ed").focus();
+      
+      swal("Oops!","Please Enter Department Code","error");
+      return false;
+      }
+      
+      
+      // Cheque Details Number Of Leaves Per Book
+      
+      var scty_no_lev_per_bk_add_ed = document.getElementById("scty_no_lev_per_bk_add_ed").value;
+      if(scty_no_lev_per_bk_add_ed == ""){
+      document.getElementById("scty_no_lev_per_bk_add_ed").focus();
+      swal("Oops!","Please Enter Department Name","error");
+      return false;
+      }
+      
+          
+      // Cheque Details Starting Number
+      
+      var scty_star_num_add_ed = document.getElementById("scty_star_num_add_ed").value;
+      if(scty_star_num_add_ed == ""){
+      document.getElementById("scty_star_num_add_ed").focus(); 
+      swal("Oops!","Please Write Description","error");
+      return false;
+      }
+      
+      // Cheque Details End Number
+      
+      var scty_end_num_add_ed = document.getElementById("scty_end_num_add_ed").value;
+      if(scty_end_num_add_ed == ""){
+      document.getElementById("scty_end_num_add_ed").focus();
+      swal("Oops!","Please Enter Section Name","error");
+      return false;
+      }
+   
+      // Cheque Details Cheque Book Status
+      
+      var scty_chq_book_status_add_ed = document.getElementById("scty_chq_book_status_add_ed").value;
+      if(scty_chq_book_status_add_ed == ""){
+      document.getElementById("scty_chq_book_status_add_ed").focus();
+      swal("Oops!","Please Enter Section Name","error");
+      return false;
+      }
+
+   document.getElementById("scty_chq_ed").submit();
+}
+
+//Clear Function for Cheque Details in EDIT
+
+function editClearChequeDetails(){
+   document.getElementById('scty_brch_add_ed').value="";
+   document.getElementById('scty_acc_add_ed').value="";
+   document.getElementById('scty_ctgry_add_ed').value="";
+   document.getElementById('scty_chq_bok_num_add_ed').value="";
+   document.getElementById('scty_series_add_ed').value="";
+   document.getElementById('scty_no_lev_per_bk_add_ed').value="";
+   document.getElementById('scty_star_num_add_ed').value="";
+   document.getElementById('scty_end_num_add_ed').value="";
+   document.getElementById('scty_chq_book_status_add_ed').value="";
+   }
+
+
+
+
+// Cheque Details Edit
+
+function chq_edit(edt)
+{
+var edtid = edt.id;
+ var ed1=document.getElementById("chq_dtls_ed"+edtid).value;
+document.getElementById("radio_cheque_edit"+ed1).checked=true;
+var edtidchecked=$("input[name='radio_cheque_edit']:checked").val();
+var chq_id=document.getElementById('radio_cheque_edit'+edtidchecked).value;
+document.getElementById("tempchequeid").value=chq_id;
+document.getElementById("edit_data_load_form").submit();
+}
+
+
+// Cheque Details View
+
+function chq_view(vew)
+{
+var vewid = vew.id;
+ var vw1=document.getElementById("chq_dtls_vw"+vewid).value;
+document.getElementById("radio_cheque_view"+vw1).checked=true;
+var vewidchecked=$("input[name='radio_cheque_view']:checked").val();
+var chq_id_vw=document.getElementById('radio_cheque_view'+vewidchecked).value;
+document.getElementById("tempviewchequeid").value=chq_id_vw;
+document.getElementById("view_data_load_form").submit();
+}
+
+// Cheque Details Delete
+
+function chq_delete(dlt)
+{
+var dltid = dlt.id;
+ var dlt1=document.getElementById("chq_dtls_del"+dltid).value;
+document.getElementById("radio_cheque_delete"+dlt1).checked=true;
+var dltidchecked=$("input[name='radio_cheque_delete']:checked").val();
+var dept_id_del=document.getElementById('radio_cheque_delete'+dltidchecked).value;
+document.getElementById("tempchequedeleteid").value=dept_id_del;
+}
+
+function confirm_chq_del(){
+   document.getElementById("chq_dtls_del").submit();
+}
+
+//Clear function for Cheque Details Search Page
+function clearSearchChq(){
+document.getElementById('scty_brch_name').value="";
+document.getElementById('scty_acc_num').value="";
+document.getElementById('scty_ctgry').value="";
+document.getElementById('scty_chq_bk_num').value="";
+document.getElementById('scty_no_lev_per_bk').value="";
+document.getElementById('scty_chq_bk_stat').value="";
+}
+
+/* ------------------------------------------------------------------------ CHEQUE DETAILS END ---------------------------------------------------------------------------- */

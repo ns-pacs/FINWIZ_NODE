@@ -2048,5 +2048,1293 @@ router.post('/search_particular_socbnkrec', function(req,res){
     res.render('societyModule/scty_Department_Search');
  });
  
+/* ------------------------------------------------------------------------ DEPARTMENT DETAILS START ---------------------------------------------------------------------- */
+
+
+ //Department Search screen
+ router.get('/scty_dept_search',function(req,res){
+
+   pgdbconnect.query("select * from society_department where sd_ch_del_flg = $1",['N'],function(err,rlts) 
+   {
+     if(err) throw err;
+     
+   pgdbconnect.query("select * from society_department where sd_ch_del_flg = $1 order by sd_n_dept_id",['N'],function(err,relts) 
+   {
+     if(err) throw err;
+
+    res.render('societyModule/scty_Department_Search',{
+      socdeptdtls:rlts.rows,
+      departmentdtls:relts.rows
+    });
+   });
+});
+ });
+
+ //Department Add screen
+ router.get('/scty_dept_add',function(req,res){
+   var divtype=req.query.key;
+   console.log("DIV TYPE",divtype);
+    res.render('societyModule/scty_Department_Add',{
+      pagetype:divtype 
+   });
+ });
+
+
+ //Department Insertion
+ router.post('/scty_dept_insert',function(req,res){
+
+   var divtype="ADD";
+   console.log("DIV TYPE",divtype);
+
+   var dept_code_add = req.body.dept_code_add;
+   var dept_name_add = req.body.dept_name_add;  
+   var desc_add = req.body.desc_add;
+   var sec_name_add = req.body.sec_name_add;
+
+   var sd_n_dept_id;
+   console.log("Department Insert",dept_code_add,dept_name_add,desc_add,sec_name_add,sd_n_dept_id);
+   pgdbconnect.query("select * from society_department where sd_ch_del_flg=$1",['N'], function(err,resl){
+
+      if(resl.rowCount==0){
+         sd_n_dept_id=1;
+
+         pgdbconnect.query("insert into society_department(sd_n_dept_code, sd_ch_dept_name, sd_ch_description, sd_ch_sect_name, sd_ch_del_flg, sd_n_dept_id) values ($1,$2,$3,$4,$5,$6)",[dept_code_add, dept_name_add, desc_add, sec_name_add, 'N', sd_n_dept_id],function(err,rslt){
+            if(err) throw err;
+
+            //flash messege
+            req.flash('success_msg', 'Data inserted successfully');
+            res.locals.message=req.flash();
+    
+        res.render('societyModule/scty_Department_Add',{
+            pagetype:divtype
+         });
+      });
+   }
+   else
+   {
+      pgdbconnect.query("select max(sd_n_dept_id) from society_department",function(err,reslt){
+         console.log("max value check",reslt)
+         console.log("max value check",reslt.rows[0].max)
+
+         sd_n_dept_id=parseInt(reslt.rows[0].max)+1;
+         console.log("when more rows exxxists",sd_n_dept_id);
+
+         pgdbconnect.query("insert into society_department(sd_n_dept_code, sd_ch_dept_name, sd_ch_description, sd_ch_sect_name, sd_ch_del_flg, sd_n_dept_id) values ($1,$2,$3,$4,$5,$6)",[dept_code_add, dept_name_add, desc_add, sec_name_add, 'N', sd_n_dept_id],function(err,rslt){
+            if(err) throw err;
+
+            //flash messege
+            req.flash('success_msg', 'Data inserted successfully');
+            res.locals.message=req.flash();
+
+   res.render('societyModule/scty_Department_Add',{
+            pagetype:divtype
+         });
+});
+      });
+   }
+});
+ });
+
+
+//Department Edit
+router.post('/scty_dept_edit', function(req,res){
+   var divtype="EDIT";
+   console.log("DIV TYPE",divtype);
+
+   var edit_soc_dept= req.body.edit_sctydep_id;
+ console.log("cheque id to edit",edit_soc_dept)
+
+ pgdbconnect.query("select * from society_department where sd_n_dept_id=$1 order by sd_n_dept_id",[edit_soc_dept],function(err,rsl)
+  {
+   if(err) throw err;
+   console.log("Editing Details",rsl);
+   var ed_scdep_cd = rsl.rows[0].sd_n_dept_code;
+   var ed_scdep_name = rsl.rows[0].sd_ch_dept_name;
+   var ed_scdes_name = rsl.rows[0].sd_ch_description;  
+   var ed_scsect_name = rsl.rows[0].sd_ch_sect_name;
+
+
+   res.render('societyModule/scty_Department_Add',{
+      ed_scdep_cd:ed_scdep_cd,
+      ed_scdep_name:ed_scdep_name,
+      ed_scdes_name:ed_scdes_name,
+      ed_scsect_name:ed_scsect_name,
+       pagetype:divtype,
+       edit_soc_dept:edit_soc_dept
+
+
+   });
+});
+});
+
+//Department Update
+router.post('/scty_dept_update', function(req,res){
+   console.log("Updating");
+
+   var up_dept_code_ed = req.body.dept_code_ed;    
+   var up_dept_name_ed = req.body.dept_name_ed;  
+   var up_desc_ed = req.body.desc_ed;
+   var up_sec_name_ed = req.body.sec_name_ed;
+   var up_soc_hide_id=req.body.soc_hide_id;
+   console.log(up_soc_hide_id);
+   console.log(up_dept_code_ed, up_dept_name_ed, up_desc_ed, up_sec_name_ed);
+   pgdbconnect.query("update society_department set sd_n_dept_code = $1, sd_ch_dept_name = $2, sd_ch_description = $3, sd_ch_sect_name = $4 where sd_n_dept_id = $5",[up_dept_code_ed, up_dept_name_ed, up_desc_ed, up_sec_name_ed, up_soc_hide_id],function(err,rsl)
+   {
+    if(err) throw err;
+
+
+      
+    pgdbconnect.query("select * from society_department where sd_ch_del_flg = $1 order by sd_n_dept_id",['N'],function(err,relts) 
+    {
+      if(err) throw err;
+            //flash messege
+            req.flash('success_msg', 'Data updated successfully');
+            res.locals.message=req.flash();
+
+            res.render('societyModule/scty_Department_Search',{
+               departmentdtls:relts.rows,
+               up_deptdtls:rsl.rows
+
+            });
+         });
+      });
+   });
+
+
+
+
+//Department View
+router.post('/scty_dept_view', function(req,res){
+   var divtype="VIEW";
+   console.log("DIV TYPE",divtype);
+
+   var view_sctydep_id= req.body.view_sctydep_id;
+ console.log("cheque id to edit",view_sctydep_id)
+
+ pgdbconnect.query("select * from society_department where sd_n_dept_id=$1 order by sd_n_dept_id",[view_sctydep_id],function(err,rsl)
+  {
+   if(err) throw err;
+   console.log("view Details",rsl);
+   var vw_scdep_cd = rsl.rows[0].sd_n_dept_code;
+   var vw_scdep_name = rsl.rows[0].sd_ch_dept_name;
+   var vw_scdes_name = rsl.rows[0].sd_ch_description;  
+   var vw_scsect_name = rsl.rows[0].sd_ch_sect_name;
+
+
+   res.render('societyModule/scty_Department_Add',{
+      vw_scdep_cd:vw_scdep_cd,
+      vw_scdep_name:vw_scdep_name,
+      vw_scdes_name:vw_scdes_name,
+      vw_scsect_name:vw_scsect_name,
+       pagetype:divtype,
+       view_sctydep_id:view_sctydep_id
+
+
+   });
+});
+});
+
+//Department Delete
+router.post('/scty_dept_delete', function(req,res){
+
+
+   var del_sctydep_id= req.body.del_sctydep_id;
+ console.log("acc id to delete",del_sctydep_id)
+
+ pgdbconnect.query("update society_department set sd_ch_del_flg=$1 where sd_n_dept_id=$2 ",['Y',del_sctydep_id],function(err,rslt)
+ {
+  if(err) throw err;
+
+  pgdbconnect.query("select * from society_department where sd_ch_del_flg = $1 order by sd_n_dept_id",['N'],function(err,relts) 
+  {
+    if(err) throw err;
+          //flash messege
+          req.flash('success_msg', 'Data deleted successfully');
+          res.locals.message=req.flash();
+
+          res.render('societyModule/scty_Department_Search',{
+             departmentdtls:relts.rows
+          });
+         });
+      });
+   });
+
+// Searching a Particular record in Department
+router.post('/scty_dept_srch',function(req,res){
+   var p_dept_code = req.body.dept_code;
+   var p_dept_name = req.body.dept_name;  
+   var p_sec_name = req.body.sec_name;
+   console.log(p_dept_code, p_dept_name, p_sec_name);
+
+   if(p_dept_code!="" && p_dept_name!="" && p_sec_name!="")
+   {
+      p_dept_code = req.body.dept_code;
+      p_dept_name = req.body.dept_name;  
+      p_sec_name = req.body.sec_name;
+   }
+
+   else if(p_dept_code != "" && p_dept_name == 'Select' && p_sec_name == 'Select')
+   {
+      p_dept_code = req.body.dept_code;
+      p_dept_name = null;  
+      p_sec_name = null;
+   }
+
+   else if(p_dept_code == 'Select' && p_dept_name != "" && p_sec_name == 'Select')
+   {
+      p_dept_code = null;
+      p_dept_name = req.body.dept_name;  
+      p_sec_name = null;
+   }
+
+   else if(p_dept_code == 'Select' && p_dept_name == 'Select' && p_sec_name != "")
+   {
+      p_dept_code = null;
+      p_dept_name = null;  
+      p_sec_name = req.body.sec_name;
+   }
+
+   else if(p_dept_code !="" && p_dept_name !="" && p_sec_name == 'Select')
+   {
+      p_dept_code = req.body.dept_code;
+      p_dept_name = req.body.dept_name;  
+      p_sec_name = null;
+   }
+
+   else if(p_dept_code !="" && p_dept_name =='Select' && p_sec_name != "")
+   {
+      p_dept_code = req.body.dept_code;
+      p_dept_name = null;  
+      p_sec_name = req.body.sec_name;
+   }
+
+   else if(p_dept_code == 'Select' && p_dept_name !="" && p_sec_name != "")
+   {
+      p_dept_code = null
+      p_dept_name = req.body.dept_name;  
+      p_sec_name = req.body.sec_name;
+   }
+
+   pgdbconnect.query("select * from society_department where (sd_n_dept_code = $1 or sd_ch_dept_name = $2 or sd_ch_sect_name = $3) and (sd_ch_del_flg = $4)",[p_dept_code, p_dept_name, p_sec_name,'N'],function(err,rest){
+      if(err) throw err;
+
+      res.render('societyModule/scty_Department_Search',{
+         departmentdtls:rest.rows
+      })
+   })
+   })
+
+/* ------------------------------------------------------------------------ DEPARTMENT DETAILS END ------------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------------ CHEQUE DETAILS START ---------------------------------------------------------------------------- */
+
+
+
+ //ChequeBook Details Add screen
+ router.get('/scty_chq_book_det_add',function(req,res){
+   var divtype=req.query.key;
+   console.log("DIV TYPE",divtype);
+
+    res.render('societyModule/scty_ChequeBook_Details_Add',{
+      pagetype:divtype
+    });
+ });
+
+
+  //ChequeBook Details Insertion
+  router.post('/scty_chq_insert',function(req,res){
+
+   var divtype="ADD";
+   console.log("DIV TYPE",divtype);
+
+   var scty_brch_add = req.body.scty_brch_add;  
+   var scty_acc_add = req.body.scty_acc_add;  
+   var scty_ctgry_add = req.body.scty_ctgry_add;
+   var scty_chq_bok_num_add = req.body.scty_chq_bok_num_add;
+   var scty_series_add = req.body.scty_series_add;
+   var scty_no_lev_per_bk_add = req.body.scty_no_lev_per_bk_add;
+   var scty_star_num_add = req.body.scty_star_num_add;
+   var scty_end_num_add = req.body.scty_end_num_add;
+   var scty_chq_book_status_add = req.body.scty_chq_book_status_add;
+
+   var scb_n_chq_id;
+   console.log(scb_n_chq_id)
+   console.log("Chequebook Insertion",scty_brch_add, scty_acc_add, scty_ctgry_add, scty_chq_bok_num_add, scty_series_add, scty_no_lev_per_bk_add, scty_star_num_add, scty_end_num_add, scty_chq_book_status_add);
+   pgdbconnect.query("select * from society_cheque_book_details where scb_ch_del_flg=$1",['N'], function(err,resl){
+
+      if(resl.rowCount==0){
+         scb_n_chq_id=1;
+
+         pgdbconnect.query("insert into society_cheque_book_details(	scb_ch_branch_name, scb_n_acct_num, scb_ch_category, scb_n_cheque_book_num, scb_ch_series, scb_n_no_of_leaves_per_book, scb_n_starting_num, scb_n_ending_num, scb_ch_cheque_book_status, scb_ch_del_flg, scb_n_chq_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)",[scty_brch_add, scty_acc_add, scty_ctgry_add, scty_chq_bok_num_add, scty_series_add, scty_no_lev_per_bk_add, scty_star_num_add, scty_end_num_add, scty_chq_book_status_add,'N',scb_n_chq_id],function(err,rslt){
+            if(err) throw err;
+
+            //flash messege
+            req.flash('success_msg', 'Data inserted successfully');
+            res.locals.message=req.flash();
+    
+        res.render('societyModule/scty_ChequeBook_Details_Add',{
+            pagetype:divtype
+         });
+      });
+   }
+   else
+   {
+      pgdbconnect.query("select max(scb_n_chq_id) from society_cheque_book_details",function(err,reslt){
+         console.log("max value check",reslt)
+         console.log("max value check",reslt.rows[0].max)
+
+         scb_n_chq_id=parseInt(reslt.rows[0].max)+1;
+         console.log("when more rows exxxists",scb_n_chq_id);
+
+         pgdbconnect.query("insert into society_cheque_book_details(scb_ch_branch_name, scb_n_acct_num, scb_ch_category, scb_n_cheque_book_num, scb_ch_series, scb_n_no_of_leaves_per_book, scb_n_starting_num, scb_n_ending_num, scb_ch_cheque_book_status, scb_ch_del_flg, scb_n_chq_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)",[scty_brch_add, scty_acc_add, scty_ctgry_add, scty_chq_bok_num_add, scty_series_add, scty_no_lev_per_bk_add, scty_star_num_add, scty_end_num_add, scty_chq_book_status_add,'N',scb_n_chq_id],function(err,rslt){
+            if(err) throw err;
+
+            //flash messege
+            req.flash('success_msg', 'Data inserted successfully');
+            res.locals.message=req.flash();
+
+   res.render('societyModule/scty_ChequeBook_Details_Add',{
+            pagetype:divtype
+         });
+});
+      });
+   }
+});
+ });
+
+
+ //ChequeBook Details Edit
+router.post('/scty_chq_edit', function(req,res){
+   var divtype="EDIT";
+   console.log("DIV TYPE",divtype);
+
+   var edit_chq_dtls= req.body.tempchequeid;
+ console.log("cheque id to edit",edit_chq_dtls)
+
+ pgdbconnect.query("select * from society_cheque_book_details where scb_n_chq_id=$1 order by scb_n_chq_id",[edit_chq_dtls],function(err,rsl)
+  {
+   if(err) throw err;
+   console.log("Editing Details",rsl);
+   var ed_branch_name = rsl.rows[0].scb_ch_branch_name;
+   var ed_acct_num = rsl.rows[0].scb_n_acct_num;
+   var ed_category = rsl.rows[0].scb_ch_category;  
+   var ed_cheque_book_num = rsl.rows[0].scb_n_cheque_book_num;
+   var ed_series = rsl.rows[0].scb_ch_series;
+   var ed_no_of_leaves_per_book = rsl.rows[0].scb_n_no_of_leaves_per_book;
+   var ed_starting_num = rsl.rows[0].scb_n_starting_num;
+   var ending_num = rsl.rows[0].scb_n_ending_num;  
+   var ed_cheque_book_status = rsl.rows[0].scb_ch_cheque_book_status;
+
+
+   res.render('societyModule/scty_ChequeBook_Details_Add',{
+      ed_branch_name:ed_branch_name,
+      ed_acct_num:ed_acct_num,
+      ed_category:ed_category,
+      ed_cheque_book_num:ed_cheque_book_num,
+      ed_series:ed_series,
+      ed_no_of_leaves_per_book:ed_no_of_leaves_per_book,
+      ed_starting_num:ed_starting_num,
+      ending_num:ending_num,
+      ed_cheque_book_status:ed_cheque_book_status,
+       pagetype:divtype,
+       edit_chq_dtls:edit_chq_dtls
+
+
+   });
+});
+});
+
+
+//ChequeBook Details Update
+router.post('/scty_chq_update', function(req,res){
+   console.log("Updating");
+
+   var up_brch_add_ed = req.body.scty_brch_add_ed;
+   var up_acc_add_ed = req.body.scty_acc_add_ed;  
+   var up_ctgry_add_ed = req.body.scty_ctgry_add_ed;
+   var up_chq_bok_num_add_ed = req.body.scty_chq_bok_num_add_ed;
+   var up_series_add_ed = req.body.scty_series_add_ed;    
+   var up_per_bk_add_ed = req.body.scty_no_lev_per_bk_add_ed;  
+   var up_star_num_add_ed = req.body.scty_star_num_add_ed;
+   var up_end_num_add_ed = req.body.scty_end_num_add_ed;
+   var up_chq_book_status_add_ed = req.body.scty_chq_book_status_add_ed;
+
+   var up_chqdtls_hide_id=req.body.chqdtls_hide_id;
+   console.log(up_chqdtls_hide_id);
+   console.log(up_brch_add_ed,up_acc_add_ed, up_ctgry_add_ed, up_chq_bok_num_add_ed, up_series_add_ed, up_per_bk_add_ed, up_star_num_add_ed, up_end_num_add_ed, up_chq_book_status_add_ed);
+   pgdbconnect.query("update society_cheque_book_details set scb_ch_branch_name = $1, scb_n_acct_num = $2, scb_ch_category = $3, scb_n_cheque_book_num = $4, scb_ch_series = $5, scb_n_no_of_leaves_per_book = $6, scb_n_starting_num = $7, scb_n_ending_num = $8, scb_ch_cheque_book_status = $9 where scb_n_chq_id = $10",[up_brch_add_ed,up_acc_add_ed, up_ctgry_add_ed, up_chq_bok_num_add_ed, up_series_add_ed, up_per_bk_add_ed, up_star_num_add_ed, up_end_num_add_ed, up_chq_book_status_add_ed, up_chqdtls_hide_id],function(err,rsl)
+   {
+    if(err) throw err;
+
+
+      
+    pgdbconnect.query("select * from society_cheque_book_details where scb_ch_del_flg = $1 order by scb_n_chq_id",['N'],function(err,resl) 
+    {
+      if(err) throw err;
+            //flash messege
+            req.flash('success_msg', 'Data updated successfully');
+            res.locals.message=req.flash();
+
+            res.render('societyModule/scty_ChequeBook_Details_Search',{
+               chqdtls:resl.rows,
+               up_chqdtls:rsl.rows
+
+            });
+         });
+      });
+   });
+
+
+ //ChequeBook Details View
+ router.post('/scty_chq_view', function(req,res){
+   var divtype="VIEW";
+   console.log("DIV TYPE",divtype);
+
+   var vw_tempviewchequeid= req.body.tempviewchequeid;
+ console.log("cheque id to view",vw_tempviewchequeid)
+
+ pgdbconnect.query("select * from society_cheque_book_details where scb_n_chq_id=$1 order by scb_n_chq_id",[vw_tempviewchequeid],function(err,rsl)
+  {
+   if(err) throw err;
+   console.log("Editing Details",rsl);
+   var vw_branch_name = rsl.rows[0].scb_ch_branch_name;
+   var vw_acct_num = rsl.rows[0].scb_n_acct_num;
+   var vw_category = rsl.rows[0].scb_ch_category;  
+   var vw_cheque_book_num = rsl.rows[0].scb_n_cheque_book_num;
+   var vw_series = rsl.rows[0].scb_ch_series;
+   var vw_no_of_leaves_per_book = rsl.rows[0].scb_n_no_of_leaves_per_book;
+   var vw_starting_num = rsl.rows[0].scb_n_starting_num;
+   var vw_ending_num = rsl.rows[0].scb_n_ending_num;  
+   var vw_cheque_book_status = rsl.rows[0].scb_ch_cheque_book_status;
+
+
+   res.render('societyModule/scty_ChequeBook_Details_Add',{
+      vw_branch_name:vw_branch_name,
+      vw_acct_num:vw_acct_num,
+      vw_category:vw_category,
+      vw_cheque_book_num:vw_cheque_book_num,
+      vw_series:vw_series,
+      vw_no_of_leaves_per_book:vw_no_of_leaves_per_book,
+      vw_starting_num:vw_starting_num,
+      vw_ending_num:vw_ending_num,
+      vw_cheque_book_status:vw_cheque_book_status,
+       pagetype:divtype,
+       vw_tempviewchequeid:vw_tempviewchequeid
+
+
+   });
+});
+});
+
+
+//ChequeBook Details Delete
+router.post('/scty_chq_delete', function(req,res){
+
+
+   var del_tempchequedeleteid= req.body.tempchequedeleteid;
+ console.log("acc id to delete",del_tempchequedeleteid)
+
+ pgdbconnect.query("update society_cheque_book_details set scb_ch_del_flg=$1 where scb_n_chq_id=$2 ",['Y',del_tempchequedeleteid],function(err,rslt)
+ {
+  if(err) throw err;
+
+  pgdbconnect.query("select * from society_cheque_book_details where scb_ch_del_flg = $1 order by scb_n_chq_id",['N'],function(err,relts) 
+  {
+    if(err) throw err;
+          //flash messege
+          req.flash('success_msg', 'Data deleted successfully');
+          res.locals.message=req.flash();
+
+          res.render('societyModule/scty_ChequeBook_Details_Search',{
+            chqdtls:relts.rows
+          });
+         });
+      });
+   });
+
+
+// Searching a Particular record in Cheque Details
+router.post('/scty_chq_part_srch',function(req,res){
+
+   var scty_brch_name = req.body.scty_brch_name;
+   var scty_acc_num = req.body.scty_acc_num;  
+   var scty_ctgry = req.body.scty_ctgry;
+   var scty_chq_bk_num = req.body.scty_chq_bk_num;
+   var scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   var scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   console.log(scty_brch_name, scty_acc_num, scty_ctgry, scty_chq_bk_num, scty_no_lev_per_bk, scty_chq_bk_stat)
+   // console.log(scty_brch_name!='')
+   // console.log(scty_acc_num!='')
+   // console.log(scty_ctgry!='')
+   // console.log(scty_chq_bk_num!='')
+   // console.log(scty_no_lev_per_bk!='')
+   // console.log(scty_chq_bk_stat!='')
+   
+   console.log(scty_brch_name!='')
+   console.log(scty_acc_num=='')
+   console.log(scty_ctgry=='Select')
+   console.log(scty_chq_bk_num=='')
+   console.log(scty_no_lev_per_bk=='')
+   console.log(scty_chq_bk_stat=='Select')
+
+   // console.log(scty_brch_name=='')
+   // console.log(scty_acc_num!='')
+   // console.log(scty_ctgry=='Select')
+   // console.log(scty_chq_bk_num=='')
+   // console.log(scty_no_lev_per_bk=='')
+   // console.log(scty_chq_bk_stat=='Select')
+
+   // console.log(scty_brch_name=='')
+   // console.log(scty_acc_num=='')
+   // console.log(scty_ctgry!='')
+   // console.log(scty_chq_bk_num=='')
+   // console.log(scty_no_lev_per_bk=='')
+   // console.log(scty_chq_bk_stat=='Select')
+
+   if(scty_brch_name!='' && scty_acc_num!='' && scty_ctgry!='' && scty_chq_bk_num!='' && scty_no_lev_per_bk!='' && scty_chq_bk_stat!='')
+   {
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num;  
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num == '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null ;
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+
+// One of Two's
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+// Two of Two's
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+// Three of two's
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Four of Two's
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num != "" && scty_no_lev_per_bk !="" && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num != "" && scty_no_lev_per_bk =="" && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = nureq.body.scty_chq_bk_stat;
+
+   }
+
+   // Five of Two's
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num == "" && scty_no_lev_per_bk !="" && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+   // One of Three's
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Two of Three's
+
+else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Three of Three's
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Four of Three's
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num != "" && scty_no_lev_per_bk !="" && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // One of Four's
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Two of Four's
+
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = req.body.scty_ctgry;
+   scty_chq_bk_num = req.body.scty_chq_bk_num;
+   scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = req.body.scty_ctgry;
+   scty_chq_bk_num = req.body.scty_chq_bk_num;
+   scty_no_lev_per_bk = null;    
+   scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = req.body.scty_ctgry;
+   scty_chq_bk_num = null;
+   scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = null;
+   scty_chq_bk_num = req.body.scty_chq_bk_num;
+   scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Three of Four's 
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // One of Five's
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+   
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+   
+   }
+
+   // Two of Five's
+
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = req.body.scty_ctgry;
+   scty_chq_bk_num = req.body.scty_chq_bk_num;
+   scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   pgdbconnect.query("select * from society_cheque_book_details where ((scb_ch_branch_name = $1 or scb_n_acct_num = $2 or scb_ch_category = $3 or scb_n_cheque_book_num = $4 or scb_n_no_of_leaves_per_book = $5 or scb_ch_cheque_book_status = $6) and scb_ch_del_flg = $7)",[scty_brch_name, scty_acc_num, scty_ctgry, scty_chq_bk_num, scty_no_lev_per_bk, scty_chq_bk_stat,'N'],function(err,resl){
+      if(err) throw err;
+
+      res.render('societyModule/scty_ChequeBook_Details_Search',{
+         chqdtls:resl.rows
+});
+   });
+});
+
+ //ChequeBook Details Search screen
+ router.get('/scty_chq_book_det_search',function(req,res){
+
+   pgdbconnect.query("select * from society_cheque_book_details where scb_ch_del_flg=$1 order by scb_n_chq_id",['N'], function(err,resl){
+      if(err) throw err;
+
+    res.render('societyModule/scty_ChequeBook_Details_Search',{
+       chqdtls:resl.rows
+
+    });
+   });
+ });
+
+/* ------------------------------------------------------------------------ CHEQUE DETAILS END ---------------------------------------------------------------------------- */
+
 
  module.exports=router;

@@ -4,11 +4,7 @@
 
     <% include ../includes/styles %>
     <% include ../includes/scripts %>
-
-
-
-
-
+    <script type="text/javascript" src="/javascripts/societyDetailsJS.js"></script>
 </head>
 
 <body>
@@ -26,7 +22,7 @@
                 <ul class="nav">
                     <!-- dashboard link moved to navbar by ranjeet -->
 
-                    <li id="sub_menu" >
+                    <li id="sub_menu" class="active">
 
                         <a href="#">
                             <i class="material-icons" style="font-size: 25px;">group</i>
@@ -261,7 +257,7 @@ Accounts
             </nav>
             <!-- End Navbar -->
 
-
+            <%if(pagetype=='ADD'){%>
             <div class="content">
                 <div class="row-sm ">
                     <div class="col-sm-12">
@@ -269,22 +265,24 @@ Accounts
                             <div class="card-header hdr"><h5>DEPARTMENT</h5></div>
                             <div class="card-body">
 
-
                                 <div class="content">
 
-
-
-
-
+                            <!-- flash message -->
+                                <% if(locals.message){ %>
+                                    <div class="text text-center" role="alert" background-color: red;>
+                                        <strong style="color:green"><%= message.success_msg %></strong>
+                                    </div>
+                                    <% } %>
 
                                     <!-- Form Start -->
 
 
 
-
-
                                         <h6>ADD RECORD</h6>
                                         <hr>
+
+                                        <form  action="../../societyModule/societyDetails/scty_dept_insert" method="post"
+                                        id="scty_dept_ad" autocomplete="off">
                                         <div class="container row mt-2">
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="dept_code_add" class="mr-sm-4 col-sm-12 col-md-5"
@@ -293,6 +291,9 @@ Accounts
                                                     name="dept_code_add">
                                                     <option disabled="" selected="" value="">Select
                                                     </option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
 
                                                 </select>
 
@@ -304,6 +305,9 @@ Accounts
                                                     name="dept_name_add">
                                                     <option disabled="" selected="" value="">Select
                                                     </option>
+                                                    <option value="Member">Member</option>
+                                                    <option value="Deposits">Deposits</option>
+                                                    <option value="Loans">Loans</option>
 
                                                 </select>
 
@@ -313,13 +317,13 @@ Accounts
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="desc_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="desc_add"
-                                                id="desc_add" placeholder="" style="text-transform: capitalize" onkeypress="return numeric(event)">
+                                                id="desc_add" placeholder="" style="text-transform: capitalize" maxlength="30" onkeypress="return desc(event)">
                                               </div>
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="sec_name_add" class="mr-sm-4 col-sm-12 col-md-5"
                                                     style="padding-left:0% !important;">Section Name</label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="sec_name_add"
-                                                    id="sec_name_add" placeholder="" style="text-transform: capitalize" onkeypress="return numeric(event)">
+                                                    id="sec_name_add" placeholder="" style="text-transform: capitalize" maxlength="10" onkeypress="return desc(event)">
 
                                             </div>
                                         </div>
@@ -338,14 +342,14 @@ Accounts
 
                                             </div>
                                             <div class="col-sm-12 col-md-3">
-                                                <input type="reset" class="btn clr clr1" name="clear_frm" id="clear_frm"
-                                                    value="Clear Form">
+                                                <input type="button" class="btn clr clr1" name="clear_frm" id="clear_frm"
+                                                    value="Clear Form" onclick="clearDepartmentDetails()">
 
                                             </div>
                                             <div class="col-sm-12 col-md-5"></div>
                                             <div class="col-sm-12 col-md-2">
-                                                <input type="button" class="btn" name="sub" id="sub" value="Submit"
-                                                    onclick="add_account_limit()">
+                                                <input type="button" class="btn" name="sub" id="sub" value="Submit" onclick="departmentDetails()">
+                                                    
                                             </div>
                                         </div>
                                     </form>
@@ -356,7 +360,7 @@ Accounts
                     </div>
                 </div>
             </div>
-
+            <%}%>
 
 
 
@@ -367,7 +371,7 @@ Accounts
 
 
 
-
+<%if(pagetype=='VIEW'){%>
         <div class="content">
             <div class="row-sm ">
                 <div class="col-sm-12">
@@ -387,13 +391,14 @@ Accounts
 
                                     <h6>VIEW RECORD</h6>
                                     <hr>
+                                    <fieldset disabled>
                                     <div class="container row mt-2">
                                         <div class="col-sm-12 col-md-6">
                                             <label for="dept_code_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                 style="padding-left:0% !important;">Department Code</label>
                                                 <select class="col-sm-12 col-md-6" id="dept_code_vw"
                                                 name="dept_code_vw">
-                                                <option disabled="" selected="" value="">Select
+                                                <option value="<%=vw_scdep_cd%>"><%=vw_scdep_cd%>
                                                 </option>
 
                                             </select>
@@ -404,7 +409,7 @@ Accounts
                                                 style="padding-left:0% !important;">Department Name</label>
                                                 <select class="col-sm-12 col-md-6" id="dept_name_vw"
                                                 name="dept_name_vw">
-                                                <option disabled="" selected="" value="">Select
+                                                <option value="<%=vw_scdep_name%>"><%=vw_scdep_name%>
                                                 </option>
 
                                             </select>
@@ -415,20 +420,20 @@ Accounts
                                         <div class="col-sm-12 col-md-6">
                                             <label for="desc_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
                                             <input type="text" class="col-sm-12 col-md-6" name="desc_vw"
-                                            id="desc_vw" placeholder="" style="text-transform: capitalize" onkeypress="return numeric(event)">
+                                            id="desc_vw" placeholder="" style="text-transform: capitalize" value="<%=vw_scdes_name%>">
 
                                           </div>
                                         <div class="col-sm-12 col-md-6">
                                             <label for="sec_name_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                 style="padding-left:0% !important;">Section Name</label>
                                             <input type="text" class="col-sm-12 col-md-6" name="sec_name_vw"
-                                                id="sec_name_vw" placeholder="" style="text-transform: capitalize" onkeypress="return numeric(event)">
-
+                                                id="sec_name_vw" placeholder="" style="text-transform: capitalize" value="<%=vw_scsect_name%>" >
+                                                <input hidden type="number" class="col-sm-12 col-md-6" name="soc_hide_id_vw" id="soc_hide_id_vw"
+                                                placeholder="" value="<%=view_sctydep_id%>">
                                         </div>
                                     </div>
 
-
-
+                                </fieldset>
 
 
 
@@ -453,7 +458,7 @@ Accounts
             </div>
         </div>
 
-
+        <%}%>
 
 
 <!--view end-->
@@ -462,7 +467,7 @@ Accounts
 
 
 
-
+<%if(pagetype=='EDIT'){%>
     <div class="content">
         <div class="row-sm ">
             <div class="col-sm-12">
@@ -473,7 +478,12 @@ Accounts
 
                         <div class="content">
 
-
+                                    <!-- flash message -->
+                                    <% if(locals.message){ %>
+                                        <div class="text text-center" role="alert" background-color: red;>
+                                            <strong style="color:green"><%= message.success_msg %></strong>
+                                        </div>
+                                        <% } %>
 
 
                             <!-- Form Start -->
@@ -483,17 +493,21 @@ Accounts
 
 
                                 <h6>EDIT RECORD</h6>
-
                                 <hr>
+
+                                <form  action="../../societyModule/societyDetails/scty_dept_update" method="post"
+                                id="scty_dept_ed" autocomplete="off">
                                 <div class="container row mt-2">
                                     <div class="col-sm-12 col-md-6">
                                         <label for="dept_code_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                             style="padding-left:0% !important;">Department Code</label>
                                             <select class="col-sm-12 col-md-6" id="dept_code_ed"
                                             name="dept_code_ed">
-                                            <option disabled="" selected="" value="">Select
+                                            <option value="<%=ed_scdep_cd%>"><%=ed_scdep_cd%>
                                             </option>
-
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
                                         </select>
 
 
@@ -503,8 +517,11 @@ Accounts
                                             style="padding-left:0% !important;">Department Name</label>
                                             <select class="col-sm-12 col-md-6" id="dept_name_ed"
                                             name="dept_name_ed">
-                                            <option disabled="" selected="" value="">Select
+                                            <option value="<%=ed_scdep_name%>"><%=ed_scdep_name%> 
                                             </option>
+                                            <option value="Member">Member</option>
+                                            <option value="Deposits">Deposits</option>
+                                            <option value="Loans">Loans</option>
 
                                         </select>
 
@@ -514,37 +531,38 @@ Accounts
                                     <div class="col-sm-12 col-md-6">
                                         <label for="desc_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
                                         <input type="text" class="col-sm-12 col-md-6" name="desc_ed"
-                                        id="desc_ed" placeholder="" style="text-transform: capitalize" onkeypress="return numeric(event)">
+                                        id="desc_ed" placeholder="" style="text-transform: capitalize" value="<%=ed_scdes_name%>" maxlength="30" onkeypress="return desc(event)">
 
                                       </div>
                                     <div class="col-sm-12 col-md-6">
                                         <label for="sec_name_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                             style="padding-left:0% !important;">Section Name</label>
                                         <input type="text" class="col-sm-12 col-md-6" name="sec_name_ed"
-                                            id="sec_name_ed" placeholder="" style="text-transform: capitalize" onkeypress="return numeric(event)">
-
+                                            id="sec_name_ed" placeholder="" style="text-transform: capitalize" value="<%=ed_scsect_name%>" maxlength="10" onkeypress="return desc(event)">
+                                            
                                     </div>
                                 </div>
                                 <!-- buttons -->
                                 <div class="container row mt-4">
                                     <div class="col-sm-12 col-md-2">
-                                            <input hidden type="number" class="col-sm-12 col-md-6" name="acc_lmt_ed" id="acc_lmt_ed"
-                                            placeholder="" value="">
+                                            <input hidden type="number" class="col-sm-12 col-md-6" name="soc_hide_id" id="soc_hide_id"
+                                            placeholder="" value="<%=edit_soc_dept%>">
                                         <a type="text" class="btn"
                                             href="/societyModule/societyDetails/scty_dept_search"
-                                            name="bck_search" id="bck_search" value="Back to Search">Back to
+                                            name="bck_search_ed" id="bck_search_ed" value="Back to Search">Back to
                                             Search</a>
 
                                     </div>
                                     <div class="col-sm-12 col-md-3">
-                                        <input type="button" class="btn clr clr1" name="clear_frm" id="clear_frm"
-                                            value="Clear Form" onclick="acc_lmt_clear()">
+                                        <input type="button" class="btn clr clr1" name="clear_frm_ed" id="clear_frm_ed"
+                                            value="Clear Form" onclick="edit_ClrDepartmentDetails()">
 
                                     </div>
                                     <div class="col-sm-12 col-md-5"></div>
                                     <div class="col-sm-12 col-md-2">
-                                        <input type="button" class="btn" name="sub" id="sub" value="Submit"
-                                            onclick="edit_account_limit()">
+                                            
+                                        <input type="button" class="btn" name="sub_ed" id="sub_ed" value="Submit"
+                                            onclick="edit_departmentDetails()">
                                     </div>
                                 </div>
                             </form>
@@ -556,7 +574,7 @@ Accounts
         </div>
     </div>
 
-
+    <%}%>
 
  <% include ../includes/footer %>
 
