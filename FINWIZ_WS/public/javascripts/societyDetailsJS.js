@@ -914,7 +914,7 @@ function edit_kcc_credit_lmt(oObject)
 {
 
     var id = oObject.id;
-    //  alert("This object's ID attribute is set to kkkkkkk \"" + id + "\"."); 
+    //  alert("This object's ID attribute is set to kkkkkkk \"" + id + "\".");   
    
    var rb1=document.getElementById("rf"+id).value;
     //  alert("vb"+rb1)
