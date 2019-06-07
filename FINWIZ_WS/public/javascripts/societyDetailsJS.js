@@ -77,6 +77,34 @@ function clearSocietyBankTab()
     document.getElementById('soc_add_bnk_code').value="";
     document.getElementById('soc_add_bnk_name').value="";
 }
+/////////////////////////////////////////////////////////
+
+/* Society Bank city-state    ADD */
+     
+function add_stateoncity_society_Bank() {
+   
+    var selected_city = document.getElementById("soc_bnk_address_city").value;
+     console.log(selected_city)
+obj1=JSON.parse(selected_city);
+console.log("res",obj1.state);
+console.log("ghsa",obj1.city);
+document.getElementById("soc_bnk_address_state").value = obj1.state;
+  }
+
+/////////////////////////////////////////////
+
+/* Society Bank city-state   EDIT */
+
+function edit_stateoncity_society_Bank() {
+   
+    var selected_city1 = document.getElementById("soc_bnk_address_city_ed").value;
+     console.log(selected_city1)
+obj1=JSON.parse(selected_city1);
+console.log("res",obj1.state);
+console.log("ghsa",obj1.city);
+document.getElementById("soc_bnk_address_state_ed").value = obj1.state;
+  }
+
 
 /////////////////////////////////////////////////////////
 

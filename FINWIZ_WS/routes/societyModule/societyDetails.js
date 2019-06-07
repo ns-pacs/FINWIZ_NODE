@@ -1504,7 +1504,7 @@ router.post('/society_bank_add',function(req,res){
  var soc_bnk_address_lndmark        = req.body.soc_bnk_address_lndmark;
  var soc_bnk_address_village        = req.body.soc_bnk_address_village;
  var soc_bnk_address_pncht_mdl      = req.body.soc_bnk_address_pncht_mdl;
- var soc_bnk_address_city           = req.body.soc_bnk_address_city;
+ var soc_bnk_address_city = JSON.parse(req.body.soc_bnk_address_city).city;
  var soc_bnk_address_district       = req.body.soc_bnk_address_district;
  var soc_bnk_address_state          = req.body.soc_bnk_address_state;
  var soc_bnk_address_country        = req.body.soc_bnk_address_country;
@@ -1784,7 +1784,7 @@ router.post('/update_societyBank_edit',function(req,res){
    var soc_bnk_address_lndmark_ed         = req.body.soc_bnk_address_lndmark_ed;
    var soc_bnk_address_village_ed         = req.body.soc_bnk_address_village_ed;
    var soc_bnk_address_pncht_mdl_ed       = req.body.soc_bnk_address_pncht_mdl_ed;
-   var soc_bnk_address_city_ed            = req.body.soc_bnk_address_city_ed;
+   var soc_bnk_address_city_ed = JSON.parse(req.body.soc_bnk_address_city_ed).city;
    var soc_bnk_address_district_ed        = req.body.soc_bnk_address_district_ed;
    var soc_bnk_address_state_ed           = req.body.soc_bnk_address_state_ed;
    var soc_bnk_address_country_ed         = req.body.soc_bnk_address_country_ed;

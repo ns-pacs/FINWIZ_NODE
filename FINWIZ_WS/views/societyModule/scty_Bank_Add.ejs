@@ -414,12 +414,19 @@ Accounts
                                                             <option disabled="" selected="" value="">Select City
                                                             </option>
                                         
-                                                            <% for(var i=1;i < cities.length;i++) { %>
+                                                           <!-- <% for(var i=1;i < cities.length;i++) { %>
 
                                                                 <option value="<%= cities[i].comm_code_desc  %>">
                                                                     <%= cities[i].comm_code_desc %></option>
 
-                                                            <% } %>
+                                                            <% } %> -->
+							    
+							     <% for(var i=1;i < cities.length;i++) { %>
+                                                                <!--<option value="<%= cities[i].comm_code_desc  %>">-->
+                                                                    <option value='{"city":"<%=cities[i].comm_code_desc%>","state":"<%=cities[i].state_code%>"}'>
+                                                                    <%= cities[i].comm_code_desc %></option>
+                                                                <% } %>
+
 
                                                         </select>
                                                         </div>
@@ -782,12 +789,18 @@ Accounts
                                                             <select class="col-sm-12 col-md-6" name="soc_bnk_address_city_ed" id="soc_bnk_address_city_ed" onchange="">
                                                                     <option  value="<%= edit_soc_bnk_address_city%>"><%= edit_soc_bnk_address_city%>
                                                                     </option>
-                                                                    <% for(var i=0;i < cities.length;i++) { %>
+                                                               <!--     <% for(var i=0;i < cities.length;i++) { %>
             
                                                                     <option value="<%= cities[i].comm_code_desc  %>">
                                                                         <%= cities[i].comm_code_desc %></option>
             
-                                                                    <% } %>
+                                                                    <% } %>  -->
+								    
+								     <% for(var i=1;i < cities.length;i++) { %>
+                                                                        <!--<option value="<%= cities[i].comm_code_desc  %>">-->
+                                                                            <option value='{"city":"<%=cities[i].comm_code_desc%>","state":"<%=cities[i].state_code%>"}'>
+                                                                            <%= cities[i].comm_code_desc %></option>
+                                                                        <% } %>
                                             
                                     </select>
                                                         </div>
