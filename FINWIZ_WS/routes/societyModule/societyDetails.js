@@ -1449,37 +1449,562 @@ router.post('/view_acc_data', function(req,res){
 /////////////////////////////END//////////////
 /* Society-Account TYPE- END*/
 
-
-
- //Insurance Add screen
- router.get('/scty_insurance_add',function(req,res){
-    res.render('societyModule/scty_Insurance_Add');
- });
-
- //Insurance Search screen
- router.get('/scty_insurance_search',function(req,res){
-    res.render('societyModule/scty_Insurance_Search');
- });
-
-//Department Add screen
- router.get('/scty_dept_add',function(req,res){
-    res.render('societyModule/scty_Department_Add');
- });
-
- //Department Search screen
- router.get('/scty_dept_search',function(req,res){
-    res.render('societyModule/scty_Department_Search');
- });
+/*Society-Bank-START*/
+/////////////////////////////////////////////////////////////////
 
  //Bank Add screen
  router.get('/scty_bank_add',function(req,res){
-    res.render('societyModule/scty_Bank_Add');
+   var divtype=req.query.key;
+
+   console.log("DIV TYPE",divtype);
+
+   pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+ {
+     if(err) throw err;
+
+     pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2) 
+     {
+         if(err) throw err;
+
+         pgdbconnect.query("select * from common_code_tbl where code_id='CTRY'",function(err,result3)
+         {
+             if(err) throw err;
+
+               
+             pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) 
+             {
+               if(err) throw err;
+
+    res.render('societyModule/scty_Bank_Add',{
+      cities:result1.rows,
+      states:result2.rows,
+      countries:result3.rows,
+      bank:reslt.rows,
+      pagetype:divtype
  });
+});
+         });
+      });
+   });
+});
+
+
+
+///////////////////////////////////////////////////////////
+
+router.post('/society_bank_add',function(req,res){
+
+   var divtype="ADD";
+
+ console.log("DIV TYPE",divtype);
+
+ var soc_add_bnk_code               = req.body.soc_add_bnk_code;
+ var soc_add_bnk_name               = req.body.soc_add_bnk_name;
+ var soc_bnk_address_address_line   = req.body.soc_bnk_address_address_line;
+ var soc_bnk_address_lndmark        = req.body.soc_bnk_address_lndmark;
+ var soc_bnk_address_village        = req.body.soc_bnk_address_village;
+ var soc_bnk_address_pncht_mdl      = req.body.soc_bnk_address_pncht_mdl;
+ var soc_bnk_address_city           = req.body.soc_bnk_address_city;
+ var soc_bnk_address_district       = req.body.soc_bnk_address_district;
+ var soc_bnk_address_state          = req.body.soc_bnk_address_state;
+ var soc_bnk_address_country        = req.body.soc_bnk_address_country;
+ var soc_bnk_address_postal_code    = req.body.soc_bnk_address_postal_code;
+ var soc_bnk_address_phnum1         = req.body.soc_bnk_address_phnum1;
+ var soc_bnk_address_phnum2         = req.body.soc_bnk_address_phnum2;
+ var soc_bnk_address_emial          = req.body.soc_bnk_address_emial;
+ var soc_bnk_address_url            = req.body.soc_bnk_address_url;
+ var soc_bnk_address_latitude       = req.body.soc_bnk_address_latitude;
+ var soc_bnk_address_Longitude      = req.body.soc_bnk_address_Longitude;
+ var soc_bnk_address_key_con_per1   = req.body.soc_bnk_address_key_con_per1;
+ var soc_bnk_name1                  = req.body.soc_bnk_name1;
+ var soc_bnk_address_key_con_per2   = req.body.soc_bnk_address_key_con_per2;
+ var soc_bnk_name2                  = req.body.soc_bnk_name2;
+ var societybank_id;
+
+ pgdbconnect.query("select * from society_bank ",function(err,result) {
+   if(result.rowCount==0){
+       societybank_id=1;
+ 
+ console.log("Result of societybank1",soc_add_bnk_code,soc_add_bnk_name,soc_bnk_address_address_line,soc_bnk_address_lndmark,soc_bnk_address_village,soc_bnk_address_pncht_mdl,soc_bnk_address_city,soc_bnk_address_district,soc_bnk_address_state,soc_bnk_address_country,soc_bnk_address_postal_code,soc_bnk_address_phnum1,soc_bnk_address_phnum2,soc_bnk_address_emial,soc_bnk_address_url,soc_bnk_address_latitude,soc_bnk_address_Longitude,soc_bnk_address_key_con_per1,soc_bnk_name1,soc_bnk_address_key_con_per2,soc_bnk_name2);
+
+
+ pgdbconnect.query("insert into society_bank ( sb_n_id,sb_ch_bank_code, sb_ch_bank_name, sb_ch_addr_line, sb_ch_land_mark, sb_ch_village,sb_ch_panchayat_mandal, sb_ch_city, sb_ch_district,  sb_ch_state, sb_ch_country, sb_n_postal_code, sb_n_phone_num1, sb_n_phone_num2, sb_ch_email_1, sb_ch_url, sb_ch_latitude, sb_ch_longitude, sb_ch_key_contact_person1, sb_ch_key_cp_name1,sb_ch_key_contact_person2,sb_ch_key_cp_name2,sb_ch_del_flg) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23)",[ societybank_id,soc_add_bnk_code,soc_add_bnk_name,soc_bnk_address_address_line,soc_bnk_address_lndmark,soc_bnk_address_village,soc_bnk_address_pncht_mdl,soc_bnk_address_city,soc_bnk_address_district,soc_bnk_address_state,soc_bnk_address_country,soc_bnk_address_postal_code,soc_bnk_address_phnum1,soc_bnk_address_phnum2,soc_bnk_address_emial,soc_bnk_address_url,soc_bnk_address_latitude,soc_bnk_address_Longitude,soc_bnk_address_key_con_per1,soc_bnk_name1,soc_bnk_address_key_con_per2,soc_bnk_name2,'N'],function(err,loginres){
+ if(err) throw err;
+ console.log("Result of Society Bank1 ",loginres);
+ });
+
+ pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+ {
+     if(err) throw err;
+
+     pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2) 
+     {
+         if(err) throw err;
+
+         pgdbconnect.query("select * from common_code_tbl where code_id='CTRY'",function(err,result3)
+         {
+             if(err) throw err;
+
+               
+             pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) 
+             {
+               if(err) throw err;
+             //console.log("Bank code details is", reslt);
+
+                 
+ 
+req.flash('success_msg',"Society Bank Details Added succesfully");
+res.locals.message=req.flash();
+
+res.render('societyModule/scty_Bank_Add',{
+  cities:result1.rows,
+  states:result2.rows,
+  countries:result3.rows,
+  bank:reslt.rows,
+  pagetype:divtype
+             });
+          });
+       });
+    });
+  });
+}
+else{
+
+   pgdbconnect.query("select max(sb_n_id) from society_bank",function(err,result) {
+      console.log("max value check",result)
+      console.log("max value check",result.rows[0].max)
+     
+     societybank_id=parseInt(result.rows[0].max)+1;
+
+     console.log("Result of societybank1",soc_bnk_address_address_line,soc_bnk_address_lndmark,soc_bnk_address_village,soc_bnk_address_pncht_mdl,soc_bnk_address_city,soc_bnk_address_district,soc_bnk_address_state,soc_bnk_address_country,soc_bnk_address_postal_code,soc_bnk_address_phnum1,soc_bnk_address_phnum2,soc_bnk_address_emial,soc_bnk_address_url,soc_bnk_address_latitude,soc_bnk_address_Longitude,soc_bnk_address_key_con_per1,soc_bnk_address_key_con_per2);
+
+
+     pgdbconnect.query("insert into society_bank ( sb_n_id,sb_ch_bank_code, sb_ch_bank_name, sb_ch_addr_line, sb_ch_land_mark, sb_ch_village, sb_ch_panchayat_mandal, sb_ch_city, sb_ch_district, sb_ch_state, sb_ch_country, sb_n_postal_code, sb_n_phone_num1, sb_n_phone_num2, sb_ch_email_1, sb_ch_url, sb_ch_latitude, sb_ch_longitude, sb_ch_key_contact_person1, sb_ch_key_cp_name1,sb_ch_key_contact_person2,sb_ch_key_cp_name2,sb_ch_del_flg) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23)",[ societybank_id,soc_add_bnk_code,soc_add_bnk_name,soc_bnk_address_address_line,soc_bnk_address_lndmark,soc_bnk_address_village,soc_bnk_address_pncht_mdl,soc_bnk_address_city,soc_bnk_address_district,soc_bnk_address_state,soc_bnk_address_country,soc_bnk_address_postal_code,soc_bnk_address_phnum1,soc_bnk_address_phnum2,soc_bnk_address_emial,soc_bnk_address_url,soc_bnk_address_latitude,soc_bnk_address_Longitude,soc_bnk_address_key_con_per1,soc_bnk_name1,soc_bnk_address_key_con_per2,soc_bnk_name2,'N'],function(err,loginres){
+      if(err) throw err;
+      console.log("Result of Society Bank1 ",loginres);
+      });
+     
+
+ pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+ {
+     if(err) throw err;
+
+     pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2) 
+     {
+         if(err) throw err;
+
+         pgdbconnect.query("select * from common_code_tbl where code_id='CTRY'",function(err,result3)
+         {
+             if(err) throw err;
+
+               
+             pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) 
+             {
+               if(err) throw err;
+             //console.log("Bank code details is", reslt);
+
+                 
+ 
+req.flash('success_msg',"Society Bank Details Added succesfully");
+res.locals.message=req.flash();
+
+res.render('societyModule/scty_Bank_Add',{
+  cities:result1.rows,
+  states:result2.rows,
+  countries:result3.rows,
+  bank:reslt.rows,
+  pagetype:divtype
+                });
+             });
+          });
+       });
+    });
+  });
+}
+ });
+});
+
+/////////////////////////////////////////////////////////////////
+
+router.get('/scty_bank_edit',function(req,res){
+   var divtype=req.query.key;
+
+console.log("DIV TYPE",divtype);
+    
+pgdbconnect.query("select * from society_bank",function(err,societybnkres){
+   if(err) throw err;
+
+   pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+   {
+       if(err) throw err;
+  
+       pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2) 
+       {
+           if(err) throw err;
+  
+           pgdbconnect.query("select * from common_code_tbl where code_id='CTRY'",function(err,result3)
+           {
+               if(err) throw err;
+  
+                 
+               pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) 
+               {
+                 if(err) throw err;
+  
+
+   res.render('societyModule/scty_Bank_Add',{
+      cities:result1.rows,
+      states:result2.rows,
+      countries:result3.rows,
+      bank:reslt.rows,
+      pagetype:divtype,
+      societybankdetails:societybnkres.rows
+   });
+});
+});
+       });
+      });
+   });
+});
+
+////////////////////////////////////////////
+
+
+router.post('/society_bank_edit_data_populate',function(req,res){
+   console.log("populate fields");
+   var divtype="EDIT";
+ console.log("DIV TYPE on edit populate",divtype);
+
+ var societybankid= req.body.tempsocbnkid;
+ console.log("society bank id to edit",societybankid)
+
+ pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+   {
+       if(err) throw err;
+      // console.log("result1 is", result1);
+
+
+   /*states*/
+
+   // var state = req.body.state;                 
+   // console.log(state);
+   pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2) 
+   {
+       if(err) throw err;
+       //console.log("result2 is", result2);
+
+   /*country*/
+
+   // var country = req.body.country;                 
+   // console.log(country);
+
+   pgdbconnect.query("select * from common_code_tbl where code_id='CTRY'",function(err,result3)
+   {
+       if(err) throw err;
+      // console.log("result3 is", result3);
+
+      pgdbconnect.query("select * from bank_code_details limit 50",function(err,result4) 
+      {
+        if(err) throw err;
+      //console.log("Bank code details is", reslt);
+
+ pgdbconnect.query("select * from society_bank where sb_n_id=$1 order by sb_n_id",[societybankid],function(err,societybnksearch)
+  {
+   console.log("memssssssssss",societybnksearch)
+   var sb_edit_id                          =  societybnksearch.rows[0]. sb_n_id; 
+   var edit_soc_add_bnk_code               =  societybnksearch.rows[0]. sb_ch_bank_code;
+   var edit_soc_add_bnk_name               =  societybnksearch.rows[0]. sb_ch_bank_name;
+   var edit_soc_bnk_address_address_line   =  societybnksearch.rows[0]. sb_ch_addr_line;
+   var edit_soc_bnk_address_lndmark        =  societybnksearch.rows[0]. sb_ch_land_mark;
+   var edit_soc_bnk_address_village        =  societybnksearch.rows[0]. sb_ch_village;
+   var edit_soc_bnk_address_pncht_mdl      =  societybnksearch.rows[0]. sb_ch_panchayat_mandal;
+   var edit_soc_bnk_address_city           =  societybnksearch.rows[0]. sb_ch_city;
+   var edit_soc_bnk_address_district       =  societybnksearch.rows[0]. sb_ch_district;
+   var edit_soc_bnk_address_state          =  societybnksearch.rows[0]. sb_ch_state;
+   var edit_soc_bnk_address_country        =  societybnksearch.rows[0]. sb_ch_country;
+   var edit_soc_bnk_address_postal_code    =  societybnksearch.rows[0]. sb_n_postal_code;
+   var edit_soc_bnk_address_phnum1         =  societybnksearch.rows[0]. sb_n_phone_num1;
+   var edit_soc_bnk_address_phnum2         =  societybnksearch.rows[0]. sb_n_phone_num2;
+   var edit_soc_bnk_address_emial          =  societybnksearch.rows[0]. sb_ch_email_1;
+   var edit_soc_bnk_address_url            =  societybnksearch.rows[0]. sb_ch_url;
+   var edit_soc_bnk_address_latitude       =  societybnksearch.rows[0]. sb_ch_latitude;
+   var edit_soc_bnk_address_Longitude      =  societybnksearch.rows[0]. sb_ch_longitude;
+   var edit_soc_bnk_address_key_con_per1   =  societybnksearch.rows[0]. sb_ch_key_contact_person1;
+   var edit_soc_bnk_name1                  =  societybnksearch.rows[0]. sb_ch_key_cp_name1;
+   var edit_soc_bnk_address_key_con_per2   =  societybnksearch.rows[0]. sb_ch_key_contact_person2;
+   var edit_soc_bnk_name2                  =  societybnksearch.rows[0]. sb_ch_key_cp_name2;
+
+   res.render('societyModule/scty_Bank_Add',{
+      sb_edit_id:sb_edit_id,
+      edit_soc_add_bnk_code:edit_soc_add_bnk_code,
+      edit_soc_add_bnk_name:edit_soc_add_bnk_name,
+      edit_soc_bnk_address_address_line:edit_soc_bnk_address_address_line,
+      edit_soc_bnk_address_lndmark:edit_soc_bnk_address_lndmark,
+      edit_soc_bnk_address_village:edit_soc_bnk_address_village,
+      edit_soc_bnk_address_pncht_mdl:edit_soc_bnk_address_pncht_mdl,
+      edit_soc_bnk_address_city:edit_soc_bnk_address_city,
+      edit_soc_bnk_address_district:edit_soc_bnk_address_district,
+      edit_soc_bnk_address_state:edit_soc_bnk_address_state,
+      edit_soc_bnk_address_country:edit_soc_bnk_address_country,
+      edit_soc_bnk_address_postal_code:edit_soc_bnk_address_postal_code,
+      edit_soc_bnk_address_phnum1:edit_soc_bnk_address_phnum1,
+      edit_soc_bnk_address_phnum2:edit_soc_bnk_address_phnum2,
+      edit_soc_bnk_address_emial:edit_soc_bnk_address_emial,
+      edit_soc_bnk_address_url:edit_soc_bnk_address_url,
+      edit_soc_bnk_address_latitude:edit_soc_bnk_address_latitude,
+      edit_soc_bnk_address_Longitude:edit_soc_bnk_address_Longitude,
+      edit_soc_bnk_address_key_con_per1:edit_soc_bnk_address_key_con_per1,
+      edit_soc_bnk_name1:edit_soc_bnk_name1,
+      edit_soc_bnk_address_key_con_per2:edit_soc_bnk_address_key_con_per2,
+      edit_soc_bnk_name2:edit_soc_bnk_name2,
+      pagetype:"EDIT",
+      societybankid:societybankid,
+      cities:result1.rows,
+      states:result2.rows,
+      countries:result3.rows,
+      bank:result4.rows
+   });
+});
+      });
+   });
+});
+   });
+});
+
+
+
+//////////////////////////////
+
+router.post('/update_societyBank_edit',function(req,res){
+   console.log("Welcome");
+
+   var soc_add_bnk_code_ed                = req.body.soc_add_bnk_code_ed;
+   var soc_add_bnk_name_ed                = req.body.soc_add_bnk_name_ed;
+   var soc_bnk_address_address_line_ed    = req.body.soc_bnk_address_address_line_ed;
+   var soc_bnk_address_lndmark_ed         = req.body.soc_bnk_address_lndmark_ed;
+   var soc_bnk_address_village_ed         = req.body.soc_bnk_address_village_ed;
+   var soc_bnk_address_pncht_mdl_ed       = req.body.soc_bnk_address_pncht_mdl_ed;
+   var soc_bnk_address_city_ed            = req.body.soc_bnk_address_city_ed;
+   var soc_bnk_address_district_ed        = req.body.soc_bnk_address_district_ed;
+   var soc_bnk_address_state_ed           = req.body.soc_bnk_address_state_ed;
+   var soc_bnk_address_country_ed         = req.body.soc_bnk_address_country_ed;
+   var soc_bnk_address_postal_code_ed     = req.body.soc_bnk_address_postal_code_ed;
+   var soc_bnk_address_phonenumber1_ed    = req.body.soc_bnk_address_phonenumber1_ed;
+   var soc_bnk_address_phonenumber2_ed    = req.body.soc_bnk_address_phonenumber2_ed;
+   var soc_bnk_address_emial_ed           = req.body.soc_bnk_address_emial_ed;        
+   var soc_bnk_address_url_ed             = req.body.soc_bnk_address_url_ed;
+   var soc_bnk_address_latitude_ed        = req.body.soc_bnk_address_latitude_ed;         
+   var soc_bnk_address_Longitude_ed       = req.body.soc_bnk_address_Longitude_ed;
+   var soc_bnk_address_key_con_per1_ed    = req.body.soc_bnk_address_key_con_per1_ed;   
+   var soc_bnk_name1_ed                   =  req.body.soc_bnk_name1_ed;     
+   var soc_bnk_address_key_con_per2_ed    = req.body.soc_bnk_address_key_con_per2_ed;
+   var soc_bnk_name2_ed                   =  req.body.soc_bnk_name2_ed; 
+   var socbank_edit                       = req.body.socbank_edit;
+   
+   console.log("bnk details",soc_add_bnk_code_ed,soc_add_bnk_name_ed,soc_bnk_address_address_line_ed,soc_bnk_address_lndmark_ed,soc_bnk_address_village_ed,soc_bnk_address_pncht_mdl_ed,soc_bnk_address_city_ed,soc_bnk_address_district_ed,soc_bnk_address_state_ed,soc_bnk_address_country_ed,soc_bnk_address_postal_code_ed,soc_bnk_address_phonenumber1_ed,soc_bnk_address_phonenumber2_ed,soc_bnk_address_emial_ed,soc_bnk_address_url_ed,soc_bnk_address_latitude_ed,soc_bnk_address_Longitude_ed,soc_bnk_address_key_con_per1_ed,soc_bnk_name1_ed,soc_bnk_address_key_con_per2_ed,soc_bnk_name2_ed,socbank_edit)
+
+pgdbconnect.query('update society_bank set  sb_ch_bank_code=$1, sb_ch_bank_name=$2, sb_ch_addr_line=$3, sb_ch_land_mark=$4, sb_ch_village=$5,sb_ch_panchayat_mandal=$6, sb_ch_city=$7, sb_ch_district=$8, sb_ch_state=$9, sb_ch_country=$10, sb_n_postal_code=$11, sb_n_phone_num1=$12, sb_n_phone_num2=$13, sb_ch_email_1=$14, sb_ch_url=$15, sb_ch_latitude=$16, sb_ch_longitude=$17, sb_ch_key_contact_person1=$18, sb_ch_key_cp_name1=$19,sb_ch_key_contact_person2=$20,sb_ch_key_cp_name2=$21 where sb_n_id=$22',[soc_add_bnk_code_ed,soc_add_bnk_name_ed,soc_bnk_address_address_line_ed,soc_bnk_address_lndmark_ed,soc_bnk_address_village_ed,soc_bnk_address_pncht_mdl_ed,soc_bnk_address_city_ed,soc_bnk_address_district_ed,soc_bnk_address_state_ed,soc_bnk_address_country_ed,soc_bnk_address_postal_code_ed,soc_bnk_address_phonenumber1_ed,soc_bnk_address_phonenumber2_ed,soc_bnk_address_emial_ed,soc_bnk_address_url_ed,soc_bnk_address_latitude_ed,soc_bnk_address_Longitude_ed,soc_bnk_address_key_con_per1_ed,soc_bnk_name1_ed,soc_bnk_address_key_con_per2_ed,soc_bnk_name2_ed,socbank_edit],function(err,result){
+   if(err) throw err;
+   console.log("sbresult",result)
+
+
+      pgdbconnect.query("select * from society_bank where sb_ch_del_flg=$1",['N'],function(err,reslt){
+         if(err) throw err;
+
+
+            pgdbconnect.query("select * from bank_code_details limit 50",function(err,bankreslt) 
+            {
+              if(err) throw err;
+
+   //flash messege
+   req.flash('success_msg', 'Data updated successfully');
+   res.locals.message=req.flash();
+   
+  
+      res.render('societyModule/scty_Bank_Search',{
+     
+      societybankdetails:reslt.rows,
+      banksrch:bankreslt.rows
+        
+   });
+  });
+           });
+        });
+      });
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+router.post('/society_bank_view_data_populate',function(req,res){
+   console.log("populate fields");
+   var divtype="VIEW";
+ console.log("DIV TYPE on edit populate",divtype);
+
+ var societybankid= req.body.tempsocbnkviewid;
+ console.log("society bank id to edit",societybankid)
+
+
+ pgdbconnect.query("select * from society_bank where sb_n_id=$1 order by sb_n_id",[societybankid],function(err,societybnksearch)
+  {
+   console.log("memssssssssss",societybnksearch)
+   var sb_view_id                          =  societybnksearch.rows[0]. sb_n_id; 
+   var view_soc_add_bnk_code               =  societybnksearch.rows[0]. sb_ch_bank_code;
+   var view_soc_add_bnk_name               =  societybnksearch.rows[0]. sb_ch_bank_name;
+   var view_soc_bnk_address_address_line   =  societybnksearch.rows[0]. sb_ch_addr_line;
+   var view_soc_bnk_address_lndmark        =  societybnksearch.rows[0]. sb_ch_land_mark;
+   var view_soc_bnk_address_village        =  societybnksearch.rows[0]. sb_ch_village;
+   var view_soc_bnk_address_pncht_mdl      =  societybnksearch.rows[0]. sb_ch_panchayat_mandal;
+   var view_soc_bnk_address_city           =  societybnksearch.rows[0]. sb_ch_city;
+   var view_soc_bnk_address_district       =  societybnksearch.rows[0]. sb_ch_district;
+   var view_soc_bnk_address_state          =  societybnksearch.rows[0]. sb_ch_state;
+   var view_soc_bnk_address_country        =  societybnksearch.rows[0]. sb_ch_country;
+   var view_soc_bnk_address_postal_code    =  societybnksearch.rows[0]. sb_n_postal_code;
+   var view_soc_bnk_address_phnum1         =  societybnksearch.rows[0]. sb_n_phone_num1;
+   var view_soc_bnk_address_phnum2         =  societybnksearch.rows[0]. sb_n_phone_num2;
+   var view_soc_bnk_address_emial          =  societybnksearch.rows[0]. sb_ch_email_1;
+   var view_soc_bnk_address_url            =  societybnksearch.rows[0]. sb_ch_url;
+   var view_soc_bnk_address_latitude       =  societybnksearch.rows[0]. sb_ch_latitude;
+   var view_soc_bnk_address_Longitude      =  societybnksearch.rows[0]. sb_ch_longitude;
+   var view_soc_bnk_address_key_con_per1   =  societybnksearch.rows[0]. sb_ch_key_contact_person1;
+   var view_soc_bnk_name1                  =  societybnksearch.rows[0]. sb_ch_key_cp_name1;
+   var view_soc_bnk_address_key_con_per2   =  societybnksearch.rows[0]. sb_ch_key_contact_person2;
+   var view_soc_bnk_name2                  =  societybnksearch.rows[0]. sb_ch_key_cp_name2;
+
+   res.render('societyModule/scty_Bank_Add',{
+      sb_view_id:sb_view_id,
+      view_soc_add_bnk_code:view_soc_add_bnk_code,
+      view_soc_add_bnk_name:view_soc_add_bnk_name,
+      view_soc_bnk_address_address_line:view_soc_bnk_address_address_line,
+      view_soc_bnk_address_lndmark:view_soc_bnk_address_lndmark,
+      view_soc_bnk_address_village:view_soc_bnk_address_village,
+      view_soc_bnk_address_pncht_mdl:view_soc_bnk_address_pncht_mdl,
+      view_soc_bnk_address_city:view_soc_bnk_address_city,
+      view_soc_bnk_address_district:view_soc_bnk_address_district,
+      view_soc_bnk_address_state:view_soc_bnk_address_state,
+      view_soc_bnk_address_country:view_soc_bnk_address_country,
+      view_soc_bnk_address_postal_code:view_soc_bnk_address_postal_code,
+      view_soc_bnk_address_phnum1:view_soc_bnk_address_phnum1,
+      view_soc_bnk_address_phnum2:view_soc_bnk_address_phnum2,
+      view_soc_bnk_address_emial:view_soc_bnk_address_emial,
+      view_soc_bnk_address_url:view_soc_bnk_address_url,
+      view_soc_bnk_address_latitude:view_soc_bnk_address_latitude,
+      view_soc_bnk_address_Longitude:view_soc_bnk_address_Longitude,
+      view_soc_bnk_address_key_con_per1:view_soc_bnk_address_key_con_per1,
+      view_soc_bnk_name1:view_soc_bnk_name1,
+      view_soc_bnk_address_key_con_per2:view_soc_bnk_address_key_con_per2,
+      view_soc_bnk_name2:view_soc_bnk_name2,
+      pagetype:"VIEW",
+      societybankid:societybankid
+     
+   });
+});
+      });
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+router.post('/delete_societybank_data',function(req,res){
+
+   
+  
+   var societybankid= req.body.tempsocbankdelid;
+   console.log("id to delete",societybankid)
+   pgdbconnect.query("update society_bank set sb_ch_del_flg=$1 where sb_n_id=$2",['Y',societybankid],function(err,delres){
+      if (err) throw err;
+
+       console.log("deleted result",delres);
+       pgdbconnect.query("select * from society_bank where sb_ch_del_flg=$1 order by sb_n_id",['N'],function(err,searchres){
+
+           pgdbconnect.query("select * from society_bank where sb_ch_del_flg='N'",function(err,bankreslt){
+
+               if(err) throw err;
+           console.log("deleted result11",searchres);
+ 
+   req.flash('success_msg', 'Record Deleted successfully');
+   res.locals.message=req.flash();
+   res.render('societyModule/scty_Bank_Search',{
+      
+         societybankdetails:searchres.rows,
+           banksrch:bankreslt.rows
+       });    
+
+   });
+});
+});
+});
+
+/////////////////////////////////////////////////////////////////////////////////
 
  //Bank Search screen
  router.get('/scty_bank_search',function(req,res){
-    res.render('societyModule/scty_Bank_Search');
+   var divtype=req.query.key;
+
+   console.log("DIV TYPE",divtype);
+   pgdbconnect.query("select * from bank_code_details limit 50",function(err,result5) 
+   {
+     if(err) throw err;
+
+   pgdbconnect.query("select  * from society_bank where sb_ch_del_flg='N' ",function(err,res1){
+      if(err) throw err;
+  console.log("Result of society_bank_details",res1);
+
+  res.render('societyModule/scty_Bank_Search',{
+      banksrch:result5.rows,
+      pagetype:divtype,
+      societybankdetails:res1.rows
+     });
+   });  
+});
  });
+
+//////////////////////////////////////////////
+
+router.post('/search_particular_socbnkrec', function(req,res){
+   console.log("search particular record");
+
+   var society_bnk_ser_bnkcode = req.body.society_bnk_ser_bnkcode;
+   var society_bnk_ser_bnknme  = req.body.society_bnk_ser_bnknme;
+   console.log("search record",society_bnk_ser_bnkcode,society_bnk_ser_bnknme);
+
+
+   pgdbconnect.query("select * from society_bank where sb_ch_bank_code=$1 and sb_ch_bank_name=$2 and (sb_ch_del_flg='N')",[society_bnk_ser_bnkcode,society_bnk_ser_bnknme],function(err,searchres) 
+   {
+    if(err) throw err;
+    console.log("searchres is", searchres.rows);
+
+   pgdbconnect.query("select * from society_bank where sb_ch_del_flg='N'",function(err,bankreslt){
+    
+    if(err) throw err;
+    console.log("per res", searchres.rows);
+    
+   //  pgdbconnect.query("select * from bank_code_details limit 50",function(err,result6) 
+
+   //  {
+   //    if(err) throw err;
+   //    console.log(" res", searchres.rows);
+
+    res.render('societyModule/scty_Bank_Search',{
+
+      societybankdetails:searchres.rows,
+      banksrch:bankreslt.rows
+    
+    });
+});
+ });
+});
+// });
+
+
+
+
+/////////////////////////////////////////////////////////////////
+/*Society-Bank-END*/
+
+ 
+
+
+ 
 
  //Branch Add screen
  router.get('/scty_branch_add',function(req,res){
@@ -1501,6 +2026,27 @@ router.post('/view_acc_data', function(req,res){
     res.render('societyModule/scty_ChequeBook_Details_Search');
  });
  
+
+
+ //Insurance Add screen
+ router.get('/scty_insurance_add',function(req,res){
+    res.render('societyModule/scty_Insurance_Add');
+ });
+
+ //Insurance Search screen
+ router.get('/scty_insurance_search',function(req,res){
+    res.render('societyModule/scty_Insurance_Search');
+ });
+
+//Department Add screen
+ router.get('/scty_dept_add',function(req,res){
+    res.render('societyModule/scty_Department_Add');
+ });
+
+ //Department Search screen
+ router.get('/scty_dept_search',function(req,res){
+    res.render('societyModule/scty_Department_Search');
+ });
  
 
  module.exports=router;

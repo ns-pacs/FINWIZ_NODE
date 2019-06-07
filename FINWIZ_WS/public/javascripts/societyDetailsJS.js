@@ -16,6 +16,15 @@ function alphanumeric(memid)
    return true;
 }
 
+//Only for Amount
+function amount(amtcd)
+{
+   var charCode = (amtcd.which) ? amtcd.which : amtcd.keyCode;
+   if (charCode != 46 && charCode > 31
+     && (charCode < 48 || charCode > 57))
+      return false;
+   return true;
+}
 
 function numeric(empcd)
 {
@@ -26,6 +35,655 @@ function numeric(empcd)
            return true;
    }
 
+/* Society- BANK -START*/
+
+//// To set Bank Name in Society Bank Tab in Search page
+
+function setSocietyBankName1() {
+    var bankcd1 = document.getElementById("society_bnk_ser_bnkcode").selectedIndex;
+    document.getElementById("society_bnk_ser_bnknme").selectedIndex = bankcd1;
+  }
+
+
+//// To set Bank Code in Society Bank Tab in Search page
+
+
+  function setSocietyBankCode1() {
+    var banknme1 = document.getElementById("society_bnk_ser_bnknme").selectedIndex;
+    document.getElementById("society_bnk_ser_bnkcode").selectedIndex = banknme1;
+  }
+
+/////////////////////////////////////////////////////////////
+
+//// To set Bank Name in Society Bank Tab in Add
+
+function setSocietyBankName() {
+    var bankcd = document.getElementById("soc_add_bnk_code").selectedIndex;
+    document.getElementById("soc_add_bnk_name").selectedIndex = bankcd;
+  }
+
+
+//// To set Bank Code in Society Bank Tab in Add
+
+  function setSocietyBankCode() {
+    var banknme = document.getElementById("soc_add_bnk_name").selectedIndex;
+    document.getElementById("soc_add_bnk_code").selectedIndex = banknme;
+  }
+
+//////////////////////////////////////////////////////////
+
+function clearSocietyBankTab()
+{
+    document.getElementById('soc_add_bnk_code').value="";
+    document.getElementById('soc_add_bnk_name').value="";
+}
+
+/////////////////////////////////////////////////////////
+
+function bankDetails(){
+
+    var bank_cd1 = document.getElementById("soc_add_bnk_code").value;
+    // alert(bank_cd1)
+                                        if(bank_cd1==""){
+                                            // alert("fgdfds")
+                                                        document.getElementById("soc_add_bnk_code").focus();
+                                                        
+                                                        swal("Oops!","Please Enter Bank Code","error");
+                                                        return false;
+                                                    }
+    
+                                                    
+    
+    // Bank Name
+    
+    var bnk_name = document.getElementById("soc_add_bnk_name").value;
+                                        if(bnk_name == ""){
+                                            document.getElementById("soc_add_bnk_name").focus();
+                                            
+                                            swal("Oops!","Please Enter Bank Name","error");
+                                            return false;
+                                        }
+
+$('#tabs a[href=#soc_bank_address_details]').tab('show').addClass("active");
+$('#tabs a[href=#soc_bank_details]').removeClass("active");
+}
+
+/////////////////////////////////////////////////////////
+
+function societyBankAddress(){
+
+    // Address Line
+
+    var soc_bnk_address_address_line = document.getElementById("soc_bnk_address_address_line").value;
+    if(soc_bnk_address_address_line == ""){
+        document.getElementById("soc_bnk_address_address_line").focus();
+        
+        swal("Oops!","Please Enter Address line","error");
+        return false;
+    }
+
+     // Land Mark
+    
+     var soc_bnk_address_lndmark = document.getElementById("soc_bnk_address_lndmark").value;
+     if(soc_bnk_address_lndmark == ""){
+         document.getElementById("soc_bnk_address_lndmark").focus();
+         
+         swal("Oops!","Please Enter Land Mark","error");
+         return false;
+     }
+
+    // Village
+    
+    var soc_bnk_address_village = document.getElementById("soc_bnk_address_village").value;
+                                        if(soc_bnk_address_village == ""){
+                                                        document.getElementById("soc_bnk_address_village").focus();
+                                                        
+                                                        swal("Oops!","Please Enter Village","error");
+                                                        return false;
+                                                            } 
+    
+    // Panchayat
+    
+    var soc_bnk_address_pncht_mdl = document.getElementById("soc_bnk_address_pncht_mdl").value;
+                                        if(soc_bnk_address_pncht_mdl == ""){
+                                                        document.getElementById("soc_bnk_address_pncht_mdl").focus();
+                                                        
+                                                        swal("Oops!","Please Enter Panchayat","error");
+                                                        return false;
+                                                            }
+    
+    // City
+    
+    var soc_bnk_address_city = document.getElementById("soc_bnk_address_city").value;
+                                        if(soc_bnk_address_city == ""){
+                                                        document.getElementById("soc_bnk_address_city").focus();
+                                                        
+                                                        swal("Oops!","Please Enter City","error");
+                                                        return false;
+                                                            }
+    
+    // State
+    
+    var state1 = document.getElementById("soc_bnk_address_state").value;
+                                        if(state1 == ""){
+                                                        document.getElementById("soc_bnk_address_state").focus();
+                                                        
+                                                        swal("Oops!","Please Enter State","error");
+                                                        return false;
+                                                            }       
+    
+    // Country
+    
+    // var soc_bnk_address_country = document.getElementById("soc_bnk_address_country").value;
+    //                                     if(soc_bnk_address_country == ""){
+    //                                                     document.getElementById("soc_bnk_address_country").focus();
+                                                        
+    //                                                     swal("Oops!","Please Enter country","error");
+    //                                                     return false;
+    //                                                         }
+     //pincode
+
+        
+    var pin_code = document.getElementById("soc_bnk_address_postal_code").value;
+                                        if(pin_code == ""){
+                                                          document.getElementById("soc_bnk_address_postal_code").focus();
+                                                          
+                                                          swal("Oops!","Please Enter pincode","error");
+                                                          return false;
+                                                        }
+                                        else
+                                                {
+                                           
+                                                        if(pin_code.length < 6){
+                                                        document.getElementById("soc_bnk_address_postal_code").focus();
+                                                        
+                                                        swal("Invalid","Please Enter valid Pin Code","warning");
+                                                        return false;
+                                                            }
+                                                 }
+
+                                                 
+    // Phone no 1
+    
+    var soc_bnk_address_phnum1 = document.getElementById("soc_bnk_address_phnum1").value;
+    if(soc_bnk_address_phnum1 == ""){
+            document.getElementById("soc_bnk_address_phnum1").focus();
+            
+            swal("Oops!","Please Enter Phone Number","error");
+                    return false;
+                    }
+                    else
+             {
+
+                     if(soc_bnk_address_phnum1.length < 10){
+                     document.getElementById("soc_bnk_address_phnum1").focus();
+                     
+                     swal("Invalid","Please Enter valid Phone Number","warning");
+                        return false;
+                        }
+                }
+    
+    // Phone no 2
+    
+    var soc_bnk_address_phnum2 = document.getElementById("soc_bnk_address_phnum2").value;
+    if(soc_bnk_address_phnum2 == ""){
+            document.getElementById("soc_bnk_address_phnum2").focus();
+            
+            swal("Oops!","Please Enter Phone Number","error");
+                    return false;
+                    }
+                    else
+             {
+
+                     if(soc_bnk_address_phnum2.length < 10){
+                     document.getElementById("soc_bnk_address_phnum2").focus();
+                     
+                     swal("Invalid","Please Enter valid Phone Number","warning");
+                        return false;
+                        }
+                }
+    
+                    
+    // email
+    
+    var soc_bnk_address_emial = document.getElementById("soc_bnk_address_emial").value;
+    if(soc_bnk_address_emial!="")
+        {
+    var mail_id = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                    if (!mail_id.test(soc_bnk_address_emial))
+                    {
+                            document.getElementById("soc_bnk_address_emial").focus();
+                            
+                            swal("Oops!","Please Enter a Valid E-mail ID","warning");
+                            return false;
+                     }
+        }
+                     
+    // URL
+    
+    var url = document.getElementById("soc_bnk_address_url").value;
+    if(url!="")
+        {
+        var re = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+                    if (!re.test(url)) 
+                    { 
+                        document.getElementById("soc_bnk_address_url").focus();
+                        
+                        swal("Oops!","Please Enter a Valid URL","warning");
+                        return false;
+                 }
+    }
+
+    //Lattitude
+
+    var soc_bnk_address_latitude = document.getElementById("soc_bnk_address_latitude").value;
+    if(soc_bnk_address_latitude == ""){
+        document.getElementById("soc_bnk_address_latitude").focus();
+        
+        swal("Oops!","Please Enter Latitude","error");
+        return false;
+    }
+    
+    //Longitude
+
+    var soc_bnk_address_Longitude = document.getElementById("soc_bnk_address_Longitude").value;
+    if(soc_bnk_address_Longitude == ""){
+        document.getElementById("soc_bnk_address_Longitude").focus();
+        
+        swal("Oops!","Please Enter Longitude","error");
+        return false;
+    }
+    document.getElementById('societyBankDetailsform').submit();
+}
+
+////////////////////////////////////////////////////////
+
+function clearSocietyBankAddressTab()
+{
+    document.getElementById('soc_bnk_address_address_line').value="";
+    document.getElementById('soc_bnk_address_lndmark').value="";
+    document.getElementById('soc_bnk_address_village').value="";
+    document.getElementById('soc_bnk_address_pncht_mdl').value="";
+    document.getElementById('soc_bnk_address_city').value="";
+    document.getElementById('soc_bnk_address_district').value="";
+    document.getElementById('soc_bnk_address_state').value="";
+    document.getElementById('soc_bnk_address_country').value="";
+    document.getElementById('soc_bnk_address_postal_code').value="";
+    document.getElementById('soc_bnk_address_phnum1').value="";
+    document.getElementById('soc_bnk_address_phnum2').value="";
+    document.getElementById('soc_bnk_address_emial').value="";
+    document.getElementById('soc_bnk_address_url').value="";
+    document.getElementById('soc_bnk_address_latitude').value="";
+    document.getElementById('soc_bnk_address_Longitude').value="";
+    document.getElementById('soc_bnk_address_key_con_per1').value="";
+    document.getElementById('soc_bnk_name1').value="";
+    document.getElementById('soc_bnk_address_key_con_per2').value="";
+    document.getElementById('soc_bnk_name2').value="";
+
+}
+///////////////////////////////////////
+
+//// To set Bank Name in Society Bank Tab in Search page
+
+function setSocietyBankName_ed() {
+    var bankcd2 = document.getElementById("soc_add_bnk_code_ed").selectedIndex;
+    document.getElementById("soc_add_bnk_name_ed").selectedIndex = bankcd2;
+  }
+
+
+//// To set Bank Code in Society Bank Tab in Search page
+
+
+  function setSocietyBankCode_ed() {
+    var banknme2 = document.getElementById("soc_add_bnk_name_ed").selectedIndex;
+    document.getElementById("soc_add_bnk_code_ed").selectedIndex = banknme2;
+  }
+
+/////////////////////////////////////////////////////////////
+
+function clearSocietyBankTab_ed()
+{
+    document.getElementById('soc_add_bnk_code_ed').value="";
+    document.getElementById('soc_add_bnk_name_ed').value="";
+}
+
+/////////////////////////////////////////////////////////////
+
+function clearSocietyBankAddressTab_ed()
+{
+    document.getElementById('soc_bnk_address_address_line_ed').value="";
+    document.getElementById('soc_bnk_address_lndmark_ed').value="";
+    document.getElementById('soc_bnk_address_village_ed').value="";
+    document.getElementById('soc_bnk_address_pncht_mdl_ed').value="";
+    document.getElementById('soc_bnk_address_city_ed').value="";
+    document.getElementById('soc_bnk_address_district_ed').value="";
+    document.getElementById('soc_bnk_address_state_ed').value="";
+    document.getElementById('soc_bnk_address_country_ed').value="";
+    document.getElementById('soc_bnk_address_postal_code_ed').value="";
+    document.getElementById('soc_bnk_address_phonenumber1_ed').value="";
+    document.getElementById('soc_bnk_address_phonenumber2_ed').value="";
+    document.getElementById('soc_bnk_address_emial_ed').value="";
+    document.getElementById('soc_bnk_address_url_ed').value="";
+    document.getElementById('soc_bnk_address_latitude_ed').value="";
+    document.getElementById('soc_bnk_address_Longitude_ed').value="";
+    document.getElementById('soc_bnk_address_key_con_per1_ed').value="";
+    document.getElementById('soc_bnk_name1_ed').value="";
+    document.getElementById('soc_bnk_address_key_con_per2_ed').value="";
+    document.getElementById('soc_bnk_name2_ed').value="";
+
+}
+////////////////////////////////////////////////////////////
+
+//////edit row data//////////
+function societybnk_edit_row(oObject)
+{
+ //alert(oObject)
+var id = oObject.id;
+   // alert("This object's ID attribute is set to \"" + id + "\"."); 
+var rb1=document.getElementById("rf"+id).value;
+ //alert("rb1"+rb1)
+document.getElementById("radiobutton1rfed"+rb1).checked=true;
+var idchecked=$("input[name='radiobutton1rfed']:checked").val();
+ //alert(idchecked);
+
+var socbankid=document.getElementById('radiobutton1rfed'+idchecked).value;
+ //alert("BANK ID -----------------------"+socbankid)
+
+document.getElementById("tempsocbnkid").value=socbankid;
+document.getElementById("socbnk_edit_data_load_form").submit();
+
+
+}
+
+
+/////////////////////////////////////////////////////////////////
+
+function societybnk_view_row(oObject)
+{
+ //alert(oObject)
+var id = oObject.id;
+ //alert("This object's ID attribute is set to \"" + id + "\"."); 
+ var rb1=document.getElementById("vf"+id).value;
+ //alert("radio button value"+rb1)
+document.getElementById("radiobutton1rfvw"+rb1).checked=true;
+
+var idchecked1=$("input[name='radiobutton1rfvw']:checked").val();
+ //alert("idchecked"+idchecked1);
+
+
+var sbnkid=document.getElementById('radiobutton1rfvw'+idchecked1).value;
+//alert("cheque ID -----------------------"+sbnkid);
+
+document.getElementById("tempsocbnkviewid").value=sbnkid;
+document.getElementById("socbnk_view_data_load_form").submit();
+}
+
+
+/////////////////////////////////////////////////////////////////
+
+function societybnk_delete_row(oObject)
+{
+ //alert(oObject)
+var id = oObject.id;
+ //alert("This object's ID attribute is set to \"" + id + "\"."); 
+  
+ var rb1=document.getElementById("df"+id).value;
+ //alert("radio button value"+rb1)
+document.getElementById("radiobutton1rfdl"+rb1).checked=true;
+
+var idchecked2=$("input[name='radiobutton1rfdl']:checked").val();
+// alert("idchecked"+idchecked2);
+
+
+var socbkid=document.getElementById('radiobutton1rfdl'+idchecked2).value;
+//alert("society bank ID -----------------------"+socbkid);
+
+document.getElementById("tempsocbankdelid").value=socbkid;
+
+}
+
+function socbnk_delete_onconfirm()
+{
+document.getElementById("socbnk_delete_data_load_form").submit();
+}
+
+
+///////////////////////////////////////////////////////////////
+
+function bankDetails_ed(){
+
+    var bank_cd2 = document.getElementById("soc_add_bnk_code_ed").value;
+    // alert(bank_cd2)
+                                        if(bank_cd2==""){
+                                            // alert("fgdfds")
+                                                        document.getElementById("soc_add_bnk_code_ed").focus();
+                                                        
+                                                        swal("Oops!","Please Enter Bank Code","error");
+                                                        return false;
+                                                    }
+    
+                                                    
+    
+    // Bank Name
+    
+    var bnk_name1 = document.getElementById("soc_add_bnk_name_ed").value;
+                                        if(bnk_name1 == ""){
+                                            document.getElementById("soc_add_bnk_name_ed").focus();
+                                            
+                                            swal("Oops!","Please Enter Bank Name","error");
+                                            return false;
+                                        }
+
+$('#tabs a[href=#soc_bank_address_details_ed]').tab('show').addClass("active");
+$('#tabs a[href=#soc_bank_details_ed]').removeClass("active");
+
+}
+
+/////////////////////////////////////////////////////////////////
+
+function societyBankAddress_ed(){
+
+    // Address Line
+
+    var soc_bnk_address_address_line_ed = document.getElementById("soc_bnk_address_address_line_ed").value;
+    if(soc_bnk_address_address_line_ed == ""){
+        document.getElementById("soc_bnk_address_address_line_ed").focus();
+        
+        swal("Oops!","Please Enter Address line","error");
+        return false;
+    }
+
+     // Land Mark
+    
+     var soc_bnk_address_lndmark_ed = document.getElementById("soc_bnk_address_lndmark_ed").value;
+     if(soc_bnk_address_lndmark_ed == ""){
+         document.getElementById("soc_bnk_address_lndmark_ed").focus();
+         
+         swal("Oops!","Please Enter Land Mark","error");
+         return false;
+     }
+
+    // Village
+    
+    var soc_bnk_address_village_ed = document.getElementById("soc_bnk_address_village_ed").value;
+                                        if(soc_bnk_address_village_ed == ""){
+                                                        document.getElementById("soc_bnk_address_village_ed").focus();
+                                                        
+                                                        swal("Oops!","Please Enter Village","error");
+                                                        return false;
+                                                            } 
+    
+    // Panchayat
+    
+    var soc_bnk_address_pncht_mdl_ed = document.getElementById("soc_bnk_address_pncht_mdl_ed").value;
+                                        if(soc_bnk_address_pncht_mdl_ed == ""){
+                                                        document.getElementById("soc_bnk_address_pncht_mdl_ed").focus();
+                                                        
+                                                        swal("Oops!","Please Enter Panchayat","error");
+                                                        return false;
+                                                            }
+    
+    // City
+    
+    var soc_bnk_address_city_ed = document.getElementById("soc_bnk_address_city_ed").value;
+                                        if(soc_bnk_address_city_ed == ""){
+                                                        document.getElementById("soc_bnk_address_city_ed").focus();
+                                                        
+                                                        swal("Oops!","Please Enter City","error");
+                                                        return false;
+                                                            }
+    
+    // State
+    
+    var state2 = document.getElementById("soc_bnk_address_state_ed").value;
+                                        if(state2 == ""){
+                                                        document.getElementById("soc_bnk_address_state_ed").focus();
+                                                        
+                                                        swal("Oops!","Please Enter State","error");
+                                                        return false;
+                                                            }       
+    
+    // Country
+    
+    // var soc_bnk_address_country_ed = document.getElementById("soc_bnk_address_country_ed").value;
+    //                                     if(soc_bnk_address_country_ed == ""){
+    //                                                     document.getElementById("soc_bnk_address_country_ed").focus();
+                                                        
+    //                                                     swal("Oops!","Please Enter country","error");
+    //                                                     return false;
+    //                                                         }
+     //pincode
+
+        
+    var pin_code1 = document.getElementById("soc_bnk_address_postal_code_ed").value;
+                                        if(pin_code1 == ""){
+                                                          document.getElementById("soc_bnk_address_postal_code_ed").focus();
+                                                          
+                                                          swal("Oops!","Please Enter pincode","error");
+                                                          return false;
+                                                        }
+                                        else
+                                                {
+                                           
+                                                        if(pin_code1.length < 6){
+                                                        document.getElementById("soc_bnk_address_postal_code_ed").focus();
+                                                        
+                                                        swal("Invalid","Please Enter valid Pin Code","warning");
+                                                        return false;
+                                                            }
+                                                 }
+
+                                                 
+    // Phone no 1
+    
+    var soc_bnk_address_phonenumber1_ed = document.getElementById("soc_bnk_address_phonenumber1_ed").value;
+    if(soc_bnk_address_phonenumber1_ed == ""){
+            document.getElementById("soc_bnk_address_phonenumber1_ed").focus();
+            
+            swal("Oops!","Please Enter Phone Number","error");
+                    return false;
+                    }
+                    else
+             {
+
+                     if(soc_bnk_address_phonenumber1_ed.length < 10){
+                     document.getElementById("soc_bnk_address_phonenumber1_ed").focus();
+                     
+                     swal("Invalid","Please Enter valid Phone Number","warning");
+                        return false;
+                        }
+                }
+    
+    // Phone no 2
+    
+    var soc_bnk_address_phonenumber2_ed = document.getElementById("soc_bnk_address_phonenumber2_ed").value;
+    if(soc_bnk_address_phonenumber2_ed == ""){
+            document.getElementById("soc_bnk_address_phonenumber2_ed").focus();
+            
+            swal("Oops!","Please Enter Phone Number","error");
+                    return false;
+                    }
+                    else
+             {
+
+                     if(soc_bnk_address_phonenumber2_ed.length < 10){
+                     document.getElementById("soc_bnk_address_phonenumber2_ed").focus();
+                     
+                     swal("Invalid","Please Enter valid Phone Number","warning");
+                        return false;
+                        }
+                }
+    
+                    
+    // email
+    
+    var soc_bnk_address_emial_ed = document.getElementById("soc_bnk_address_emial_ed").value;
+    if(soc_bnk_address_emial_ed!="")
+        {
+    var mail_id1 = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                    if (!mail_id1.test(soc_bnk_address_emial_ed))
+                    {
+                            document.getElementById("soc_bnk_address_emial_ed").focus();
+                            
+                            swal("Oops!","Please Enter a Valid E-mail ID","warning");
+                            return false;
+                     }
+        }
+                     
+    // URL
+    
+    var url1 = document.getElementById("soc_bnk_address_url_ed").value;
+    if(url1!="")
+        {
+        var re_1= /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+                    if (!re_1.test(url1)) 
+                    { 
+                        document.getElementById("soc_bnk_address_url_ed").focus();
+                        
+                        swal("Oops!","Please Enter a Valid URL","warning");
+                        return false;
+                 }
+    }
+
+    //Lattitude
+
+    var soc_bnk_address_latitude_ed = document.getElementById("soc_bnk_address_latitude_ed").value;
+    if(soc_bnk_address_latitude_ed == ""){
+        document.getElementById("soc_bnk_address_latitude_ed").focus();
+        
+        swal("Oops!","Please Enter Latitude","error");
+        return false;
+    }
+    
+    //Longitude
+
+    var soc_bnk_address_Longitude_ed = document.getElementById("soc_bnk_address_Longitude_ed").value;
+    if(soc_bnk_address_Longitude_ed == ""){
+        document.getElementById("soc_bnk_address_Longitude_ed").focus();
+        
+        swal("Oops!","Please Enter Longitude","error");
+        return false;
+    }
+    document.getElementById('societyBankDetailsform_ed').submit();
+}
+
+////////////////////////////////////////////////////////////////////////
+
+function bankDetails_view()
+{
+$('#tabs a[href=#soc_branch_add_details_vw]').tab('show').addClass("active");
+$('#tabs a[href=#soc_bank_details_vw]').removeClass("active");
+}
+
+////////////////////////////////////////////////////////////////////////
+
+function resetform_socbankdetails(){
+    document.getElementById('society_bnk_ser_bnknme').value='';
+    document.getElementById('society_bnk_ser_bnkcode').value='';   
+}
+///////////////////////////////////////////////////////////////////////
+
+/* Society- BANK -END*/
 /////////////////////////////////HOLIDAY DETAILS START////////////////////////////////////////////////////////
 
 //date validation in serach page//
