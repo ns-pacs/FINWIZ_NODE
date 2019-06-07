@@ -276,6 +276,7 @@
                 </nav>
                 <!-- End Navbar -->
 
+                <%if(pagetype=='ADD'){%>
 
                 <div class="content">
                     <div class="row-sm ">
@@ -290,28 +291,31 @@
                                     <h6>Add Record</h6>
                                     <!-- flash message -->
 
-                                    <div class="text text-center" role="alert" background-color: red;>
-                                        <strong style="color:green"></strong>
-                                    </div>
+                                    <% if(locals.message){ %>
+                                        <div class="text text-center" role="alert" background-color: red;>
+                                            <strong style="color:green"><%= message.success_msg %></strong>
+                                        </div>
+                                        <% } %>
 
 
                                     <hr>
-                                    <form autocomplete="off" action="" method="post" id="">
+                                    <form  action="../../societyModule/societyDetails/scty_chq_insert" method="post"
+                                    id="scty_chq_ad" autocomplete="off">
 
                                         <div class="content">
                                             <div class="container row mb-4">
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="scty_brch_add" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Branch</label>
-                                                    <input type="text" class="col-sm-12 col-md-6" name="scty_brch_add"
-                                                        id="scty_brch_add" placeholder="">
+                                                    <input type="text" class="col-sm-12 col-md-6" name="scty_brch_add" maxlength="10"
+                                                        id="scty_brch_add" onkeypress="return alpha(event)" style="text-transform: capitalize" maxlength="10" placeholder="">
 
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="scty_acc_add" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Account Number</label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_acc_add"
-                                                        id="scty_acc_add" placeholder="" maxlength="16">
+                                                        id="scty_acc_add" onkeypress="return numeric(event)" placeholder="" maxlength="16">
 
                                                 </div>
                                             </div>
@@ -322,6 +326,8 @@
                                                     <!-- <input type="text" class="col-sm-12 col-md-6" name="scty_ctgry_add"
                                                         id="scty_ctgry_add" placeholder=""> -->
                                                         <select class="col-sm-12 col-md-6" name="scty_ctgry_add" id="scty_ctgry_add" >
+                                                                <option disabled="" selected="" value="">Select
+                                                                    </option>
                                                             <option value="SB">SB</option>
                                                             <option value="CA">CA</option>
                                                             <option value="OD">OD</option>
@@ -370,7 +376,7 @@
                                                     </label>
                                                     <input type="text" class="col-sm-12 col-md-6"
                                                         name="scty_star_num_add" id="scty_star_num_add" placeholder=" "
-                                                        onkeypress="return numeric(event)">
+                                                        onkeypress="return numeric(event)" maxlength="3">
 
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
@@ -379,7 +385,7 @@
                                                     </label>
                                                     <input type="text" class="col-sm-12 col-md-6"
                                                         name="scty_end_num_add" id="scty_end_num_add" placeholder=""
-                                                        onkeypress="return numeric(event)">
+                                                        onkeypress="return numeric(event)" maxlength="3">
 
                                                 </div>
                                             </div>
@@ -394,8 +400,10 @@
                                                         name="scty_chq_book_status_add" id="scty_chq_book_status_add"
                                                         placeholder=""> -->
                                                         <select class="col-sm-12 col-md-6" name="scty_chq_book_status_add" id="scty_chq_book_status_add" >
+                                                                <option disabled="" selected="" value="">Select
+                                                                    </option>
                                                             <option value="Active">Active</option>
-                                                            <option value="Inavtive">Inavtive</option>
+                                                            <option value="Inactive">Inactive</option>
                                                             <option value="Dormant">Dormant</option>
                                                         </select>
 
@@ -414,13 +422,13 @@
                                                 <div class="col-sm-12 col-md-3">
                                                     <input type="button" class="btn clr clr1" name="scty_clear_frm"
                                                         id="scty_clear_frm" value="Clear Form"
-                                                        onclick="cheque_add_clear()">
+                                                        onclick="clearChequeDetails()">
 
                                                 </div>
                                                 <div class="col-sm-12 col-md-5"></div>
                                                 <div class="col-sm-12 col-md-2">
                                                     <input type="button" class="btn" name="scty_chq_bk_add"
-                                                        id="scty_chq_bk_add" value="Submit" onclick="chequebooks()">
+                                                        id="scty_chq_bk_add" value="Submit" onclick="chequeDetails()">
                                                 </div>
                                             </div>
 
@@ -432,11 +440,11 @@
                         </div>
                     </div>
                 </div>
-
+<%}%>
                 <!-- ADD -END-->
 
                 <!-- EDIT -START-->
-
+                <%if(pagetype=='EDIT'){%>
                 <div class="content">
                     <div class="row-sm ">
                         <div class="col-sm-12">
@@ -449,7 +457,7 @@
 
                                     <h6>EDIT RECORD</h6>
                                     <hr>
-                                    <form action="" method="post">
+                                    <form action="../../societyModule/societyDetails/scty_chq_update" method="post" id="scty_chq_ed">
 
                                         <div class="content">
                                             <div class="container row mb-4">
@@ -457,14 +465,14 @@
                                                     <label for="scty_brch_add_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Branch</label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_brch_add_ed"
-                                                        id="scty_brch_add_ed" placeholder="">
+                                                        id="scty_brch_add_ed" placeholder="" onkeypress="return alpha(event)" maxlength="10" value="<%=ed_branch_name%>">
 
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="scty_acc_add_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Account Number</label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_acc_add_ed"
-                                                        id="scty_acc_add_ed" placeholder="" maxlength="16">
+                                                        id="scty_acc_add_ed" placeholder="" onkeypress="return numeric(event)" maxlength="16" value="<%=ed_acct_num%>">
 
                                                 </div>
                                             </div>
@@ -475,6 +483,7 @@
                                                     <!-- <input type="text" class="col-sm-12 col-md-6" name="scty_ctgry_add_ed"
                                                         id="scty_ctgry_add_ed" placeholder=""> -->
                                                         <select class="col-sm-12 col-md-6" name="scty_ctgry_add_ed" id="scty_ctgry_add_ed" >
+                                                                <option value="<%=ed_category%>"><%=ed_category%></option>
                                                             <option value="SB">SB</option>
                                                             <option value="CA">CA</option>
                                                             <option value="OD">OD</option>
@@ -489,7 +498,7 @@
                                                     <input type="text" class="col-sm-12 col-md-6"
                                                         name="scty_chq_bok_num_add_ed" id="scty_chq_bok_num_add_ed"
                                                         placeholder=" " onkeypress="return numeric(event)"
-                                                        maxlength="6">
+                                                        maxlength="6" value="<%=ed_cheque_book_num%>">
 
                                                 </div>
                                             </div>
@@ -499,7 +508,7 @@
                                                         style="padding-left:0% !important;">Series
                                                     </label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="scty_series_add_ed"
-                                                        id="scty_series_add_ed" placeholder="" maxlength="10"
+                                                        id="scty_series_add_ed" placeholder="" value="<%=ed_series%>" maxlength="10"
                                                         onkeypress="return alphanumeric(event)">
 
                                                 </div>
@@ -511,7 +520,7 @@
                                                     </label>
                                                     <input type="text" class="col-sm-12 col-md-6"
                                                         name="scty_no_lev_per_bk_add_ed" id="scty_no_lev_per_bk_add_ed"
-                                                        placeholder="" maxlength="3" onkeypress="return numeric(event)">
+                                                        placeholder="" value="<%=ed_no_of_leaves_per_book%>" maxlength="3" onkeypress="return numeric(event)">
 
                                                 </div>
                                             </div>
@@ -522,8 +531,8 @@
                                                         Number
                                                     </label>
                                                     <input type="text" class="col-sm-12 col-md-6"
-                                                        name="scty_star_num_add_ed" id="scty_star_num_add_ed" placeholder=" "
-                                                        onkeypress="return numeric(event)">
+                                                        name="scty_star_num_add_ed" id="scty_star_num_add_ed" placeholder="" value="<%=ed_starting_num%>"
+                                                        onkeypress="return numeric(event)" maxlength="4">
 
                                                 </div>
                                                 <div class="col-sm-12 col-md-6">
@@ -531,8 +540,8 @@
                                                         style="padding-left:0% !important;">End Number
                                                     </label>
                                                     <input type="text" class="col-sm-12 col-md-6"
-                                                        name="scty_end_num_add_ed" id="scty_end_num_add_ed" placeholder=""
-                                                        onkeypress="return numeric(event)">
+                                                        name="scty_end_num_add_ed" id="scty_end_num_add_ed" placeholder="" value="<%=ending_num%>"
+                                                        onkeypress="return numeric(event)" maxlength="4">
 
                                                 </div>
                                             </div>
@@ -547,8 +556,9 @@
                                                         name="scty_chq_book_status_add_ed" id="scty_chq_book_status_add_ed"
                                                         placeholder=""> -->
                                                         <select class="col-sm-12 col-md-6" name="scty_chq_book_status_add_ed" id="scty_chq_book_status_add_ed" >
+                                                                <option value="<%=ed_cheque_book_status%>"><%=ed_cheque_book_status%></option>
                                                             <option value="Active">Active</option>
-                                                            <option value="Inavtive">Inavtive</option>
+                                                            <option value="Inactive">Inactive</option>
                                                             <option value="Dormant">Dormant</option>
                                                         </select>
 
@@ -557,6 +567,8 @@
 
                                             <div class="container row mt-4">
                                                 <div class="col-sm-12 col-md-2">
+                                                        <input hidden type="number" class="col-sm-12 col-md-6" name="chqdtls_hide_id" id="chqdtls_hide_id"
+                                                        placeholder="" value="<%=edit_chq_dtls%>">
                                                     <a type="text" class="btn"
                                                         href="/societyModule/societyDetails/scty_chq_book_det_search"
                                                         name="scty_bck_search_ed" id="scty_bck_search_ed"
@@ -567,13 +579,13 @@
                                                 <div class="col-sm-12 col-md-3">
                                                     <input type="button" class="btn clr clr1" name="scty_clear_frm_ed"
                                                         id="scty_clear_frm_ed" value="Clear Form"
-                                                        onclick="cheque_add_clear()">
+                                                        onclick="editClearChequeDetails()">
 
                                                 </div>
                                                 <div class="col-sm-12 col-md-5"></div>
                                                 <div class="col-sm-12 col-md-2">
                                                     <input type="button" class="btn" name="scty_chq_bk_add_ed"
-                                                        id="scty_chq_bk_add_ed" value="Submit" onclick="chequebooks()">
+                                                        id="scty_chq_bk_add_ed" value="Submit" onclick="editChequeDetails()">
                                                 </div>
                                             </div>
 
@@ -586,8 +598,11 @@
                     </div>
                 </div>
 
+                <%}%>
+
                 <!--EDIT END-->
                 <!-- VIEW -START-->
+                <%if(pagetype=='VIEW'){%>
 
                 <div class="content">
                     <div class="row-sm ">
@@ -610,14 +625,14 @@
                                                             style="padding-left:0% !important;">Branch</label>
                                                         <input type="text" class="col-sm-12 col-md-6"
                                                             name="scty_brch_add_vw" id="scty_brch_add_vw"
-                                                            placeholder="">
+                                                            placeholder="" value="<%=vw_branch_name%>">
 
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="scty_acc_add_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Account Number</label>
                                                         <input type="text" class="col-sm-12 col-md-6"
-                                                            name="scty_acc_add_vw" id="scty_acc_add_vw" placeholder="" maxlength="16">
+                                                            name="scty_acc_add_vw" id="scty_acc_add_vw" placeholder="" value="<%=vw_acct_num%>" maxlength="16">
 
                                                     </div>
                                                 </div>
@@ -630,6 +645,7 @@
                                                             name="scty_ctgry_add_vw" id="scty_ctgry_add_vw"
                                                             placeholder=""> -->
                                                             <select class="col-sm-12 col-md-6" name="scty_ctgry_add_vw" id="scty_ctgry_add_vw" >
+                                                                <option value="<%=vw_category%>"><%=vw_category%></option>
                                                                 <option value="SB">SB</option>
                                                                 <option value="CA">CA</option>
                                                                 <option value="OD">OD</option>
@@ -644,7 +660,7 @@
                                                         </label>
                                                         <input type="text" class="col-sm-12 col-md-6"
                                                             name="scty_chq_bok_num_add_vw" id="scty_chq_bok_num_add_vw"
-                                                            placeholder=" " maxlength="6">
+                                                            placeholder=" " maxlength="6" value="<%=vw_cheque_book_num%>">
 
                                                     </div>
                                                 </div>
@@ -656,7 +672,7 @@
                                                         </label>
                                                         <input type="text" class="col-sm-12 col-md-6"
                                                             name="scty_series_add_vw" id="scty_series_add_vw"
-                                                            placeholder="" maxlength="10">
+                                                            placeholder="" maxlength="10" value="<%=vw_series%>">
 
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
@@ -667,7 +683,7 @@
                                                         </label>
                                                         <input type="text" class="col-sm-12 col-md-6"
                                                             name="scty_no_lev_per_bk_add_vw"
-                                                            id="scty_no_lev_per_bk_add_vw" placeholder="" maxlength="3">
+                                                            id="scty_no_lev_per_bk_add_vw" placeholder="" maxlength="3" value="<%=vw_no_of_leaves_per_book%>">
 
                                                     </div>
                                                 </div>
@@ -680,7 +696,7 @@
                                                         </label>
                                                         <input type="text" class="col-sm-12 col-md-6"
                                                             name="scty_star_num_add_vw" id="scty_star_num_add_vw"
-                                                            placeholder=" ">
+                                                            placeholder=" " value="<%=vw_starting_num%>">
 
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
@@ -690,7 +706,7 @@
                                                         </label>
                                                         <input type="text" class="col-sm-12 col-md-6"
                                                             name="scty_end_num_add_vw" id="scty_end_num_add_vw"
-                                                            placeholder="">
+                                                            placeholder="" value="<%=vw_ending_num%>">
 
                                                     </div>
                                                 </div>
@@ -705,11 +721,13 @@
                                                             name="scty_chq_book_status_add_vw"
                                                             id="scty_chq_book_status_add_vw" placeholder=""> -->
                                                             <select class="col-sm-12 col-md-6" name="scty_chq_book_status_add_vw" id="scty_chq_book_status_add_vw" >
+                                                                <option value="<%=vw_cheque_book_status%>"><%=vw_cheque_book_status%></option>
                                                                 <option value="Active">Active</option>
-                                                                <option value="Inavtive">Inavtive</option>
+                                                                <option value="Inactive">Inactive</option>
                                                                 <option value="Dormant">Dormant</option>
                                                             </select>
-
+                                                            <input hidden type="number" class="col-sm-12 col-md-6" name="chq_hide_id_vw" id="chq_hide_id_vw"
+                                                            placeholder="" value="<%=vw_tempviewchequeid%>">
                                                     </div>
                                                 </div>
 
@@ -731,7 +749,7 @@
                     </div>
 
                 </div>
-
+<%}%>
                 <!-- VIEW -END-->
                 <!-- DELETE -START-->
 

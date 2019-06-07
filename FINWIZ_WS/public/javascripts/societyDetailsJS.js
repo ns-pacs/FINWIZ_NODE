@@ -1,3 +1,11 @@
+function desc(alpbts)
+{
+   var charCode = (alpbts.which) ? alpbts.which : alpbts.keyCode;
+   if (charCode > 32 
+         && (charCode < 65 || charCode > 90 ) && (charCode < 97 || charCode > 122)  && (charCode > 47 || charCode < 58) )
+      return false;
+   return true;
+}
 function alpha(alpbts)
 {
    var charCode = (alpbts.which) ? alpbts.which : alpbts.keyCode;
@@ -714,6 +722,913 @@ function resetform_socbankdetails(){
 /* Society- BANK -END*/
 /////////////////////////////////HOLIDAY DETAILS START////////////////////////////////////////////////////////
 
+// Society Branch-START//
+/////////////////////////////////////////////////////////////////////////////////////////
+function resetform_scty_br_details(){
+        document.getElementById('society_branch_ser_bnkcd').value='';
+        document.getElementById('society_branch_ser_brcode').value='';
+         document.getElementById('society_branch_ser_brnme').value='';
+         document.getElementById('society_branch_ser_ifsc_neft').value='';
+         document.getElementById('society_branch_ser_ifsc_rtgs').value='';
+        
+    }
+//// To set Bank Name in society branch Tab
+
+function sctyBankName() {
+        var bankcd = document.getElementById("society_branch_bnkcode").selectedIndex;
+        document.getElementById("society_branch_brcode").selectedIndex = bankcd;
+      }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////
+    
+    //// To set Bank Code in society branch Tab
+    
+    function sctyBankCode() {
+        var banknme = document.getElementById("society_branch_brcode").selectedIndex;
+        document.getElementById("society_branch_bnkcode").selectedIndex = banknme;
+      }
+    
+
+     
+
+
+//society branch Details Clear function
+
+function clear_scty_br_Tab1()
+{ 
+    
+    document.getElementById('society_branch_bnkcode').value="";
+    document.getElementById('society_branch_brcode').value="";
+    document.getElementById('society_branch_brname').value="";
+    document.getElementById('society_branch_brtype').value="";
+    document.getElementById('society_branch_ifsc_neft').value="";
+    document.getElementById('society_branch_ifsc_rtgs').value="";
+    document.getElementById('society_branch_micr_cd').value="";
+
+}
+
+function clear_scty_br_Tab2(){
+    document.getElementById('soc_branch_add_addline').value="";
+    document.getElementById('soc_branch_add_lndmark').value="";
+    document.getElementById('soc_branch_add_village').value="";
+    document.getElementById('soc_branch_add_pch_mndal').value="";
+    document.getElementById('soc_branch_add_city').value="";
+    document.getElementById('soc_branch_add_distict').value="";
+    document.getElementById('soc_branch_add_state').value="";
+    document.getElementById('soc_branch_add_country').value="";
+    document.getElementById('soc_branch_add_postalcd').value="";
+    document.getElementById('soc_branch_add_phone_num1').value="";
+    document.getElementById('soc_branch_add_phone_num2').value="";
+    document.getElementById('soc_branch_add_email1').value="";
+    document.getElementById('soc_branch_add_url').value="";
+    document.getElementById('soc_branch_add_latitude').value="";
+    document.getElementById('soc_branch_add_longitude').value="";
+    document.getElementById('soc_br_address_key_con_per1').value="";
+    document.getElementById('soc_br_name1').value="";
+    document.getElementById('soc_br_address_key_con_per2').value="";
+    document.getElementById('soc_br_name2').value="";
+   
+}
+
+//clear for edit society branch 
+
+function scty_br_Tab1_edit_clearform()
+{
+    document.getElementById('society_branch_bnkcode_ed').value=''
+    document.getElementById('society_branch_brcode_ed').value=''
+    document.getElementById('society_branch_brname_ed').value=''
+    document.getElementById('society_branch_brtype_ed').value=''
+    document.getElementById('society_branch_ifsc_neft_ed').value=''
+    document.getElementById('society_branch_ifsc_rtgs_ed').value=''
+    document.getElementById('society_branch_micr_cd_ed').value=''
+
+}
+
+function scty_br_Tab2_edit_clearform()
+{
+    document.getElementById('soc_branch_add_addline_ed').value=''
+    document.getElementById('soc_branch_add_lndmark_ed').value=''
+    document.getElementById('soc_branch_add_village_ed').value=''
+    document.getElementById('soc_branch_add_pch_mndal_ed').value=''
+    document.getElementById('soc_branch_add_city_ed').value=''
+    document.getElementById('soc_branch_add_distict_ed').value=''
+    document.getElementById('soc_branch_add_state_ed').value=''
+    document.getElementById('soc_branch_add_country_ed').value=''
+    document.getElementById('soc_branch_add_postalcd_ed').value=''
+    document.getElementById('soc_branch_add_phone_num1_ed').value=''
+    document.getElementById('soc_branch_add_phone_num2_ed').value=''
+    document.getElementById('soc_branch_add_email1_ed').value=''
+    document.getElementById('soc_branch_add_url_ed').value=''
+    document.getElementById('soc_branch_add_latitude_ed').value=''
+    document.getElementById('soc_branch_add_longitude_ed').value=''
+    document.getElementById('soc_br_address_key_con_per1_ed').value="";
+    document.getElementById('soc_br_name1_ed').value="";
+    document.getElementById('soc_br_address_key_con_per2_ed').value="";
+    document.getElementById('soc_br_name2_ed').value="";
+
+}
+
+function societybranchDetailsaddtab1(){
+ 
+
+    //tab-1
+
+    //bank code
+       
+    var society_branch_bnkcode = document.getElementById("society_branch_bnkcode").value;
+    if(society_branch_bnkcode == ""){
+            document.getElementById("society_branch_bnkcode").focus();
+            
+            swal("Oops!","Please Select Bank Code","error");
+                    return false;
+                    }
+   
+    //Branch code
+       
+    var society_branch_brcode = document.getElementById("society_branch_brcode").value;
+    if(society_branch_brcode == ""){
+            document.getElementById("society_branch_brcode").focus();
+          
+            swal("Oops!","Please Enter Branch code","error");
+                    return false;
+                    }
+   
+   //Branch name
+       
+    var society_branch_brname = document.getElementById("society_branch_brname").value;
+    if(society_branch_brname == ""){
+            document.getElementById("society_branch_brname").focus();
+           
+            swal("Oops!","Please Enter Branch Name","error");
+                    return false;
+                    }
+   
+   //Branch Type
+       
+    var society_branch_brtype = document.getElementById("society_branch_brtype").value;
+    if(society_branch_brtype == ""){
+            document.getElementById("society_branch_brtype").focus();
+            
+            swal("Oops!","Please Enter Branch Type","error");
+                    return false;
+                    }
+
+                    // IFSC Code NEFT
+
+
+var society_branch_ifsc_neft = document.getElementById("society_branch_ifsc_neft").value;
+if(society_branch_ifsc_neft == ""){
+document.getElementById("society_branch_ifsc_neft").focus();
+
+swal("Oops!","Please Enter IFSC CODE NEFT","error");
+return false;
+}
+
+else{
+
+if (society_branch_ifsc_neft.length <11)
+{
+document.getElementById("society_branch_ifsc_neft").focus();
+
+swal("Invalid","Please Enter Valid IFSC CODE NEFT","warning");
+return false;
+}
+
+var ifsccd = /([A-Za-z]{4}[0]{1}[0-9]{6})/;
+if (!ifsccd.test(society_branch_ifsc_neft))
+{
+document.getElementById("society_branch_ifsc_neft").focus();
+
+swal("Invalid","Please Enter Valid IFSC CODE NEFT","warning");
+return false;
+}
+
+
+}
+   
+
+                    // IFSC Code RTGS
+
+
+var society_branch_ifsc_rtgs = document.getElementById("society_branch_ifsc_rtgs").value;
+if(society_branch_ifsc_rtgs == ""){
+document.getElementById("society_branch_ifsc_rtgs").focus();
+
+swal("Oops!","Please Enter IFSC CODE RTGS","error");
+return false;
+}
+
+else{
+
+if (society_branch_ifsc_rtgs.length <11)
+{
+document.getElementById("society_branch_ifsc_rtgs").focus();
+
+swal("Invalid","Please Enter Valid IFSC CODE RTGS","warning");
+return false;
+}
+
+var ifscrtgs = /([A-Za-z]{4}[0]{1}[0-9]{6})/;
+if (!ifscrtgs.test(society_branch_ifsc_rtgs))
+{
+document.getElementById("society_branch_ifsc_rtgs").focus();
+
+swal("Invalid","Please Enter Valid IFSC CODE RTGS","warning");
+return false;
+}
+
+
+}
+   
+                    
+// MICR Code
+
+var society_branch_micr_cd = document.getElementById("society_branch_micr_cd").value;
+if(society_branch_micr_cd == ""){
+document.getElementById("society_branch_micr_cd").focus();
+
+swal("Oops!","Please Enter MICR Code","error");
+return false;
+}
+else
+{
+
+if(society_branch_micr_cd.length < 9){
+document.getElementById("society_branch_micr_cd").focus();
+
+swal("Invalid","Please Enter valid MICR Code","warning");
+return false;
+}
+
+}
+$('#tabs a[href=#soc_branch_address_details]').tab('show').addClass("active");
+$('#tabs a[href=#soc_branch_details]').removeClass("active");
+}
+
+function societybranchDetailsaddtab2(){
+
+        societybranchDetailsaddtab1();
+//tab-2
+
+   //Addressline 
+       
+    var soc_branch_add_addline = document.getElementById("soc_branch_add_addline").value;
+    if(soc_branch_add_addline == ""){
+            document.getElementById("soc_branch_add_addline").focus();
+            
+            swal("Oops!","Please Enter Addressline ","error");
+                    return false;
+                    }
+   
+   //Landmark
+       
+    var soc_branch_add_lndmark = document.getElementById("soc_branch_add_lndmark").value;
+    if(soc_branch_add_lndmark == ""){
+            document.getElementById("soc_branch_add_lndmark").focus();
+            
+            swal("Oops!","Please Enter Landmark ","error");
+                    return false;
+                    }
+   
+   //village 
+       
+    var soc_branch_add_village = document.getElementById("soc_branch_add_village").value;
+    if(soc_branch_add_village == ""){
+            document.getElementById("soc_branch_add_village").focus();
+            
+            swal("Oops!","Please Enter village ","error");
+                    return false;
+                    }
+
+   
+    
+                    
+    //City
+       
+    var soc_branch_add_city = document.getElementById("soc_branch_add_city").value;
+    if(soc_branch_add_city == ""){
+            document.getElementById("soc_branch_add_city").focus();
+            
+            swal("Oops!","Please Enter city ","error");
+                    return false;
+                    }
+
+    //Distict
+       
+    var soc_branch_add_distict = document.getElementById("soc_branch_add_distict").value;
+    if(soc_branch_add_distict == ""){
+            document.getElementById("soc_branch_add_distict").focus();
+            
+            swal("Oops!","Please Enter Distict","error");
+                    return false;
+                    }
+    
+    //State
+       
+    var soc_branch_add_state = document.getElementById("soc_branch_add_state").value;
+    if(soc_branch_add_state == ""){
+            document.getElementById("soc_branch_add_state").focus();
+            
+            swal("Oops!","Please Enter State ","error");
+                    return false;
+                    }
+
+    //Country
+       
+    var soc_branch_add_country = document.getElementById("soc_branch_add_country").value;
+    if(soc_branch_add_country == ""){
+            document.getElementById("soc_branch_add_country").focus();
+            
+            swal("Oops!","Please Enter Country ","error");
+                    return false;
+                    }
+
+    //Postal Code 
+       
+    var soc_branch_add_postalcd = document.getElementById("soc_branch_add_postalcd").value;
+    if(soc_branch_add_postalcd == ""){
+        document.getElementById("soc_branch_add_postalcd").focus();
+        
+        swal("Oops!","Please Enter Postal Code ","error");
+        return false;
+    }
+    else
+        {
+
+if(soc_branch_add_postalcd.length < 6){
+        document.getElementById("soc_branch_add_postalcd").focus();
+        
+        swal("Invalid","Please Enter valid Postal Code","warning");
+        return false;
+    }
+}
+
+  
+                        // Phone number 1
+    
+    var soc_branch_add_phone_num1 = document.getElementById("soc_branch_add_phone_num1").value;
+    if(soc_branch_add_phone_num1 == ""){
+        document.getElementById("soc_branch_add_phone_num1").focus();
+        
+        swal("Oops!","Please Enter Phone number 1","error");
+        return false;
+    }
+    else
+        {
+
+if(soc_branch_add_phone_num1.length < 10){
+        document.getElementById("soc_branch_add_phone_num1").focus();
+        
+        swal("Invalid","Please Enter valid Phone Number 1","warning");
+        return false;
+    }
+}
+
+ 
+
+   // Phone number 2
+    
+    var soc_branch_add_phone_num2 = document.getElementById("soc_branch_add_phone_num2").value;
+    if(soc_branch_add_phone_num2 == ""){
+        document.getElementById("soc_branch_add_phone_num2").focus();
+        
+        swal("Oops!","Please Enter Phone number 2","error");
+        return false;
+    }
+    else
+        {
+
+if(soc_branch_add_phone_num2.length < 10){
+        document.getElementById("soc_branch_add_phone_num2").focus();
+        
+        swal("Invalid","Please Enter valid Phone Number 2","warning");
+        return false;
+    }
+}
+
+
+
+     // E-Mail ID
+
+                    // E-Mail ID
+
+var soc_branch_add_email1 = document.getElementById("soc_branch_add_email1").value;
+if(soc_branch_add_email1 == ""){
+        document.getElementById("soc_branch_add_email1").focus();
+        
+        swal("Oops!","Please Enter E-mail ID","error");
+        return false;
+    }
+    else{
+if(soc_branch_add_email1 != ""){
+var mail_id = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+if (mail_id.test(soc_branch_add_email1)==false)
+{
+
+ document.getElementById("soc_branch_add_email1").focus();
+ 
+ swal("Oops!","Please Enter a Valid E-mail ID","warning");
+ return false;
+}
+}
+    }
+
+   // URL
+    
+    var soc_branch_add_url = document.getElementById("soc_branch_add_url").value;
+    if(soc_branch_add_url == ""){
+        document.getElementById("soc_branch_add_url").focus();
+        
+        swal("Oops!","Please Enter URL","error");
+        return false;
+    }
+    else{
+    if(soc_branch_add_url!="")
+        {
+        var re = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+                    if (!re.test(soc_branch_add_url)) 
+                    { 
+                        document.getElementById("soc_branch_add_url").focus();
+                        
+                        swal("Oops!","Please Enter a Valid URL","warning");
+                        return false;
+                 }
+    }
+}
+       
+
+     //latitude
+
+     var soc_branch_add_latitude = document.getElementById("soc_branch_add_latitude").value;
+     if(soc_branch_add_latitude == ""){
+             document.getElementById("soc_branch_add_latitude").focus();
+             
+             swal("Oops!","Please Enter Latitude ","error");
+                     return false;
+                     }
+
+    //longitude
+
+    var soc_branch_add_longitude = document.getElementById("soc_branch_add_longitude").value;
+    if(soc_branch_add_longitude == ""){
+            document.getElementById("soc_branch_add_longitude").focus();
+            
+            swal("Oops!","Please Enter Longitude ","error");
+                    return false;
+                    }
+
+                    document.getElementById('society_branch_add').submit();
+   }
+
+   
+
+   //////edit society branch ////
+
+   function societybranchDetailsedittab1(){
+
+    //tab-1
+
+    //bank code
+       
+    var society_branch_bnkcode_ed = document.getElementById("society_branch_bnkcode_ed").value;
+    if(society_branch_bnkcode_ed == ""){
+            document.getElementById("society_branch_bnkcode_ed").focus();
+            
+            swal("Oops!","Please Select Bank Code","error");
+                    return false;
+                    }
+   
+    //Branch code
+       
+    var society_branch_brcode_ed = document.getElementById("society_branch_brcode_ed").value;
+    if(society_branch_brcode_ed == ""){
+            document.getElementById("society_branch_brcode_ed").focus();
+          
+            swal("Oops!","Please Enter Branch code","error");
+                    return false;
+                    }
+   
+   //Branch name
+       
+    var society_branch_brname_ed = document.getElementById("society_branch_brname_ed").value;
+    if(society_branch_brname_ed == ""){
+            document.getElementById("society_branch_brname_ed").focus();
+           
+            swal("Oops!","Please Enter Branch Name","error");
+                    return false;
+                    }
+   
+   //Branch Type
+       
+    var society_branch_brtype_ed = document.getElementById("society_branch_brtype_ed").value;
+    if(society_branch_brtype_ed == ""){
+            document.getElementById("society_branch_brtype_ed").focus();
+            
+            swal("Oops!","Please Enter Branch Type","error");
+                    return false;
+                    }
+
+
+                     // IFSC Code NEFT
+
+
+var society_branch_ifsc_neft_ed = document.getElementById("society_branch_ifsc_neft_ed").value;
+if(society_branch_ifsc_neft_ed == ""){
+document.getElementById("society_branch_ifsc_neft_ed").focus();
+
+swal("Oops!","Please Enter IFSC CODE NEFT","error");
+return false;
+}
+
+else{
+
+if (society_branch_ifsc_neft_ed.length <11)
+{
+document.getElementById("society_branch_ifsc_neft_ed").focus();
+
+swal("Invalid","Please Enter Valid IFSC CODE NEFT","warning");
+return false;
+}
+
+var ifsccd = /([A-Za-z]{4}[0]{1}[0-9]{6})/;
+if (!ifsccd.test(society_branch_ifsc_neft_ed))
+{
+document.getElementById("society_branch_ifsc_neft_ed").focus();
+
+swal("Invalid","Please Enter Valid IFSC CODE NEFT","warning");
+return false;
+}
+
+
+}
+   
+
+               // IFSC Code RTGS
+
+
+var society_branch_ifsc_rtgs_ed = document.getElementById("society_branch_ifsc_rtgs_ed").value;
+if(society_branch_ifsc_rtgs_ed == ""){
+document.getElementById("society_branch_ifsc_rtgs_ed").focus();
+
+swal("Oops!","Please Enter IFSC CODE RTGS","error");
+return false;
+}
+
+else{
+
+if (society_branch_ifsc_rtgs_ed.length <11)
+{
+document.getElementById("society_branch_ifsc_rtgs_ed").focus();
+
+swal("Invalid","Please Enter Valid IFSC CODE RTGS","warning");
+return false;
+}
+
+var ifscrtgs = /([A-Za-z]{4}[0]{1}[0-9]{6})/;
+if (!ifscrtgs.test(society_branch_ifsc_rtgs_ed))
+{
+document.getElementById("society_branch_ifsc_rtgs_ed").focus();
+
+swal("Invalid","Please Enter Valid IFSC CODE RTGS","warning");
+return false;
+}
+
+
+}
+           
+   
+  
+                // MICR Code
+
+var society_branch_micr_cd_ed = document.getElementById("society_branch_micr_cd_ed").value;
+if(society_branch_micr_cd_ed == ""){
+document.getElementById("society_branch_micr_cd_ed").focus();
+
+swal("Oops!","Please Enter MICR Code","error");
+return false;
+}
+else
+{
+
+if(society_branch_micr_cd_ed.length < 9){
+document.getElementById("society_branch_micr_cd_ed").focus();
+
+swal("Invalid","Please Enter valid MICR Code","warning");
+return false;
+}
+}
+$('#tabs a[href=#soc_branch_address_details_ed]').tab('show').addClass("active");
+$('#tabs a[href=#soc_branch_details_ed]').removeClass("active");
+}
+
+
+   function societybranchDetailsedittab2(){
+//tab-2
+societybranchDetailsedittab1();
+   //Addressline 
+       
+    var soc_branch_add_addline_ed = document.getElementById("soc_branch_add_addline_ed").value;
+    if(soc_branch_add_addline_ed == ""){
+            document.getElementById("soc_branch_add_addline_ed").focus();
+            
+            swal("Oops!","Please Enter Addressline ","error");
+                    return false;
+                    }
+   
+   //Landmark
+       
+    var soc_branch_add_lndmark_ed = document.getElementById("soc_branch_add_lndmark_ed").value;
+    if(soc_branch_add_lndmark_ed == ""){
+            document.getElementById("soc_branch_add_lndmark_ed").focus();
+            
+            swal("Oops!","Please Enter Landmark ","error");
+                    return false;
+                    }
+   
+   //village 
+       
+    var soc_branch_add_village_ed = document.getElementById("soc_branch_add_village_ed").value;
+    if(soc_branch_add_village_ed == ""){
+            document.getElementById("soc_branch_add_village_ed").focus();
+            
+            swal("Oops!","Please Enter village ","error");
+                    return false;
+                    }
+
+                    
+    //City
+       
+    var soc_branch_add_city_ed = document.getElementById("soc_branch_add_city_ed").value;
+    if(soc_branch_add_city_ed == ""){
+            document.getElementById("soc_branch_add_city_ed").focus();
+            
+            swal("Oops!","Please Enter city ","error");
+                    return false;
+                    }
+
+    //Distict
+       
+    var soc_branch_add_distict_ed = document.getElementById("soc_branch_add_distict_ed").value;
+    if(soc_branch_add_distict_ed == ""){
+            document.getElementById("soc_branch_add_distict_ed").focus();
+            
+            swal("Oops!","Please Enter Distict","error");
+                    return false;
+                    }
+    
+    //State
+       
+    var soc_branch_add_state_ed = document.getElementById("soc_branch_add_state_ed").value;
+    if(soc_branch_add_state_ed == ""){
+            document.getElementById("soc_branch_add_state_ed").focus();
+            
+            swal("Oops!","Please Enter State ","error");
+                    return false;
+                    }
+
+    //Country
+       
+    var soc_branch_add_country_ed = document.getElementById("soc_branch_add_country_ed").value;
+    if(soc_branch_add_country_ed == ""){
+            document.getElementById("soc_branch_add_country_ed").focus();
+            
+            swal("Oops!","Please Enter Country ","error");
+                    return false;
+                    }
+
+    //Postal Code 
+       
+  
+                    var soc_branch_add_postalcd_ed = document.getElementById("soc_branch_add_postalcd_ed").value;
+                    if(soc_branch_add_postalcd_ed == ""){
+                        document.getElementById("soc_branch_add_postalcd_ed").focus();
+                        
+                        swal("Oops!","Please Enter Postal Code ","error");
+                        return false;
+                    }
+                    else
+                        {
+                
+                if(soc_branch_add_postalcd_ed.length < 6){
+                        document.getElementById("soc_branch_add_postalcd_ed").focus();
+                        
+                        swal("Invalid","Please Enter valid Postal Code","warning");
+                        return false;
+                    }
+                }
+
+    //phone_num1
+       
+  
+                        
+    var soc_branch_add_phone_num1_ed = document.getElementById("soc_branch_add_phone_num1_ed").value;
+    if(soc_branch_add_phone_num1_ed == ""){
+        document.getElementById("soc_branch_add_phone_num1_ed").focus();
+        
+        swal("Oops!","Please Enter Phone number 1","error");
+        return false;
+    }
+    else
+        {
+
+if(soc_branch_add_phone_num1_ed.length < 10){
+        document.getElementById("soc_branch_add_phone_num1_ed").focus();
+        
+        swal("Invalid","Please Enter valid Phone Number 1","warning");
+        return false;
+    }
+}
+
+    //phone_num2              
+    
+                    var soc_branch_add_phone_num2_ed = document.getElementById("soc_branch_add_phone_num2_ed").value;
+                    if(soc_branch_add_phone_num2_ed == ""){
+                        document.getElementById("soc_branch_add_phone_num2_ed").focus();
+                        
+                        swal("Oops!","Please Enter Phone number 2","error");
+                        return false;
+                    }
+                    else
+                        {
+                
+                if(soc_branch_add_phone_num2_ed.length < 10){
+                        document.getElementById("soc_branch_add_phone_num2_ed").focus();
+                        
+                        swal("Invalid","Please Enter valid Phone Number 2","warning");
+                        return false;
+                    }
+                }
+
+    //email
+
+
+                    
+var soc_branch_add_email1_ed = document.getElementById("soc_branch_add_email1_ed").value;
+if(soc_branch_add_email1_ed == ""){
+        document.getElementById("soc_branch_add_email1_ed").focus();
+        
+        swal("Oops!","Please Enter E-mail ID","error");
+        return false;
+    }
+    else{
+if(soc_branch_add_email1_ed != ""){
+var mail_id = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+if (mail_id.test(soc_branch_add_email1_ed)==false)
+{
+
+ document.getElementById("soc_branch_add_email1_ed").focus();
+ 
+ swal("Oops!","Please Enter a Valid E-mail ID","warning");
+ return false;
+}
+}
+    }
+
+   
+
+                        // URL
+    
+    var soc_branch_add_url_ed = document.getElementById("soc_branch_add_url_ed").value;
+    if(soc_branch_add_url_ed == ""){
+        document.getElementById("soc_branch_add_url_ed").focus();
+        
+        swal("Oops!","Please Enter URL","error");
+        return false;
+    }
+    else{
+    if(soc_branch_add_url_ed!="")
+        {
+        var re = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+                    if (!re.test(soc_branch_add_url_ed)) 
+                    { 
+                        document.getElementById("soc_branch_add_url_ed").focus();
+                        
+                        swal("Oops!","Please Enter a Valid URL","warning");
+                        return false;
+                 }
+    }
+}
+
+     //latitude
+
+     var soc_branch_add_latitude_ed = document.getElementById("soc_branch_add_latitude_ed").value;
+     if(soc_branch_add_latitude_ed == ""){
+             document.getElementById("soc_branch_add_latitude_ed").focus();
+             
+             swal("Oops!","Please Enter Latitude ","error");
+                     return false;
+                     }
+
+    //longitude
+
+    var soc_branch_add_longitude_ed = document.getElementById("soc_branch_add_longitude_ed").value;
+    if(soc_branch_add_longitude_ed == ""){
+            document.getElementById("soc_branch_add_longitude_ed").focus();
+            
+            swal("Oops!","Please Enter Longitude ","error");
+                    return false;
+                    }
+
+
+                    document.getElementById('society_branch_edit').submit();
+                    
+   }
+
+   function edit_branch_row(oObject)
+   {
+   //alert(oObject)
+   var id = oObject.id;
+   // alert("This object's ID attribute is set to \"" + id + "\"."); 
+var rb1=document.getElementById("rf"+id).value;
+//alert("rb1"+rb1)
+document.getElementById("radiobutton1rfed"+rb1).checked=true;
+   var idchecked=$("input[name='radiobutton1rfed']:checked").val();
+ //alert(idchecked);
+ 
+ 
+var bankid=document.getElementById('radiobutton1rfed'+idchecked).value;
+ //alert("BRANCH ID -----------------------"+bankid)
+
+
+document.getElementById("tempsctybrid").value=bankid;
+document.getElementById("edit_scty_br_load_form").submit();
+
+
+   }
+
+         function view_branch_row(oObject)
+         {
+          //alert(oObject)
+         var id = oObject.id;
+ //alert("This object's ID attribute is set to \"" + id + "\"."); 
+     var rb1=document.getElementById("vf"+id).value;
+   // alert("rb1"+rb1)
+     document.getElementById("radiobutton1rfvw"+rb1).checked=true;
+         var idchecked=$("input[name='radiobutton1rfvw']:checked").val();                                
+     //alert(idchecked);
+
+       
+     var br_id=document.getElementById('radiobutton1rfvw'+idchecked).value;
+      //alert("BRANCH ID -----------------------"+br_id)
+     
+     
+     
+     document.getElementById("tempsctybrid1").value=br_id;
+     document.getElementById("view_scty_br_load_form").submit();
+     
+     
+         }
+     
+     
+         function  delete_branch_row(oObject)
+         {
+               //alert(oObject)
+            var id = oObject.id;
+          //  alert("This object's ID attribute is set to \"" + id + "\"."); 
+          var rb1=document.getElementById("df"+id).value;
+        // alert("rb1"+rb1)
+          document.getElementById("radiobutton1rfdel"+rb1).checked=true;
+              var idchecked=$("input[name='radiobutton1rfdel']:checked").val();                                
+          // alert(idchecked);
+            
+            
+          var del_id=document.getElementById('radiobutton1rfdel'+idchecked).value;
+//alert("BRANCH ID -----------------------"+del_id)
+          
+          
+          
+          document.getElementById("tempsctybrid2").value=del_id;
+     
+         }
+     //////////////////delete bank row onclick of confirm button///////////////
+     function delete_scty_br_onconfirm()
+     {
+         document.getElementById("del_scty_br_form").submit();
+     
+     }
+
+     function add_stateoncity_societyBranch() {
+   
+        var selected_city = document.getElementById("soc_branch_add_city").value;
+         console.log(selected_city)
+    obj1=JSON.parse(selected_city);
+    console.log("res",obj1.state);
+    console.log("ghsa",obj1.city);
+    document.getElementById("soc_branch_add_state").value = obj1.state;
+      }
+
+
+      function edit_stateoncity_societyBranch() {
+   
+        var selected_city = document.getElementById("soc_branch_add_city_ed").value;
+         console.log(selected_city)
+    obj1=JSON.parse(selected_city);
+    console.log("res",obj1.state);
+    console.log("ghsa",obj1.city);
+    document.getElementById("soc_branch_add_state_ed").value = obj1.state;
+      }
+
+// Society Branch-END//
 //date validation in serach page//
 function required_holiday_date(){
      //  console.log("coming inside")
@@ -1767,3 +2682,451 @@ function credit_limit_validation()
               document.getElementById("credit_lmt_edit").submit();
             }
  /* Society- KCC Credit Limits- END*/
+ 
+ /* ------------------------------------------------------------------------ DEPARTMENT START ------------------------------------------------------------------------------- */
+
+
+// Clear Functions for Department
+
+function clearDepartmentDetails(){
+document.getElementById('dept_code_add').value="";
+document.getElementById('dept_name_add').value="";
+document.getElementById('desc_add').value="";
+document.getElementById('sec_name_add').value="";
+}
+
+
+// Clear Functions for Department in Edit
+
+function edit_ClrDepartmentDetails(){
+   document.getElementById('dept_code_ed').value="";
+   document.getElementById('dept_name_ed').value="";
+   document.getElementById('desc_ed').value="";
+   document.getElementById('sec_name_ed').value="";
+   }
+
+function srch_ClrDepartment(){
+   document.getElementById('dept_code').value="";
+   document.getElementById('dept_name').value="";
+   document.getElementById('sec_name').value="";
+      }   
+
+
+//  Functions for Department
+
+function departmentDetails(){
+
+    //Department Code
+    
+    var dept_code_add = document.getElementById("dept_code_add").value;
+    if(dept_code_add == ""){
+    document.getElementById("dept_code_add").focus();
+    
+    swal("Oops!","Please Enter Department Code","error");
+    return false;
+    }
+    
+    
+    // Department Name
+    
+    var dept_name_add = document.getElementById("dept_name_add").value;
+    if(dept_name_add == ""){
+    document.getElementById("dept_name_add").focus();
+    swal("Oops!","Please Enter Department Name","error");
+    return false;
+    }
+    
+        
+    // Department description
+    
+    var desc_add = document.getElementById("desc_add").value;
+    if(desc_add == ""){
+    document.getElementById("desc_add").focus(); 
+    swal("Oops!","Please Write Description","error");
+    return false;
+    }
+    
+    // Department Section
+    
+    var sec_name_add = document.getElementById("sec_name_add").value;
+    if(sec_name_add == ""){
+    document.getElementById("sec_name_add").focus();
+    swal("Oops!","Please Enter Section Name","error");
+    return false;
+    }
+
+    document.getElementById('scty_dept_ad').submit();
+}
+
+
+// EDIT Functions for Department
+
+function edit_departmentDetails(){
+
+   //Department Code
+   
+   var dept_code_ed = document.getElementById("dept_code_ed").value;
+   if(dept_code_ed == ""){
+   document.getElementById("dept_code_ed").focus();
+   
+   swal("Oops!","Please Enter Department Code","error");
+   return false;
+   }
+   
+   
+   // Department Name
+   
+   var dept_name_ed = document.getElementById("dept_name_ed").value;
+   if(dept_name_ed == ""){
+   document.getElementById("dept_name_ed").focus();
+   swal("Oops!","Please Enter Department Name","error");
+   return false;
+   }
+   
+       
+   // Department description
+   
+   var desc_ed = document.getElementById("desc_ed").value;
+   if(desc_ed == ""){
+   document.getElementById("desc_ed").focus(); 
+   swal("Oops!","Please Write Description","error");
+   return false;
+   }
+   
+   // Department Section
+   
+   var sec_name_ed = document.getElementById("sec_name_ed").value;
+   if(sec_name_ed == ""){
+   document.getElementById("sec_name_ed").focus();
+   swal("Oops!","Please Enter Section Name","error");
+   return false;
+   }
+
+   document.getElementById('scty_dept_ed').submit();
+}
+
+// Department Edit
+
+function dept_edit(edt)
+{
+var edtid = edt.id;
+ var ed1=document.getElementById("soc_dept_ed"+edtid).value;
+document.getElementById("radio_society_edit"+ed1).checked=true;
+var edtidchecked=$("input[name='radio_society_edit']:checked").val();
+var dept_id=document.getElementById('radio_society_edit'+edtidchecked).value;
+document.getElementById("edit_sctydep_id").value=dept_id;
+document.getElementById("soc_dept_edit").submit();
+}
+
+
+// Department View
+
+function dept_view(vew)
+{
+var vewid = vew.id;
+ var vw1=document.getElementById("soc_dept_vw"+vewid).value;
+document.getElementById("radio_society_view"+vw1).checked=true;
+var vewidchecked=$("input[name='radio_society_view']:checked").val();
+var dept_id_vw=document.getElementById('radio_society_view'+vewidchecked).value;
+document.getElementById("view_sctydep_id").value=dept_id_vw;
+document.getElementById("soc_dept_view").submit();
+}
+
+// Department Delete
+
+function dept_delete(dlt)
+{
+var dltid = dlt.id;
+ var dlt1=document.getElementById("soc_dept_dl"+dltid).value;
+document.getElementById("radio_society_delete"+dlt1).checked=true;
+var dltidchecked=$("input[name='radio_society_delete']:checked").val();
+var dept_id_del=document.getElementById('radio_society_delete'+dltidchecked).value;
+document.getElementById("del_sctydep_id").value=dept_id_del;
+}
+
+function confirm_dept_del(){
+   document.getElementById("soc_dept_del").submit();
+}
+
+/* ------------------------------------------------------------------------ DEPARTMENT END --------------------------------------------------------------------------------- */
+
+
+
+
+/* ------------------------------------------------------------------------ CHEQUE DETAILS START ---------------------------------------------------------------------------- */
+
+
+// Function for Cheque Details
+
+function chequeDetails(){
+
+   // Cheque Details Branch
+
+   var scty_brch_add = document.getElementById("scty_brch_add").value;
+   if(scty_brch_add == ""){
+   document.getElementById("scty_brch_add").focus();
+   
+   swal("Oops!","Please Enter Department Code","error");
+   return false;
+   }
+   
+   
+   // Cheque Details Account Number
+   
+   var scty_acc_add = document.getElementById("scty_acc_add").value;
+   if(scty_acc_add == ""){
+   document.getElementById("scty_acc_add").focus();
+   swal("Oops!","Please Enter Department Name","error");
+   return false;
+   }
+   
+       
+   // Cheque Details Category
+   
+   var scty_ctgry_add = document.getElementById("scty_ctgry_add").value;
+   if(scty_ctgry_add == ""){
+   document.getElementById("scty_ctgry_add").focus(); 
+   swal("Oops!","Please Write Description","error");
+   return false;
+   }
+   
+   // Cheque Details Cheque Book Number
+   
+   var scty_chq_bok_num_add = document.getElementById("scty_chq_bok_num_add").value;
+   if(scty_chq_bok_num_add == ""){
+   document.getElementById("scty_chq_bok_num_add").focus();
+   swal("Oops!","Please Enter Section Name","error");
+   return false;
+   }
+
+      // Cheque Details Series
+
+      var scty_series_add = document.getElementById("scty_series_add").value;
+      if(scty_series_add == ""){
+      document.getElementById("scty_series_add").focus();
+      
+      swal("Oops!","Please Enter Department Code","error");
+      return false;
+      }
+      
+      
+      // Cheque Details Number Of Leaves Per Book
+      
+      var scty_no_lev_per_bk_add = document.getElementById("scty_no_lev_per_bk_add").value;
+      if(scty_no_lev_per_bk_add == ""){
+      document.getElementById("scty_no_lev_per_bk_add").focus();
+      swal("Oops!","Please Enter Department Name","error");
+      return false;
+      }
+      
+          
+      // Cheque Details Starting Number
+      
+      var scty_star_num_add = document.getElementById("scty_star_num_add").value;
+      if(scty_star_num_add == ""){
+      document.getElementById("scty_star_num_add").focus(); 
+      swal("Oops!","Please Write Description","error");
+      return false;
+      }
+      
+      // Cheque Details End Number
+      
+      var scty_end_num_add = document.getElementById("scty_end_num_add").value;
+      if(scty_end_num_add == ""){
+      document.getElementById("scty_end_num_add").focus();
+      swal("Oops!","Please Enter Section Name","error");
+      return false;
+      }
+   
+      // Cheque Details Cheque Book Status
+      
+      var scty_chq_book_status_add = document.getElementById("scty_chq_book_status_add").value;
+      if(scty_chq_book_status_add == ""){
+      document.getElementById("scty_chq_book_status_add").focus();
+      swal("Oops!","Please Enter Section Name","error");
+      return false;
+      }
+
+   document.getElementById("scty_chq_ad").submit();
+}
+
+//Clear Function for Cheque Details
+
+function clearChequeDetails(){
+   document.getElementById('scty_brch_add').value="";
+   document.getElementById('scty_acc_add').value="";
+   document.getElementById('scty_ctgry_add').value="";
+   document.getElementById('scty_chq_bok_num_add').value="";
+   document.getElementById('scty_series_add').value="";
+   document.getElementById('scty_no_lev_per_bk_add').value="";
+   document.getElementById('scty_star_num_add').value="";
+   document.getElementById('scty_end_num_add').value="";
+   document.getElementById('scty_chq_book_status_add').value="";
+   }
+
+
+// Function for Cheque Details in EDIT
+
+function editChequeDetails(){
+
+   // Cheque Details Branch
+
+   var scty_brch_add_ed = document.getElementById("scty_brch_add_ed").value;
+   if(scty_brch_add_ed == ""){
+   document.getElementById("scty_brch_add_ed").focus();
+   
+   swal("Oops!","Please Enter Department Code","error");
+   return false;
+   }
+   
+   
+   // Cheque Details Account Number
+   
+   var scty_acc_add_ed = document.getElementById("scty_acc_add_ed").value;
+   if(scty_acc_add_ed == ""){
+   document.getElementById("scty_acc_add_ed").focus();
+   swal("Oops!","Please Enter Department Name","error");
+   return false;
+   }
+   
+       
+   // Cheque Details Category
+   
+   var scty_ctgry_add_ed = document.getElementById("scty_ctgry_add_ed").value;
+   if(scty_ctgry_add_ed == ""){
+   document.getElementById("scty_ctgry_add_ed").focus(); 
+   swal("Oops!","Please Write Description","error");
+   return false;
+   }
+   
+   // Cheque Details Cheque Book Number
+   
+   var scty_chq_bok_num_add_ed = document.getElementById("scty_chq_bok_num_add_ed").value;
+   if(scty_chq_bok_num_add_ed == ""){
+   document.getElementById("scty_chq_bok_num_add_ed").focus();
+   swal("Oops!","Please Enter Section Name","error");
+   return false;
+   }
+
+      // Cheque Details Series
+
+      var scty_series_add_ed = document.getElementById("scty_series_add_ed").value;
+      if(scty_series_add_ed == ""){
+      document.getElementById("scty_series_add_ed").focus();
+      
+      swal("Oops!","Please Enter Department Code","error");
+      return false;
+      }
+      
+      
+      // Cheque Details Number Of Leaves Per Book
+      
+      var scty_no_lev_per_bk_add_ed = document.getElementById("scty_no_lev_per_bk_add_ed").value;
+      if(scty_no_lev_per_bk_add_ed == ""){
+      document.getElementById("scty_no_lev_per_bk_add_ed").focus();
+      swal("Oops!","Please Enter Department Name","error");
+      return false;
+      }
+      
+          
+      // Cheque Details Starting Number
+      
+      var scty_star_num_add_ed = document.getElementById("scty_star_num_add_ed").value;
+      if(scty_star_num_add_ed == ""){
+      document.getElementById("scty_star_num_add_ed").focus(); 
+      swal("Oops!","Please Write Description","error");
+      return false;
+      }
+      
+      // Cheque Details End Number
+      
+      var scty_end_num_add_ed = document.getElementById("scty_end_num_add_ed").value;
+      if(scty_end_num_add_ed == ""){
+      document.getElementById("scty_end_num_add_ed").focus();
+      swal("Oops!","Please Enter Section Name","error");
+      return false;
+      }
+   
+      // Cheque Details Cheque Book Status
+      
+      var scty_chq_book_status_add_ed = document.getElementById("scty_chq_book_status_add_ed").value;
+      if(scty_chq_book_status_add_ed == ""){
+      document.getElementById("scty_chq_book_status_add_ed").focus();
+      swal("Oops!","Please Enter Section Name","error");
+      return false;
+      }
+
+   document.getElementById("scty_chq_ed").submit();
+}
+
+//Clear Function for Cheque Details in EDIT
+
+function editClearChequeDetails(){
+   document.getElementById('scty_brch_add_ed').value="";
+   document.getElementById('scty_acc_add_ed').value="";
+   document.getElementById('scty_ctgry_add_ed').value="";
+   document.getElementById('scty_chq_bok_num_add_ed').value="";
+   document.getElementById('scty_series_add_ed').value="";
+   document.getElementById('scty_no_lev_per_bk_add_ed').value="";
+   document.getElementById('scty_star_num_add_ed').value="";
+   document.getElementById('scty_end_num_add_ed').value="";
+   document.getElementById('scty_chq_book_status_add_ed').value="";
+   }
+
+
+
+
+// Cheque Details Edit
+
+function chq_edit(edt)
+{
+var edtid = edt.id;
+ var ed1=document.getElementById("chq_dtls_ed"+edtid).value;
+document.getElementById("radio_cheque_edit"+ed1).checked=true;
+var edtidchecked=$("input[name='radio_cheque_edit']:checked").val();
+var chq_id=document.getElementById('radio_cheque_edit'+edtidchecked).value;
+document.getElementById("tempchequeid").value=chq_id;
+document.getElementById("edit_data_load_form").submit();
+}
+
+
+// Cheque Details View
+
+function chq_view(vew)
+{
+var vewid = vew.id;
+ var vw1=document.getElementById("chq_dtls_vw"+vewid).value;
+document.getElementById("radio_cheque_view"+vw1).checked=true;
+var vewidchecked=$("input[name='radio_cheque_view']:checked").val();
+var chq_id_vw=document.getElementById('radio_cheque_view'+vewidchecked).value;
+document.getElementById("tempviewchequeid").value=chq_id_vw;
+document.getElementById("view_data_load_form").submit();
+}
+
+// Cheque Details Delete
+
+function chq_delete(dlt)
+{
+var dltid = dlt.id;
+ var dlt1=document.getElementById("chq_dtls_del"+dltid).value;
+document.getElementById("radio_cheque_delete"+dlt1).checked=true;
+var dltidchecked=$("input[name='radio_cheque_delete']:checked").val();
+var dept_id_del=document.getElementById('radio_cheque_delete'+dltidchecked).value;
+document.getElementById("tempchequedeleteid").value=dept_id_del;
+}
+
+function confirm_chq_del(){
+   document.getElementById("chq_dtls_del").submit();
+}
+
+//Clear function for Cheque Details Search Page
+function clearSearchChq(){
+document.getElementById('scty_brch_name').value="";
+document.getElementById('scty_acc_num').value="";
+document.getElementById('scty_ctgry').value="";
+document.getElementById('scty_chq_bk_num').value="";
+document.getElementById('scty_no_lev_per_bk').value="";
+document.getElementById('scty_chq_bk_stat').value="";
+}
+
+/* ------------------------------------------------------------------------ CHEQUE DETAILS END ---------------------------------------------------------------------------- */

@@ -2006,6 +2006,811 @@ router.post('/search_particular_socbnkrec', function(req,res){
 
  
 
+ //Society Branch-START//
+
+ //Branch Add screen
+ router.get('/scty_branch_add',function(req,res){
+   var divtype="ADD";
+
+   pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) {
+      if(err) throw err;
+      pgdbconnect.query("select * from branch_code_details limit 50",function(err,result5)
+        {
+            if(err) throw err;
+     // console.log("Bank code details is", reslt);
+     pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,resu1)
+     {
+      if(err) throw err;
+     
+      pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,resu2)
+     {
+      if(err) throw err;
+ 
+
+    res.render('societyModule/scty_Branch_Add',{
+      cities:resu1.rows,
+      states:resu2.rows,
+      bank:reslt.rows,
+      branch:result5.rows,
+      pagetype:divtype
+    });
+    });
+    });
+ });
+ });
+ });
+//add branch details
+ router.post('/scty_branch_add_det',function(req,res){
+   var divtype="ADD";
+   console.log("DIV TYPE",divtype);
+
+var scty_br_id;
+ //tab1
+  var society_branch_bnkcode = req.body.society_branch_bnkcode;
+  console.log("code",society_branch_bnkcode)
+  var society_branch_brcode = req.body.society_branch_brcode;
+  var society_branch_brname = req.body.society_branch_brname;
+  var society_branch_brtype = req.body.society_branch_brtype;
+  var society_branch_ifsc_neft = req.body.society_branch_ifsc_neft;
+  var society_branch_ifsc_rtgs = req.body.society_branch_ifsc_rtgs;
+  var society_branch_micr_cd = req.body.society_branch_micr_cd;
+  //tab2
+  var soc_branch_add_addline = req.body.soc_branch_add_addline;
+  var soc_branch_add_lndmark = req.body.soc_branch_add_lndmark;
+  var soc_branch_add_village = req.body.soc_branch_add_village;
+  var soc_branch_add_pch_mndal = req.body.soc_branch_add_pch_mndal;
+  var soc_branch_add_city = JSON.parse(req.body.soc_branch_add_city).city;
+  var soc_branch_add_distict = req.body.soc_branch_add_distict;
+  var soc_branch_add_state = req.body.soc_branch_add_state;
+  var soc_branch_add_country = req.body.soc_branch_add_country;
+  var soc_branch_add_postalcd = req.body.soc_branch_add_postalcd;
+  var soc_branch_add_phone_num1 = req.body.soc_branch_add_phone_num1;
+  var soc_branch_add_phone_num2 = req.body.soc_branch_add_phone_num2;
+  var soc_branch_add_email1 = req.body.soc_branch_add_email1;
+  var soc_branch_add_url = req.body.soc_branch_add_url;
+  var soc_branch_add_latitude = req.body.soc_branch_add_latitude;
+  var soc_branch_add_longitude = req.body.soc_branch_add_longitude;
+  var soc_branch_add_key_con_per1 = req.body.soc_br_address_key_con_per1;
+   var soc_br_name1 = req.body.soc_br_name1;
+  var soc_branch_add_key_con_per2 = req.body.soc_br_address_key_con_per2;
+  var soc_br_name2 = req.body.soc_br_name2;
+
+
+  console.log("Society Branch Details",society_branch_bnkcode,society_branch_brcode,society_branch_brname,society_branch_brtype,society_branch_ifsc_neft,society_branch_ifsc_rtgs,society_branch_micr_cd,soc_branch_add_addline,soc_branch_add_lndmark,soc_branch_add_village,soc_branch_add_pch_mndal,soc_branch_add_city,soc_branch_add_distict,soc_branch_add_state,soc_branch_add_country,soc_branch_add_postalcd,soc_branch_add_phone_num1,soc_branch_add_phone_num2,soc_branch_add_email1,soc_branch_add_url,soc_branch_add_latitude,soc_branch_add_longitude,soc_branch_add_key_con_per1,soc_br_name1,soc_branch_add_key_con_per2,soc_br_name2);
+
+
+  pgdbconnect.query("select * from society_branch",function(err,result) {
+      if(result.rowCount==0){
+         scty_br_id=1;
+  pgdbconnect.query( "insert into society_branch(sbr_ch_bank_code,sbr_n_branch_code,sbr_ch_branch_name,sbr_ch_branch_type,sbr_ch_ifs_code_neft,sbr_ch_ifs_code_rtgs,sbr_n_micr_code,sbr_ch_addr_line,sbr_ch_land_mark,sbr_ch_village,sbr_ch_panchayat_mandal,sbr_ch_city,sbr_ch_district,sbr_ch_state_name,sbr_ch_country,sbr_n_postal_code,sbr_n_phone_num1,sbr_n_phone_num2,sbr_ch_email1,sbr_ch_url,sbr_ch_latitude,sbr_ch_longitude,sbr_ch_key_contact_person1,sbr_ch_key_contact_person_name1,sbr_ch_key_contact_person2,sbr_ch_key_contact_person_name2,sbr_ch_del_flg,sbr_n_branch_id)values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28)",[society_branch_bnkcode,society_branch_brcode,society_branch_brname,society_branch_brtype,society_branch_ifsc_neft,society_branch_ifsc_rtgs,society_branch_micr_cd,soc_branch_add_addline,soc_branch_add_lndmark,soc_branch_add_village,soc_branch_add_pch_mndal,soc_branch_add_city,soc_branch_add_distict,soc_branch_add_state,soc_branch_add_country,soc_branch_add_postalcd,soc_branch_add_phone_num1,soc_branch_add_phone_num2,soc_branch_add_email1,soc_branch_add_url,soc_branch_add_latitude,soc_branch_add_longitude,soc_branch_add_key_con_per1,soc_br_name1,soc_branch_add_key_con_per2,soc_br_name2,'N',scty_br_id] ,function(err,res1){
+
+      if(err) throw err;
+      console.log("society branch details",res1);
+
+  pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,resu)
+ {
+     if(err) throw err;
+     pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) {
+      if(err) throw err;
+     pgdbconnect.query("select * from branch_code_details limit 50",function(err,result5)
+        {
+            if(err) throw err;
+     pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,resu1)
+     {
+      if(err) throw err;
+     
+      pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,resu2)
+     {
+      if(err) throw err;
+ 
+
+   req.flash('success_msg',"Data inserted successfully");
+   res.locals.message=req.flash();
+
+ res.render('societyModule/scty_Branch_Add',{
+   cities:resu1.rows,
+   states:resu2.rows,
+     member:resu.rows,
+     bank:reslt.rows,
+     branch:result5.rows,
+     pagetype:divtype
+ });
+});
+});
+});
+});
+ });
+});
+}
+else{
+  pgdbconnect.query("select max(sbr_n_branch_id) from society_branch",function(err,result) {
+     // console.log("max value check",result)
+    //  console.log("max value check",result.rows[0].max)
+
+    scty_br_id=parseInt(result.rows[0].max)+1;
+    //  console.log("when more rows exxxists",scty_br_id)
+
+
+
+    pgdbconnect.query( "insert into society_branch(sbr_ch_bank_code,sbr_n_branch_code,sbr_ch_branch_name,sbr_ch_branch_type,sbr_ch_ifs_code_neft,sbr_ch_ifs_code_rtgs,sbr_n_micr_code,sbr_ch_addr_line,sbr_ch_land_mark,sbr_ch_village,sbr_ch_panchayat_mandal,sbr_ch_city,sbr_ch_district,sbr_ch_state_name,sbr_ch_country,sbr_n_postal_code,sbr_n_phone_num1,sbr_n_phone_num2,sbr_ch_email1,sbr_ch_url,sbr_ch_latitude,sbr_ch_longitude,sbr_ch_key_contact_person1,sbr_ch_key_contact_person_name1,sbr_ch_key_contact_person2,sbr_ch_key_contact_person_name2,sbr_ch_del_flg,sbr_n_branch_id)values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28)",[society_branch_bnkcode,society_branch_brcode,society_branch_brname,society_branch_brtype,society_branch_ifsc_neft,society_branch_ifsc_rtgs,society_branch_micr_cd,soc_branch_add_addline,soc_branch_add_lndmark,soc_branch_add_village,soc_branch_add_pch_mndal,soc_branch_add_city,soc_branch_add_distict,soc_branch_add_state,soc_branch_add_country,soc_branch_add_postalcd,soc_branch_add_phone_num1,soc_branch_add_phone_num2,soc_branch_add_email1,soc_branch_add_url,soc_branch_add_latitude,soc_branch_add_longitude,soc_branch_add_key_con_per1,soc_br_name1,soc_branch_add_key_con_per2,soc_br_name2,'N',scty_br_id] ,function(err,res1){
+
+   if(err) throw err;
+   console.log("society branch details",res1);
+pgdbconnect.query("select * from society_branch where sbr_ch_del_flg=$1",['N'],function(err,resu)
+{
+ if(err) throw err;
+ pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) {
+   if(err) throw err;
+  pgdbconnect.query("select * from branch_code_details limit 50",function(err,result5)
+     {
+         if(err) throw err;
+ pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,resu1)
+{
+ if(err) throw err;
+
+ pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,resu2)
+{
+ if(err) throw err;
+
+   req.flash('success_msg',"Data inserted successfully");
+   res.locals.message=req.flash();
+
+
+res.render('societyModule/scty_Branch_Add',{
+ member:resu.rows,
+ cities:resu1.rows,
+ states:resu2.rows,
+ bank:reslt.rows,
+ branch:result5.rows,
+ pagetype:divtype
+});
+});
+});
+});
+});
+  });});
+});
+}
+
+});
+});
+
+
+
+router.post('/scty_br_edit',function(req,res){
+   console.log("populate fields");
+   var divtype="EDIT";
+ console.log("DIV TYPE on edit populate",divtype);
+
+   //Bank Branch details-start//
+var sctybrid= req.body.tempsctybrid;
+//console.log("bank id to edit",bankid)
+
+pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) {
+   if(err) throw err;
+  pgdbconnect.query("select * from branch_code_details limit 50",function(err,result5)
+     {
+         if(err) throw err;
+         pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,resu1)
+{
+ if(err) throw err;
+
+ pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,resu2)
+{
+ if(err) throw err;
+ pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,loginres){
+   if(err) throw err;
+   pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,sctyreslt){
+      if(err) throw err;
+
+           pgdbconnect.query("select * from society_branch where sbr_n_branch_id=$1 order by sbr_n_branch_id ",[sctybrid],function(err,searchresren)
+   
+           {
+               console.log("searchres",searchresren);
+   var scty_bank_code=  searchresren.rows[0].sbr_ch_bank_code; 
+    var scty_br_code=  searchresren.rows[0].sbr_n_branch_code;
+   var br_name = searchresren.rows[0].sbr_ch_branch_name;
+   var br_type = searchresren.rows[0].sbr_ch_branch_type;
+   var neft =  searchresren.rows[0].sbr_ch_ifs_code_neft;
+   var rtgs = searchresren.rows[0].sbr_ch_ifs_code_rtgs;
+   var micr =  searchresren.rows[0].sbr_n_micr_code;
+   var add_line =  searchresren.rows[0].sbr_ch_addr_line;
+   var landmark = searchresren.rows[0].sbr_ch_land_mark;
+   var vill =  searchresren.rows[0].sbr_ch_village;
+   var panchayath =  searchresren.rows[0].sbr_ch_panchayat_mandal;
+   var city = searchresren.rows[0].sbr_ch_city;
+   var dist =  searchresren.rows[0].sbr_ch_district;
+   var state =  searchresren.rows[0].sbr_ch_state_name;
+   var cntry = searchresren.rows[0].sbr_ch_country;
+   var postal =  searchresren.rows[0].sbr_n_postal_code;
+   var phno1 =  searchresren.rows[0].sbr_n_phone_num1;
+   var phno2 = searchresren.rows[0].sbr_n_phone_num2;
+   var email =  searchresren.rows[0].sbr_ch_email1;
+   var url =  searchresren.rows[0].sbr_ch_url;
+   var lat = searchresren.rows[0].sbr_ch_latitude;
+   var long =  searchresren.rows[0].sbr_ch_longitude;
+   var per1 =  searchresren.rows[0].sbr_ch_key_contact_person1;
+   var pname1 = searchresren.rows[0].sbr_ch_key_contact_person_name1;
+   var per2 =  searchresren.rows[0].sbr_ch_key_contact_person2;
+   var pname2 =  searchresren.rows[0].sbr_ch_key_contact_person_name2;
+   var br_id_edit = searchresren.rows[0].sbr_n_branch_id;
+  
+  
+   
+  
+  
+               res.render('societyModule/scty_Branch_Add',{
+
+                  scty_bank_code:scty_bank_code,
+                  scty_br_code:scty_br_code,
+                  br_name:br_name,  
+                  br_type:br_type,  
+                  neft:neft, 
+                  rtgs:rtgs, 
+                  micr:micr, 
+                  add_line:add_line,
+                  landmark:landmark,
+                  vill:vill,  
+                  panchayath:panchayath,  
+                  city:city, 
+                  dist:dist, 
+                  state:state, 
+                  cntry:cntry,
+                  postal:postal,
+                  phno1:phno1,  
+                  phno2:phno2,  
+                  email:email, 
+                  url:url, 
+                  lat:lat,
+                  long:long,
+                  per1:per1,
+                  pname1:pname1,  
+                  per2:per2,  
+                  pname2:pname2, 
+                  br_id_edit:br_id_edit, 
+                  bank:reslt.rows,
+                  branch:result5.rows,
+                  cities:resu1.rows,
+                  states:resu2.rows,
+                  sctydetails:loginres.rows,
+                  sctysrch   :sctyreslt.rows,
+                   pagetype:"EDIT"
+               }); 
+               });
+               });
+           });
+         });
+      });
+   });
+});
+});
+
+router.post('/scty_br_view',function(req,res){
+   console.log("populate fields");
+   var divtype="VIEW";
+ console.log("DIV TYPE on edit populate",divtype);
+
+   //Bank Branch details-start//
+var sctybrid1= req.body.tempsctybrid1;
+//console.log("bank id to edit",bankid)
+pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) {
+   if(err) throw err;
+  pgdbconnect.query("select * from branch_code_details limit 50",function(err,result5)
+     {
+         if(err) throw err;
+         pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,resu1)
+{
+ if(err) throw err;
+
+ pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,resu2)
+{
+ if(err) throw err;
+ pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,loginres){
+   if(err) throw err;
+ pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,sctyreslt){
+   if(err) throw err;
+           pgdbconnect.query("select * from society_branch where sbr_n_branch_id=$1 order by sbr_n_branch_id ",[sctybrid1],function(err,searchresren)
+   
+           {
+               console.log("searchres",searchresren);
+               var scty_bank_code_vw=  searchresren.rows[0].sbr_ch_bank_code; 
+               var scty_br_code_vw=  searchresren.rows[0].sbr_n_branch_id;
+              var br_name_vw = searchresren.rows[0].sbr_ch_branch_name;
+              var br_type_vw = searchresren.rows[0].sbr_ch_branch_type;
+              var neft_vw =  searchresren.rows[0].sbr_ch_ifs_code_neft;
+              var rtgs_vw = searchresren.rows[0].sbr_ch_ifs_code_rtgs;
+              var micr_vw =  searchresren.rows[0].sbr_n_micr_code;
+              var add_line_vw =  searchresren.rows[0].sbr_ch_addr_line;
+              var landmark_vw = searchresren.rows[0].sbr_ch_land_mark;
+              var vill_vw =  searchresren.rows[0].sbr_ch_village;
+              var panchayath_vw =  searchresren.rows[0].sbr_ch_panchayat_mandal;
+              var city_vw = searchresren.rows[0].sbr_ch_city;
+              var dist_vw =  searchresren.rows[0].sbr_ch_district;
+              var state_vw =  searchresren.rows[0].sbr_ch_state_name;
+              var cntry_vw = searchresren.rows[0].sbr_ch_country;
+              var postal_vw =  searchresren.rows[0].sbr_n_postal_code;
+              var phno1_vw =  searchresren.rows[0].sbr_n_phone_num1;
+              var phno2_vw = searchresren.rows[0].sbr_n_phone_num2;
+              var email_vw =  searchresren.rows[0].sbr_ch_email1;
+              var url_vw =  searchresren.rows[0].sbr_ch_url;
+              var lat_vw = searchresren.rows[0].sbr_ch_latitude;
+              var long_vw =  searchresren.rows[0].sbr_ch_longitude;
+              var per1_vw =  searchresren.rows[0].sbr_ch_key_contact_person1;
+              var pname1_vw = searchresren.rows[0].sbr_ch_key_contact_person_name1;
+              var per2_vw =  searchresren.rows[0].sbr_ch_key_contact_person2;
+              var pname2_vw =  searchresren.rows[0].sbr_ch_key_contact_person_name2;
+              var br_id_vw = searchresren.rows[0].sbr_n_branch_id;
+   
+  
+  
+               res.render('societyModule/scty_Branch_Add',{
+
+                  scty_bank_code_vw : scty_bank_code_vw,
+                  scty_br_code_vw : scty_br_code_vw,
+                  br_name_vw : br_name_vw,  
+                  br_type_vw : br_type_vw,  
+                  neft_vw : neft_vw, 
+                  rtgs_vw : rtgs_vw, 
+                  micr_vw : micr_vw, 
+                  add_line_vw : add_line_vw,
+                  landmark_vw : landmark_vw,
+                  vill_vw : vill_vw,  
+                  panchayath_vw : panchayath_vw,  
+                  city_vw : city_vw, 
+                  dist_vw : dist_vw, 
+                  state_vw : state_vw, 
+                  cntry_vw : cntry_vw,
+                  postal_vw : postal_vw,
+                  phno1_vw : phno1_vw,  
+                  phno2_vw : phno2_vw,  
+                  email_vw : email_vw, 
+                  url_vw  : url_vw, 
+                  lat_vw : lat_vw,
+                  long_vw : long_vw,
+                  per1_vw : per1_vw,
+                  pname1_vw : pname1_vw,  
+                  per2_vw : per2_vw,  
+                  pname2_vw : pname2_vw, 
+                  br_id_vw : br_id_vw, 
+                  bank:reslt.rows,
+                  branch:result5.rows,
+                  cities:resu1.rows,
+                  states:resu2.rows,
+                  sctysrch:sctyreslt.rows,
+                  sctydetails:loginres.rows,
+                   pagetype:"VIEW"
+               });
+               });
+               });
+            });
+            });
+         });
+      });
+   });
+});
+
+
+router.post('/update_scty_br_edit',function(req,res){
+   console.log("Welcomeedittttt");
+  
+   var society_branch_bnkcode_ed = req.body.society_branch_bnkcode_ed;
+   var society_branch_brcode_ed = req.body.society_branch_brcode_ed;
+   var society_branch_brname_ed = req.body.society_branch_brname_ed;
+   var society_branch_brtype_ed = req.body.society_branch_brtype_ed;
+   var society_branch_ifsc_neft_ed = req.body.society_branch_ifsc_neft_ed;
+   var society_branch_ifsc_rtgs_ed = req.body.society_branch_ifsc_rtgs_ed;
+   var society_branch_micr_cd_ed = req.body.society_branch_micr_cd_ed;
+
+
+   var soc_branch_add_addline_ed = req.body.soc_branch_add_addline_ed;
+   var soc_branch_add_lndmark_ed = req.body.soc_branch_add_lndmark_ed;
+   var soc_branch_add_village_ed = req.body.soc_branch_add_village_ed;
+   var soc_branch_add_pch_mndal_ed = req.body.soc_branch_add_pch_mndal_ed;
+   var soc_branch_add_city_ed = JSON.parse(req.body.soc_branch_add_city_ed).city;
+   var soc_branch_add_distict_ed = req.body.soc_branch_add_distict_ed;
+   var soc_branch_add_state_ed = req.body.soc_branch_add_state_ed;
+   var soc_branch_add_country_ed = req.body.soc_branch_add_country_ed;
+   var soc_branch_add_postalcd_ed = req.body.soc_branch_add_postalcd_ed;
+   var soc_branch_add_phone_num1_ed = req.body.soc_branch_add_phone_num1_ed;
+   var soc_branch_add_phone_num2_ed = req.body.soc_branch_add_phone_num2_ed;
+   var soc_branch_add_email1_ed = req.body.soc_branch_add_email1_ed;
+   var soc_branch_add_url_ed = req.body.soc_branch_add_url_ed;
+   var soc_branch_add_latitude_ed = req.body.soc_branch_add_latitude_ed;
+   var soc_branch_add_longitude_ed = req.body.soc_branch_add_longitude_ed;
+   var soc_br_address_key_con_per1_ed = req.body.soc_br_address_key_con_per1_ed;
+   var soc_br_name1_ed = req.body.soc_br_name1_ed;
+   var soc_br_address_key_con_per2_ed = req.body.soc_br_address_key_con_per2_ed;
+   var soc_br_name2_ed = req.body.soc_br_name2_ed;
+   var br_id_edit= req.body.br_edit;
+   
+   pgdbconnect.query('update society_branch set sbr_ch_bank_code=$1,sbr_n_branch_code=$2,sbr_ch_branch_name=$3,sbr_ch_branch_type=$4,sbr_ch_ifs_code_neft=$5,sbr_ch_ifs_code_rtgs=$6,sbr_n_micr_code=$7,sbr_ch_addr_line=$8,sbr_ch_land_mark=$9,sbr_ch_village=$10,sbr_ch_panchayat_mandal=$11,sbr_ch_city=$12,sbr_ch_district=$13,sbr_ch_state_name=$14,sbr_ch_country=$15,sbr_n_postal_code=$16,sbr_n_phone_num1=$17,sbr_n_phone_num2=$18,sbr_ch_email1=$19,sbr_ch_url=$20,sbr_ch_latitude=$21,sbr_ch_longitude=$22,sbr_ch_key_contact_person1=$23,sbr_ch_key_contact_person_name1=$24,sbr_ch_key_contact_person2=$25,sbr_ch_key_contact_person_name2=$26 where sbr_n_branch_id=$27',
+   [society_branch_bnkcode_ed,society_branch_brcode_ed,society_branch_brname_ed,society_branch_brtype_ed,society_branch_ifsc_neft_ed,society_branch_ifsc_rtgs_ed,society_branch_micr_cd_ed,soc_branch_add_addline_ed,soc_branch_add_lndmark_ed,soc_branch_add_village_ed,soc_branch_add_pch_mndal_ed,soc_branch_add_city_ed,soc_branch_add_distict_ed,soc_branch_add_state_ed,soc_branch_add_country_ed,soc_branch_add_postalcd_ed,soc_branch_add_phone_num1_ed,soc_branch_add_phone_num2_ed,soc_branch_add_email1_ed, soc_branch_add_url_ed,soc_branch_add_latitude_ed,soc_branch_add_longitude_ed,soc_br_address_key_con_per1_ed,soc_br_name1_ed,soc_br_address_key_con_per2_ed,soc_br_name2_ed,br_id_edit],function(err,result){
+
+
+           if(err) throw err;
+         
+      console.log("result12:",result);
+  pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) {
+   if(err) throw err;
+  pgdbconnect.query("select * from branch_code_details limit 50",function(err,result5)
+     {
+         if(err) throw err;
+         pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,resu1)
+{
+ if(err) throw err;
+
+ pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,resu2)
+{
+ if(err) throw err;
+     
+           pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,loginres){
+               if(err) throw err;
+              // console.log("result:",loginres);
+
+              pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,sctyreslt){
+               if(err) throw err;
+   
+  //flash messege
+  req.flash('success_msg', 'Data updated successfully');
+  res.locals.message=req.flash();
+  
+           res.render('societyModule/scty_Branch_Search',{
+               sctydetails:loginres.rows,
+               sctysrch:sctyreslt.rows,
+               bank:reslt.rows,
+               branch:result5.rows,
+               cities:resu1.rows,
+               states:resu2.rows
+           });
+         });
+         });
+           });
+         });
+           });
+           });
+       });
+  });
+
+
+
+ //Branch Search screen
+ router.get('/scty_branch_search',function(req,res){
+   pgdbconnect.query("select * from bank_code_details limit 50",function(err,reslt) {
+      if(err) throw err;
+     pgdbconnect.query("select * from branch_code_details limit 50",function(err,result5)
+        {
+            if(err) throw err;
+   pgdbconnect.query("select * from society_branch where sbr_ch_del_flg=$1",['N'],function(err,searchres){
+      if(err) throw err;
+      pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,sctyreslt){
+         if(err) throw err;
+    res.render('societyModule/scty_Branch_Search',{
+      sctydetails:searchres.rows,
+      sctysrch:sctyreslt.rows,
+      bank:reslt.rows,
+      branch:result5.rows
+    });
+   });
+    });
+ });
+});
+ });
+
+
+router.post('/search_particular_scty_branch_rec', function(req,res){
+   console.log("search particular record");
+   
+   var society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   var society_branch_ser_brcode = req.body.society_branch_ser_brcode;
+   var society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   var society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   var society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+   console.log(society_branch_ser_bnkcd, society_branch_ser_brcode, society_branch_ser_brnme,society_branch_ser_ifsc_neft,society_branch_ser_ifsc_rtgs);
+   
+
+   
+if(society_branch_ser_bnkcd!='' && society_branch_ser_brcode!='' && society_branch_ser_brnme!='' && society_branch_ser_ifsc_neft!='' && society_branch_ser_ifsc_rtgs!='')
+{
+   society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+
+else if(society_branch_ser_bnkcd!='' && society_branch_ser_brcode =='Select' && society_branch_ser_brnme =='' && society_branch_ser_ifsc_neft =='Select' && society_branch_ser_ifsc_rtgs =='Select')
+{
+   society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = null;
+   society_branch_ser_brnme = null;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = null;
+}
+
+else if(society_branch_ser_bnkcd =='Select' && society_branch_ser_brcode !='' && society_branch_ser_brnme =='' && society_branch_ser_ifsc_neft =='Select' && society_branch_ser_ifsc_rtgs =='Select')
+{
+   society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode;
+   society_branch_ser_brnme = null;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = null;
+} 
+
+else if(society_branch_ser_bnkcd =='Select' && society_branch_ser_brcode =='Select' && society_branch_ser_brnme !='' && society_branch_ser_ifsc_neft =='Select' && society_branch_ser_ifsc_rtgs =='Select')
+{
+   society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = null;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = null;
+} 
+
+else if(society_branch_ser_bnkcd =='Select' && society_branch_ser_brcode =='Select' && society_branch_ser_brnme =='' && society_branch_ser_ifsc_neft !='' && society_branch_ser_ifsc_rtgs =='Select')
+{
+   society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = null;
+   society_branch_ser_brnme = null;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = null;
+} 
+
+else if(society_branch_ser_bnkcd =='Select' && society_branch_ser_brcode =='Select' && society_branch_ser_brnme =='' && society_branch_ser_ifsc_neft =='Select' && society_branch_ser_ifsc_rtgs !='')
+{
+   society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = null;
+   society_branch_ser_brnme = null;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+} 
+////////////
+
+
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode!="" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode;
+   society_branch_ser_brnme = null;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = null;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = null;
+   society_branch_ser_brnme = null;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = null;
+   society_branch_ser_brnme = null;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode!="" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode!="" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode;
+   society_branch_ser_brnme = null;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode!="" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode;
+   society_branch_ser_brnme = null;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = null ;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = null ;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = null ;
+   society_branch_ser_brnme = null ;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode!="" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode ;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme ;
+   society_branch_ser_ifsc_neft = null ;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode!="" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode ;
+   society_branch_ser_brnme = null ;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_brnme ;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode!="" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode ;
+   society_branch_ser_brnme = null ;
+   society_branch_ser_ifsc_neft =  null;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_brnme;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = null ;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme ;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = null ;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme ;
+   society_branch_ser_ifsc_neft =null ;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = null ;
+   society_branch_ser_brnme = null ;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft ;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode!="" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode ;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme ;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft ;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode!="" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode ;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme ;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_neft;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode!="" && society_branch_ser_brnme=="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode ;
+   society_branch_ser_brnme =  null;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_neft;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode =null;
+   society_branch_ser_brnme =  req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_neft;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode!="" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs=="Select")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = null;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode!="" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft=="Select" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = req.body.society_branch_ser_brcode;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = null;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+else if(society_branch_ser_bnkcd!="" && society_branch_ser_brcode=="Select" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brcode = null;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+else if(society_branch_ser_bnkcd=="Select" && society_branch_ser_brcode!="" && society_branch_ser_brnme!="" && society_branch_ser_ifsc_neft!="" && society_branch_ser_ifsc_rtgs!="")
+{
+society_branch_ser_bnkcd = null;
+   society_branch_ser_brcode = req.body.society_branch_ser_bnkcd;
+   society_branch_ser_brnme = req.body.society_branch_ser_brnme;
+   society_branch_ser_ifsc_neft = req.body.society_branch_ser_ifsc_neft;
+   society_branch_ser_ifsc_rtgs = req.body.society_branch_ser_ifsc_rtgs;
+}
+
+   pgdbconnect.query("select * from society_branch where (sbr_ch_bank_code=$1 or sbr_n_branch_code=$2 or sbr_ch_branch_name=$3 or sbr_ch_ifs_code_neft=$4 or sbr_ch_ifs_code_rtgs=$5)  and (sbr_ch_del_flg='N')",[society_branch_ser_bnkcd,society_branch_ser_brcode,society_branch_ser_brnme,society_branch_ser_ifsc_neft,society_branch_ser_ifsc_rtgs],function(err,searchres) 
+   {
+       if(err) throw err;
+         console.log("searchres is", searchres.rows);
+       pgdbconnect.query("select * from society_branch where sbr_ch_del_flg=$1",['N'],function(err,searchres1){
+         if(err) throw err;
+      console.log("searchres is", searchres.rows);
+      pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,branchreslt){
+       
+       if(err) throw err;
+       
+   
+   
+       res.render('societyModule/scty_Branch_Search',{
+         sctydetails:searchres.rows,
+           bankdetails:searchres1.rows,
+           sctysrch:branchreslt.rows
+       });
+       });
+   });
+    });
+   });
+router.post('/delete_scty_br_populate',function(req,res){
+
+   
+  
+   var delid= req.body.tempsctybrid2;
+   console.log("id to delete",delid)
+   pgdbconnect.query("update society_branch set sbr_ch_del_flg=$1 where sbr_n_branch_id=$2",['Y',delid],function(err,delres){
+
+       console.log("deleted result",delres);
+       pgdbconnect.query("select * from society_branch where sbr_ch_del_flg=$1 order by sbr_n_branch_id",['N'],function(err,searchres){
+          if(err) throw err;
+           pgdbconnect.query("select * from society_branch where sbr_ch_del_flg='N'",function(err,sctyreslt){
+
+               if(err) throw err;
+          // console.log("deleted result11",searchres);
+   //Bank Branch details-start//
+   req.flash('success_msg', 'Record Deleted successfully');
+   res.locals.message=req.flash();
+       res.render('societyModule/scty_Branch_Search',{
+      
+         sctydetails:searchres.rows,
+           sctysrch:sctyreslt.rows
+       });    
+
+   });
+});
+});
+});
+
+
+//Society Branch-END//
  //Branch Add screen
  router.get('/scty_branch_add',function(req,res){
     res.render('societyModule/scty_Branch_Add');
@@ -2048,5 +2853,1293 @@ router.post('/search_particular_socbnkrec', function(req,res){
     res.render('societyModule/scty_Department_Search');
  });
  
+/* ------------------------------------------------------------------------ DEPARTMENT DETAILS START ---------------------------------------------------------------------- */
+
+
+ //Department Search screen
+ router.get('/scty_dept_search',function(req,res){
+
+   pgdbconnect.query("select * from society_department where sd_ch_del_flg = $1",['N'],function(err,rlts) 
+   {
+     if(err) throw err;
+     
+   pgdbconnect.query("select * from society_department where sd_ch_del_flg = $1 order by sd_n_dept_id",['N'],function(err,relts) 
+   {
+     if(err) throw err;
+
+    res.render('societyModule/scty_Department_Search',{
+      socdeptdtls:rlts.rows,
+      departmentdtls:relts.rows
+    });
+   });
+});
+ });
+
+ //Department Add screen
+ router.get('/scty_dept_add',function(req,res){
+   var divtype=req.query.key;
+   console.log("DIV TYPE",divtype);
+    res.render('societyModule/scty_Department_Add',{
+      pagetype:divtype 
+   });
+ });
+
+
+ //Department Insertion
+ router.post('/scty_dept_insert',function(req,res){
+
+   var divtype="ADD";
+   console.log("DIV TYPE",divtype);
+
+   var dept_code_add = req.body.dept_code_add;
+   var dept_name_add = req.body.dept_name_add;  
+   var desc_add = req.body.desc_add;
+   var sec_name_add = req.body.sec_name_add;
+
+   var sd_n_dept_id;
+   console.log("Department Insert",dept_code_add,dept_name_add,desc_add,sec_name_add,sd_n_dept_id);
+   pgdbconnect.query("select * from society_department where sd_ch_del_flg=$1",['N'], function(err,resl){
+
+      if(resl.rowCount==0){
+         sd_n_dept_id=1;
+
+         pgdbconnect.query("insert into society_department(sd_n_dept_code, sd_ch_dept_name, sd_ch_description, sd_ch_sect_name, sd_ch_del_flg, sd_n_dept_id) values ($1,$2,$3,$4,$5,$6)",[dept_code_add, dept_name_add, desc_add, sec_name_add, 'N', sd_n_dept_id],function(err,rslt){
+            if(err) throw err;
+
+            //flash messege
+            req.flash('success_msg', 'Data inserted successfully');
+            res.locals.message=req.flash();
+    
+        res.render('societyModule/scty_Department_Add',{
+            pagetype:divtype
+         });
+      });
+   }
+   else
+   {
+      pgdbconnect.query("select max(sd_n_dept_id) from society_department",function(err,reslt){
+         console.log("max value check",reslt)
+         console.log("max value check",reslt.rows[0].max)
+
+         sd_n_dept_id=parseInt(reslt.rows[0].max)+1;
+         console.log("when more rows exxxists",sd_n_dept_id);
+
+         pgdbconnect.query("insert into society_department(sd_n_dept_code, sd_ch_dept_name, sd_ch_description, sd_ch_sect_name, sd_ch_del_flg, sd_n_dept_id) values ($1,$2,$3,$4,$5,$6)",[dept_code_add, dept_name_add, desc_add, sec_name_add, 'N', sd_n_dept_id],function(err,rslt){
+            if(err) throw err;
+
+            //flash messege
+            req.flash('success_msg', 'Data inserted successfully');
+            res.locals.message=req.flash();
+
+   res.render('societyModule/scty_Department_Add',{
+            pagetype:divtype
+         });
+});
+      });
+   }
+});
+ });
+
+
+//Department Edit
+router.post('/scty_dept_edit', function(req,res){
+   var divtype="EDIT";
+   console.log("DIV TYPE",divtype);
+
+   var edit_soc_dept= req.body.edit_sctydep_id;
+ console.log("cheque id to edit",edit_soc_dept)
+
+ pgdbconnect.query("select * from society_department where sd_n_dept_id=$1 order by sd_n_dept_id",[edit_soc_dept],function(err,rsl)
+  {
+   if(err) throw err;
+   console.log("Editing Details",rsl);
+   var ed_scdep_cd = rsl.rows[0].sd_n_dept_code;
+   var ed_scdep_name = rsl.rows[0].sd_ch_dept_name;
+   var ed_scdes_name = rsl.rows[0].sd_ch_description;  
+   var ed_scsect_name = rsl.rows[0].sd_ch_sect_name;
+
+
+   res.render('societyModule/scty_Department_Add',{
+      ed_scdep_cd:ed_scdep_cd,
+      ed_scdep_name:ed_scdep_name,
+      ed_scdes_name:ed_scdes_name,
+      ed_scsect_name:ed_scsect_name,
+       pagetype:divtype,
+       edit_soc_dept:edit_soc_dept
+
+
+   });
+});
+});
+
+//Department Update
+router.post('/scty_dept_update', function(req,res){
+   console.log("Updating");
+
+   var up_dept_code_ed = req.body.dept_code_ed;    
+   var up_dept_name_ed = req.body.dept_name_ed;  
+   var up_desc_ed = req.body.desc_ed;
+   var up_sec_name_ed = req.body.sec_name_ed;
+   var up_soc_hide_id=req.body.soc_hide_id;
+   console.log(up_soc_hide_id);
+   console.log(up_dept_code_ed, up_dept_name_ed, up_desc_ed, up_sec_name_ed);
+   pgdbconnect.query("update society_department set sd_n_dept_code = $1, sd_ch_dept_name = $2, sd_ch_description = $3, sd_ch_sect_name = $4 where sd_n_dept_id = $5",[up_dept_code_ed, up_dept_name_ed, up_desc_ed, up_sec_name_ed, up_soc_hide_id],function(err,rsl)
+   {
+    if(err) throw err;
+
+
+      
+    pgdbconnect.query("select * from society_department where sd_ch_del_flg = $1 order by sd_n_dept_id",['N'],function(err,relts) 
+    {
+      if(err) throw err;
+            //flash messege
+            req.flash('success_msg', 'Data updated successfully');
+            res.locals.message=req.flash();
+
+            res.render('societyModule/scty_Department_Search',{
+               departmentdtls:relts.rows,
+               up_deptdtls:rsl.rows
+
+            });
+         });
+      });
+   });
+
+
+
+
+//Department View
+router.post('/scty_dept_view', function(req,res){
+   var divtype="VIEW";
+   console.log("DIV TYPE",divtype);
+
+   var view_sctydep_id= req.body.view_sctydep_id;
+ console.log("cheque id to edit",view_sctydep_id)
+
+ pgdbconnect.query("select * from society_department where sd_n_dept_id=$1 order by sd_n_dept_id",[view_sctydep_id],function(err,rsl)
+  {
+   if(err) throw err;
+   console.log("view Details",rsl);
+   var vw_scdep_cd = rsl.rows[0].sd_n_dept_code;
+   var vw_scdep_name = rsl.rows[0].sd_ch_dept_name;
+   var vw_scdes_name = rsl.rows[0].sd_ch_description;  
+   var vw_scsect_name = rsl.rows[0].sd_ch_sect_name;
+
+
+   res.render('societyModule/scty_Department_Add',{
+      vw_scdep_cd:vw_scdep_cd,
+      vw_scdep_name:vw_scdep_name,
+      vw_scdes_name:vw_scdes_name,
+      vw_scsect_name:vw_scsect_name,
+       pagetype:divtype,
+       view_sctydep_id:view_sctydep_id
+
+
+   });
+});
+});
+
+//Department Delete
+router.post('/scty_dept_delete', function(req,res){
+
+
+   var del_sctydep_id= req.body.del_sctydep_id;
+ console.log("acc id to delete",del_sctydep_id)
+
+ pgdbconnect.query("update society_department set sd_ch_del_flg=$1 where sd_n_dept_id=$2 ",['Y',del_sctydep_id],function(err,rslt)
+ {
+  if(err) throw err;
+
+  pgdbconnect.query("select * from society_department where sd_ch_del_flg = $1 order by sd_n_dept_id",['N'],function(err,relts) 
+  {
+    if(err) throw err;
+          //flash messege
+          req.flash('success_msg', 'Data deleted successfully');
+          res.locals.message=req.flash();
+
+          res.render('societyModule/scty_Department_Search',{
+             departmentdtls:relts.rows
+          });
+         });
+      });
+   });
+
+// Searching a Particular record in Department
+router.post('/scty_dept_srch',function(req,res){
+   var p_dept_code = req.body.dept_code;
+   var p_dept_name = req.body.dept_name;  
+   var p_sec_name = req.body.sec_name;
+   console.log(p_dept_code, p_dept_name, p_sec_name);
+
+   if(p_dept_code!="" && p_dept_name!="" && p_sec_name!="")
+   {
+      p_dept_code = req.body.dept_code;
+      p_dept_name = req.body.dept_name;  
+      p_sec_name = req.body.sec_name;
+   }
+
+   else if(p_dept_code != "" && p_dept_name == 'Select' && p_sec_name == 'Select')
+   {
+      p_dept_code = req.body.dept_code;
+      p_dept_name = null;  
+      p_sec_name = null;
+   }
+
+   else if(p_dept_code == 'Select' && p_dept_name != "" && p_sec_name == 'Select')
+   {
+      p_dept_code = null;
+      p_dept_name = req.body.dept_name;  
+      p_sec_name = null;
+   }
+
+   else if(p_dept_code == 'Select' && p_dept_name == 'Select' && p_sec_name != "")
+   {
+      p_dept_code = null;
+      p_dept_name = null;  
+      p_sec_name = req.body.sec_name;
+   }
+
+   else if(p_dept_code !="" && p_dept_name !="" && p_sec_name == 'Select')
+   {
+      p_dept_code = req.body.dept_code;
+      p_dept_name = req.body.dept_name;  
+      p_sec_name = null;
+   }
+
+   else if(p_dept_code !="" && p_dept_name =='Select' && p_sec_name != "")
+   {
+      p_dept_code = req.body.dept_code;
+      p_dept_name = null;  
+      p_sec_name = req.body.sec_name;
+   }
+
+   else if(p_dept_code == 'Select' && p_dept_name !="" && p_sec_name != "")
+   {
+      p_dept_code = null
+      p_dept_name = req.body.dept_name;  
+      p_sec_name = req.body.sec_name;
+   }
+
+   pgdbconnect.query("select * from society_department where (sd_n_dept_code = $1 or sd_ch_dept_name = $2 or sd_ch_sect_name = $3) and (sd_ch_del_flg = $4)",[p_dept_code, p_dept_name, p_sec_name,'N'],function(err,rest){
+      if(err) throw err;
+
+      res.render('societyModule/scty_Department_Search',{
+         departmentdtls:rest.rows
+      })
+   })
+   })
+
+/* ------------------------------------------------------------------------ DEPARTMENT DETAILS END ------------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------------ CHEQUE DETAILS START ---------------------------------------------------------------------------- */
+
+
+
+ //ChequeBook Details Add screen
+ router.get('/scty_chq_book_det_add',function(req,res){
+   var divtype=req.query.key;
+   console.log("DIV TYPE",divtype);
+
+    res.render('societyModule/scty_ChequeBook_Details_Add',{
+      pagetype:divtype
+    });
+ });
+
+
+  //ChequeBook Details Insertion
+  router.post('/scty_chq_insert',function(req,res){
+
+   var divtype="ADD";
+   console.log("DIV TYPE",divtype);
+
+   var scty_brch_add = req.body.scty_brch_add;  
+   var scty_acc_add = req.body.scty_acc_add;  
+   var scty_ctgry_add = req.body.scty_ctgry_add;
+   var scty_chq_bok_num_add = req.body.scty_chq_bok_num_add;
+   var scty_series_add = req.body.scty_series_add;
+   var scty_no_lev_per_bk_add = req.body.scty_no_lev_per_bk_add;
+   var scty_star_num_add = req.body.scty_star_num_add;
+   var scty_end_num_add = req.body.scty_end_num_add;
+   var scty_chq_book_status_add = req.body.scty_chq_book_status_add;
+
+   var scb_n_chq_id;
+   console.log(scb_n_chq_id)
+   console.log("Chequebook Insertion",scty_brch_add, scty_acc_add, scty_ctgry_add, scty_chq_bok_num_add, scty_series_add, scty_no_lev_per_bk_add, scty_star_num_add, scty_end_num_add, scty_chq_book_status_add);
+   pgdbconnect.query("select * from society_cheque_book_details where scb_ch_del_flg=$1",['N'], function(err,resl){
+
+      if(resl.rowCount==0){
+         scb_n_chq_id=1;
+
+         pgdbconnect.query("insert into society_cheque_book_details(	scb_ch_branch_name, scb_n_acct_num, scb_ch_category, scb_n_cheque_book_num, scb_ch_series, scb_n_no_of_leaves_per_book, scb_n_starting_num, scb_n_ending_num, scb_ch_cheque_book_status, scb_ch_del_flg, scb_n_chq_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)",[scty_brch_add, scty_acc_add, scty_ctgry_add, scty_chq_bok_num_add, scty_series_add, scty_no_lev_per_bk_add, scty_star_num_add, scty_end_num_add, scty_chq_book_status_add,'N',scb_n_chq_id],function(err,rslt){
+            if(err) throw err;
+
+            //flash messege
+            req.flash('success_msg', 'Data inserted successfully');
+            res.locals.message=req.flash();
+    
+        res.render('societyModule/scty_ChequeBook_Details_Add',{
+            pagetype:divtype
+         });
+      });
+   }
+   else
+   {
+      pgdbconnect.query("select max(scb_n_chq_id) from society_cheque_book_details",function(err,reslt){
+         console.log("max value check",reslt)
+         console.log("max value check",reslt.rows[0].max)
+
+         scb_n_chq_id=parseInt(reslt.rows[0].max)+1;
+         console.log("when more rows exxxists",scb_n_chq_id);
+
+         pgdbconnect.query("insert into society_cheque_book_details(scb_ch_branch_name, scb_n_acct_num, scb_ch_category, scb_n_cheque_book_num, scb_ch_series, scb_n_no_of_leaves_per_book, scb_n_starting_num, scb_n_ending_num, scb_ch_cheque_book_status, scb_ch_del_flg, scb_n_chq_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)",[scty_brch_add, scty_acc_add, scty_ctgry_add, scty_chq_bok_num_add, scty_series_add, scty_no_lev_per_bk_add, scty_star_num_add, scty_end_num_add, scty_chq_book_status_add,'N',scb_n_chq_id],function(err,rslt){
+            if(err) throw err;
+
+            //flash messege
+            req.flash('success_msg', 'Data inserted successfully');
+            res.locals.message=req.flash();
+
+   res.render('societyModule/scty_ChequeBook_Details_Add',{
+            pagetype:divtype
+         });
+});
+      });
+   }
+});
+ });
+
+
+ //ChequeBook Details Edit
+router.post('/scty_chq_edit', function(req,res){
+   var divtype="EDIT";
+   console.log("DIV TYPE",divtype);
+
+   var edit_chq_dtls= req.body.tempchequeid;
+ console.log("cheque id to edit",edit_chq_dtls)
+
+ pgdbconnect.query("select * from society_cheque_book_details where scb_n_chq_id=$1 order by scb_n_chq_id",[edit_chq_dtls],function(err,rsl)
+  {
+   if(err) throw err;
+   console.log("Editing Details",rsl);
+   var ed_branch_name = rsl.rows[0].scb_ch_branch_name;
+   var ed_acct_num = rsl.rows[0].scb_n_acct_num;
+   var ed_category = rsl.rows[0].scb_ch_category;  
+   var ed_cheque_book_num = rsl.rows[0].scb_n_cheque_book_num;
+   var ed_series = rsl.rows[0].scb_ch_series;
+   var ed_no_of_leaves_per_book = rsl.rows[0].scb_n_no_of_leaves_per_book;
+   var ed_starting_num = rsl.rows[0].scb_n_starting_num;
+   var ending_num = rsl.rows[0].scb_n_ending_num;  
+   var ed_cheque_book_status = rsl.rows[0].scb_ch_cheque_book_status;
+
+
+   res.render('societyModule/scty_ChequeBook_Details_Add',{
+      ed_branch_name:ed_branch_name,
+      ed_acct_num:ed_acct_num,
+      ed_category:ed_category,
+      ed_cheque_book_num:ed_cheque_book_num,
+      ed_series:ed_series,
+      ed_no_of_leaves_per_book:ed_no_of_leaves_per_book,
+      ed_starting_num:ed_starting_num,
+      ending_num:ending_num,
+      ed_cheque_book_status:ed_cheque_book_status,
+       pagetype:divtype,
+       edit_chq_dtls:edit_chq_dtls
+
+
+   });
+});
+});
+
+
+//ChequeBook Details Update
+router.post('/scty_chq_update', function(req,res){
+   console.log("Updating");
+
+   var up_brch_add_ed = req.body.scty_brch_add_ed;
+   var up_acc_add_ed = req.body.scty_acc_add_ed;  
+   var up_ctgry_add_ed = req.body.scty_ctgry_add_ed;
+   var up_chq_bok_num_add_ed = req.body.scty_chq_bok_num_add_ed;
+   var up_series_add_ed = req.body.scty_series_add_ed;    
+   var up_per_bk_add_ed = req.body.scty_no_lev_per_bk_add_ed;  
+   var up_star_num_add_ed = req.body.scty_star_num_add_ed;
+   var up_end_num_add_ed = req.body.scty_end_num_add_ed;
+   var up_chq_book_status_add_ed = req.body.scty_chq_book_status_add_ed;
+
+   var up_chqdtls_hide_id=req.body.chqdtls_hide_id;
+   console.log(up_chqdtls_hide_id);
+   console.log(up_brch_add_ed,up_acc_add_ed, up_ctgry_add_ed, up_chq_bok_num_add_ed, up_series_add_ed, up_per_bk_add_ed, up_star_num_add_ed, up_end_num_add_ed, up_chq_book_status_add_ed);
+   pgdbconnect.query("update society_cheque_book_details set scb_ch_branch_name = $1, scb_n_acct_num = $2, scb_ch_category = $3, scb_n_cheque_book_num = $4, scb_ch_series = $5, scb_n_no_of_leaves_per_book = $6, scb_n_starting_num = $7, scb_n_ending_num = $8, scb_ch_cheque_book_status = $9 where scb_n_chq_id = $10",[up_brch_add_ed,up_acc_add_ed, up_ctgry_add_ed, up_chq_bok_num_add_ed, up_series_add_ed, up_per_bk_add_ed, up_star_num_add_ed, up_end_num_add_ed, up_chq_book_status_add_ed, up_chqdtls_hide_id],function(err,rsl)
+   {
+    if(err) throw err;
+
+
+      
+    pgdbconnect.query("select * from society_cheque_book_details where scb_ch_del_flg = $1 order by scb_n_chq_id",['N'],function(err,resl) 
+    {
+      if(err) throw err;
+            //flash messege
+            req.flash('success_msg', 'Data updated successfully');
+            res.locals.message=req.flash();
+
+            res.render('societyModule/scty_ChequeBook_Details_Search',{
+               chqdtls:resl.rows,
+               up_chqdtls:rsl.rows
+
+            });
+         });
+      });
+   });
+
+
+ //ChequeBook Details View
+ router.post('/scty_chq_view', function(req,res){
+   var divtype="VIEW";
+   console.log("DIV TYPE",divtype);
+
+   var vw_tempviewchequeid= req.body.tempviewchequeid;
+ console.log("cheque id to view",vw_tempviewchequeid)
+
+ pgdbconnect.query("select * from society_cheque_book_details where scb_n_chq_id=$1 order by scb_n_chq_id",[vw_tempviewchequeid],function(err,rsl)
+  {
+   if(err) throw err;
+   console.log("Editing Details",rsl);
+   var vw_branch_name = rsl.rows[0].scb_ch_branch_name;
+   var vw_acct_num = rsl.rows[0].scb_n_acct_num;
+   var vw_category = rsl.rows[0].scb_ch_category;  
+   var vw_cheque_book_num = rsl.rows[0].scb_n_cheque_book_num;
+   var vw_series = rsl.rows[0].scb_ch_series;
+   var vw_no_of_leaves_per_book = rsl.rows[0].scb_n_no_of_leaves_per_book;
+   var vw_starting_num = rsl.rows[0].scb_n_starting_num;
+   var vw_ending_num = rsl.rows[0].scb_n_ending_num;  
+   var vw_cheque_book_status = rsl.rows[0].scb_ch_cheque_book_status;
+
+
+   res.render('societyModule/scty_ChequeBook_Details_Add',{
+      vw_branch_name:vw_branch_name,
+      vw_acct_num:vw_acct_num,
+      vw_category:vw_category,
+      vw_cheque_book_num:vw_cheque_book_num,
+      vw_series:vw_series,
+      vw_no_of_leaves_per_book:vw_no_of_leaves_per_book,
+      vw_starting_num:vw_starting_num,
+      vw_ending_num:vw_ending_num,
+      vw_cheque_book_status:vw_cheque_book_status,
+       pagetype:divtype,
+       vw_tempviewchequeid:vw_tempviewchequeid
+
+
+   });
+});
+});
+
+
+//ChequeBook Details Delete
+router.post('/scty_chq_delete', function(req,res){
+
+
+   var del_tempchequedeleteid= req.body.tempchequedeleteid;
+ console.log("acc id to delete",del_tempchequedeleteid)
+
+ pgdbconnect.query("update society_cheque_book_details set scb_ch_del_flg=$1 where scb_n_chq_id=$2 ",['Y',del_tempchequedeleteid],function(err,rslt)
+ {
+  if(err) throw err;
+
+  pgdbconnect.query("select * from society_cheque_book_details where scb_ch_del_flg = $1 order by scb_n_chq_id",['N'],function(err,relts) 
+  {
+    if(err) throw err;
+          //flash messege
+          req.flash('success_msg', 'Data deleted successfully');
+          res.locals.message=req.flash();
+
+          res.render('societyModule/scty_ChequeBook_Details_Search',{
+            chqdtls:relts.rows
+          });
+         });
+      });
+   });
+
+
+// Searching a Particular record in Cheque Details
+router.post('/scty_chq_part_srch',function(req,res){
+
+   var scty_brch_name = req.body.scty_brch_name;
+   var scty_acc_num = req.body.scty_acc_num;  
+   var scty_ctgry = req.body.scty_ctgry;
+   var scty_chq_bk_num = req.body.scty_chq_bk_num;
+   var scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   var scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   console.log(scty_brch_name, scty_acc_num, scty_ctgry, scty_chq_bk_num, scty_no_lev_per_bk, scty_chq_bk_stat)
+   // console.log(scty_brch_name!='')
+   // console.log(scty_acc_num!='')
+   // console.log(scty_ctgry!='')
+   // console.log(scty_chq_bk_num!='')
+   // console.log(scty_no_lev_per_bk!='')
+   // console.log(scty_chq_bk_stat!='')
+   
+   console.log(scty_brch_name!='')
+   console.log(scty_acc_num=='')
+   console.log(scty_ctgry=='Select')
+   console.log(scty_chq_bk_num=='')
+   console.log(scty_no_lev_per_bk=='')
+   console.log(scty_chq_bk_stat=='Select')
+
+   // console.log(scty_brch_name=='')
+   // console.log(scty_acc_num!='')
+   // console.log(scty_ctgry=='Select')
+   // console.log(scty_chq_bk_num=='')
+   // console.log(scty_no_lev_per_bk=='')
+   // console.log(scty_chq_bk_stat=='Select')
+
+   // console.log(scty_brch_name=='')
+   // console.log(scty_acc_num=='')
+   // console.log(scty_ctgry!='')
+   // console.log(scty_chq_bk_num=='')
+   // console.log(scty_no_lev_per_bk=='')
+   // console.log(scty_chq_bk_stat=='Select')
+
+   if(scty_brch_name!='' && scty_acc_num!='' && scty_ctgry!='' && scty_chq_bk_num!='' && scty_no_lev_per_bk!='' && scty_chq_bk_stat!='')
+   {
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num;  
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num == '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null ;
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+
+// One of Two's
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+// Two of Two's
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+// Three of two's
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Four of Two's
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num != "" && scty_no_lev_per_bk !="" && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num != "" && scty_no_lev_per_bk =="" && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = nureq.body.scty_chq_bk_stat;
+
+   }
+
+   // Five of Two's
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num == "" && scty_no_lev_per_bk !="" && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+   // One of Three's
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Two of Three's
+
+else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = req.body.scty_acc_num;
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Three of Three's
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Four of Three's
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry == 'Select' && scty_chq_bk_num != "" && scty_no_lev_per_bk !="" && scty_chq_bk_stat != '')
+   {
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // One of Four's
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry == 'Select' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = null;
+      scty_chq_bk_num = null;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+
+   else if(scty_brch_name !='' && scty_acc_num =='' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != 'Select')
+   {
+   
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = null; 
+      scty_ctgry = null;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Two of Four's
+
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = req.body.scty_ctgry;
+   scty_chq_bk_num = req.body.scty_chq_bk_num;
+   scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   scty_chq_bk_stat = null;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = req.body.scty_ctgry;
+   scty_chq_bk_num = req.body.scty_chq_bk_num;
+   scty_no_lev_per_bk = null;    
+   scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num == '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = req.body.scty_ctgry;
+   scty_chq_bk_num = null;
+   scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry == 'Select' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = null;
+   scty_chq_bk_num = req.body.scty_chq_bk_num;
+   scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // Three of Four's 
+
+   else if(scty_brch_name =="" && scty_acc_num == '' && scty_ctgry != "" && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = null;
+      scty_acc_num = null; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   // One of Five's
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat == 'Select')
+   {
+      
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+      scty_chq_bk_stat = null;
+   
+   }
+
+   else if(scty_brch_name !='' && scty_acc_num !='' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk =='' && scty_chq_bk_stat != '')
+   {
+      
+      scty_brch_name = req.body.scty_brch_name;
+      scty_acc_num = req.body.scty_acc_num; 
+      scty_ctgry = req.body.scty_ctgry;
+      scty_chq_bk_num = req.body.scty_chq_bk_num;
+      scty_no_lev_per_bk = null;    
+      scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+   
+   }
+
+   // Two of Five's
+
+
+   else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_chq_bk_num != '' && scty_no_lev_per_bk !='' && scty_chq_bk_stat != '')
+   {
+   scty_brch_name = null;
+   scty_acc_num = req.body.scty_acc_num;
+   scty_ctgry = req.body.scty_ctgry;
+   scty_chq_bk_num = req.body.scty_chq_bk_num;
+   scty_no_lev_per_bk = req.body.scty_no_lev_per_bk;    
+   scty_chq_bk_stat = req.body.scty_chq_bk_stat;
+
+   }
+
+   pgdbconnect.query("select * from society_cheque_book_details where ((scb_ch_branch_name = $1 or scb_n_acct_num = $2 or scb_ch_category = $3 or scb_n_cheque_book_num = $4 or scb_n_no_of_leaves_per_book = $5 or scb_ch_cheque_book_status = $6) and scb_ch_del_flg = $7)",[scty_brch_name, scty_acc_num, scty_ctgry, scty_chq_bk_num, scty_no_lev_per_bk, scty_chq_bk_stat,'N'],function(err,resl){
+      if(err) throw err;
+
+      res.render('societyModule/scty_ChequeBook_Details_Search',{
+         chqdtls:resl.rows
+});
+   });
+});
+
+ //ChequeBook Details Search screen
+ router.get('/scty_chq_book_det_search',function(req,res){
+
+   pgdbconnect.query("select * from society_cheque_book_details where scb_ch_del_flg=$1 order by scb_n_chq_id",['N'], function(err,resl){
+      if(err) throw err;
+
+    res.render('societyModule/scty_ChequeBook_Details_Search',{
+       chqdtls:resl.rows
+
+    });
+   });
+ });
+
+/* ------------------------------------------------------------------------ CHEQUE DETAILS END ---------------------------------------------------------------------------- */
+
 
  module.exports=router;
