@@ -1560,6 +1560,35 @@ function holiday_date_search() {
                        changeYear: true,
                             changeMonth: true,
                             yearRange: "1950:today"
+			    
+<!-- society Branch START-->
+<script>
+     $('#soc_branch').click(function () {
+        $('#tabs a[href=#soc_branch_details]').tab('show').addClass("active");
+        $('#tabs a[href=#soc_branch_address_details]').removeClass("active");
+    });
+    </script>
+    <script>
+            $('#soc_branch_ed').click(function () {
+               $('#tabs a[href=#soc_branch_details_ed]').tab('show').addClass("active");
+               $('#tabs a[href=#soc_branch_address_details_ed]').removeClass("active");
+           });
+           </script>
+
+  <script>
+    $('#con_soc_branch_vw').click(function () {
+        $('#tabs a[href=#soc_branch_address_details_vw]').tab('show').addClass("active");
+        $('#tabs a[href=#soc_branch_details_vw]').removeClass("active");
+    });
+    </script>     
+       
+<script>
+$('#soc_branch_vw').click(function () {
+    $('#tabs a[href=#soc_branch_details_vw]').tab('show').addClass("active");
+    $('#tabs a[href=#soc_branch_address_details_vw]').removeClass("active");
+});
+</script>
+<!-- society Branch END-->
                     });
                     $(this).on("click", function() {
                         t.datepicker("show");
