@@ -2843,15 +2843,7 @@ router.post('/delete_scty_br_populate',function(req,res){
     res.render('societyModule/scty_Insurance_Search');
  });
 
-//Department Add screen
- router.get('/scty_dept_add',function(req,res){
-    res.render('societyModule/scty_Department_Add');
- });
 
- //Department Search screen
- router.get('/scty_dept_search',function(req,res){
-    res.render('societyModule/scty_Department_Search');
- });
  
 /* ------------------------------------------------------------------------ DEPARTMENT DETAILS START ---------------------------------------------------------------------- */
 
