@@ -1295,6 +1295,32 @@ function holiday_date_search() {
             });
 </script>
 
+    <!-- Navigate between tabs in Society Bank in ADD-->
+    <script type="text/javascript">
+    $('#soc_bnk').click(function () {
+       // alert("add");
+        $('#tabs a[href=#soc_bank_details]').tab('show').addClass("active");
+        $('#tabs a[href=#soc_bank_address_details]').removeClass("active");
+    });
+    </script>
+    
+    <!-- Navigate between tabs in Society Bank in EDIT-->
+    <script type="text/javascript">
+        $('#soc_bnk_edit').click(function () {
+           // alert("edit");
+            $('#tabs a[href=#soc_bank_details_ed]').tab('show').addClass("active");
+            $('#tabs a[href=#soc_bank_address_details_ed]').removeClass("active");
+        });
+        </script>
+        <!-- Navigate between tabs in Society Bank in VIEW-->
+    <script type="text/javascript">
+    $('#soc_bnk_vw').click(function () {
+        // alert("view");
+    $('#tabs a[href=#soc_bank_details_vw]').tab('show').addClass("active");
+    $('#tabs a[href=#soc_branch_add_details_vw]').removeClass("active");
+    });
+    </script>
+
         
 <!-- last premium paid date-->
 
@@ -1422,6 +1448,24 @@ function holiday_date_search() {
 
 
     <!-- premium due date -->
+<!-- <script>
+$(document).ready(function() {
+    
+    $('#soc_save').click(function(){ 
+        var latVal = /^-?([0-8]?[0-9]|90)\.[0-9]{1,6},-?((1?[0-7]?|[0-9]?)[0-9]|180)\.[0-9]{1,6}$/;
+        var soc_bnk_address_latitude = $("input#soc_bnk_address_latitude").val();
+        var invalid_lat = 'Latitude is not correctly typed';
+        
+        // Validate Latitude
+        if(!latVal.test(soc_bnk_address_latitude)) {
+                $("#soc_bank_address_details").html(invalid_lat);
+                return false;;
+        }else{
+                $("#soc_bank_address_details").html('This coordinates are valid!');
+        }   
+    });
+});
+</script>-->
     <script>
     //   var d = new Date(90,0,1);
         $(function() {
