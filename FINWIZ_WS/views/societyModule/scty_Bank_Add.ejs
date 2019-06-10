@@ -690,7 +690,7 @@ Accounts
                                             class="astrix">*</span></label>
                                                             <select class="col-sm-12 col-md-6" id="soc_add_bnk_code_ed" name="soc_add_bnk_code_ed" onchange="setSocietyBankName_ed()" >
                                                                     <option><%=edit_soc_add_bnk_code%></option>
-                                                                    <% for(var i=1;i < bank.length;i++) { %>
+                                                                    <% for(var i=0;i < bank.length;i++) { %>
                                                                         <option  value="<%= bank[i].bcd_ch_bank_code %>" > <%= bank[i].bcd_ch_bank_code %></option>
                                                                     <% } %>
                                            
@@ -792,7 +792,7 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_city_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">City<span class="astrix">*</span></label>
                                                             <select class="col-sm-12 col-md-6" name="soc_bnk_address_city_ed" id="soc_bnk_address_city_ed" onchange="edit_stateoncity_society_Bank()">
-                                                                    <option  value="<%= edit_soc_bnk_address_city%>"><%= edit_soc_bnk_address_city%>
+                                                                    <option value='{"city":"<%=edit_soc_bnk_address_city%>","state":"<%=edit_soc_bnk_address_state%>"}'><%= edit_soc_bnk_address_city%>
                                                                     </option>
                                                                <!--     <% for(var i=0;i < cities.length;i++) { %>
             
