@@ -2284,9 +2284,9 @@ pgdbconnect.query("select * from member_card_details where md_n_member_card_id=$
             });
 
 
-     router.post('/delete_data_record_kcc',function(req,res){
+    router.post('/delete_data_record_kcc',function(req,res){
      console.log('entering to delete');
-var member_kcc_id=req.body.kcc_dl_id;
+    var member_kcc_id=req.body.kcc_dl_id;
     console.log("id to delete",member_kcc_id)
 
  pgdbconnect.query("UPDATE member_card_details SET mcd_ch_del_flg=$1 where md_n_member_card_id=$2",['Y',member_kcc_id],function(err,kccupdate){
