@@ -16,7 +16,7 @@ var pg=require('pg');
 var config = {
 user:'postgres',
 database:'postgres',//first connection folder
-password:'nurture@123',
+password:'NURTURE@123',
 host:'192.168.168.6',
 port:5432,
 max:10000,
