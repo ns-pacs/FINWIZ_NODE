@@ -13,7 +13,7 @@ var pg=require('pg');
 var config = {
 user:'postgres',
 database:'FINWIZ_HRM',//first connection folder
-password:'NURTURE@123',
+password:'NURTURE_123',
 host:'192.168.168.6',
 port:5432,
 max:10000,
