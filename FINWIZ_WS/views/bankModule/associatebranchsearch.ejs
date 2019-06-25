@@ -310,7 +310,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                         <select class="col-sm-12 col-md-6" name="search_brbank_code" id="search_brbank_code">
                                                           <option >Select</option>
                                                                           <% for(var i=0;i < brdetails.length;i++) { %>
-                                                                              <option value="<%= brdetails[i].abb_n_bank_code  %>"> <%= brdetails[i].abb_n_bank_code %></option>
+                                                                              <option value="<%= brdetails[i].abb_ch_bank_code  %>"> <%= brdetails[i].abb_ch_bank_code %></option>
                                                                                                         <% } %>
 
                                                         </select>
@@ -472,7 +472,7 @@ style="color: #ffffff;">Account Transaction</a></div>
 
 
 
-                                                   <td class="sorting_1"><%= branchdetails[i].abb_n_bank_code %></td>
+                                                   <td class="sorting_1"><%= branchdetails[i].abb_ch_bank_code %></td>
                                                    <td class="sorting_1"><%= branchdetails[i].abb_ch_bank_name %></td>
                                                    <td class="sorting_1"><%= branchdetails[i].abb_n_branch_code %></td>
                                                    <td class="sorting_1"><%= branchdetails[i].abb_ch_branch_name %></td>
