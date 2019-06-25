@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <% include includes/styles %>
+        <% include includes/scripts %>
+    </head>
+
+    <body>
+        <h2>Login</h2>
+
+           <form id="loginform" action="/loginModule/login/logincheck" method="post">
+        <div class="form-group" style = "color: white;font-size: 20px" >
+            <label><span style="font-family:verdana;">User Id</span></label>
+            <input type="text" class="form-control width80pc"  autofocus="autofocus" name="username" value="0001">
+        </div>
+        <div class="form-group" style = "color: white;font-size: 20px">
+            <label><span style="font-family:verdana;">Password</span></label>
+            <input type="password" class="form-control width80pc"  name="password" value="nur@123">
+        </div>
+        <div class="width80pc" >
+        <button type="submit" class="btn btn-warning btn-lg"><span style="font-family:verdana;">Login</span></button>
+        </div>
+    </form>
+    </body>
+</html>

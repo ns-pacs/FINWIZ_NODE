@@ -4169,7 +4169,7 @@ router.post('/update_deposit_edit',function(req,res){
 
 
  router.post('/search_particular_deposit_rec', function(req,res){
-console.log("search particular record");
+console.log("search particular record depositt");
 
 var gl_cd = req.body.gl_cd;
 var ac_deposit_num = req.body.ac_deposit_num;

@@ -1,0 +1,486 @@
+<html>
+
+    <head>
+        <% include ../includes/styles %>
+        <% include ../includes/scripts %>
+        <script type="text/javascript" src="/javascripts/bankDetailsJS.js"></script>
+
+        <style>
+                .textarea1{
+         margin-left:30px;
+     }
+           </style>
+    </head>
+
+    <body>
+        <div class="wrapper ">
+                <div class="sidebar" data-color="orange_light">
+                        <!--
+                                          Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+                                      -->
+                        <div class="logo">
+                            <h4><a href="" class="simple-text logo-normal">
+                                    Nurture Software
+                                </a></h4>
+                        </div>
+                        <div class="sidebar-wrapper" id="sidebar-wrapper">
+                            <ul class="nav">
+                                <li>
+                                    <a href="/login/dashboard">
+                                        <i class="material-icons" style="font-size: 25px;">dashboard</i>
+                                        <strong class="fnt">Dashboard</strong>
+                                    </a>
+                                </li>
+
+                                <li id="sub_menu" class="active">
+
+                                    <a href="#">
+                                        <i class="material-icons" style="font-size: 25px;">group</i>
+                                        <strong class="fnt">Members</strong>
+                                    </a>
+                                    <ul class="hid sub_col">
+
+                                        <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails"
+                                                class="ml-1" style="color: #ffffff;">Members</a>
+                                        </div>
+
+                                        <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search"
+                                                class="ml-1" style="color: #ffffff;">Members
+                                                Dividend</a></div>
+
+                                        <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search"
+                                                class="ml-1" style="color: #ffffff;">Members
+                                                Share Details</a></div>
+
+                                        <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search"
+                                                class="ml-1" style="color: #ffffff;">Farm
+                                                Machinery Details</a></div>
+
+                                        <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser"
+                                                class="ml-1" style="color: #ffffff;">House
+                                                Details</a></div>
+
+                                        <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search"
+                                                class="ml-1" style="color: #ffffff;">KCC
+                                                Details</a></div>
+
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="/login/deposits">
+                                        <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
+                                        <strong class="fnt">Deposits</strong>
+                                    </a>
+                                </li>
+
+
+                                <li>
+                                    <a href="/login/loans">
+                                        <i class="material-icons" style="font-size: 25px;">file_upload</i>
+                                        <strong class="fnt">Loans</strong>
+                                    </a>
+                                </li>
+
+
+                                <li id="sub_menu">
+                                    <a href="#">
+                                        <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                                        <strong class="fnt">Bank</strong>
+                                    </a>
+                                    <ul class="hid mt-1 sub_col">
+        
+                                        <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
+                                                style="color: #ffffff">Associated
+                                                Bank</a></div>
+        
+                                        <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
+                                                style="color: #ffffff">Associated Branch</a></div>
+        
+                                        <div class="sub_mar">
+                                            <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                                style="color: #ffffff">Associated Bank Account Master</a>
+                                        </div>
+        
+                                        <div class="sub_mar">
+                                            <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
+                                                style="color: #ffffff">Associated Bank Cheque Book</a>
+                                        </div>
+        
+                                        <div class="sub_mar">
+                                            <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
+                                                style="color: #ffffff">Associated Bank Account Type</a>
+                                        </div>
+                                         
+                                    <div class="sub_mar">
+                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                                            style="color: #ffffff">Associated Bank Deposit Returns</a>
+                                    </div>
+        
+                                    
+                                    <div class="sub_mar">
+                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                                            style="color: #ffffff">Associated Bank Deposit Master</a>
+                                    </div>
+        
+                                    </ul>
+                                </li>
+
+
+                                <li>
+                                    <a href="/login/market">
+                                        <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
+                                        <strong class="fnt">Market</strong>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="/login/reports">
+                                        <i class="material-icons" style="font-size: 25px;">date_range</i>
+                                        <strong class="fnt">Reports</strong>
+                                    </a>
+                                </li>
+
+
+
+                                <li>
+
+                                    <a href="/login/payroll">
+                                        <i class="material-icons" style="font-size: 25px;">payment</i>
+                                        <strong class="fnt">Payroll</strong>
+                                    </a>
+
+
+
+                                </li>
+                                <li>
+                                    <a href="/login/hr">
+                                        <i class="material-icons" style="font-size: 25px;">account_box</i>
+                                        <strong class="fnt">HR</strong>
+                                    </a>
+                                </li>
+
+
+                                <li>
+
+                                    <a href="/login/user">
+                                        <i class="material-icons" style="font-size: 25px;">person</i>
+                                        <strong class="fnt">User</strong>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+            <div class="main-panel" id="main-panel">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg colo">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper">
+                            <div class="navbar-toggle">
+                                <button type="button" class="navbar-toggler">
+                                    <span class="navbar-toggler-bar bar1"></span>
+                                    <span class="navbar-toggler-bar bar2"></span>
+                                    <span class="navbar-toggler-bar bar3"></span>
+                                </button>
+                            </div>
+                            <a class="navbar-brand" href="#pablo"><strong>BANK</strong> </a>
+                        </div>
+                        <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation"
+                            aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <strong class="fnt">User 1</strong>
+                                        <i class="now-ui-icons users_single-02 ml-2"></i>
+                                        <p>
+                                            <span class="d-lg-none d-md-block">Some Actions</span>
+                                        </p>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Upload Photo<i class=" material-icons ml-2">add_a_photo</i></a>
+                                        <a class="dropdown-item" href="#">Logout<i class=" ml-5 material-icons">power_settings_new</i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+
+                <%if(pagetype=='ADD'){%>
+                <div class="content">
+                    <div class="row-sm ">
+                        <div class="col-sm-12">
+                            <div class="card tp">
+                                <div class="card-header"></div>
+                                <div class="card-body">
+
+                                    <h6>Associated Bank Account Type</h6>
+                                    <hr>
+                                     <!-- flash message -->
+                            <% if(locals.message){ %>
+                                <div class="text text-center" role="alert"
+                                background-color: red;>
+                                <strong style="color:green"><%= message.success_msg %></strong>
+                                </div>
+                            <% } %>
+                                        <h6>Add Records</h6>
+                                        <hr>
+                                        <form action="../../bankModule/bankDetails/asso_bank_acc_insert" method="post" id="bnkacctype">
+                                        <div class="content">
+                                                    <div class="container row mb-4">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label for="ass_branch_master" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Code
+                                                                </label>
+                                                                <input type="text" class="col-sm-12 col-md-6" name="ass_bnk_type_code_ad"
+                                                                id="ass_bnk_type_code_ad" placeholder="">
+
+
+
+                                                         </div>
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label for="ass_bnk_num" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Account Type
+                                                            </label>
+                                                            <input type="text" class="col-sm-12 col-md-6" name="bnk_acc_type_ad"
+                                                                id="bnk_acc_type_ad" placeholder="">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="container row mt-2">
+                                                        <div class="col-sm-12 col-md-12">
+                                                            <label for="description" class="mr-sm-4 col-sm-12 col-md-2" style="padding-left:0% !important;"> Description
+                                                               </label>
+
+                                                               <div class="form-group">
+                                                                    <label for="exampleFormControlTextarea3"></label>
+                                                                    <textarea class=" col-sm-12 col-md-9 textarea6" name="ban_acc_typ_desc_ad" id="ban_acc_typ_desc_ad" rows="3"></textarea>
+                                                                  </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="container row mt-4">
+                                                        <div class="col-sm-12 col-md-2">
+                                                           <a type="button" class="btn" href="/bankModule/bankDetails/asso_bank_account_search"
+                                                                name="acc_bck_srch_ad" id="acc_bck_srch_ad" value="Back to Search">Back to
+                                                                Search</a>
+
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-3">
+                                                            <input type="reset" class="btn clr clr1" name="clear_frm_ad" id="clear_frm_ad"
+                                                                value="Clear Form">
+
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-5"></div>
+                                                        <div class="col-sm-12 col-md-2">
+                                                            <input type="button" class="btn" name="sub_ad" id="sub_ad" value="Submit" onclick="associated_bank_acctype()">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                </form>
+                                           </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+
+                        <!-- EDIT -START-->
+
+                        <%if(pagetype=='EDIT'){%>
+                            <div class="content">
+                                <div class="row-sm ">
+                                    <div class="col-sm-12">
+                                        <div class="card tp">
+                                            <div class="card-header"></div>
+                                            <div class="card-body">
+
+                                                <h6>Associated Bank Account Type</h6>
+                                                <hr>
+                                                    <h6>Edit Records</h6>
+                                                    <hr>
+                                                    <form action="../../bankModule/bankDetails/asso_acctyp_update" method="post" id="updt_bnkacctype">
+                                                    <div class="content">
+                                                                <div class="container row mb-4">
+                                                                    <div class="col-sm-12 col-md-6">
+                                                                        <label for="ass_branch_master" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;"> Code
+                                                                            </label>
+                                                                            <input type="text" class="col-sm-12 col-md-6" name="ass_bnk_type_code_ed"
+                                                                            id="ass_bnk_type_code_ed" value="<%=bnk_typ_code%>" placeholder="">
+
+
+
+                                                                     </div>
+                                                                    <div class="col-sm-12 col-md-6">
+                                                                        <label for="ass_bnk_num" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Account Type
+                                                                        </label>
+                                                                        <input type="text" class="col-sm-12 col-md-6" name="bnk_acc_type_ed"
+                                                                            id="bnk_acc_type_ed" value="<%=bnk_acc_typ%>" placeholder="">
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="container row mt-2">
+                                                                    <div class="col-sm-12 col-md-12">
+                                                                        <label for="description" class="mr-sm-4 col-sm-12 col-md-2" style="padding-left:0% !important;"> Description
+                                                                           </label>
+
+                                                                           <div class="form-group">
+                                                                                <label for="exampleFormControlTextarea3"></label>
+                                                                                <textarea class=" col-sm-12 col-md-9 textarea2" name="ban_acc_typ_desc_ed" id="ban_acc_typ_desc_ed" value="" rows="3"><%=bnk_acc_desc%></textarea>
+                                                                              </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="container row mt-4">
+                                                                    <div class="col-sm-12 col-md-2">
+                                                                            <a type="button" class="btn" href="/bankModule/bankDetails/asso_bank_account_search"
+                                                                            name="acc_bck_srch_ed" id="acc_bck_srch_ed" value="Back to Search">Back to
+                                                                            Search</a>
+
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-3">
+                                                                        <input type="reset" class="btn clr clr1" name="clear_frm_ed" id="clear_frm_ed"
+                                                                            value="Clear Form">
+
+                                                                    </div>
+                                                                    <div class="col-sm-12 col-md-5"></div>
+                                                                    <div class="col-sm-12 col-md-2">
+                                                                            <input hidden type="text" class="btn" name="asso_id_ed" id="asso_id_ed" value="<%=bnk_acc_typ_id%>">
+                                                                        <input type="submit" class="btn" name="sub_ed" id="sub_ed" value="Submit">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            </form>
+                                                       </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%}%>
+
+ <!-- EDIT -END-->
+
+
+ <!-- View -START-->
+
+ <%if(pagetype=='VIEW'){%>
+    <div class="content">
+        <div class="row-sm ">
+            <div class="col-sm-12">
+                <div class="card tp">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+
+                        <h6>Associated Bank Account Type</h6>
+                        <hr>
+                         <!-- flash message
+                <% if(locals.message){ %>
+                    <div class="text text-center" role="alert"
+                    background-color: red;>
+                    <strong style="color:green"><%= message.success_msg %></strong>
+                    </div>
+                <% } %> -->
+                            <h6>View Records</h6>
+                            <hr>
+                            <form action="">
+                                <fieldset disabled="disabled">
+                            <div class="content">
+                                        <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="ass_branch_master" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;"> Code
+                                                    </label>
+                                                    <input type="text" class="col-sm-12 col-md-6" name="ass_bnk_type_code_vw"
+                                                    id="ass_bnk_type_code_vw" value="<%=vw_bnk_typ_code%>" placeholder="">
+
+
+
+                                             </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="ass_bnk_num" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Account Type
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="bnk_acc_type_vw"
+                                                    id="bnk_acc_type_vw" value="<%=vw_bnk_acc_typ%>" placeholder="">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-12">
+                                                <label for="description" class="mr-sm-4 col-sm-12 col-md-2" style="padding-left:0% !important;"> Description
+                                                   </label>
+
+                                                   <div class="form-group">
+                                                        <label for="exampleFormControlTextarea3"></label>
+                                                        <textarea class=" col-sm-12 col-md-9 textarea1" name="ban_acc_typ_desc_vw" id="ban_acc_typ_desc_vw" value="" rows="3"><%=vw_bnk_acc_desc%></textarea>
+                                                      </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-2">
+                                                    <a type="button" class="btn" href="/bankModule/bankDetails/asso_bank_account_search"
+                                                    name="acc_bck_srch_vw" id="acc_bck_srch_vw" value="Back to Search">Back to
+                                                    Search</a>
+
+                                            </div>
+                                            <!-- <div class="col-sm-12 col-md-3">
+                                                <input type="reset" class="btn" name="clear_frm_vw" id="clear_frm_vw"
+                                                    value="Clear Form">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-5"></div>
+                                            <div class="col-sm-12 col-md-2">
+                                                <input type="button" class="btn" name="sub_vw" id="sub_vw" value="Submit" onclick="associated_bank_acctype()">
+                                            </div> -->
+                                        </div>
+
+                                    </div>
+                                    </form>
+                               </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+
+                    </div>
+                </div>
+
+
+
+        <% include ../includes/footer %>
+    </body>
+    <% include ../includes/bottom_scripts %>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

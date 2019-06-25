@@ -1,0 +1,638 @@
+<html>
+
+    <head>
+        <% include ../includes/styles %>
+        <% include ../includes/scripts %>
+        <script type="text/javascript" src="/javascripts/accountsDetailsJS.js"></script>
+
+    </head>
+
+    <body>
+
+        <div class="wrapper ">
+               <div class="sidebar" data-color="orange_light">
+            <!--
+                                  Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+                              -->
+            <div class="logo">
+                <h4><a href="" class="simple-text logo-normal">
+                            Nurture Software
+                        </a></h4>
+            </div>
+            <div class="sidebar-wrapper" id="sidebar-wrapper">
+                <ul class="nav">
+                    <!-- dashboard link moved to navbar by ranjeet -->
+
+                    <li id="sub_menu" >
+
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">group</i>
+                            <strong class="fnt">Members</strong>
+                        </a>
+                        <ul class="hid sub_col">
+
+                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails_search" class="ml" style="color: #ffffff;">Members</a>
+                            </div>
+
+                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search" class="ml" style="color: #ffffff;">Members
+                                        Dividend</a></div>
+
+                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search" class="ml" style="color: #ffffff;">Members
+                                        Share Details</a></div>
+
+                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search" class="ml" style="color: #ffffff;">Farm
+                                        Machinery Details</a></div>
+
+                            <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser" class="ml" style="color: #ffffff;">House
+                                        Details</a></div>
+
+                            <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search" class="ml" style="color: #ffffff;">KCC
+                                        Details</a></div>
+
+                        </ul>
+                    </li>
+
+                    <li id="sub_menu"class="active">
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">group</i>
+                            <strong class="fnt">Accounts</strong>
+                        </a>
+                        <ul class="hid sub_col">
+                            <div class="sub_mar"><a style="color: #ffffff;" href="/accountsModule/accountsDetails/acc_search" class="ml">
+Accounts
+</a></div>
+                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_lmt_search" class="ml" style="color: #ffffff;">Account Limits</a></div>
+                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_renewal_details_search" class="ml" style="color: #ffffff;">Account Renewal</a></div>
+                            <div class="sub_mar"><a href="/accountsModule/accountsDetails/acc_trnsc_search" class="ml" style="color: #ffffff;">Account Transaction</a></div>
+                        </ul>
+                    </li>
+
+                    <li id="sub_menu">
+
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">group</i>
+                            <strong class="fnt">Society</strong>
+                        </a>
+                        <ul class="hid sub_col">
+
+                            <div class="sub_mar"><a href="/societyModule/societyDetails/scty_holiday_lst_search"
+                                    class="ml" style="color: #ffffff;">Holiday List</a>
+                            </div>
+
+                            <div class="sub_mar"><a href="/societyModule/societyDetails/scty_dept_search"
+                                    class="ml" style="color: #ffffff;">Department
+                                    Dividend</a></div>
+
+                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_bank_search"
+                                    class="ml" style="color: #ffffff;">Bank</a></div>
+
+                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_branch_search"
+                                    class="ml" style="color: #ffffff;">Branch</a></div>
+
+                            <div class="sub_mar"><a href="/societyModule/societyDetails/scty_chq_book_det_search"
+                                    class="ml" style="color: #ffffff;">ChequeBook Details</a></div>
+
+                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_acc_schm_search"
+                                    class="ml" style="color: #ffffff;">Account Scheme</a></div>
+
+                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_acc_typ_search"
+                                    class="ml" style="color: #ffffff;">Account Type</a></div>
+
+                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_insurance_search"
+                                    class="ml" style="color: #ffffff;">Insurance</a></div>
+
+                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_kcc_trgt_search"
+                                    class="ml" style="color: #ffffff;">KCC Targets</a></div>
+
+                            <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_kcc_cr_lim_search"
+                                    class="ml" style="color: #ffffff;">KCC Credit Limit</a></div>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/login/deposits">
+                            <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
+                            <strong class="fnt">Deposits</strong>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="/login/loans">
+                            <i class="material-icons" style="font-size: 25px;">file_upload</i>
+                            <strong class="fnt">Loans</strong>
+                        </a>
+                    </li>
+
+
+                    <li id="sub_menu">
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                            <strong class="fnt">Bank</strong>
+                        </a>
+                        <ul class="hid mt-1 sub_col">
+
+                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search" style="color: #ffffff">Associated
+                                        Bank</a></div>
+
+                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search" style="color: #ffffff">Associated Branch</a></div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search" style="color: #ffffff">Associated Bank Account Master</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search" style="color: #ffffff">Associated Bank Cheque Book</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search" style="color: #ffffff">Associated Bank Account Type</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search" style="color: #ffffff">Associated Bank Deposit Returns</a>
+                            </div>
+
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search" style="color: #ffffff">Associated Bank Deposit Master</a>
+                            </div>
+
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="/login/market">
+                            <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
+                            <strong class="fnt">Market</strong>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/login/reports">
+                            <i class="material-icons" style="font-size: 25px;">date_range</i>
+                            <strong class="fnt">Reports</strong>
+                        </a>
+                    </li>
+
+
+
+                    <li>
+
+                        <a href="/login/payroll">
+                            <i class="material-icons" style="font-size: 25px;">payment</i>
+                            <strong class="fnt">Payroll</strong>
+                        </a>
+
+
+
+                    </li>
+                    <li>
+                        <a href="/login/hr">
+                            <i class="material-icons" style="font-size: 25px;">account_box</i>
+                            <strong class="fnt">HR</strong>
+                        </a>
+                    </li>
+
+
+                    <li>
+
+                        <a href="/login/user">
+                            <i class="material-icons" style="font-size: 25px;">person</i>
+                            <strong class="fnt">User</strong>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel" id="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg colo">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                    <span class="navbar-toggler-bar bar1"></span>
+                                    <span class="navbar-toggler-bar bar2"></span>
+                                    <span class="navbar-toggler-bar bar3"></span>
+                                </button>
+                        </div>
+                        <a class="navbar-brand" href="#pablo"><strong>Accounts</strong> </a>
+                    </div>
+                    <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                            <span class="navbar-toggler-bar navbar-kebab"></span>
+                        </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav">
+                            <li class="">
+                                <a class="nav-link" href="/dashboards/dashboard/dashboard">
+                                    <i class="material-icons" style="font-size: 25px;">dashboard</i>
+
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <strong class="fnt">User 1</strong>
+                                    <i class="now-ui-icons users_single-02 ml-2"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block"></span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Upload Photo<i
+                                                class=" material-icons ml-2">add_a_photo</i></a>
+                                    <a class="dropdown-item" href="#">Logout &nbsp;&nbsp;&nbsp;&nbsp;<i
+                                                class=" ml-5 material-icons">power_settings_new</i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+                <!-- End Navbar -->
+<!-- ADD SECTION -->
+<%if(pagetype=='ADD'){%>
+                <div class="content">
+                    <div class="row-sm ">
+                        <div class="col-sm-12">
+                            <div class="card tp">
+                                <div class="card-header hdr"><h5>ACCOUNT RENEWAL DETAILS</h5></div>
+                                <div class="card-body">
+
+                                  
+                                    <h6>ADD RECORD</h6>
+
+                                       <!-- flash message -->
+
+
+                                <% if(locals.message){ %>
+                                    <div class="text text-center" role="alert"
+                                    background-color: red;>
+                                    <strong style="color:green"><%= message.success_msg %></strong>
+                                    </div>
+                                <% } %>
+
+                                    <hr>
+                                    <form action="/accountsModule/accountsDetails/acc_renewal_add" method="post" id="acc_renewal_ad" autocomplete="off">
+
+                                    <div class="content">
+                                        <div class="container row mb-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="acc_renw_acc_typ_sear" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                    Account Type
+                                                </label>
+                                                <select class="col-sm-12 col-md-6" name="acc_renw_acc_typ_sear"
+                                                                id="acc_renw_acc_typ_sear">
+                                                                <option disabled="" selected="" value="">Select
+                                                                        <option value="Ordinary">Ordinary</option>
+                                                                        <option value="CC">CC</option>
+                                                                        <option value="TL">TL</option>
+                                                                        <option value="HL">HL</option>
+                                                                </option>
+                                                            </select>
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="acc_renw_acc_mem_sear" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                    Account Number
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="acc_renw_acc_mem_sear"
+                                                    id="acc_renw_acc_mem_sear" placeholder=""  onkeypress="return numeric(event)" maxlength="16">
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-2">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="acc_renw_mem_id_sear" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                    Member_ID
+                                                </label>
+                                                <select class="col-sm-12 col-md-6" name="acc_renw_mem_id_sear"
+                                                id="acc_renw_mem_id_sear">
+                                                <option disabled="" selected="" value="">Select
+                                                        <option value="Ordinary">Ordinary</option>
+                                                        <option value="Life">Life</option>
+                                                        <option value="Patron">Patron</option>
+                                                        <option value="Associate">Associate</option>
+                                                </option>
+                                            </select>
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6 ">
+                                                <label for="acc_renw_renw_date" class="mr-sm-4 col-sm-12 col-md-5"
+                                                style="padding-left:0% !important;">Renewal Date
+                                                   </label>
+                                                    <input type="text" class="col-sm-12 col-md-6"
+                                                    name="acc_renw_renw_date" id="acc_renw_renw_date"
+                                                    placeholder="" required>
+                                                <span><i class="material-icons iicon1 iicon11"
+                                                        name="acc_renw_renw_date"
+                                                        id="acc_renw_renw_date"
+                                                        data-toggle="acc_renw_renw_date"
+                                                        data-target-name="acc_renw_renw_date">
+                                                        event_note
+                                                    </i></span>
+
+                                            </div>
+                                        </div>
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="acc_renw_renw_amount" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Renewal Amount
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="acc_renw_renw_amount" id="acc_renw_renw_amount"
+                                                    placeholder="  " onkeypress="return numeric(event)">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-6">
+                                                <label for="acc_renw_instal_amount" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Installment Amount
+
+                                                </label>
+                                                <input type="text" class="col-sm-12 col-md-6" name="acc_renw_instal_amount"
+                                                    id="acc_renw_instal_amount" placeholder="  " onkeypress="return numeric(event)" >
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="container row mt-4">
+                                            <div class="col-sm-12 col-md-2">
+       <a type="text" class="btn" href="/accountsModule/accountsDetails/acc_renewal_details_search" name="bck_search" id="bck_search" value="Back to Search">Back to Search</a>
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-3">
+                                                <input type="button" class="btn clr clr1" name="clear_frm" id="clear_frm"
+                                                    value="Clear Form" onclick="clearAccountRenewalDetailsTab()">
+
+                                            </div>
+                                            <div class="col-sm-12 col-md-5"></div>
+                                            <div class="col-sm-12 col-md-2">
+                                                <input type="button" class="btn" name="sub_ad" id="sub_ad" value="Submit" onclick="AccountRenewalDetails()">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+
+                <!-- ADD -END-->
+
+                <!-- EDIT SECTION-START-->
+                <%if (pagetype=='EDIT'){ %>
+                    <div class="content">
+                        <div class="row-sm ">
+                            <div class="col-sm-12">
+                                <div class="card tp">
+                                    <div class="card-header"></div>
+                                    <div class="card-body">
+                                            <form action="../../accountsModule/accountsDetails/update_renewal_edit" method="post" id="acc_ren_edit" autocomplete="off">
+
+                                        <h6>Account Renewal Details</h6>
+
+                                        <hr>
+                                        <h6>EDIT RECORD</h6>
+
+                                         <!-- flash message -->
+                                    <% if(locals.message){ %>
+                                        <div class="text text-center" role="alert"
+                                        background-color: red;>
+                                        <strong style="color:green"><%= message.success_msg %></strong>
+                                        </div>
+                                    <% } %>
+
+
+                                        <hr>
+                                        <form action="" id="acc_renewal_ed" method="post" >
+
+                                            <div class="content">
+                                                <div class="container row mb-4">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label for="acc_renw_acc_typ_sear_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                            Account Type
+                                                        </label>
+                                                            <select class="col-sm-12 col-md-6" name="acc_renw_acc_typ_sear_ed"
+                                                            id="acc_renw_acc_typ_sear_ed">
+                                                            <option value="<%=acc_type%>"><%=acc_type%></option>
+                                                                    <option value="Ordinary">Ordinary</option>
+                                                                    <option value="CC">CC</option>
+                                                                    <option value="TL">TL</option>
+                                                                    <option value="HL">HL</option>
+
+                                                        </select>
+
+
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label for="acc_renw_acc_mem_sear_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                            Account Number
+                                                        </label>
+                                                        <input type="text" class="col-sm-12 col-md-6" name="acc_renw_acc_mem_sear_ed"
+                                                            id="acc_renw_acc_mem_sear_ed" placeholder="" value="<%=acc_num%>"  onkeypress="return numeric(event)" maxlength="16" >
+
+                                                    </div>
+                                                </div>
+                                                <div class="container row mt-2">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label for="acc_renw_mem_sear_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                            Member ID
+                                                        </label>
+
+                                                            <select class="col-sm-12 col-md-6" name="acc_renw_mem_sear_ed"
+                                                            id="acc_renw_mem_sear_ed">
+                                                            <option value="<%=mem_id%>" ><%=mem_id%></option>
+                                                                    <option value="Ordinary">Ordinary</option>
+                                                                    <option value="Life">Life</option>
+                                                                    <option value="Patron">Patron</option>
+                                                                    <option value="Associate">Associate</option>
+
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6 ">
+                                                        <label for="acc_renw_renw_date_ed" class="mr-sm-4 col-sm-12 col-md-5"
+                                                        style="padding-left:0% !important;">Renewal Date
+                                                           </label>
+                                                            <input type="text" class="col-sm-12 col-md-6"
+                                                            name="acc_renw_renw_date_ed" id="acc_renw_renw_date_ed" value="<%=moment(ren_date).format("DD-MM-YYYY")%>"
+                                                            placeholder="" required value="<%=ren_date%>">
+                                                        <span><i class="material-icons iicon1 iicon11"
+                                                                name="acc_renw_renw_date_ed"
+                                                                id="acc_renw_renw_date_ed"
+                                                                data-toggle="acc_renw_renw_date_ed"
+                                                                data-target-name="acc_renw_renw_date_ed">
+                                                                event_note
+                                                            </i></span>
+
+                                                    </div>
+                                                </div>
+                                                <div class="container row mt-4">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label for="acc_renw_renw_amoun_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Renewal Amount
+                                                        </label>
+                                                        <input type="text" class="col-sm-12 col-md-6" name="acc_renw_renw_amoun_ed" id="acc_renw_renw_amoun_ed"
+                                                            placeholder="  " value="<%=ren_amt%>" onkeypress="return numeric(event)">
+
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label for="acc_renw_instal_amount_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Installment Amount
+
+                                                        </label>
+                                                        <input type="text" class="col-sm-12 col-md-6" name="acc_renw_instal_amount_ed"
+                                                            id="acc_renw_instal_amount_ed" placeholder="  " value="<%=install_amt%>" onkeypress="return numeric(event)" >
+
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="container row mt-4">
+                                                    <div class="col-sm-12 col-md-2">
+                                                            <input hidden type="number" class="col-sm-12 col-md-6" name="renewal_edit" id="renewal_edit"
+                                                            placeholder="" value="<%=ren_id%>">
+               <a type="text" class="btn" href="/accountsModule/accountsDetails/acc_renewal_details_search" name="bck_search_ed" id="bck_search_ed" value="Back to Search">Back to Search</a>
+
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-3">
+                                                        <input type="button" class="btn clr clr1" name="clear_frm_ed" id="clear_frm_ed"
+                                                            value="Clear Form" onclick="cleareditAccountRenewalDetailsTab()">
+
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-5"></div>
+                                                    <div class="col-sm-12 col-md-2">
+                                                        <input type="button" class="btn" name="sub_ed" id="sub_ed" value="Submit" onclick="AccountRenewalEditDetails()" >
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+
+                <!--EDIT END-->
+                <!-- VIEW -START-->
+
+                <%if(pagetype=='VIEW'){%>
+                    <div class="content">
+                        <div class="row-sm ">
+                            <div class="col-sm-12">
+                                <div class="card tp">
+                                    <div class="card-header"></div>
+                                    <div class="card-body">
+                                            <form action="../../accountsModule/accountsDetails/view_renewal_data" method="post" autocomplete="off" >
+
+                                        <h6>Account Renewal Details</h6>
+
+                                        <hr>
+                                        <h6>VIEW RECORD</h6>
+                                        <hr>
+
+                                                <div class="content">
+                                                        <fieldset disabled>
+                                                    <div class="container row mb-4">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label for="acc_renw_acc_typ_sear_vd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                                Account Type
+                                                            </label>
+                                                            <input type="text" class="col-sm-12 col-md-6" name="acc_renw_acc_typ_sear_vd"
+                                                                id="acc_renw_acc_typ_sear_vd" placeholder="" value="<%=acc_type%>" >
+
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label for="acc_renw_acc_mem_sear_vd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                                Account Member
+                                                            </label>
+                                                            <input type="text" class="col-sm-12 col-md-6" name="acc_renw_acc_mem_sear_vd"
+                                                                id="acc_renw_acc_mem_sear_vd" placeholder="" value="<%=acc_num%>">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="container row mt-2">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label for="acc_renw_mem_sear_vd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">
+                                                                Member
+                                                            </label>
+                                                            <input type="text" class="col-sm-12 col-md-6" name="acc_renw_mem_sear_vd"
+                                                                id="acc_renw_mem_sear_vd" placeholder=""  value="<%=mem_id%>">
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6 ">
+                                                            <label for="acc_renw_renw_date_vd" class="mr-sm-4 col-sm-12 col-md-5"
+                                                            style="padding-left:0% !important;">Renewal Date
+                                                               </label>
+                                                                <input type="text" class="col-sm-12 col-md-6"
+                                                                name="acc_renw_renw_date_vd" id="acc_renw_renw_date_vd"  value="<%=moment(ren_date).format("DD-MM-YYYY")%>"
+                                                                placeholder="" required value="<%=ren_date%>" >
+                                                            <span><i class="material-icons iicon1 iicon11"
+                                                                    name="acc_renw_renw_date_vd"
+                                                                    id="acc_renw_renw_date_vd"
+                                                                    data-toggle="acc_renw_renw_date_vd"
+                                                                    data-target-name="acc_renw_renw_date_vd">
+                                                                    event_note
+                                                                </i></span>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="container row mt-4">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label for="acc_renw_renw_amoun_vd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Renewal Amount
+                                                            </label>
+                                                            <input type="text" class="col-sm-12 col-md-6" name="acc_renw_renw_amoun_vd" id="acc_renw_renw_amoun_vd"
+                                                                placeholder="  " value="<%=ren_amt%>" >
+
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label for="acc_renw_instal_amount_vd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Installment Amount
+
+                                                            </label>
+                                                            <input type="text" class="col-sm-12 col-md-6" name="acc_renw_instal_amount_vd"
+                                                                id="acc_renw_instal_amount_vd" placeholder="  "  value="<%=install_amt%>">
+
+                                                        </div>
+                                                    </div>
+
+                                                </fieldset>
+
+                                                    <div class="container row mt-4">
+                                                        <div class="col-sm-12 col-md-2">
+                   <a type="text" class="btn" href="/accountsModule/accountsDetails/acc_renewal_details_search" name="bck_search_vw" id="bck_search_vw" value="Back to Search">Back to Search</a>
+
+                                                        </div>
+
+                                                        <div class="col-sm-12 col-md-5"></div>
+
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<%}%>
+
+<!-- VIEW -END-->
+
+
+ <% include ../includes/footer %>
+            </div>
+        </div>
+
+
+
+    </body>
+    <% include ../includes/bottom_scripts %>
+</html>

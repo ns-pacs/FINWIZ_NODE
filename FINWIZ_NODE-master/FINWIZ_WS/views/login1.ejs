@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <title>
+        login page
+    </title>
+    <% include includes/styles %>
+    <% include includes/scripts %>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css" rel="stylesheet">
+</head>
+
+<body class="bg_img">
+          
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col-sm-12 col-md-3"></div> -->
+            <div class="col-sm-12 col-md-6 divs">
+                <br><br><br><br>
+                <!-- card -->
+                <div class="card tp cardtp">
+                        <div class="header pt-3 loghead loghead1">
+                                <h3 class="white-text mb-3 pt-3 font-weight-bold" style="text-align:center">Login Page</h3>
+                            </div>
+                            
+                    <div class="card-body">
+                         <form action="/loginModule/login/logincheck" id="loginform" name="loginform" method="post">
+                        <div class="content">
+     <% if(locals.message){ %>
+            
+        <div class="text text-center" role="alert">
+            <strong style="color:red"><%= message.error_msg %></strong> 
+            
+        </div>
+    <% } %>
+                            <!-- form -->
+                            <!-- Material input -->
+                            <div class="row">
+                                <div class="col-sm-12 col-md-2">
+                                    <i style="font-size: 20px;color:#5a5849" class="fas fa-user-alt logicon1"></i>
+                                </div>
+                                <div class="col-sm-12 col-md-8">
+                                    <div class="md-form">
+                                        <!--<input type="text" id="form1" class="form-control1 loginp1">-->
+                                       <input id="username" name="username"  type="text" class="form-control1 loginp1">
+
+                                        <label for="form1" class="loglabel1">UserName</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-2">
+                                    <i style="font-size: 20px;color:#5a5849" class="fas fa-lock logicon1"></i>
+                                    </div>
+                                <div class="col-sm-12 col-md-8">
+                                    <div class="md-form">
+                                        <!--<input type="password" id="form2" class="form-control1 loginp1">-->
+                                       <input id="password" name="password" type="text" class="form-control1 loginp1">
+
+                                        <label for="form2" class="loglabel1">Password</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="col-sm-12 col-md-8"></div>
+                            <div class="col-sm-12 col-md-4">-->
+                            <!--<a href="" class="fgt1">Forgot password?</a>-->
+                        </div>
+
+                        <div class="text-center py-4 mt-3">
+                                <input type="submit" class="btn white-text colo" value="Login" id="loginsubmit" name="loginsubmit">
+                                
+                            </div>
+
+
+
+
+
+
+                        </div>
+                         </form>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+            <div class="col-sm-12 col-md-6"></div>
+        </div>
+    </div>
+
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js">
+</script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/js/mdb.min.js"></script>
+
+</html>

@@ -1,0 +1,676 @@
+<html>
+
+<head>
+  <% include ../includes/styles %>
+  <% include ../includes/scripts %>
+  <script type="text/javascript" src="/javascripts/bankDetailsJS.js"></script>
+
+<body>
+  <div class="wrapper ">
+      <div class="sidebar" data-color="orange_light">
+          <!--
+                            Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+                        -->
+          <div class="logo">
+              <h4><a href="" class="simple-text logo-normal">
+                      Nurture Software
+                  </a></h4>
+          </div>
+          <div class="sidebar-wrapper" id="sidebar-wrapper">
+              <ul class="nav">
+                  <li>
+                      <a href="/login/dashboard">
+                          <i class="material-icons" style="font-size: 25px;">dashboard</i>
+                          <strong class="fnt">Dashboard</strong>
+                      </a>
+                  </li>
+
+                  <li id="sub_menu" class="active">
+
+                      <a href="#">
+                          <i class="material-icons" style="font-size: 25px;">group</i>
+                          <strong class="fnt">Members</strong>
+                      </a>
+                      <ul class="hid sub_col">
+
+                          <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/memberdetails"
+                                  class="ml-1" style="color: #ffffff;">Members</a>
+                          </div>
+
+                          <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_div_search"
+                                  class="ml-1" style="color: #ffffff;">Members
+                                  Dividend</a></div>
+
+                          <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_share_search"
+                                  class="ml-1" style="color: #ffffff;">Members
+                                  Share Details</a></div>
+
+                          <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/mem_farm_search"
+                                  class="ml-1" style="color: #ffffff;">Farm
+                                  Machinery Details</a></div>
+
+                          <div class="sub_mar"><a href="/memberDetailsModule/memberDetails/mem_hse_det_ser"
+                                  class="ml-1" style="color: #ffffff;">House
+                                  Details</a></div>
+
+                          <div class="sub_mar"> <a href="/memberDetailsModule/memberDetails/kcc_search"
+                                  class="ml-1" style="color: #ffffff;">KCC
+                                  Details</a></div>
+
+                      </ul>
+                  </li>
+
+                  <li>
+                      <a href="/login/deposits">
+                          <i class="material-icons" style="font-size: 25px;">thumbs_up_down</i>
+                          <strong class="fnt">Deposits</strong>
+                      </a>
+                  </li>
+
+
+                  <li>
+                      <a href="/login/loans">
+                          <i class="material-icons" style="font-size: 25px;">file_upload</i>
+                          <strong class="fnt">Loans</strong>
+                      </a>
+                  </li>
+
+
+                  <li id="sub_menu">
+                    <a href="#">
+                        <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                        <strong class="fnt">Bank</strong>
+                    </a>
+                    <ul class="hid mt-1 sub_col">
+
+                        <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
+                                style="color: #ffffff">Associated
+                                Bank</a></div>
+
+                        <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
+                                style="color: #ffffff">Associated Branch</a></div>
+
+                        <div class="sub_mar">
+                            <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                style="color: #ffffff">Associated Bank Account Master</a>
+                        </div>
+
+                        <div class="sub_mar">
+                            <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
+                                style="color: #ffffff">Associated Bank Cheque Book</a>
+                        </div>
+
+                        <div class="sub_mar">
+                            <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
+                                style="color: #ffffff">Associated Bank Account Type</a>
+                        </div>
+                         
+                    <div class="sub_mar">
+                        <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                            style="color: #ffffff">Associated Bank Deposit Returns</a>
+                    </div>
+
+                    
+                    <div class="sub_mar">
+                        <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                            style="color: #ffffff">Associated Bank Deposit Master</a>
+                    </div>
+
+                    </ul>
+                </li>
+
+                  <li>
+                      <a href="/login/market">
+                          <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
+                          <strong class="fnt">Market</strong>
+                      </a>
+                  </li>
+
+                  <li>
+                      <a href="/login/reports">
+                          <i class="material-icons" style="font-size: 25px;">date_range</i>
+                          <strong class="fnt">Reports</strong>
+                      </a>
+                  </li>
+
+
+
+                  <li>
+
+                      <a href="/login/payroll">
+                          <i class="material-icons" style="font-size: 25px;">payment</i>
+                          <strong class="fnt">Payroll</strong>
+                      </a>
+
+
+
+                  </li>
+                  <li>
+                      <a href="/login/hr">
+                          <i class="material-icons" style="font-size: 25px;">account_box</i>
+                          <strong class="fnt">HR</strong>
+                      </a>
+                  </li>
+
+
+                  <li>
+
+                      <a href="/login/user">
+                          <i class="material-icons" style="font-size: 25px;">person</i>
+                          <strong class="fnt">User</strong>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+    <div class="main-panel" id="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg colo">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="#pablo"><strong>Members</strong> </a>
+          </div>
+          <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation"
+            aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <strong class="fnt">User 1</strong>
+                  <i class="now-ui-icons users_single-02 ml-2"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Some Actions</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Upload Photo<i class=" material-icons ml-2">add_a_photo</i></a>
+                  <a class="dropdown-item" href="#">Logout<i class=" ml-5 material-icons">power_settings_new</i></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <%if(pagetype=='ADD'){%>
+      <div class="content">
+        <div class="row-sm ">
+          <div class="col-sm-12">
+            <div class="card tp">
+              <div class="card-header"></div>
+              <div class="card-body">
+            <div class="content">
+
+                  <h6>Associated Bank Account Master</h6>
+                    <!-- flash message -->
+                    <% if(locals.message){ %>
+                      <div class="text text-center" role="alert"
+                      background-color: red;>
+                      <strong style="color:green"><%= message.success_msg %></strong>
+                      </div>
+                  <% } %>
+
+                  <hr>
+                  <h6>ADD RECORD</h6>
+                  <hr>
+                  <form action="/bankModule/bankDetails/acc_master_details" method="post" id="depositdetailsform">
+
+                    <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                          <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code</label>
+                          <select class="col-sm-12 col-md-6" id="master_code" name="master_code" onchange="autoSetBankName()">
+                            <option disabled="" selected="" value="" >Select Bank Name </option>
+                                                <% for(var i=1;i < bankcdmaster.length;i++) { %>
+                                                    <option value="<%= bankcdmaster[i].bcd_ch_bank_code  %>"> <%= bankcdmaster[i].bcd_ch_bank_code %></option>
+                                                                              <% } %>
+                                            </select>
+
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Name</label>
+                          <select class="col-sm-12 col-md-6" name="master_name" id="master_name" onchange="autoSetBankCode()">
+                          <option disabled="" selected="" value="">Select Bank Name </option>
+                          <% for(var i=1;i < bankcdmaster.length;i++) { %>
+                              <option value="<%= bankcdmaster[i].bcd_ch_bank_name  %>"> <%= bankcdmaster[i].bcd_ch_bank_name %></option>
+                                                        <% } %>
+                      </select>
+
+                        </div>
+                      </div>
+
+
+                    <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                          <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Code</label>
+                          <select class="col-sm-12 col-md-6" id="master_brcode" name="master_brcode" onchange="autoSetBranchCode()">
+                            <option disabled="" selected="" value="" >Select Branch Name </option>
+                                                <% for(var i=1;i < branchcdmaster.length;i++) { %>
+                                                    <option value="<%= bankcdmaster[i].bcd_ch_branch_code %>"> <%= branchcdmaster[i].bcd_ch_branch_code %></option>
+                                                                              <% } %>
+                                            </select>
+
+
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Name</label>
+                          <input type="text" class="col-sm-12 col-md-6" name="master_br_name"
+                                                    id="master_br_name" placeholder="">
+
+                        </div>
+                      </div>
+
+                      <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                          <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Number</label>
+                          <input type="number" class="col-sm-12 col-md-6" name="accmaster_no" id="accmaster_no" placeholder="">
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Associated Bank Account Code</label>
+                          <input type="text" class="col-sm-12 col-md-6" name="ass_bankacc_code" id="ass_bankacc_code"
+                            placeholder="">
+
+                        </div>
+                      </div>
+
+                      <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-6">
+                          <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Type</label>
+                          <select class="col-sm-12 col-md-6" name="masteracc_type" id="masteracc_type">
+                            <option disabled="" selected="" value="">Select</option>
+                            <option value=" Savings accounts."> Savings accounts.</option>
+                            <option value="Checking accounts">Checking accounts</option>
+                            <option value="Money market accounts."> Money market accounts.</option>
+                            <option value="Certificates of deposit (CDs)">  Certificates of deposit (CDs)</option>
+                            <option value="Retirement accounts.">  Retirement accounts.</option>
+
+                          </select>
+
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                          <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Status</label>
+                          <select class="col-sm-12 col-md-6"  name="masteracc_status" id="masteracc_status">
+                            <option disabled="" selected="" value="">Select</option>
+                            <option value="ac">Active</option>
+                            <option value="nac">Not Active</option>
+                            </select>
+
+
+                        </div>
+                      </div>
+
+
+                      <div class="container row mt-2">
+                        <div class="col-sm-12 col-md-12">
+                          <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Description</label>
+                          <div class="form-group">
+                              <label for="exampleFormControlTextarea2"></label>
+                              <textarea class=" col-sm-12 col-md-9 textarea2" id="master_description" name="master_description" rows="3"></textarea>
+                            </div>
+
+                        </div>
+
+
+                      </div>
+
+<!-- buttons -->
+                      <div class="container row mt-4">
+                        <div class="col-sm-12 col-md-2">
+                         <a type="button" class="btn" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                                name="bck_search" id="bck_search" value="Back to Search">Back to
+                                                Search</a>
+
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                          <input type="reset" class="btn clr clr1" name="clear_frm" id="clear_frm" value="Clear Form">
+
+                        </div>
+                        <div class="col-sm-12 col-md-5"></div>
+                        <div class="col-sm-12 col-md-2">
+                          <input type="submit" class="btn" name="sub" id="sub" value="Submit">
+                        </div>
+                      </div>
+
+
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%}%>
+      <!-- EDIT -START-->
+      <%if(pagetype=='EDIT'){%>
+        <div class="content">
+          <div class="row-sm ">
+            <div class="col-sm-12">
+              <div class="card tp">
+                <div class="card-header"></div>
+                <div class="card-body">
+              <div class="content">
+
+                    <h6>Associated Bank Account Master</h6>
+                      <!-- flash message -->
+                      <% if(locals.message){ %>
+                        <div class="text text-center" role="alert"
+                        background-color: red;>
+                        <strong style="color:green"><%= message.success_msg %></strong>
+                        </div>
+                    <% } %>
+
+                    <hr>
+                    <h6>EDIT RECORD</h6>
+                    <hr>
+                    <form action="/bankModule/bankDetails/acc_master_details" method="post" id="acc_master_submit_edit">
+
+                      <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-6">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code</label>
+                            <select class="col-sm-12 col-md-6" id="master_code_ed" name="master_code_ed" onchange="autoSetBankName()">
+                              <option disabled="" selected="" value="" >Select Bank Name </option>
+                                                  <% for(var i=1;i < bankcdmaster.length;i++) { %>
+                                                      <option value="<%= bankcdmaster[i].bcd_ch_bank_code  %>"> <%= bankcdmaster[i].bcd_ch_bank_code %></option>
+                                                                                <% } %>
+                                              </select>
+
+
+                          </div>
+                          <div class="col-sm-12 col-md-6">
+                            <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Name</label>
+                            <select class="col-sm-12 col-md-6" name="master_name_ed" id="master_name_ed" onchange="autoSetBankCode()">
+                            <option disabled="" selected="" value="">Select Bank Name </option>
+                            <% for(var i=1;i < bankcdmaster.length;i++) { %>
+                                <option value="<%= bankcdmaster[i].bcd_ch_bank_name  %>"> <%= bankcdmaster[i].bcd_ch_bank_name %></option>
+                                                          <% } %>
+                        </select>
+
+                          </div>
+                        </div>
+
+
+                      <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-6">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Code</label>
+                            <select class="col-sm-12 col-md-6" id="master_brcode_ed" name="master_brcode_ed" onchange="autoSetBranchCode()">
+                              <option disabled="" selected="" value="" >Select Branch Name </option>
+                                                  <% for(var i=1;i < branchcdmaster.length;i++) { %>
+                                                      <option value="<%= bankcdmaster[i].bcd_ch_branch_code %>"> <%= branchcdmaster[i].bcd_ch_branch_code %></option>
+                                                                                <% } %>
+                                              </select>
+
+
+
+                          </div>
+                          <div class="col-sm-12 col-md-6">
+                            <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Name</label>
+                            <input type="text" class="col-sm-12 col-md-6" name="master_br_name_ed"
+                                                      id="master_br_name_ed" placeholder="">
+
+                          </div>
+                        </div>
+
+                        <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-6">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Number</label>
+                            <input type="number" class="col-sm-12 col-md-6" name="accmaster_no_ed" id="accmaster_no_ed" placeholder="">
+
+                          </div>
+                          <div class="col-sm-12 col-md-6">
+                            <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Associated Bank Account Code</label>
+                            <input type="text" class="col-sm-12 col-md-6" name="ass_bankacc_code_ed" id="ass_bankacc_code_ed"
+                              placeholder="">
+
+                          </div>
+                        </div>
+
+                        <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-6">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Type</label>
+                            <select class="col-sm-12 col-md-6" name="masteracc_type_ed" id="masteracc_type_ed">
+                              <option disabled="" selected="" value="">Select</option>
+                              <option value=" Savings accounts."> Savings accounts.</option>
+                              <option value="Checking accounts">Checking accounts</option>
+                              <option value="Money market accounts."> Money market accounts.</option>
+                              <option value="Certificates of deposit (CDs)">  Certificates of deposit (CDs)</option>
+                              <option value="Retirement accounts.">  Retirement accounts.</option>
+
+                            </select>
+
+                          </div>
+
+                          <div class="col-sm-12 col-md-6">
+                            <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Status</label>
+                            <select class="col-sm-12 col-md-6"  name="masteracc_status_ed" id="masteracc_status_ed">
+                              <option disabled="" selected="" value="">Select</option>
+                              <option value="ac">Active</option>
+                              <option value="nac">Not Active</option>
+                              </select>
+
+
+                          </div>
+                        </div>
+
+
+                        <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-12">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Description</label>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea2"></label>
+                                <textarea class=" col-sm-12 col-md-9 textarea2" id="master_description_ed" name="master_description_ed" rows="3"></textarea>
+                              </div>
+
+                          </div>
+
+
+                        </div>
+
+  <!-- buttons -->
+                        <div class="container row mt-4">
+                          <div class="col-sm-12 col-md-2">
+                           <a type="button" class="btn" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                                  name="bck_search" id="bck_search" value="Back to Search">Back to
+                                                  Search</a>
+
+                          </div>
+                          <div class="col-sm-12 col-md-3">
+                            <input type="reset" class="btn clr clr1" name="clear_frm" id="clear_frm" value="Clear Form">
+
+                          </div>
+                          <div class="col-sm-12 col-md-5"></div>
+                          <div class="col-sm-12 col-md-2">
+                            <input type="submit" class="btn" name="sub" id="sub" value="Submit">
+                          </div>
+                        </div>
+
+
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%}%>
+          <!-- EDIT -END-->
+
+
+         <!-- View -START-->
+      <%if(pagetype=='VIEW'){%>
+        <div class="content">
+          <div class="row-sm ">
+            <div class="col-sm-12">
+              <div class="card tp">
+                <div class="card-header"></div>
+                <div class="card-body">
+                <div class="content">
+
+                    <h6>Associated Bank Account Master</h6>
+                      <!-- flash message -->
+                      <% if(locals.message){ %>
+                        <div class="text text-center" role="alert"
+                        background-color: red;>
+                        <strong style="color:green"><%= message.success_msg %></strong>
+                        </div>
+                    <% } %>
+
+                    <hr>
+                    <h6>VIEW RECORD</h6>
+                    <hr>
+                    <form action="/bankModule/bankDetails/acc_master_details" method="post" id="acc_master_submit_view"  >
+                      <fieldset disabled="disabled">
+                      <div class="container row mt-2" >
+                          <div class="col-sm-12 col-md-6">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code</label>
+                            <select class="col-sm-12 col-md-6" id="master_code_vw" name="master_code_vw"  onchange="autoSetBankName()">
+                              <option disabled="" selected="" value="" >Select Bank Name </option>
+                                                  <% for(var i=1;i < bankcdmaster.length;i++) { %>
+                                                      <option value="<%= bankcdmaster[i].bcd_ch_bank_code  %>"> <%= bankcdmaster[i].bcd_ch_bank_code %></option>
+                                                                                <% } %>
+                                              </select>
+
+
+                          </div>
+                          <div class="col-sm-12 col-md-6">
+                            <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Name</label>
+                            <select class="col-sm-12 col-md-6" name="master_name_vw" id="master_name_vw" onchange="autoSetBankCode()">
+                            <option disabled="" selected="" value="">Select Bank Name </option>
+                            <% for(var i=1;i < bankcdmaster.length;i++) { %>
+                                <option value="<%= bankcdmaster[i].bcd_ch_bank_name  %>"> <%= bankcdmaster[i].bcd_ch_bank_name %></option>
+                                                          <% } %>
+                        </select>
+
+                          </div>
+                        </div>
+
+
+                      <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-6">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Code</label>
+                            <select class="col-sm-12 col-md-6" id="master_brcode_vw" name="master_brcode_vw" onchange="autoSetBranchCode()">
+                              <option disabled="" selected="" value="" >Select Branch Name </option>
+                                                  <% for(var i=1;i < branchcdmaster.length;i++) { %>
+                                                      <option value="<%= bankcdmaster[i].bcd_ch_branch_code %>"> <%= branchcdmaster[i].bcd_ch_branch_code %></option>
+                                                                                <% } %>
+                                              </select>
+
+
+
+                          </div>
+                          <div class="col-sm-12 col-md-6">
+                            <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Name</label>
+                            <input type="text" class="col-sm-12 col-md-6" name="master_br_name_vw"
+                                                      id="master_br_name_vw" placeholder="">
+
+                          </div>
+                        </div>
+
+                        <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-6">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Number</label>
+                            <input type="number" class="col-sm-12 col-md-6" name="accmaster_no_vw" id="accmaster_no_vw" placeholder="">
+
+                          </div>
+                          <div class="col-sm-12 col-md-6">
+                            <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Associated Bank Account Code</label>
+                            <input type="text" class="col-sm-12 col-md-6" name="ass_bankacc_code_vw" id="ass_bankacc_code_vw"
+                              placeholder="">
+
+                          </div>
+                        </div>
+
+                        <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-6">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Type</label>
+                            <select class="col-sm-12 col-md-6" name="masteracc_type_vw" id="masteracc_type_vw">
+                              <option disabled="" selected="" value="">Select</option>
+                              <option value=" Savings accounts."> Savings accounts.</option>
+                              <option value="Checking accounts">Checking accounts</option>
+                              <option value="Money market accounts."> Money market accounts.</option>
+                              <option value="Certificates of deposit (CDs)">  Certificates of deposit (CDs)</option>
+                              <option value="Retirement accounts">  Retirement accounts.</option>
+
+                            </select>
+
+                          </div>
+
+                          <div class="col-sm-12 col-md-6">
+                            <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Account Status</label>
+                            <select class="col-sm-12 col-md-6"  name="masteracc_status_vw" id="masteracc_status_vw">
+                              <option disabled="" selected="" value="">Select</option>
+                              <option value="ac">Active</option>
+                              <option value="nac">Not Active</option>
+                              </select>
+
+
+                          </div>
+                        </div>
+
+
+                        <div class="container row mt-2">
+                          <div class="col-sm-12 col-md-12">
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Description</label>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea2"></label>
+                                <textarea class=" col-sm-12 col-md-9 textarea2" id="master_description_vw" name="master_description_vw" rows="3"></textarea>
+                              </div>
+
+                          </div>
+
+
+                        </div>
+                      </fieldset>
+  <!-- buttons -->
+                        <div class="container row mt-4">
+                          <div class="col-sm-12 col-md-2">
+                           <a type="button" class="btn" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                                  name="bck_search" id="bck_search" value="Back to Search">Back to
+                                                  Search</a>
+
+                          </div>
+
+
+
+                        </div>
+
+
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%}%>
+
+       <!-- view END-->
+
+
+    </div>
+  </div>
+
+  <% include ../includes/footer %>
+
+</body>
+<% include ../includes/bottom_scripts %>
+
+</html>
