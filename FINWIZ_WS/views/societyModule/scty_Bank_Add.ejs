@@ -435,7 +435,7 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_district" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">District</label>
 
-                                                            <select class="col-sm-12 col-md-6" name="soc_bnk_address_district"
+                                                            <!--<select class="col-sm-12 col-md-6" name="soc_bnk_address_district"
                                                             id="soc_bnk_address_district">
                                                             <option disabled="" selected="" value="">Select
                                                             </option>
@@ -443,7 +443,11 @@ Accounts
                                                                 <option value="">
                                                                 </option>
                                                                
-                                                            </select>
+                                                            </select>-->
+							    
+							    <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_district" id="soc_bnk_address_district" placeholder=""
+                                                            style="text-transform: capitalize" maxlength="" onkeypress="return alpha(event)">
+							    
                                                         </div>
                                                     </div>
                                                     <!-- district end -->
@@ -813,7 +817,7 @@ Accounts
                                                         <!-- district start -->
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_district_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">District</label>
-                                                            <select class="col-sm-12 col-md-6" name="soc_bnk_address_district_ed"
+                                                           <!-- <select class="col-sm-12 col-md-6" name="soc_bnk_address_district_ed"
                                                             id="soc_bnk_address_district_ed">
                                                             <option disabled="" selected="" value="">Select
                                                             </option>
@@ -821,7 +825,9 @@ Accounts
                                                                 <option value="">
                                                                 </option>
                                                                
-                                                            </select>
+                                                            </select>-->
+ <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_district_ed" id="soc_bnk_address_district_ed" placeholder="" value="<%= edit_soc_bnk_address_district %>"
+                                                            style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)" >
 
                                                         </div>
                                                     </div>

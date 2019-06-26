@@ -3387,7 +3387,7 @@ Accounts
                                                         style="padding-left:0% !important;">City</label>
                                                     <select name="city_ed" class="col-sm-12 col-md-6"
                                                         id="city_ed" onchange="stateoncity_memdet_present_edit()">
-                                                        <option><%=edit_city%>
+                                                        <option  value='{"city":"<%=edit_city%>","state":"<%= edit_state%>"}' ><%=edit_city%>
                                                         </option>
                                                         <% for(var i=1;i < cities.length;i++) { %>
 
@@ -3584,7 +3584,7 @@ Accounts
                                                         <span class="astrix">*</span> </label>
                                                     <select name="citie_ed" class="col-sm-12 col-md-6"
                                                         id="citie_ed" onchange="stateoncity_memdet_permanent_edit()">
-                                                        <option><%= edit_citie%>
+                                                        <option  value='{"city":"<%= edit_citie%>","state":"<%= edit_stat%>"}' ><%= edit_citie%>
                                                         </option>
                                                         <% for(var i=1;i < cities.length;i++) { %>
 
@@ -4128,7 +4128,7 @@ Accounts
                                                             class="astrix">*</span></label>
                                                     <select name="distcity_ed" class="col-sm-12 col-md-6"
                                                         id="distcity_ed" onchange="stateoncity_memdet_nominee_edit()">
-                                                        <option ><%= edit_distcity%> 
+                                                        <option value='{"city":"<%= edit_distcity%>","state":"<%= edit_stat1%>"}'><%= edit_distcity%> 
                                                         </option>
                                                         <% for(var i=1;i < cities.length;i++) { %>
                                                             <!--<option value="<%= cities[i].comm_code_desc  %>">-->
