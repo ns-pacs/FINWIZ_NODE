@@ -88,7 +88,7 @@ document.getElementById("hsestate_ed").value = obj1.state;
 function alpha(alpbts)
 {
    var charCode = (alpbts.which) ? alpbts.which : alpbts.keyCode;
-   if (charCode > 31 
+   if (charCode > 32 
          && (charCode < 65 || charCode > 90 ) && (charCode < 97 || charCode > 122)  && (charCode > 47 || charCode < 58) )
       return false;
    return true;
