@@ -1522,7 +1522,7 @@ if(err) throw err;
     vw_nom_is_socty_mem = rlt1.rows[0].and_ch_is_society_num;
     vw_nom_acct_num = rlt1.rows[0].and_ch_acct_num;
     vw_nom_adhr_crd_num = rlt1.rows[0].and_n_nominee_aadhar_num;
-    vw_nom_isminor = rlt1.rows[0].and_n_nominee_aadhar_num;
+    vw_nom_isminor = rlt1.rows[0].and_ch_is_minor;
 
     pgdbconnect.query("select * from account_guardian_details where agd_ch_guard_id = $1 order by agd_ch_guard_id",[view_account],function(err,rlt2)
     {

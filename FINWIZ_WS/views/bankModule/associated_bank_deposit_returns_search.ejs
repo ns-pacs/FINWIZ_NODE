@@ -440,34 +440,34 @@ Accounts
 
                               <%if(depositdtls!=0){%>
                               <% for(var i=0;i < depositdtls.length; i++) { %>
-                              <tr id="depid<%=depositdtls[i].abdr_ch_deposit_id%>" role="row" class="odd">
+                              <tr id="depid<%=depositdtls[i].abdr_n_deposit_id%>" role="row" class="odd">
 
 
 
                                 <input type="radio" hidden name="radio_deposit_edit"
-                                  id="radio_deposit_edit<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                  value="<%=depositdtls[i].abdr_ch_deposit_id%>" class="edit" />
+                                  id="radio_deposit_edit<%=depositdtls[i].abdr_n_deposit_id%>"
+                                  value="<%=depositdtls[i].abdr_n_deposit_id%>" class="edit" />
 
                                 <input type="radio" hidden name="radio_deposit_view"
-                                  id="radio_deposit_view<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                  value="<%=depositdtls[i].abdr_ch_deposit_id%>" class="view" />
+                                  id="radio_deposit_view<%=depositdtls[i].abdr_n_deposit_id%>"
+                                  value="<%=depositdtls[i].abdr_n_deposit_id%>" class="view" />
 
                                 <input type="radio" hidden name="radio_deposit_delete"
-                                  id="radio_deposit_delete<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                  value="<%=depositdtls[i].abdr_ch_deposit_id%>" class="delete" />
+                                  id="radio_deposit_delete<%=depositdtls[i].abdr_n_deposit_id%>"
+                                  value="<%=depositdtls[i].abdr_n_deposit_id%>" class="delete" />
 
                                 <input type="text" name="asso_rtrn_mstr"
-                                  id="asso_rtrn_mstr<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                  value="<%=depositdtls[i].abdr_ch_deposit_id%>" hidden>
+                                  id="asso_rtrn_mstr<%=depositdtls[i].abdr_n_deposit_id%>"
+                                  value="<%=depositdtls[i].abdr_n_deposit_id%>" hidden>
                                 <input type="text" name="asso_rtrn_date"
-                                  id="asso_rtrn_date<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                  value="<%=depositdtls[i].abdr_ch_deposit_id%>" hidden>
+                                  id="asso_rtrn_date<%=depositdtls[i].abdr_n_deposit_id%>"
+                                  value="<%=depositdtls[i].abdr_n_deposit_id%>" hidden>
                                 <input type="text" name="asso_rtrn_amt"
-                                  id="asso_rtrn_amt<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                  value="<%=depositdtls[i].abdr_ch_deposit_id%>" hidden>
+                                  id="asso_rtrn_amt<%=depositdtls[i].abdr_n_deposit_id%>"
+                                  value="<%=depositdtls[i].abdr_n_deposit_id%>" hidden>
                                 <input type="text" name="asso_rtrn_tds"
-                                  id="asso_rtrn_tds<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                  value="<%=depositdtls[i].abdr_ch_deposit_id%>" hidden>
+                                  id="asso_rtrn_tds<%=depositdtls[i].abdr_n_deposit_id%>"
+                                  value="<%=depositdtls[i].abdr_n_deposit_id%>" hidden>
 
 
                                 <td class="sorting_1"><%= depositdtls[i].abdr_ch_associate_bank_deposit_master %></td>
@@ -476,28 +476,28 @@ Accounts
                                 <td align="right"><%= depositdtls[i].abdr_n_tds_amt %></td>
 
                                 <td>
-                                  <input type="text" name="asso_rtrn_ededit_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                    id="asso_rtrn_ededit_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                    value="<%=depositdtls[i].abdr_ch_deposit_id%>" hidden> <i style="font-size:16px"
-                                    class="fa"  data-toggle="tooltip" title="Edit" id="edit_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
+                                  <input type="text" name="asso_rtrn_ededit_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
+                                    id="asso_rtrn_ededit_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
+                                    value="<%=depositdtls[i].abdr_n_deposit_id%>" hidden> <i style="font-size:16px"
+                                    class="fa"  data-toggle="tooltip" title="Edit" id="edit_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
                                     onclick="associated_dep_edit(this)">&#xf044;</i>
-                                  <input type="text" name="asso_rtrn_vwview_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                    id="asso_rtrn_vwview_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                    value="<%=depositdtls[i].abdr_ch_deposit_id%>" hidden><i style="font-size:16px"
-                                    class="fa"  data-toggle="tooltip" title="View" id="view_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
+                                  <input type="text" name="asso_rtrn_vwview_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
+                                    id="asso_rtrn_vwview_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
+                                    value="<%=depositdtls[i].abdr_n_deposit_id%>" hidden><i style="font-size:16px"
+                                    class="fa"  data-toggle="tooltip" title="View" id="view_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
                                     onclick="associated_dep_view(this)">&#xf06e;</i>
                                   <!-- <input type="text"
-                                    name="asso_rtrn_dldelete_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                    id="asso_rtrn_dldelete_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                    value="<%=depositdtls[i].abdr_ch_deposit_id%>" hidden><i style="font-size:16px"
-                                    class="fa" id="delete_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
+                                    name="asso_rtrn_dldelete_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
+                                    id="asso_rtrn_dldelete_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
+                                    value="<%=depositdtls[i].abdr_n_deposit_id%>" hidden><i style="font-size:16px"
+                                    class="fa" id="delete_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
                                     onclick="associated_dep_del(this)">&#xf2ed;</i> -->
                                     <input type="text"
-                                    name="asso_rtrn_dldelete_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                    id="asso_rtrn_dldelete_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
-                                    value="<%=depositdtls[i].abdr_ch_deposit_id%>" hidden>
+                                    name="asso_rtrn_dldelete_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
+                                    id="asso_rtrn_dldelete_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
+                                    value="<%=depositdtls[i].abdr_n_deposit_id%>" hidden>
                                     <i class="fa" data-target="#remove_dep_retrns_modal"
-								data-toggle="modal" title="Delete" id="delete_rtrn<%=depositdtls[i].abdr_ch_deposit_id%>"
+								data-toggle="modal" title="Delete" id="delete_rtrn<%=depositdtls[i].abdr_n_deposit_id%>"
 								onclick="associated_dep_del(this)">&#xf2ed;</i>
                                 </td>
                               </tr>
