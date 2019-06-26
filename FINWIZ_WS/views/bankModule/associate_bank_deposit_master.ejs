@@ -340,14 +340,14 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                 <label for="add_bnkdep_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Deposit Type
                                                 </label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="add_bnkdep_typ" id="add_bnkdep_typ"
-                                                    placeholder="  ">
+                                                    placeholder="  " onkeypress="return alpha(event)">
 
                                             </div>
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="add_bnk_depnum" class="mr-sm-4 col-sm-12 col-md-5 " style="padding-left:0% !important;">Bank Deposit Number
 
                                                 </label>
-                                                <input type="number" class="col-sm-12 col-md-6" name="add_bnk_depnum"
+                                                <input type="text" class="col-sm-12 col-md-6" name="add_bnk_depnum"
                                                     id="add_bnk_depnum" placeholder="  " onkeypress="return numeric(event)">
 
                                             </div>
@@ -357,15 +357,15 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                 <label for="add_ob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Balance
 
                                                 </label>
-                                                <input type="number" class="col-sm-12 col-md-6" name="deposit_opening_bal"
-                                                    id="deposit_opening_bal" placeholder="" step="0.01" onkeypress="return numeric(event)">
+                                                <input type="text" class="col-sm-12 col-md-6" name="deposit_opening_bal"
+                                                    id="deposit_opening_bal" placeholder=""  onkeypress="return amount(event)">
 
                                             </div>
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="add_cb" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Current Balance
                                                 </label>
-                                                <input type="number" class="col-sm-12 col-md-6" name="deposit_closing_bal"
-                                                    id="deposit_closing_bal" placeholder="" step="0.01" onkeypress="return numeric(event)">
+                                                <input type="text" class="col-sm-12 col-md-6" name="deposit_closing_bal"
+                                                    id="deposit_closing_bal" placeholder="" onkeypress="return amount(event)">
 
                                             </div>
                                         </div>
@@ -536,7 +536,7 @@ style="color: #ffffff;">Account Transaction</a></div>
 
                                     </label>
                                     <input type="text" class="col-sm-12 col-md-6" name="deposit_accnum_ed"
-                                        id="deposit_accnum_ed" placeholder="  " value="<%=dep_acc_num%>">
+                                        id="deposit_accnum_ed" placeholder="  " value="<%=dep_acc_num%>" maxlength="16">
                                 </div>
                             </div>
 
@@ -552,7 +552,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                     <label for="add_bnk_depnum" class="mr-sm-4 col-sm-12 col-md-5 " style="padding-left:0% !important;">Bank Deposit Number
 
                                     </label>
-                                    <input type="number" class="col-sm-12 col-md-6" name="add_bnk_depnum_ed"
+                                    <input type="text" class="col-sm-12 col-md-6" name="add_bnk_depnum_ed"
                                         id="add_bnk_depnum_ed" placeholder="  " value="<%=dep_depnum%>">
 
 
@@ -564,16 +564,16 @@ style="color: #ffffff;">Account Transaction</a></div>
                                     <label for="add_ob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Balance
 
                                     </label>
-                                    <input type="number" class="col-sm-12 col-md-6" name="deposit_opening_bal_ed"
-                                        id="deposit_opening_bal_ed" placeholder=" " value="<%=dep_obal%>" step="0.01">
+                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_opening_bal_ed"
+                                        id="deposit_opening_bal_ed" placeholder=" " value="<%=dep_obal%>" onkeypress="return amount(event)">
 
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
                                     <label for="add_cb" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Current Balance
                                     </label>
-                                    <input type="number" class="col-sm-12 col-md-6" name="deposit_closing_bal_ed"
-                                        id="deposit_closing_bal_ed" placeholder="" value="<%=deposit_closing_bal%>" step="0.01">
+                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_closing_bal_ed"
+                                        id="deposit_closing_bal_ed" placeholder="" value="<%=deposit_closing_bal%>" onkeypress="return amount(event)">
                                 </div>
                             </div>
 

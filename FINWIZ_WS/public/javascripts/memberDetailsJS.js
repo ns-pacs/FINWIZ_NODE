@@ -3354,7 +3354,7 @@ return false;
 }
 
 else{
-var year= /([1-9]){4}([-]){1}([1-9]){4}/;
+var year= /([0-9]){4}([-]){1}([0-9]){4}/;
 if (!year.test(Financial_Year)){
 
 document.getElementById("opn_shr_bal").focus();
