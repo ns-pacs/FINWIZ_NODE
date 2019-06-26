@@ -331,7 +331,7 @@ Accounts
                                                                     class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="acc_nme"
                                                                 id="acc_nme" placeholder="" 
-                                                                style="text-transform: capitalize" onkeypress="return alpha(event)">
+                                                                style="text-transform: capitalize" maxlength="15" onkeypress="return alpha(event)">
 
                                                         </div>
                                                     </div>
@@ -513,16 +513,16 @@ Accounts
                                                             <label for="acc_opng_amt" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Opening
                                                                 Amount</label>
-                                                            <input type="number" class="col-sm-12 col-md-6"
-                                                                name="acc_opng_amt" id="acc_opng_amt" placeholder="" step="0.01">
+                                                            <input type="text" class="col-sm-12 col-md-6"
+                                                                name="acc_opng_amt" id="acc_opng_amt" placeholder="" onkeypress="return amount(event)" maxlength="6">
                                                         </div>
 
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="acc_curr_bal" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Current
                                                                 Balance</label>
-                                                            <input type="number" class="col-sm-12 col-md-6"
-                                                                name="acc_curr_bal" id="acc_curr_bal" placeholder="" step="0.01">
+                                                            <input type="text" class="col-sm-12 col-md-6"
+                                                                name="acc_curr_bal" id="acc_curr_bal" placeholder="" onkeypress="return amount(event)" maxlength="6">
 
                                                         </div>
                                                        
@@ -544,7 +544,7 @@ Accounts
                                                             <label for="acc_has_chqbok"
                                                                 class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Has
-                                                                Checkbook</label>
+                                                                Chequebook</label>
                                                                 <select name="acc_has_chqbok" class="col-sm-12 col-md-6" id="acc_has_chqbok">
 
                                                                     <option selected="" disabled="" value="">Select
@@ -635,7 +635,7 @@ Accounts
                                                                 style="padding-left:0% !important;">Introducer
                                                                 Details</label>
                                                             <input type="text" class="col-sm-12 col-md-6"
-                                                                name="acc_intdc_det" id="acc_intdc_det" placeholder="">
+                                                                name="acc_intdc_det" id="acc_intdc_det" maxlength="20" placeholder="">
 
                                                         </div>
                                                    
@@ -645,9 +645,9 @@ Accounts
                                                                 class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Introduce Known
                                                                 Period</label>
-                                                            <input type="number" class="col-sm-12 col-md-6"
+                                                            <input type="text" class="col-sm-12 col-md-6"
                                                                 name="acc_intdc_kwn_perd" id="acc_intdc_kwn_perd"
-                                                                placeholder="" onkeypress="return alphanumeric(event)">
+                                                                placeholder="" maxlength="10" onkeypress="return alphanumeric(event)">
 
                                                         </div>
                                                          </div>
@@ -670,7 +670,7 @@ Accounts
                                                             <label for="acc_desc" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Description</label>
                                                             <textarea rows="3" class="col-sm-12 col-md-6"
-                                                                name="acc_desc" id="acc_desc" maxlength="50" placeholder=""> </textarea>
+                                                                name="acc_desc" id="acc_desc" maxlength="30" placeholder=""> </textarea>
 
                                                         </div>
                                                     </div>
@@ -710,7 +710,7 @@ Accounts
                                                                 style="padding-left:0% !important;">Name</label>
                                                             <input type="text" class="col-sm-12 col-md-6"
                                                                 name="acc_nom_name" id="acc_nom_name" placeholder=""
-                                                                style="text-transform: capitalize"  onkeypress="return alpha(event)">
+                                                                style="text-transform: capitalize" maxlength="15"  onkeypress="return alpha(event)">
 
                                                         </div>
                                                         <div class="col-sm-12 col-md-6">
@@ -720,7 +720,7 @@ Accounts
                                                                 Name<span class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6"
                                                                 name="acc_nom_fatr_nme" id="acc_nom_fatr_nme"
-                                                                placeholder="" style="text-transform: capitalize"  onkeypress="return alpha(event)">
+                                                                placeholder="" style="text-transform: capitalize" maxlength="15"  onkeypress="return alpha(event)">
 
                                                         </div>
                                                     </div>
@@ -826,7 +826,7 @@ Accounts
                                                                 style="padding-left:0% !important;">Address Line</label>
                                                             <input type="text" class="col-sm-12 col-md-6"
                                                                 name="acc_nom_addr_lin" id="acc_nom_addr_lin"
-                                                                placeholder="" style="text-transform: capitalize">
+                                                                placeholder="" style="text-transform: capitalize" maxlength="20">
 
                                                         </div>
                                                     </div>
@@ -838,7 +838,7 @@ Accounts
                                                                     class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6"
                                                                 name="acc_nom_lnd_mrk" id="acc_nom_lnd_mrk"
-                                                                placeholder="" style="text-transform: capitalize">
+                                                                placeholder="" style="text-transform: capitalize" maxlength="20">
 
 
                                                         </div>
@@ -863,7 +863,7 @@ Accounts
                                                                     Mandal<span class="astrix">*</span></label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
                                                                     name="acc_nom_pncht_mdl" id="acc_nom_pncht_mdl"
-                                                                    placeholder="" style="text-transform: capitalize" onkeypress="return alpha(event)">
+                                                                    placeholder="" style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)">
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-6">
@@ -890,7 +890,7 @@ Accounts
                                                                             class="mr-sm-4 col-sm-12 col-md-5"
                                                                             style="padding-left:0% !important;">District</label>
                                                                            <input type="text" name="acc_nom_dist" class="col-sm-12 col-md-6"
-                                                                    id="acc_nom_dist" placeholder="" onkeypress="">
+                                                                    id="acc_nom_dist" placeholder="" onkeypress="return alpha(event)" maxlength="20">
                                                                         
 
                                                                     </div>
@@ -1056,7 +1056,7 @@ Accounts
                                                                 style="padding-left:0% !important;">Name</label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
                                                                 name="acc_gurdian_name" id="acc_gurdian_name" placeholder=""
-                                                                style="text-transform: capitalize"  onkeypress="return alpha(event)">
+                                                                style="text-transform: capitalize" maxlength="20"  onkeypress="return alpha(event)">
 
                                                         </div>
                                                         <div class="col-sm-12 col-md-6">
@@ -1065,7 +1065,7 @@ Accounts
                                                                 Name<span class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6"
                                                                 name="acc_gurdian_fath_name" id="acc_gurdian_fath_name" placeholder=""
-                                                                style="text-transform: capitalize" onkeypress="return alpha(event)">
+                                                                style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)">
 
                                                         </div>
                                                     </div>
@@ -1178,7 +1178,7 @@ Accounts
                                                                 style="padding-left:0% !important;">Address Line</label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="acc_gurdian_addr_line"
                                                                 id="acc_gurdian_addr_line" placeholder=""
-                                                                style="text-transform: capitalize" >
+                                                                style="text-transform: capitalize" maxlength="20" >
 
                                                         </div>
 
@@ -1186,7 +1186,7 @@ Accounts
                                                             <label for="acc_gurdian_landmark" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Landmark<span class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="acc_gurdian_landmark"
-                                                                id="acc_gurdian_landmark" placeholder="" style="text-transform: capitalize" >
+                                                                id="acc_gurdian_landmark" placeholder="" style="text-transform: capitalize" maxlength="20" >
 
 
                                                         </div>
@@ -1231,7 +1231,7 @@ Accounts
                                                                     <label for="acc_gurdian_dist" class="mr-sm-4 col-sm-12 col-md-5"
                                                                     style="padding-left:0% !important;">District</label>
                                                                  <input type="text" class="col-sm-12 col-md-6" name="acc_gurdian_dist"
-                                                                    id="acc_gurdian_dist" placeholder=""  onkeypress="">
+                                                                    id="acc_gurdian_dist" placeholder=""  maxlength="20" onkeypress="return alpha(event)">
                                                             </div>
                                                         </div>
 
@@ -1258,12 +1258,8 @@ Accounts
                                                                 style="padding-left:0% !important;">Country<span class="astrix">*</span></label>
                                                                 <select class="col-sm-12 col-md-6" name="acc_gurdian_country"
                                                                 id="acc_gurdian_country">
-                                                                <option disabled="" selected="" value="">Select
-                                                                </option>
-                                                                <% for(var i=1;i < acc_countries.length;i++) { %>
-                                                                    <option value="<%= acc_countries[i].comm_code_desc  %>">
-                                                                        <%= acc_countries[i].comm_code_desc %></option>
-                                                                    <% } %>
+                                                                <option value="INDIA">INDIA</option>
+                                                              
                                                             </select>
 
                                                         </div>
@@ -1489,7 +1485,7 @@ Accounts
                                                                     class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6"
                                                                 name="acc_staff" id="acc_staff" placeholder=""
-                                                                style="text-transform: capitalize">
+                                                                style="text-transform: capitalize" maxlength="15" onkeypress="return alpha(event)">
 
                                                         </div>
                                                         <div class="col-sm-12 col-md-6">
@@ -1643,7 +1639,7 @@ Accounts
                                                                         class="astrix">*</span></label>
                                                                 <input type="text" class="col-sm-12 col-md-6" name="acc_nme_ed"
                                                                     id="acc_nme_ed" placeholder="" maxlength="20"
-                                                                    style="text-transform: capitalize" value="<%=ed_acc_name%>" onkeypress="return alpha(event)">
+                                                                    style="text-transform: capitalize" value="<%=ed_acc_name%>" maxlength="20" onkeypress="return alpha(event)">
 
                                                             </div>
                                                         </div>
@@ -1652,9 +1648,16 @@ Accounts
                                                                 <label for="acc_mem_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                                     style="padding-left:0% !important;">Member Id<span
                                                                         class="astrix">*</span></label>
-                                                                <input type="text" class="col-sm-12 col-md-6" name="acc_mem_ed"
-                                                                    id="acc_mem_ed" placeholder=""
-                                                                    style="text-transform: capitalize" value="<%=ed_acc_member%>" onkeypress="return alpha(event)">
+
+                                                                    <select name="acc_mem_ed" class="col-sm-12 col-md-6" id="acc_mem_ed">
+
+                                                                        <option value="<%=ed_acc_member%>"><%=ed_acc_member%>
+                                                                                <option value="001">001</option>
+                                                                                <option value="002">002</option>
+                                                                                <option value="003">003</option>
+                                                                        </option>
+
+                                                                    </select>
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-6 ">
@@ -1705,9 +1708,7 @@ Accounts
                                                                 <label for="acc_schm_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                                     style="padding-left:0% !important;">Account Scheme<span
                                                                         class="astrix">*</span></label>
-                                                                <input type="text" class="col-sm-12 col-md-6"
-                                                                    name="acc_schm_ed" id="acc_schm_ed" placeholder=""
-                                                                    style="text-transform: capitalize" value="<%=ed_acc_scheme%>" onkeypress="return alpha(event)">
+                                                                    <input type="text" class="typeahead2 tt-query" name="acc_schm_ed" id="acc_schm_ed" autocomplete="off" spellcheck="false" value="<%=ed_acc_scheme%>" >
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-6">
@@ -1783,8 +1784,8 @@ Accounts
                                                                 <label for="acc_opng_amt_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                                     style="padding-left:0% !important;">Opening
                                                                     Amount</label>
-                                                                <input type="number" class="col-sm-12 col-md-6"
-                                                                    name="acc_opng_amt_ed" id="acc_opng_amt_ed" value="<%=ed_acc_open_amt%>" placeholder="" step="0.01">
+                                                                <input type="text" class="col-sm-12 col-md-6"
+                                                                    name="acc_opng_amt_ed" id="acc_opng_amt_ed" value="<%=ed_acc_open_amt%>" placeholder="" maxlength="6" onkeypress="return amount(event)">
                                                             </div>
                                                         </div>
                                                         <div class="container row mt-4">
@@ -1792,8 +1793,8 @@ Accounts
                                                                 <label for="acc_curr_bal_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                                     style="padding-left:0% !important;">Current
                                                                     Balance</label>
-                                                                <input type="number" class="col-sm-12 col-md-6"
-                                                                    name="acc_curr_bal_ed" id="acc_curr_bal_ed" value="<%=ed_acc_cur_bal%>" placeholder="" step="0.01">
+                                                                <input type="text" class="col-sm-12 col-md-6"
+                                                                    name="acc_curr_bal_ed" id="acc_curr_bal_ed" value="<%=ed_acc_cur_bal%>" placeholder="" maxlength="6" onkeypress="return amount(event)" >
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-6">
@@ -1812,7 +1813,7 @@ Accounts
                                                                 <label for="acc_has_chqbok_ed"
                                                                     class="mr-sm-4 col-sm-12 col-md-5"
                                                                     style="padding-left:0% !important;">Has
-                                                                    Checkbook</label>
+                                                                    Chequebook</label>
                                                                     <select name="acc_has_chqbok_ed" class="col-sm-12 col-md-6" id="acc_has_chqbok_ed">
 
                                                                         <option value="<%=ed_acc_has_chqbk%>"><%=ed_acc_has_chqbk%></option>
@@ -1897,7 +1898,7 @@ Accounts
                                                                     style="padding-left:0% !important;">Introducer
                                                                     Details</label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
-                                                                    name="acc_intdc_det_ed" id="acc_intdc_det_ed" value="<%=ed_acc_intdc_det%>" placeholder="">
+                                                                    name="acc_intdc_det_ed" id="acc_intdc_det_ed" maxlength="20" value="<%=ed_acc_intdc_det%>" placeholder="">
 
                                                             </div>
                                                         </div>
@@ -1909,7 +1910,7 @@ Accounts
                                                                     Period</label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
                                                                     name="acc_intdc_kwn_perd_ed" id="acc_intdc_kwn_perd_ed"
-                                                                    placeholder="" value="<%=ed_acc_intdc_kwn_perd%>" onkeypress="return alphanumeric(event)">
+                                                                    placeholder="" value="<%=ed_acc_intdc_kwn_perd%>" maxlength="10" onkeypress="return alphanumeric(event)">
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-6">
@@ -1930,7 +1931,7 @@ Accounts
                                                                 <label for="acc_desc_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                                     style="padding-left:0% !important;">Description</label>
                                                                 <textarea rows="3" class="col-sm-12 col-md-6"
-                                                                    name="acc_desc_ed" id="acc_desc_ed" maxlength="50" placeholder=""><%=ed_acc_desc%></textarea>
+                                                                    name="acc_desc_ed" id="acc_desc_ed" maxlength="30" placeholder=""><%=ed_acc_desc%></textarea>
 
                                                             </div>
                                                         </div>
@@ -2131,7 +2132,7 @@ Accounts
                                                                     style="padding-left:0% !important;">Address Line</label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
                                                                     name="acc_nom_addr_lin_ed" id="acc_nom_addr_lin_ed"
-                                                                    placeholder="" value="<%=ed_nom_addr_lin%>" style="text-transform: capitalize">
+                                                                    placeholder="" value="<%=ed_nom_addr_lin%>" maxlength="20" style="text-transform: capitalize">
 
                                                             </div>
                                                         </div>
@@ -2143,7 +2144,7 @@ Accounts
                                                                         class="astrix">*</span></label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
                                                                     name="acc_nom_lnd_mrk_ed" id="acc_nom_lnd_mrk_ed"
-                                                                    placeholder="" value="<%=ed_nom_lnd_mrk%>" style="text-transform: capitalize">
+                                                                    placeholder="" value="<%=ed_nom_lnd_mrk%>" maxlength="20" style="text-transform: capitalize">
 
 
                                                             </div>
@@ -2168,7 +2169,7 @@ Accounts
                                                                         Mandal<span class="astrix">*</span></label>
                                                                     <input type="text" class="col-sm-12 col-md-6"
                                                                         name="acc_nom_pncht_mdl_ed" id="acc_nom_pncht_mdl_ed"
-                                                                        placeholder="" value="<%=ed_nom_pncht_mdl%>" style="text-transform: capitalize" onkeypress="return alpha(event)">
+                                                                        placeholder="" value="<%=ed_nom_pncht_mdl%>" maxlength="20" style="text-transform: capitalize" onkeypress="return alpha(event)">
 
                                                                 </div>
                                                                 <div class="col-sm-12 col-md-6">
@@ -2177,7 +2178,8 @@ Accounts
                                                                             style="padding-left:0% !important;">City</label>
                                                                         <select class="col-sm-12 col-md-6" name="acc_nom_city_ed"
                                                                             id="acc_nom_city_ed" onchange="stateoncity_EDITacc_nominee()">
-                                                                            <option selected="" value="<%=ed_nom_city%>"><%=ed_nom_city%>
+                                                                            
+                                                                            <option value='{"city":"<%=ed_nom_city%>","state":"<%=ed_nom_state%>"}'><%=ed_nom_city%>
                                                                             </option>
                                                                             <% for(var i=1;i < acc_cities.length;i++) { %>
                                                                                 <!--<option value="<%= acc_cities[i].comm_code_desc  %>">-->
@@ -2284,7 +2286,7 @@ Accounts
                                                                                 style="padding-left:0% !important;">Account Number<span
                                                                                     class="astrix">*</span></label>
                                                                             <input type="text" class="col-sm-12 col-md-6"
-                                                                                name="acc_nom_acct_num_ed" id="acc_nom_acct_num_ed" maxlength="18"
+                                                                                name="acc_nom_acct_num_ed" id="acc_nom_acct_num_ed" maxlength="16"
                                                                                 placeholder="" value="<%=ed_nom_acct_num%>" onkeypress="return numeric(event)">
 
                                                                         </div>
@@ -2614,7 +2616,7 @@ Accounts
                                                                     style="padding-left:0% !important;">City<span class="astrix">*</span></label>
                                                                     <select class="col-sm-12 col-md-6" name="acc_gurdian_city_ed"
                                                                     id="acc_gurdian_city_ed" onchange="stateoncity_EDITacc_guardian()">
-                                                                    <option selected="" value="<%=ed_gurdian_city%>"><%=ed_gurdian_city%>
+                                                                    <option selected="" value='{"city":"<%=ed_gurdian_city%>","state":"<%=ed_gurdian_state%>"}'><%=ed_gurdian_city%>
                                                                     </option>
                                                                     <% for(var i=1;i < acc_cities.length;i++) { %>
                                                                         <option value='{"city":"<%=acc_cities[i].comm_code_desc%>","state":"<%=acc_cities[i].state_code%>"}'>
@@ -2662,10 +2664,6 @@ Accounts
                                                                     id="acc_gurdian_country_ed">
                                                                     <option selected="" value="<%=ed_gurdian_country%>"><%=ed_gurdian_country%>
                                                                     </option>
-                                                                    <% for(var i=1;i < acc_countries.length;i++) { %>
-                                                                        <option value="<%= acc_countries[i].comm_code_desc  %>">
-                                                                            <%= acc_countries[i].comm_code_desc %></option>
-                                                                        <% } %>
                                                                 </select>
 
                                                             </div>
@@ -2891,7 +2889,7 @@ Accounts
                                                                         class="astrix">*</span></label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
                                                                     name="acc_staff_ed" id="acc_staff_ed" placeholder="" value="<%=ed_aut_acc_staff%>"
-                                                                    style="text-transform: capitalize">
+                                                                    style="text-transform: capitalize" maxlength="15" onkeypress="return alpha(event)">
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-6">
@@ -3455,7 +3453,7 @@ Accounts
                                                                 </div>-->
 
 
-                                                                <%if(ed_nom_gen=='Male'){%>
+                                                                <%if(vw_nom_gen=='Male'){%>
                                                                     <label for="acc_nom_gen_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Gender<span class="astrix">*</span></label>
 
                                                                     <div  class="custom-control custom-radio custom-control-inline rad1 rad2">
@@ -3475,7 +3473,7 @@ Accounts
                                                                     </div>
 
                                                                     <%}
-                                                                    else if(ed_nom_gen=='Female'){%>
+                                                                    else if(vw_nom_gen=='Female'){%>
                                                                         <label for="acc_nom_gen_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Gender<span class="astrix">*</span></label>
 
                                                                         <div
@@ -3774,7 +3772,7 @@ Accounts
                                                                                 </div>-->
 
 
-                                                                                        <%if(ed_nom_isminor=='Yes'){%>
+                                                                                        <%if(vw_nom_isminor=='Yes'){%>
                                                                                     <label for="acc_gurdian_isminor_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Is Minor<span class="astrix">*</span></label>
 
                                                                                     <div  class="custom-control custom-radio custom-control-inline rad1 rad2">
@@ -3794,7 +3792,7 @@ Accounts
                                                                                     </div>
 
                                                                                     <%}
-                                                                                    else if(ed_nom_isminor=='No'){%>
+                                                                                    else if(vw_nom_isminor=='No'){%>
                                                                                         <label for="acc_gurdian_isminor_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Is Minor<span class="astrix">*</span></label>
 
                                                                                         <div
@@ -3907,7 +3905,7 @@ Accounts
                                                                 </div>
     -->
 
-                                                                    <%if(ed_gurdian_gender=='Male'){%>
+                                                                    <%if(vw_gurdian_gender=='Male'){%>
                                                                     <label for="acc_gurdian_gender_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Gender<span class="astrix">*</span></label>
 
                                                                     <div  class="custom-control custom-radio custom-control-inline rad1 rad2">
@@ -3927,7 +3925,7 @@ Accounts
                                                                     </div>
 
                                                                     <%}
-                                                                    else if(ed_gurdian_gender=='Female'){%>
+                                                                    else if(vw_gurdian_gender=='Female'){%>
                                                                         <label for="acc_gurdian_gender_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Gender<span class="astrix">*</span></label>
 
                                                                         <div
@@ -3949,7 +3947,7 @@ Accounts
                                                                         for="acc_gurdian_genfemale_vw">Female</label>
                                                                         </div>
                                                                         <%}
-                                                                            else if(ed_gurdian_gender==null){%>
+                                                                            else if(vw_gurdian_gender==null){%>
 
                                                                             <label for="acc_gurdian_gender_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Gender<span class="astrix">*</span></label>
 

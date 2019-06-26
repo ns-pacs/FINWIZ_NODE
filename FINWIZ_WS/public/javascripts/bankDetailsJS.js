@@ -50,6 +50,16 @@ function numeric(empcd)
    return true;
 }
 
+function desc(alpbts)
+{
+   var charCode = (alpbts.which) ? alpbts.which : alpbts.keyCode;
+   if (charCode > 32 
+         && (charCode < 65 || charCode > 90 ) && (charCode < 97 || charCode > 122)  && (charCode > 47 || charCode < 58) )
+      return false;
+   return true;
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 //// To set Bank Name in Associate Bank Tab
