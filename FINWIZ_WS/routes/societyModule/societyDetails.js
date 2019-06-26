@@ -1916,9 +1916,9 @@ router.post('/delete_societybank_data',function(req,res){
        console.log("deleted result",delres);
        pgdbconnect.query("select * from society_bank where sb_ch_del_flg=$1 order by sb_n_id",['N'],function(err,searchres){
 
-           pgdbconnect.query("select * from society_bank where sb_ch_del_flg='N'",function(err,bankreslt){
-
-               if(err) throw err;
+         pgdbconnect.query("select * from bank_code_details limit 50",function(err,bankreslt) 
+         {
+           if(err) throw err;
            console.log("deleted result11",searchres);
  
    req.flash('success_msg', 'Record Deleted successfully');
