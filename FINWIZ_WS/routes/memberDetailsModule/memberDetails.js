@@ -3106,12 +3106,12 @@ pgdbconnect.query("select * from member_details where md_ch_del_flg=$1",['N'],fu
 {
     if(err) throw err;
 
-    pgdbconnect.query("select * from common_code_tbl where code_id='CTY'limit 50",function(err,result2)
+    pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result2)
     {
         if(err) throw err;
        // console.log("result2 is", result2);
 
-        pgdbconnect.query("select * from common_code_tbl where code_id='STA' limit 50",function(err,result4)
+        pgdbconnect.query("select * from common_code_tbl where code_id='STA' ",function(err,result4)
         {
             if(err) throw err;
        // console.log("Bank code details is", reslt);

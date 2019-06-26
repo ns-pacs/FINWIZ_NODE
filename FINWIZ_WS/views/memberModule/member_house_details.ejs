@@ -481,7 +481,7 @@ Accounts
 
                                             <select name="city_ed" id="city_ed" class="col-sm-12 col-md-6"
                                             style="width:50%;" onchange="stateoncity_hsedet_edit()">
-                                            <option><%=city%></option>>
+                                            <option value='{"city":"<%=city%>","state":"<%=state%>"}'><%=city%></option>
                                                 <% for(var i=0;i < cities.length;i++) { %>
                                                  <option value='{"city":"<%=cities[i].comm_code_desc%>","state":"<%=cities[i].state_code%>"}'><%= cities[i].comm_code_desc %></option>
                                                                           <% } %>
