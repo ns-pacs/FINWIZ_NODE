@@ -335,7 +335,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                         <div class="col-sm-12 col-md-6">
                           <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5">Branch Name</label>
                           <input type="text" class="col-sm-12 col-md-6" name="master_br_name"
-                                                    id="master_br_name" placeholder="">
+                                                    id="master_br_name" placeholder=""   onkeypress="return alpha(event)" >
 
                         </div>
                       </div>
@@ -348,7 +348,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                           <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5">Associated Bank Account Code</label>
-                          <input type="text" class="col-sm-12 col-md-6" name="ass_bankacc_code" id="ass_bankacc_code" onkeypress="return alpha(event)"
+                          <input type="text" class="col-sm-12 col-md-6" name="ass_bankacc_code" id="ass_bankacc_code"  onkeypress="return alphanumeric(event)"
                             placeholder="">
 
                         </div>
@@ -489,7 +489,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                           <div class="col-sm-12 col-md-6">
                             <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5">Branch Name</label>
                             <input type="text" class="col-sm-12 col-md-6" name="master_br_name_ed"
-                                                      id="master_br_name_ed" placeholder="" value="<%=mbranch_name%>">
+                                                      id="master_br_name_ed" placeholder=""  onkeypress="return alpha(event)"  value="<%=mbranch_name%>">
 
                           </div>
                         </div>

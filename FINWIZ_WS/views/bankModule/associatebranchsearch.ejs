@@ -352,27 +352,27 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                     <label for="doj" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Name
                                                         </label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="search_branch_name" id="search_branch_name"
-                                                        placeholder="">
+                                                        placeholder=""  onkeypress="return alpha(event)" >
 
                                                 </div>
                                             </div>
                                           <br>
                                             <div class="container row mb-4">
                                                     <div class="col-sm-12 col-md-6">
-                                                        <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">IFS Code NEFT
+                                                        <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code NEFT
                                                           </label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="search_ifsc_cd"
-                                                            id="search_ifsc_cd" placeholder="">
+                                                            id="search_ifsc_cd" placeholder="" maxlength="11" onkeypress="return alphanumeric(event)" >
 
 
 
 
                                                      </div>
                                                     <div class="col-sm-12 col-md-6">
-                                                        <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">IFS Code RTGS
+                                                        <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code RTGS
                                                         </label>
                                                         <input type="text" class="col-sm-12 col-md-6" name="search_ifsc_rtgs"
-                                                            id="search_ifsc_rtgs" placeholder="">
+                                                            id="search_ifsc_rtgs" placeholder=""  maxlength="11" onkeypress="return alphanumeric(event)" >
 
                                                     </div>
                                                 </div>
