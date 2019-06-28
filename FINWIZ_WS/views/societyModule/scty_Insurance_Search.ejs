@@ -3,22 +3,20 @@
 <head>
     <% include ../includes/styles %>
         <% include ../includes/scripts %>
-<script type="text/javascript" src=""></script>
+        <script type="text/javascript" src="/javascripts/societyDetailsJS.js"></script>
+
 
 </head>
 
 <body>
 
-    <form action="" method="post" id="" hidden>
-        <input id="" name="" hidden>
-    </form>
-
-
-    <form action="" method="post" id="" hidden>
-        <input id="" name="" hidden>
-    </form>
-
-
+        <form action="/societyModule/societyDetails/insurance_edit" method="post" id="insurance_edit_window">
+            <input id="tempinsuranceid" name="tempinsuranceid" hidden>
+          </form>
+        
+          <form action="/societyModule/societyDetails/insurance_view" method="post" id="insurance_view_window">
+            <input id="tempinsuranceid1" name="tempinsuranceid1" hidden>
+          </form>
 
 
     <div class="wrapper ">
@@ -35,7 +33,7 @@
                 <ul class="nav">
                     <!-- dashboard link moved to navbar by ranjeet -->
 
-                    <li id="sub_menu" >
+                    <li id="sub_menu" class="active">
 
                         <a href="#">
                             <i class="material-icons" style="font-size: 25px;">group</i>
@@ -285,7 +283,7 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
                                             <strong style="color:green"><%= message.success_msg %></strong>
                                         </div>
                                         <% } %>
-                                            <form autocomplete="off" action="" method="post">
+                                            <form action="/societyModule/societyDetails/scty_particular_insurance_search"  autocomplete="off" action="" method="post">
 
                                                 <div class="container row mb-4">
                                                         <div class="col-sm-12 col-md-6">
@@ -303,8 +301,8 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
                                                          </div>
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="Pol_num" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Policy Number</label>
-                                                        <input type="Number" class="col-sm-12 col-md-6" name="Pol_num" maxlength="16" id="acc_num" placeholder="" style="text-transform: capitalize"
-                                                            onkeypress="">
+                                                        <input type="text" class="col-sm-12 col-md-6" name="Pol_num" maxlength="16" id="acc_num" placeholder=""  style="text-transform: capitalize"
+                                                        onkeypress=" return numeric(event)" >
 
                                                     </div>
 
@@ -333,14 +331,15 @@ data-target-name="premium_date">
 
 
                                                 <input type="submit" class="btn sr" id="ins_reset" value="Search">
-                                                <input type="button" class="btn sr" value="Reset" onclick="">
+                                                <input type="reset" class="btn sr" value="Reset" onclick="">
+
 
 
                                                 <div class="row">
                                                     <div class="d-sm-none d-md-block col-md-10"></div>
-                                                     <a type="text" name="btnUplEmp" id="btnUplEmp" class="btn add1 add3" href="/societyModule/societyDetails/scty_insurance_add"
+                                                     <a type="text" name="btnUplEmp" id="btnUplEmp" class="btn add1 add3" href="/societyModule/societyDetails/scty_insurance_add?key=ADD"
                         value="Add">Add</a>
-                                                    <input type="button" class="btn print1" id="notif" value="Print" onclick="prin();">
+                                                    <input type="button" class="btn print1" id="notif" value="Print" onclick="prin()">
 
                                                 </div>
 
@@ -384,83 +383,86 @@ data-target-name="premium_date">
                                                                 </thead>
                                                                 <tbody>
                                                         
+                                                                    <% for(var i=0;i < insurancedetails.length; i++) { %>
 
+                                                                        <tr id="rowid<%= insurancedetails[i].sid_n_id%>" role="row" class="odd">
+                                          
+                                          
+                                                                          <input type="radio" hidden name="radiobutton1rfed" id="radiobutton1rfed<%=insurancedetails[i].sid_n_id%>" value="<%=insurancedetails[i].sid_n_id%>"
+                                                                            class="edit" />
+                                          
+                                                                          <input type="radio" hidden name="radiobutton1rfvw" id="radiobutton1rfvw<%=insurancedetails[i].sid_n_id%>" value="<%=insurancedetails[i].sid_n_id%>"
+                                                                            class="view" >
+                                          
+                                                                          <input type="radio" hidden name="radiobutton1rfdel" id="radiobutton1rfdel<%=insurancedetails[i].sid_n_id%>" value="<%=insurancedetails[i].sid_n_id%>"
+                                                                            class="delete" >
+                                          
+                                          
+                                                                          <input type="text" name="memberid<%= insurancedetails[i].sid_n_id %>" id="memberid<%= insurancedetails[i].sid_n_id %>"
+                                                                            value="<%=insurancedetails[i].sid_n_id %>" hidden>
+                                          
+                                                                          <input type="text" name="memberid1<%= insurancedetails[i].sid_n_id %>" id="memberid1<%= insurancedetails[i].sid_n_id %>"
+                                                                            value="<%=insurancedetails[i].sid_n_id %>" hidden>
+                                          
+                                                                          <input type="text" name="memberid2<%= insurancedetails[i].sid_n_id %>" id="memberid2<%= insurancedetails[i].sid_n_id %>"
+                                                                            value="<%=insurancedetails[i].sid_n_id %>" hidden>
 
-                                                                        <tr id="" role="row" class="odd">
-
-                                                                            <input type="radio" hidden name="" id="" value=""
-                                                                                class="edit" />
-
-
-                                                                            <input type="radio" hidden name="" id="" value=""
-                                                                                class="view" />
-
-                                                                            <input type="radio" hidden name="" id="" value=""
-                                                                                class="delete" />
-
-
-
-
-
-
-                                                                            <input type="text" name="" id="" value=""
-                                                                                hidden>
-
-
-                                                                            <input type="text" name="" id=""
-                                                                                value="" hidden>
-
-
-
-                                                                            <input type="text" name="" id=""
-                                                                                value="" hidden>
-
+                                                                                  
 
 
                                                                             <td align="left" class="sorting_1">
-                                                                
+                                                                                <%= insurancedetails[i].sid_ch_provider_name %>
                                                                             </td>
+
                                                                             <td align="right" class="sorting_1">
-                                                                             
+                                                                                <%= moment(insurancedetails[i].sid_d_policy_date).format("DD-MM-YYYY") %>
                                                                             </td>
+
                                                                             <td align="right" class="sorting_1">
-                                                                            
+                                                                                <%= insurancedetails[i].sid_n_policy_num %>
                                                                             </td>
+
                                                                              <td align="left" class="sorting_1">
-                                                                
+                                                                                <%= insurancedetails[i].sid_n_policy_amt %>
                                                                             </td>
+
                                                                             <td align="right" class="sorting_1">
-                                                                             
+                                                                             <%= moment(insurancedetails[i].sid_d_premium_date).format("DD-MM-YYYY") %>
                                                                             </td>
+
                                                                             <td align="right" class="sorting_1">
+                                                                                <%= insurancedetails[i].sid_n_premium_amt %>
+                                                                            </td>
+
+                                                                            <td align="right" class="sorting_1">
+                                                                                <%= moment(insurancedetails[i].sid_d_premium_due_date).format("DD-MM-YYYY") %>
+                                                                            </td>
                                                                             
-                                                                            </td>
                                                                             <td align="right" class="sorting_1">
-                                                                             
-                                                                            </td>
-                                                                            <td align="right" class="sorting_1">
-                                                                            
+                                                                                <%= moment(insurancedetails[i].sid_d_policy_due_date).format("DD-MM-YYYY") %>
                                                                             </td>
 
                                                                             <td>
-                                                                                <input type="text" name="" id="" value=""
-                                                                                    hidden><i style="font-size:16px" class="fa" data-toggle="tooltip"
-                                                                                    title="Edit" id=""
-                                                                                    onclick="">&#xf044;</i>
-                                                                                <input type="text" name="" id="" value=""
-                                                                                    hidden> <i style="font-size:16px" class="fa" data-toggle="tooltip"
-                                                                                    title="View" id=""
-                                                                                    onclick="">&#xf06e;</i>
-                                                                                <input type="text" name="" id="" value=""
-                                                                                    hidden>
-                                                                                <i class="fa" data-target="" data-toggle="modal" title="Delete" <i style="font-size:16px" class="fa"
-                                                                                    data-toggle="tooltip" title="Delete" id=""
-                                                                                    onclick="">&#xf2ed;</i>
 
-                                                                            </td>
+                                                                                    <input type="text" name="rfed<%=insurancedetails[i].sid_n_id%>" id="rfed<%=insurancedetails[i].sid_n_id%>" value="<%=insurancedetails[i].sid_n_id%>"
+                                                                                    hidden> <i style="font-size:16px" class="fa" data-toggle="tooltip"
+                                                                                    title="Edit" id="ed<%=insurancedetails[i].sid_n_id%>" onclick="edit_row_insurance(this)">&#xf044;</i>
+
+                                                                                  <input type="text" name="vfvw<%=insurancedetails[i].sid_n_id%>" id="vfvw<%=insurancedetails[i].sid_n_id%>" value="<%=insurancedetails[i].sid_n_id %>"
+                                                                                    hidden><i style="font-size:16px" class="fa" data-toggle="tooltip"
+                                                                                    title="View" id="vw<%= insurancedetails[i].sid_n_id %>" onclick="view_row_insurance(this)">&#xf06e;</i>
+
+                                                                                  <input type="text" name="delet<%=insurancedetails[i].sid_n_id%>" id="delet<%=insurancedetails[i].sid_n_id%>" value="<%=insurancedetails[i].sid_n_id%>"
+                                                                                    hidden>
+                                                                                  <i class="fa" data-target="#remove_farmmach_modal" data-toggle="modal" title="Delete" id="et<%=insurancedetails[i].sid_n_id%>"
+                                                                                    onclick="delete_row_insurance(this)">&#xf2ed;</i>
+                                                                                </td>
+
+
+                                                                        
 
                                                                         </tr>
-                                                                      
+                                                                        <% } %>   
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -470,8 +472,7 @@ data-target-name="premium_date">
 
                                                 <br>
 
-                                                <div chtml
-                                                lass="clearfix"></div>
+                                                <div class="clearfix"></div>
                                             </form>
                                 </div>
                             </div>
@@ -485,33 +486,36 @@ data-target-name="premium_date">
     </div>
 
 
-    <form action="/accountsModule/accountsDetails/acc_lmt_delete" method="post" id="delete_acclmt_form" autocomplete="off">
-        <div class="modal fade" id="remove_acclmt_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-notify modal-warning" style="width: 30%; margin-top: 10%;" role="document">
-                <div class="modal-content">
+    
+    <form action="/societyModule/societyDetails/insurance_delete" method="post" id="insurance_delete_window">
+        <div class="modal fade" id="remove_farmmach_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-notify modal-warning" style="width: 30%; margin-top: 10%;" role="document">
+            <div class="modal-content">
 
-                    <div class="row">
-                        <div class="col-8"></div>
-                        <div class="col-4">
-                            <button type="button" class="close mr-1" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true" class="white-text">&times;</span>
-                  </button></div>
-                    </div>
+              <div class="row">
+                <div class="col-8"></div>
+                <div class="col-4">
+                  <button type="button" class="close mr-1" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true" class="white-text">&times;</span>
+                                </button></div>
+              </div>
 
 
-                    <div class="modal-body">
-                        <p align="center" class="content1 setcontent" id=""> </p> <br>
-                        <p align="center">Are you sure want to delete this record!?<br> Please note that this action is irreversible.</p>
-                        <input id="tempmemberid3" name="tempmemberid3" hidden> </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn col-4 mr-1" onclick="delete_acclmt_detail_onconfirm()">Confirm</button>
-                        <button type="submit" class="btn col-4 ml-1" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-
+              <div class="modal-body">
+                <p align="center" class="content1 setcontent" id=""> </p> <br>
+                <p align="center">Are you sure want to delete this record!?<br> Please note that this action is irreversible.</p>
+                <input id="tempinsurdelete" name="tempinsurdelete" hidden>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <button type="button" class="btn col-4 mr-1" onclick="delete_insurance_onconfirm()">Confirm</button>
+                <button type="submit" class="btn col-4 ml-1" data-dismiss="modal">Cancel</button>
+              </div>
             </div>
+
+          </div>
         </div>
-    </form>
+
+      </form>
 
 
 
