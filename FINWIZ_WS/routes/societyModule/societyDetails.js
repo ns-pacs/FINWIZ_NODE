@@ -2822,15 +2822,15 @@ router.post('/delete_scty_br_populate',function(req,res){
  
 
 
- //Insurance Add screen
- router.get('/scty_insurance_add',function(req,res){
-    res.render('societyModule/scty_Insurance_Add');
- });
+//  //Insurance Add screen
+//  router.get('/scty_insurance_add',function(req,res){
+//     res.render('societyModule/scty_Insurance_Add');
+//  });
 
- //Insurance Search screen
- router.get('/scty_insurance_search',function(req,res){
-    res.render('societyModule/scty_Insurance_Search');
- });
+//  //Insurance Search screen
+//  router.get('/scty_insurance_search',function(req,res){
+//     res.render('societyModule/scty_Insurance_Search');
+//  });
 
 
  
