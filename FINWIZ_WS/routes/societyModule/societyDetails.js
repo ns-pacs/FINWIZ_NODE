@@ -4928,6 +4928,7 @@ var insur_gurdian_is_acc_holder_ed= null;
    vw_tempinsuranceid:vw_tempinsuranceid,
    insurancedetails:reslt,
    
+   
    });
    });
    });
