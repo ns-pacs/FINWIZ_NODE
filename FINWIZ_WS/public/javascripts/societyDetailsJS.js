@@ -3734,6 +3734,14 @@ function insuranceValidationEdit()
     return false;
     }
 
+    var insur_remarks_ed = document.getElementById("insur_remarks_ed").value;
+    if(insur_remarks_ed == ""){
+    document.getElementById("insur_remarks_ed").focus();
+
+    swal("Oops!","Please Enter Remarks","error");
+    return false;
+    }
+
     $('#tabs a[href=#insur_nominee_details_ed]').tab('show').addClass("active");
     $('#tabs a[href=#insurance_details_ed]').removeClass("active");
   
