@@ -749,7 +749,6 @@ function sctyBankName() {
       }
     
 
-     
 
 
 //society branch Details Clear function
@@ -4445,3 +4444,19 @@ function submitwithoutguardiandetailsAdd(){
 function submitwithoutguardiandetailsEdit(){
     document.getElementById('insurance_edit_submit').submit();
 }
+
+
+
+/// Autopopulated the Bankcode and Branch code, changes done by Shivu(NODE)
+
+
+function selectBankCode() {
+    var branchcode = document.getElementById("society_branch_ser_bnkcd").selectedIndex;
+    document.getElementById("society_branch_ser_brcode").selectedIndex = branchcode;
+  }
+
+
+  function selectBranchCode() {
+    var bankcode = document.getElementById("society_branch_ser_brcode").selectedIndex;
+    document.getElementById("society_branch_ser_bnkcd").selectedIndex = bankcode;
+  }
