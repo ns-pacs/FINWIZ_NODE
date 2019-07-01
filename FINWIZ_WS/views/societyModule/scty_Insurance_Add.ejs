@@ -646,7 +646,7 @@ Accounts
                                                     class="mr-sm-4 col-sm-12 col-md-5 adtyp"
                                                     style="padding-left:0% !important;">Village<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="insur_nom_village"
-                                                    id="insur_nom_village" placeholder="" style="text-transform: capitalize">
+                                                    id="insur_nom_village" placeholder="" style="text-transform: capitalize" onkeypress="return alpha(event)">
                                                            
                                                     </div>
                         
@@ -976,13 +976,15 @@ Accounts
                                                                             class="astrix">*</span></label>
                                                                             <select class="col-sm-12 col-md-6" name="insur_gurdian_city"
                                                                             id="insur_gurdian_city" onchange="stateoncity_insurance_guardian()">
-                                                                            <option disabled="" selected="" value="">Select
+                                                                            <option >Select
                                                                             </option>
                                                                             <% for(var i=1;i < insu_cities.length;i++) { %>
                                                                                 <option value='{"city":"<%=insu_cities[i].comm_code_desc%>","state":"<%=insu_cities[i].state_code%>"}'>
                                                                                 <%= insu_cities[i].comm_code_desc %></option>
                                                                             <% } %>
-                                                                                
+                                                                               
+                                                                            
+                                                                            
                                                                         </select>
                                                         </div>
                                                             <div class="col-sm-12 col-md-6">
@@ -1002,12 +1004,14 @@ Accounts
                                                                     style="padding-left:0% !important;">State<span class="astrix">*</span></label>
                                                                     <select class="col-sm-12 col-md-6" name="insur_gurdian_ste"
                                                                     id="insur_gurdian_ste">
-                    
+                                                                    <option >Select
+                                                                    </option>
                                                              <% for(var i=1;i < insu_states.length;i++) { %>
                                                                  <option value="<%= insu_states[i].comm_code_desc  %>">
                                                                      <%= insu_states[i].comm_code_desc %></option>
                                                                  <% } %>
                                                                 
+                                                                 
                                                          </select>
         
                                                          </div>

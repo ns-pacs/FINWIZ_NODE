@@ -4112,6 +4112,7 @@ function clear_insurance()
     document.getElementById('insur_premium_date').value="";
     document.getElementById('insur_premium_amt').value="";
     document.getElementById('insur_premium_due_date').value="";
+    document.getElementById('insur_policy_due_date').value="";
     document.getElementById('remarks_insurance').value="";
    
 }
