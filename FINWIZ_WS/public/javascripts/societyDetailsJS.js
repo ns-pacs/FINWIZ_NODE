@@ -4390,10 +4390,6 @@ function viewtabcontinueguardian()
    }
    
 
-
-
-
-
     function delete_insurance_onconfirm(){
 
       document.getElementById("insurance_delete_window").submit();
@@ -4404,6 +4400,70 @@ function viewtabcontinueguardian()
    $('input[name=acc_nom_isminor_ed]').val=minor.value;
 }
 
+//////////////////////////////
+
+function relation_gender(relation){
+    if(relation.value == "Father" || relation.value == "Son" || relation.value == "Brother" || relation.value == "Husband"){
+     alert("when Father");
+     document.getElementById("insur_nom_genfemale").disabled = true;
+     document.getElementById("insur_nom_genmale").checked = true;
+}
+else if(relation.value == "Mother" || relation.value == "Daughter" || relation.value == "Sister" || relation.value == "Wife"){
+
+    document.getElementById("insur_nom_genmale").disabled = true;
+
+    document.getElementById("insur_nom_genfemale").checked = true;
+}
+}
+
+/////////////////////////////
+
+function relguardian_gender(reltn){
+    if(reltn.value == "Father" || reltn.value == "Son" || reltn.value == "Brother" || reltn.value == "Husband"){
+     alert("when Father");
+     document.getElementById("insur_gurdian_genfemale").disabled = true;
+     document.getElementById("insur_gurdian_genmale").checked = true;
+}
+else if(reltn.value == "Mother" || reltn.value == "Daughter" || reltn.value == "Sister" || reltn.value == "Wife"){
+
+    document.getElementById("insur_gurdian_genmale").disabled = true;
+
+    document.getElementById("insur_gurdian_genfemale").checked = true;
+}
+}
+
+/////////////////////////////
+
+function relation_gender_edit(rel){
+    if(rel.value == "Father" || rel.value == "Son" || rel.value == "Brother" || rel.value == "Husband"){
+     alert("when Father");
+     document.getElementById("insur_nom_genfemale_ed").disabled = true;
+     document.getElementById("insur_nom_genmale_ed").checked = true;
+}
+else if(rel.value == "Mother" || rel.value == "Daughter" || rel.value == "Sister" || rel.value == "Wife"){
+
+    document.getElementById("insur_nom_genmale_ed").disabled = true;
+
+    document.getElementById("insur_nom_genfemale_ed").checked = true;
+}
+}
+
+/////////////////////////////
+
+function relguardian_gender_edit(relatn){
+    if(relatn.value == "Father" || relatn.value == "Son" || relatn.value == "Brother" || relatn.value == "Husband"){
+     alert("when Father");
+     document.getElementById("insur_gurdian_genfemale_ed").disabled = true;
+     document.getElementById("insur_gurdian_genmale_ed").checked = true;
+}
+else if(relatn.value == "Mother" || relatn.value == "Daughter" || relatn.value == "Sister" || relatn.value == "Wife"){
+
+    document.getElementById("insur_gurdian_genmale_ed").disabled = true;
+
+    document.getElementById("insur_gurdian_genfemale_ed").checked = true;
+
+}
+}
 
 /* ------------------------------------------------------------------------ Insurance DEtails END ---------------------------------------------------------------------------- */
 
