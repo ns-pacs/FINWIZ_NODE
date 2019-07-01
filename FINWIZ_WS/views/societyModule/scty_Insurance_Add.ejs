@@ -544,13 +544,14 @@ Accounts
                                                                 class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Relation</label>
                                                  <select class="col-sm-12 col-md-6" name="insur_nom_reltn"
-                                                     id="insur_nom_reltn">
+                                                     id="insur_nom_reltn"     onchange="relation_gender(this)">  <!---Autopulated the gender onclick of relation as per the requirement by lakshminarayan-->
                                                      <option disabled="" selected="" value="">Select
                                                      <option value="Father">Father</option>
                                                      <option value="Mother">Mother</option>
                                                      <option value="Son">Son</option>
                                                      <option value="Daughter">Daughter</option>
-                                                     <option value="Spouse">Spouse</option>
+                                                     <option value="Husband">Husband</option>
+                                                     <option value="Wife">Wife</option>
                                                      <option value="Brother">Brother</option>
                                                      <option value="Sister">Sister</option>
                                                      </option>
@@ -829,13 +830,14 @@ Accounts
                                                             <label for="insur_gurdian_reltn" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Relation</label>
                                                                 <select class="col-sm-12 col-md-6" name="insur_gurdian_reltn"
-                                                                id="insur_gurdian_reltn">
+                                                                id="insur_gurdian_reltn" onchange="relguardian_gender(this)">   <!---Autopulated the gender onclick of relation as per the requirement by lakshminarayan-->
                                                                 <option disabled="" selected="" value="">Select
                                                                         <option value="Father">Father</option>
                                                                         <option value="Mother">Mother</option>
                                                                         <option value="Son">Son</option>
                                                                         <option value="Daughter">Daughter</option>
-                                                                        <option value="Spouse">Spouse</option>
+                                                                        <option value="Husband">Husband</option>
+                                                                        <option value="Wife">Wife</option>
                                                                         <option value="Brother">Brother</option>
                                                                         <option value="Sister">Sister</option>
                                                                 </option>
@@ -1415,13 +1417,14 @@ Accounts
                                                                 class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Relation</label>
                                                             <select class="col-sm-12 col-md-6" name="insur_nom_reltn_ed"
-                                                                id="insur_nom_reltn_ed">
+                                                                id="insur_nom_reltn_ed" onchange="relation_gender_edit(this)">   <!---Autopulated the gender onclick of relation as per the requirement by lakshminarayan-->
                                                                 <option value="<%= insur_nom_reltn%>" ><%= insur_nom_reltn%></option>
                                                                 <option value="Father">Father</option>
                                                                 <option value="Mother">Mother</option>
                                                                 <option value="Son">Son</option>
                                                                 <option value="Daughter">Daughter</option>
-                                                                <option value="Spouse">Spouse</option>
+                                                                <option value="Husband">Husband</option>
+                                                                <option value="Wife">Wife</option>
                                                                 <option value="Brother">Brother</option>
                                                                 <option value="Sister">Sister</option>
                                                                 </option>
@@ -1755,13 +1758,14 @@ Accounts
                                                             <label for="insur_gurdian_reltn_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Relation</label>
                                                                 <select class="col-sm-12 col-md-6" name="insur_gurdian_reltn_ed"
-                                                                id="insur_gurdian_reltn_ed">
+                                                                id="insur_gurdian_reltn_ed" onchange="relguardian_gender_edit(this)">   <!---Autopulated the gender onclick of relation as per the requirement by lakshminarayan-->
                                                                 <option value="<%=insur_gurdian_reltn %>"><%=insur_gurdian_reltn %></option>
                                                                         <option value="Father">Father</option>
                                                                         <option value="Mother">Mother</option>
                                                                         <option value="Son">Son</option>
                                                                         <option value="Daughter">Daughter</option>
-                                                                        <option value="Spouse">Spouse</option>
+                                                                        <option value="Husband">Husband</option>
+                                                                        <option value="Wife">Wife</option>
                                                                         <option value="Brother">Brother</option>
                                                                         <option value="Sister">Sister</option>
                                                                 </option>
