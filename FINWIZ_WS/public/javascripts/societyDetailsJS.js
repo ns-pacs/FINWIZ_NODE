@@ -749,7 +749,6 @@ function sctyBankName() {
       }
     
 
-     
 
 
 //society branch Details Clear function
@@ -2866,7 +2865,7 @@ function chequeDetails(){
    if(scty_brch_add == ""){
    document.getElementById("scty_brch_add").focus();
    
-   swal("Oops!","Please Enter Department Code","error");
+   swal("Oops!","Please enter Branch name","error");
    return false;
    }
    
@@ -2876,9 +2875,19 @@ function chequeDetails(){
    var scty_acc_add = document.getElementById("scty_acc_add").value;
    if(scty_acc_add == ""){
    document.getElementById("scty_acc_add").focus();
-   swal("Oops!","Please Enter Department Name","error");
+   swal("Oops!","Please enter Account number","error");
    return false;
    }
+   else
+   {
+
+           if(scty_acc_add.length < 16){
+           document.getElementById("scty_acc_add").focus();
+           
+           swal("Invalid","Please Enter valid Account Number","error");
+              return false;
+              }
+      }
    
        
    // Cheque Details Category
@@ -2886,7 +2895,7 @@ function chequeDetails(){
    var scty_ctgry_add = document.getElementById("scty_ctgry_add").value;
    if(scty_ctgry_add == ""){
    document.getElementById("scty_ctgry_add").focus(); 
-   swal("Oops!","Please Write Description","error");
+   swal("Oops!","Please enter Category type","error");
    return false;
    }
    
@@ -2895,9 +2904,18 @@ function chequeDetails(){
    var scty_chq_bok_num_add = document.getElementById("scty_chq_bok_num_add").value;
    if(scty_chq_bok_num_add == ""){
    document.getElementById("scty_chq_bok_num_add").focus();
-   swal("Oops!","Please Enter Section Name","error");
+   swal("Oops!","Please enter Cheque book number","error");
    return false;
    }
+   else
+   {
+   if(scty_chq_bok_num_add.length < 6){
+    document.getElementById("scty_chq_bok_num_add").focus();
+    
+    swal("Invalid","Please Enter valid Cheque book number","error");
+       return false;
+       }
+}
 
       // Cheque Details Series
 
@@ -2905,7 +2923,7 @@ function chequeDetails(){
       if(scty_series_add == ""){
       document.getElementById("scty_series_add").focus();
       
-      swal("Oops!","Please Enter Department Code","error");
+      swal("Oops!","Please enter Cheque book series","error");
       return false;
       }
       
@@ -2915,9 +2933,20 @@ function chequeDetails(){
       var scty_no_lev_per_bk_add = document.getElementById("scty_no_lev_per_bk_add").value;
       if(scty_no_lev_per_bk_add == ""){
       document.getElementById("scty_no_lev_per_bk_add").focus();
-      swal("Oops!","Please Enter Department Name","error");
+      swal("Oops!","Please enter Number Of Cheque leaves per book","error");
       return false;
       }
+
+      else{
+        
+        if (scty_no_lev_per_bk_add < '10' || scty_no_lev_per_bk_add > '100')
+        {
+                document.getElementById("scty_no_lev_per_bk_add").focus();
+                
+                swal("Invalid","Please Enter Valid Cheque leaves","warning");
+                return false;
+                 }
+                }
       
           
       // Cheque Details Starting Number
@@ -2925,7 +2954,7 @@ function chequeDetails(){
       var scty_star_num_add = document.getElementById("scty_star_num_add").value;
       if(scty_star_num_add == ""){
       document.getElementById("scty_star_num_add").focus(); 
-      swal("Oops!","Please Write Description","error");
+      swal("Oops!","Please enter Cheque starting number","error");
       return false;
       }
       
@@ -2934,7 +2963,7 @@ function chequeDetails(){
       var scty_end_num_add = document.getElementById("scty_end_num_add").value;
       if(scty_end_num_add == ""){
       document.getElementById("scty_end_num_add").focus();
-      swal("Oops!","Please Enter Section Name","error");
+      swal("Oops!","Please enter Cheque end number","error");
       return false;
       }
    
@@ -2943,7 +2972,7 @@ function chequeDetails(){
       var scty_chq_book_status_add = document.getElementById("scty_chq_book_status_add").value;
       if(scty_chq_book_status_add == ""){
       document.getElementById("scty_chq_book_status_add").focus();
-      swal("Oops!","Please Enter Section Name","error");
+      swal("Oops!","Please select Cheque book status","error");
       return false;
       }
 
@@ -4505,3 +4534,19 @@ function submitwithoutguardiandetailsAdd(){
 function submitwithoutguardiandetailsEdit(){
     document.getElementById('insurance_edit_submit').submit();
 }
+
+
+
+/// Autopopulated the Bankcode and Branch code, changes done by Shivu(NODE)
+
+
+function selectBankCode() {
+    var branchcode = document.getElementById("society_branch_ser_bnkcd").selectedIndex;
+    document.getElementById("society_branch_ser_brcode").selectedIndex = branchcode;
+  }
+
+
+  function selectBranchCode() {
+    var bankcode = document.getElementById("society_branch_ser_brcode").selectedIndex;
+    document.getElementById("society_branch_ser_bnkcd").selectedIndex = bankcode;
+  }
