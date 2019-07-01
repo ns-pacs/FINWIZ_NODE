@@ -3149,9 +3149,17 @@ function delete_member_onconfirm()
 {
 document.getElementById("delete_member_data_load_form").submit();
 }
+/////////////////////////////////////
+
+function reset_memsearch()
+{
+    document.getElementById("mem_sch_member_id").value='';
+    document.getElementById("mem_sch_department").value='';
+}
 
 
-/////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////Member Details End////////////////////////////////////////
 
 //title shifting
 function setDefault(check) {
