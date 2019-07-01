@@ -3130,3 +3130,1318 @@ document.getElementById('scty_chq_bk_stat').value="";
 }
 
 /* ------------------------------------------------------------------------ CHEQUE DETAILS END ---------------------------------------------------------------------------- */
+
+
+
+
+/*--------------------INSURANCE START ------------------------------------------------------------------*/
+
+
+
+function alpha(alpbts)
+{
+   var charCode = (alpbts.which) ? alpbts.which : alpbts.keyCode;
+   if (charCode > 31 
+         && (charCode < 65 || charCode > 90 ) && (charCode < 97 || charCode > 122)  && (charCode > 47 || charCode < 58) )
+      return false;
+   return true;
+}
+
+
+// Only AlphaNumeric for required functions
+
+function alphanumeric(memid)
+{
+   var charCode = (memid.which) ? memid.which : memid.keyCode;
+   if ( charCode != 48 && charCode > 31 
+     && (charCode < 48 || charCode > 57) && (charCode < 65 || charCode > 90 ) && (charCode < 97 || charCode > 122))
+      return false;
+   return true;
+}
+
+
+// Only Numbers for required functions
+
+function numeric(empcd)
+{
+   var charCode = (empcd.which) ? empcd.which : empcd.keyCode;
+   if (charCode != 48 && charCode > 31 
+     && (charCode < 48 || charCode > 57))
+      return false;
+   return true;
+}
+/*To accept . in amount values*/
+function amount(empcd)
+{
+   var charCode = (empcd.which) ? empcd.which : empcd.keyCode;
+   if (charCode != 46 && charCode > 31 
+     && (charCode < 48 || charCode > 57))
+      return false;
+   return true;
+}
+
+
+////validations for Insurance ADD SCreen //////////////////
+
+function insuranceValidation()
+{
+
+  var insur_prov_name = document.getElementById("insur_prov_name").value;
+    if(insur_prov_name == ""){
+    document.getElementById("insur_prov_name").focus();
+
+    swal("Oops!","Please Enter Insurance Provider Name!","error");
+    return false;
+    }
+
+    var insur_lst_prm_paid = document.getElementById("insur_lst_prm_paid").value;
+    if(insur_lst_prm_paid == ""){
+    document.getElementById("insur_lst_prm_paid").focus();
+
+    swal("Oops!","Please Enter Insurance First premium paid date!","error");
+    return false;
+    }
+
+    var insur_policy_date = document.getElementById("insur_policy_date").value;
+    if(insur_policy_date == ""){
+    document.getElementById("insur_policy_date").focus();
+
+    swal("Oops!","Please Enter Insurance policy date!","error");
+    return false;
+    }
+
+    var insur_policy_num = document.getElementById("insur_policy_num").value;
+    if(insur_policy_num == ""){
+    document.getElementById("insur_policy_num").focus();
+
+    swal("Oops!","Please Enter Insurance policy Number!","error");
+    return false;
+    }
+
+    var insur_coverage = document.getElementById("insur_coverage").value;
+    if(insur_coverage == ""){
+    document.getElementById("insur_coverage").focus();
+
+    swal("Oops!","Please Enter Insurance Coverage!","error");
+    return false;
+    }
+    var insur_risk = document.getElementById("insur_risk").value;
+    if(insur_risk == ""){
+    document.getElementById("insur_risk").focus();
+
+    swal("Oops!","Please Enter Insurance Risk!","error");
+    return false;
+    }
+    var insur_policy_amount = document.getElementById("insur_policy_amount").value;
+    if(insur_policy_amount == ""){
+    document.getElementById("insur_policy_amount").focus();
+
+    swal("Oops!","Please Enter Insurance policy Amount!","error");
+    return false;
+    }
+    var insur_premium_date = document.getElementById("insur_premium_date").value;
+    if(insur_premium_date == ""){
+    document.getElementById("insur_premium_date").focus();
+
+    swal("Oops!","Please Enter Insurance Premium date!","error");
+    return false;
+    }
+    var insur_premium_amt = document.getElementById("insur_premium_amt").value;
+    if(insur_premium_amt == ""){
+    document.getElementById("insur_premium_amt").focus();
+
+    swal("Oops!","Please Enter Insurance Premium Amount!","error");
+    return false;
+    }
+    var insur_premium_due_date = document.getElementById("insur_premium_due_date").value;
+    if(insur_premium_due_date == ""){
+    document.getElementById("insur_premium_due_date").focus();
+
+    swal("Oops!","Please Enter Insurance Premium Due date!","error");
+    return false;
+    }
+    var insur_policy_due_date = document.getElementById("insur_policy_due_date").value;
+    if(insur_policy_due_date == ""){
+    document.getElementById("insur_policy_due_date").focus();
+
+    swal("Oops!","Please Enter Insurance Policy Due date!","error");
+    return false;
+    }
+
+    $('#tabs a[href=#insur_nominee_details]').tab('show').addClass("active");
+    $('#tabs a[href=#insurance_details]').removeClass("active");
+  
+   
+
+}
+
+
+function insuranceNomineeValidation()
+{
+//tab 1 insurance
+ insuranceValidation()
+//tab 2 nominee
+
+  var insur_nom_name = document.getElementById("insur_nom_name").value;
+    if(insur_nom_name == ""){
+    document.getElementById("insur_nom_name").focus();
+
+    swal("Oops!","Please Enter Insurance Nominee Name!","error");
+    return false;
+    }
+
+    var insur_nom_fatr_nme = document.getElementById("insur_nom_fatr_nme").value;
+    if(insur_nom_fatr_nme == ""){
+    document.getElementById("insur_nom_fatr_nme").focus();
+
+    swal("Oops!","Please Enter Insurance Nominee Father Name!","error");
+    return false;
+    }
+
+    var insur_nom_reltn = document.getElementById("insur_nom_reltn").value;
+    if(insur_nom_reltn == ""){
+    document.getElementById("insur_nom_reltn").focus();
+
+    swal("Oops!","Please Enter Nominee Relation !","error");
+    return false;
+    }
+
+   //  var insur_nom_gen = document.getElementsByName("insur_nom_gen").value;
+   //  if(insur_nom_gen == ""){
+   //  document.getElementsByName("insur_nom_gen").focus();
+
+   //  swal("Oops!","Please Enter Nominee Gender!","error");
+   //  return false;
+   //  }
+
+    var male_ed = document.getElementById("insur_nom_genmale");
+    var female_ed = document.getElementById("insur_nom_genfemale");
+    
+    if (male_ed.checked){
+       console.log("male Selected");
+    }else if (female_ed.checked) {
+       console.log("male Selected");
+    }
+    else{
+        document.getElementById("insur_nom_genmale").autofocus;
+        swal("","please select the Gender","error");
+        return false;
+    }
+
+    var insur_nom_occptn = document.getElementById("insur_nom_occptn").value;
+    if(insur_nom_occptn == ""){
+    document.getElementById("insur_nom_occptn").focus();
+
+    swal("Oops!","Please Enter NBominee Occupation!","error");
+    return false;
+    }
+    var insur_nom_dob = document.getElementById("insur_nom_dob").value;
+    if(insur_nom_dob == ""){
+    document.getElementById("insur_nom_dob").focus();
+
+    swal("Oops!","Please Enter  Nominee DOB!","error");
+    return false;
+    }
+    var insur_nom_addr = document.getElementById("insur_nom_addr").value;
+    if(insur_nom_addr == ""){
+    document.getElementById("insur_nom_addr").focus();
+
+    swal("Oops!","Please Enter Nominee Address!","error");
+    return false;
+    }
+    var insur_nom_lndmark = document.getElementById("insur_nom_lndmark").value;
+    if(insur_nom_lndmark == ""){
+    document.getElementById("insur_nom_lndmark").focus();
+
+    swal("Oops!","Please Enter Landmark!","error");
+    return false;
+    }
+    var insur_nom_village = document.getElementById("insur_nom_village").value;
+    if(insur_nom_village == ""){
+    document.getElementById("insur_nom_village").focus();
+
+    swal("Oops!","Please Enter Village Name!","error");
+    return false;
+    }
+    var insur_nom_pncht_mdl = document.getElementById("insur_nom_pncht_mdl").value;
+    if(insur_nom_pncht_mdl == ""){
+    document.getElementById("insur_nom_pncht_mdl").focus();
+
+    swal("Oops!","Please Enter Nominee panchayat mandal!","error");
+    return false;
+    }
+    var insur_nom_city = document.getElementById("insur_nom_city").value;
+    if(insur_nom_city == ""){
+    document.getElementById("insur_nom_city").focus();
+
+    swal("Oops!","Please Enter City!","error");
+    return false;
+    }
+    var insur_nom_district = document.getElementById("insur_nom_district").value;
+    if(insur_nom_district == ""){
+    document.getElementById("insur_nom_district").focus();
+
+    swal("Oops!","Please Enter District!","error");
+    return false;
+    }
+    var insur_nom_country = document.getElementById("insur_nom_country").value;
+    if(insur_nom_country == ""){
+    document.getElementById("insur_nom_country").focus();
+
+    swal("Oops!","Please Select Country!","error");
+    return false;
+    }
+    var insur_nom_ste = document.getElementById("insur_nom_ste").value;
+    if(insur_nom_ste == ""){
+    document.getElementById("insur_nom_ste").focus();
+
+    swal("Oops!","Please Select State!","error");
+    return false;
+    }
+    var insur_nom_postal_cd = document.getElementById("insur_nom_postal_cd").value;
+    if(insur_nom_postal_cd == ""){
+    document.getElementById("insur_nom_postal_cd").focus();
+
+    swal("Oops!","Please Enter Postal Code!","error");
+    return false;
+    }
+  
+    var insur_nom_phn_num = document.getElementById("insur_nom_phn_num").value;
+    if(insur_nom_phn_num == ""){
+    document.getElementById("insur_nom_phn_num").focus();
+
+    swal("Oops!","Please Enter Nominee Phone Number!","error");
+    return false;
+    }
+   
+    
+    var yes_ed = document.getElementById("insu_nom_isminor_yes");
+    var no_ed = document.getElementById("acc_nom_isminor_no");
+    
+    if (yes_ed.checked){
+       console.log("Yes Selected");
+                //   alert("sghdjahsg")
+
+     $("#insur_guardian_details *").prop("disabled", false);
+    $('#tabs a[href=#insur_guardian_details]').tab('show').addClass("active");
+
+    }
+    else if (no_ed.checked) {
+       console.log("No Selected");
+        //    alert("sghdjahsg")
+     document.getElementById("guardian_details").disabled=true;
+    $("#insur_guardian_details *").attr("disabled", "disabled").off('click');
+    $('#tabs a[href=#insur_guardian_details]').tab('show').addClass("active");
+
+    }
+    else{
+        document.getElementById("insu_nom_isminor_yes").autofocus;
+        swal("","please select Minor  YES/NO","error");
+        return false;
+    }
+
+//    if( (document.getElementById("insu_nom_isminor_yes").checked == "") && (document.getElementById("insu_nom_isminor_no").checked == "") ){
+//     alert("sghdjahsg")
+//       document.getElementById("insu_nom_isminor_yes").autofocus;
+//       swal("","please select Is Minor or Not","error");
+//       return false;
+// }
+
+// else if( (document.getElementById("insu_nom_isminor_yes").checked==true) && (document.getElementById("insu_nom_isminor_no").checked==false) ){
+//           alert("sghdjahsg")
+
+//     //$("#guardian_details *").attr("enabled", "enabled").off('click');
+//     $("#insur_guardian_details *").prop("disabled", false);
+//    $('#tabs a[href=#insur_guardian_details]').tab('show').addClass("active");
+  
+// }
+// else if((document.getElementById("insu_nom_isminor_yes").checked==false) && (document.getElementById("insu_nom_isminor_no").checked==true) ){
+   
+//    alert("sghdjahsg")
+//    // document.getElementById("guardian_details").disabled=true;
+//    $("#insur_guardian_details *").attr("disabled", "disabled").off('click');
+//    $('#tabs a[href=#insur_guardian_details]').tab('show').addClass("active");
+// }
+
+    $('#tabs a[href=#insur_guardian_details]').tab('show').addClass("active");
+    $('#tabs a[href=#insur_nominee_details]').removeClass("active");
+    
+    
+}
+
+
+function insuranceGuardianValidation()
+{
+ 
+   insuranceNomineeValidation()
+ 
+ 
+   var insur_gurdian_name = document.getElementById("insur_gurdian_name").value;
+    if(insur_gurdian_name == ""){
+    document.getElementById("insur_gurdian_name").focus();
+
+    swal("Oops!","Please Enter Guardian Name!","error");
+    return false;
+    }
+
+    var insur_gurdian_fath_name = document.getElementById("insur_gurdian_fath_name").value;
+    if(insur_gurdian_fath_name == ""){
+    document.getElementById("insur_gurdian_fath_name").focus();
+
+    swal("Oops!","Please Enter Guardian Father Name!","error");
+    return false;
+    }
+
+    var insur_gurdian_reltn = document.getElementById("insur_gurdian_reltn").value;
+    if(insur_nom_reltn == ""){
+    document.getElementById("insur_nom_reltn").focus();
+
+    swal("Oops!","Please Enter Guardian Relation !","error");
+    return false;
+    }
+
+    var male_ed2 = document.getElementById("insur_gurdian_genmale");
+    var female_ed1 = document.getElementById("insur_gurdian_genfemale");
+    
+    if (male_ed2.checked){
+       console.log("male Selected");
+    }else if (female_ed1.checked) {
+       console.log("male Selected");
+    }
+    else{
+        document.getElementById("insur_gurdian_genmale").autofocus;
+        swal("","please select the Gender","error");
+        return false;
+    }
+
+    var insur_gurdian_occupation = document.getElementById("insur_gurdian_occupation").value;
+    if(insur_gurdian_occupation == ""){
+    document.getElementById("insur_gurdian_occupation").focus();
+
+    swal("Oops!","Please Enter Guardian occupation!","error");
+    return false;
+    }
+    var insur_gurdian_dob = document.getElementById("insur_gurdian_dob").value;
+    if(insur_gurdian_dob == ""){
+    document.getElementById("insur_gurdian_dob").focus();
+
+    swal("Oops!","Please Enter  Guardian DOB!","error");
+    return false;
+    }
+    var insur_gurdian_minr_acoper_by = document.getElementById("insur_gurdian_minr_acoper_by").value;
+    if(insur_gurdian_minr_acoper_by == ""){
+    document.getElementById("insur_gurdian_minr_acoper_by").focus();
+
+    swal("Oops!","Please Enter Guardian Minor!","error");
+    return false;
+    }
+    var insur_gurdian_addr_typ = document.getElementById("insur_gurdian_addr_typ").value;
+    if(insur_gurdian_addr_typ == ""){
+    document.getElementById("insur_gurdian_addr_typ").focus();
+
+    swal("Oops!","Please Enter Address Type!","error");
+    return false;
+    }
+    var insur_gurdian_addr_line = document.getElementById("insur_gurdian_addr_line").value;
+    if(insur_gurdian_addr_line == ""){
+    document.getElementById("insur_gurdian_addr_line").focus();
+
+    swal("Oops!","Please Enter Address Line!","error");
+    return false;
+    }
+    var insur_gurdian_landmark = document.getElementById("insur_gurdian_landmark").value;
+    if(insur_gurdian_landmark == ""){
+    document.getElementById("insur_gurdian_landmark").focus();
+
+    swal("Oops!","Please Enter Guardian Landmark!","error");
+    return false;
+    }
+    var insur_gurdian_village = document.getElementById("insur_gurdian_village").value;
+    if(insur_gurdian_village == ""){
+    document.getElementById("insur_gurdian_village").focus();
+
+    swal("Oops!","Please Enter Village!","error");
+    return false;
+    }
+    var insur_gurdian_pncht_mdl = document.getElementById("insur_gurdian_pncht_mdl").value;
+    if(insur_gurdian_pncht_mdl == ""){
+    document.getElementById("insur_gurdian_pncht_mdl").focus();
+
+    swal("Oops!","Please Enter Panchayat Mandal!","error");
+    return false;
+    }
+    var insur_gurdian_city = document.getElementById("insur_gurdian_city").value;
+    if(insur_gurdian_city == ""){
+    document.getElementById("insur_gurdian_city").focus();
+
+    swal("Oops!","Please Select Guardian City!","error");
+    return false;
+    }
+    var insur_gurdian_district = document.getElementById("insur_gurdian_district").value;
+    if(insur_gurdian_district == ""){
+    document.getElementById("insur_gurdian_district").focus();
+
+    swal("Oops!","Please Enter District!","error");
+    return false;
+    }
+  
+    var insur_gurdian_ste = document.getElementById("insur_gurdian_ste").value;
+    if(insur_gurdian_ste == ""){
+    document.getElementById("insur_gurdian_ste").focus();
+
+    swal("Oops!","Please Enter State!","error");
+    return false;
+    }
+    var insur_gurdian_country = document.getElementById("insur_gurdian_country").value;
+    if(insur_gurdian_country == ""){
+    document.getElementById("insur_gurdian_country").focus();
+
+    swal("Oops!","Please Enter Guardian Country!","error");
+    return false;
+    }
+    var   insur_gurdian_phn_num = document.getElementById("insur_gurdian_phn_num").value;
+    if(  insur_gurdian_phn_num == ""){
+    document.getElementById("insur_gurdian_phn_num").focus();
+
+    swal("Oops!","Please Enter Guardian Phone Number!","error");
+    return false;
+    }
+    var insur_gurdian_postl = document.getElementById("insur_gurdian_postl").value;
+    if(insur_gurdian_postl == ""){
+    document.getElementById("insur_gurdian_postl").focus();
+
+    swal("Oops!","Please Enter Guardian Postal Code!","error");
+    return false;
+    }
+    
+
+    var   insur_gurdian_guar_typ = document.getElementById("insur_gurdian_guar_typ").value;
+    if(  insur_gurdian_guar_typ == ""){
+    document.getElementById("insur_gurdian_guar_typ").focus();
+
+    swal("Oops!","Please Enter Guardian Type!","error");
+    return false;
+    }
+    var insur_gurdian_is_socty_mem = document.getElementById("insur_gurdian_is_socty_mem").value;
+    if(insur_gurdian_is_socty_mem == ""){
+    document.getElementById("insur_gurdian_is_socty_mem").focus();
+
+    swal("Oops!","Please Enter Guardian IS Society Member Or Not!","error");
+    return false;
+    }
+    var   insur_gurdian_is_acc_holder = document.getElementById("insur_gurdian_is_acc_holder").value;
+    if(  insur_gurdian_is_acc_holder == ""){
+    document.getElementById("insur_gurdian_is_acc_holder").focus();
+
+    swal("Oops!","Please Enter Guardian is Account Holder!","error");
+    return false;
+    }
+
+    document.getElementById('insurance_form').submit();
+}
+
+
+
+
+
+
+
+
+////validations  for update and edit//////////////////
+
+function insuranceValidationEdit()
+{
+
+  var insur_prov_name_ed = document.getElementById("insur_prov_name_ed").value;
+    if(insur_prov_name_ed == ""){
+    document.getElementById("insur_prov_name_ed").focus();
+
+    swal("Oops!","Please Enter Insurance Provider Name!","error");
+    return false;
+    }
+
+    var insur_prov_name_ed = document.getElementById("insur_prov_name_ed").value;
+    if(insur_prov_name_ed == ""){
+    document.getElementById("insur_prov_name_ed").focus();
+
+    swal("Oops!","Please Enter Insurance First premium paid date!","error");
+    return false;
+    }
+
+    var insur_policy_date_ed = document.getElementById("insur_policy_date_ed").value;
+    if(insur_policy_date_ed == ""){
+    document.getElementById("insur_policy_date_ed").focus();
+
+    swal("Oops!","Please Enter Insurance policy date!","error");
+    return false;
+    }
+
+    var insur_policy_date_ed = document.getElementById("insur_policy_date_ed").value;
+    if(insur_policy_date_ed == ""){
+    document.getElementById("insur_policy_date_ed").focus();
+
+    swal("Oops!","Please Enter Insurance policy Number!","error");
+    return false;
+    }
+
+    var insur_coverage_ed = document.getElementById("insur_coverage_ed").value;
+    if(insur_coverage_ed == ""){
+    document.getElementById("insur_coverage_ed").focus();
+
+    swal("Oops!","Please Enter Insurance Coverage!","error");
+    return false;
+    }
+    var insur_risk_ed = document.getElementById("insur_risk_ed").value;
+    if(insur_risk_ed == ""){
+    document.getElementById("insur_risk_ed").focus();
+
+    swal("Oops!","Please Enter Insurance Risk!","error");
+    return false;
+    }
+    var insur_policy_amount_ed = document.getElementById("insur_policy_amount_ed").value;
+    if(insur_policy_amount_ed == ""){
+    document.getElementById("insur_policy_amount_ed").focus();
+
+    swal("Oops!","Please Enter Insurance policy Amount!","error");
+    return false;
+    }
+    var insur_premium_date_ed = document.getElementById("insur_premium_date_ed").value;
+    if(insur_premium_date_ed == ""){
+    document.getElementById("insur_premium_date_ed").focus();
+
+    swal("Oops!","Please Enter Insurance Premium date!","error");
+    return false;
+    }
+    var insur_premium_amt_ed = document.getElementById("insur_premium_amt_ed").value;
+    if(insur_premium_amt_ed == ""){
+    document.getElementById("insur_premium_amt_ed").focus();
+
+    swal("Oops!","Please Enter Insurance Premium Amount!","error");
+    return false;
+    }
+    var insur_premium_due_date_ed = document.getElementById("insur_premium_due_date_ed").value;
+    if(insur_premium_due_date_ed == ""){
+    document.getElementById("insur_premium_due_date_ed").focus();
+
+    swal("Oops!","Please Enter Insurance Premium Due date!","error");
+    return false;
+    }
+    var insur_policy_due_date_ed = document.getElementById("insur_policy_due_date_ed").value;
+    if(insur_policy_due_date_ed == ""){
+    document.getElementById("insur_policy_due_date_ed").focus();
+
+    swal("Oops!","Please Enter Insurance Policy Due date!","error");
+    return false;
+    }
+
+    var insur_remarks_ed = document.getElementById("insur_remarks_ed").value;
+    if(insur_remarks_ed == ""){
+    document.getElementById("insur_remarks_ed").focus();
+
+    swal("Oops!","Please Enter Remarks","error");
+    return false;
+    }
+
+    $('#tabs a[href=#insur_nominee_details_ed]').tab('show').addClass("active");
+    $('#tabs a[href=#insurance_details_ed]').removeClass("active");
+  
+   
+
+}
+
+function insuranceNomineeValidationEdit()
+{
+//tab 1 insurance
+ insuranceValidationEdit()
+//tab 2 nominee
+
+  var insur_nom_name_ed = document.getElementById("insur_nom_name_ed").value;
+    if(insur_nom_name_ed == ""){
+    document.getElementById("insur_nom_name_ed").focus();
+
+    swal("Oops!","Please Enter Insurance Nominee Name!","error");
+    return false;
+    }
+
+    var insur_nom_fatr_nme_ed = document.getElementById("insur_nom_fatr_nme_ed").value;
+    if(insur_nom_fatr_nme_ed == ""){
+    document.getElementById("insur_nom_fatr_nme_ed").focus();
+
+    swal("Oops!","Please Enter Insurance Nominee Father Name!","error");
+    return false;
+    }
+
+    var insur_nom_reltn_ed = document.getElementById("insur_nom_reltn_ed").value;
+    if(insur_nom_reltn_ed == ""){
+    document.getElementById("insur_nom_reltn_ed").focus();
+
+    swal("Oops!","Please Enter Nominee Relation !","error");
+    return false;
+    }
+
+    var male_ed_nm = document.getElementById("insur_nom_genmale_ed");
+    var female_ed_nm = document.getElementById("insur_nom_genfemale_ed");
+
+    if (male_ed_nm.checked){
+       console.log("male Selected");
+    }else if (female_ed_nm.checked) {
+       console.log("female Selected");
+    }
+    else{
+        document.getElementById("insur_nom_genmale_ed").autofocus;
+        swal("","please select the Gender","error");
+        return false;
+    }
+
+
+    var insur_nom_occptn_ed = document.getElementById("insur_nom_occptn_ed").value;
+    if(insur_nom_occptn_ed == ""){
+    document.getElementById("insur_nom_occptn_ed").focus();
+
+    swal("Oops!","Please Enter NBominee Occupation!","error");
+    return false;
+    }
+    var insur_nom_dob_ed = document.getElementById("insur_nom_dob_ed").value;
+    if(insur_nom_dob_ed == ""){
+    document.getElementById("insur_nom_dob_ed").focus();
+
+    swal("Oops!","Please Enter  Nominee DOB!","error");
+    return false;
+    }
+    var insur_nom_addr_ed = document.getElementById("insur_nom_addr_ed").value;
+    if(insur_nom_addr_ed == ""){
+    document.getElementById("insur_nom_addr_ed").focus();
+
+    swal("Oops!","Please Enter Nominee Address!","error");
+    return false;
+    }
+    var insur_nom_lndmark_ed = document.getElementById("insur_nom_lndmark_ed").value;
+    if(insur_nom_lndmark_ed == ""){
+    document.getElementById("insur_nom_lndmark_ed").focus();
+
+    swal("Oops!","Please Enter Landmark!","error");
+    return false;
+    }
+    var insur_nom_village_ed = document.getElementById("insur_nom_village_ed").value;
+    if(insur_nom_village_ed == ""){
+    document.getElementById("insur_nom_village_ed").focus();
+
+    swal("Oops!","Please Enter Village Name!","error");
+    return false;
+    }
+    var insur_nom_pncht_mdl_ed = document.getElementById("insur_nom_pncht_mdl_ed").value;
+    if(insur_nom_pncht_mdl_ed == ""){
+    document.getElementById("insur_nom_pncht_mdl_ed").focus();
+
+    swal("Oops!","Please Enter Nominee panchayat mandal!","error");
+    return false;
+    }
+    var insur_nom_district_ed = document.getElementById("insur_nom_district_ed").value;
+    if(insur_nom_district_ed == ""){
+    document.getElementById("insur_nom_district_ed").focus();
+
+    swal("Oops!","Please Enter Nominee panchayat mandal!","error");
+    return false;
+    }
+    var insur_nom_city_ed = document.getElementById("insur_nom_city_ed").value;
+    if(insur_nom_city_ed == ""){
+    document.getElementById("insur_nom_city_ed").focus();
+
+    swal("Oops!","Please Enter City!","error");
+    return false;
+    }
+    var insur_nom_country_ed = document.getElementById("insur_nom_country_ed").value;
+    if(insur_nom_country_ed == ""){
+    document.getElementById("insur_nom_country_ed").focus();
+
+    swal("Oops!","Please Select Country!","error");
+    return false;
+    }
+    var insur_nom_ste_ed = document.getElementById("insur_nom_ste_ed").value;
+    if(insur_nom_ste_ed == ""){
+    document.getElementById("insur_nom_ste_ed").focus();
+
+    swal("Oops!","Please Select State!","error");
+    return false;
+    }
+    var insur_nom_postal_cd_ed = document.getElementById("insur_nom_postal_cd_ed").value;
+    if(insur_nom_postal_cd_ed == ""){
+    document.getElementById("insur_nom_postal_cd_ed").focus();
+
+    swal("Oops!","Please Enter Postal Code!","error");
+    return false;
+    }
+  
+    var insur_nom_phn_num_ed = document.getElementById("insur_nom_phn_num_ed").value;
+    if(insur_nom_phn_num_ed == ""){
+    document.getElementById("insur_nom_phn_num_ed").focus();
+
+    swal("Oops!","Please Enter Nominee Phone Number!","error");
+    return false;
+    }
+   
+   //  var   acc_nom_isminor_ed = document.getElementsByName("acc_nom_isminor_ed").value;
+   //  if(  acc_nom_isminor_ed == ""){
+   //  document.getElementsByName("acc_nom_isminor_ed").focus();
+
+   //  swal("Oops!","Please Select whether Minor or not!","error");
+   //  return false;
+   //  }
+
+
+   var yes_ed = document.getElementById("insu_nom_isminor_yes_ed");
+   var no_ed = document.getElementById("acc_nom_isminor_no_ed");
+   
+   if (yes_ed.checked){
+      console.log("Yes Selected");
+                //  alert("sghdjahsg")
+
+                 $("#insu_nom_isminor_yes_ed").click(function() {
+                    $("#insur_gurdian_name_ed").attr("disabled", true);
+                    $("#insur_gurdian_reltn_ed").hide();//To hide the dropdown
+                });
+
+
+    $("#insur_guardian_details_ed *").prop("disabled", false);
+   $('#tabs a[href=#insur_guardian_details_ed]').tab('show').addClass("active");
+   $('#tabs a[href=#_ed]').removeClass("active");
+   }
+   else if (no_ed.checked) {
+      console.log("No Selected");
+        //   alert("sghdjahsg")
+
+
+
+    document.getElementById("guardian_details").disabled=true;
+   $("#insur_guardian_details_ed *").attr("disabled", "disabled").off('click');
+   $('#tabs a[href=#insur_guardian_details_ed]').tab('show').addClass("active");
+
+   }
+   else{
+       document.getElementById("insu_nom_isminor_yes_ed").autofocus;
+       swal("","please select Minor  YES/NO","error");
+       return false;
+   }
+
+   
+
+
+    $('#tabs a[href=#insur_guardian_details]').tab('show').addClass("active");
+    $('#tabs a[href=#insur_nominee_details]').removeClass("active");
+    
+}   
+
+
+function insuranceGuardianValidationEdit()
+{
+ 
+   insuranceNomineeValidationEdit()
+ 
+ 
+   var insur_gurdian_name_ed = document.getElementById("insur_gurdian_name_ed").value;
+    if(insur_gurdian_name_ed == ""){
+    document.getElementById("insur_gurdian_name_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Name!","error");
+    return false;
+    }
+
+    var insur_gurdian_fath_name_ed = document.getElementById("insur_gurdian_fath_name_ed").value;
+    if(insur_gurdian_fath_name_ed == ""){
+    document.getElementById("insur_gurdian_fath_name_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Father Name!","error");
+    return false;
+    }
+
+    var insur_gurdian_reltn_ed = document.getElementById("insur_gurdian_reltn_ed").value;
+    if(insur_gurdian_reltn_ed == ""){
+    document.getElementById("insur_gurdian_reltn_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Relation !","error");
+    return false;
+    }
+
+    var insur_gurdian_gender_ed = document.getElementsByName("insur_gurdian_gender_ed").value;
+    if(insur_gurdian_gender_ed == ""){
+    document.getElementsByName("insur_gurdian_gender_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Gender!","error");
+    return false;
+    }
+
+    var insur_gurdian_occupation_ed = document.getElementById("insur_gurdian_occupation_ed").value;
+    if(insur_gurdian_occupation_ed == ""){
+    document.getElementById("insur_gurdian_occupation_ed").focus();
+
+    swal("Oops!","Please Enter Guardian occupation!","error");
+    return false;
+    }
+    var insur_gurdian_dob_ed = document.getElementById("insur_gurdian_dob_ed").value;
+    if(insur_gurdian_dob_ed == ""){
+    document.getElementById("insur_gurdian_dob_ed").focus();
+
+    swal("Oops!","Please Enter  Guardian DOB!","error");
+    return false;
+    }
+    var insur_gurdian_minr_acoper_by_ed = document.getElementById("insur_gurdian_minr_acoper_by_ed").value;
+    if(insur_gurdian_minr_acoper_by_ed == ""){
+    document.getElementById("insur_gurdian_minr_acoper_by_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Minor!","error");
+    return false;
+    }
+    var insur_gurdian_addr_typ_ed = document.getElementById("insur_gurdian_addr_typ_ed").value;
+    if(insur_gurdian_addr_typ_ed == ""){
+    document.getElementById("insur_gurdian_addr_typ_ed").focus();
+
+    swal("Oops!","Please Enter Address Type!","error");
+    return false;
+    }
+    var insur_gurdian_addr_line_ed = document.getElementById("insur_gurdian_addr_line_ed").value;
+    if(insur_gurdian_addr_line_ed == ""){
+    document.getElementById("insur_gurdian_addr_line_ed").focus();
+
+    swal("Oops!","Please Enter Address Line!","error");
+    return false;
+    }
+    var insur_gurdian_landmark_ed = document.getElementById("insur_gurdian_landmark_ed").value;
+    if(insur_gurdian_landmark_ed == ""){
+    document.getElementById("insur_gurdian_landmark_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Landmark!","error");
+    return false;
+    }
+    var insur_gurdian_village_ed = document.getElementById("insur_gurdian_village_ed").value;
+    if(insur_gurdian_village_ed == ""){
+    document.getElementById("insur_gurdian_village_ed").focus();
+
+    swal("Oops!","Please Enter Village!","error");
+    return false;
+    }
+    var insur_gurdian_pncht_mdl_ed = document.getElementById("insur_gurdian_pncht_mdl_ed").value;
+    if(insur_gurdian_pncht_mdl_ed == ""){
+    document.getElementById("insur_gurdian_pncht_mdl_ed").focus();
+
+    swal("Oops!","Please Enter Panchayat Mandal!","error");
+    return false;
+    }
+    var insur_gurdian_city_ed = document.getElementById("insur_gurdian_city_ed").value;
+    if(insur_gurdian_city_ed == ""){
+    document.getElementById("insur_gurdian_city_ed").focus();
+
+    swal("Oops!","Please Select Guardian City!","error");
+    return false;
+    }
+    var insur_gurdian_district_ed = document.getElementById("insur_gurdian_district_ed").value;
+    if(insur_gurdian_district_ed == ""){
+    document.getElementById("insur_gurdian_district_ed").focus();
+
+    swal("Oops!","Please Enter District!","error");
+    return false;
+    }
+  
+    var insur_gurdian_ste_ed = document.getElementById("insur_gurdian_ste_ed").value;
+    if(insur_gurdian_ste_ed == ""){
+    document.getElementById("insur_gurdian_ste_ed").focus();
+
+    swal("Oops!","Please Enter State!","error");
+    return false;
+    }
+    var insur_gurdian_country_ed = document.getElementById("insur_gurdian_country_ed").value;
+    if(insur_gurdian_country_ed == ""){
+    document.getElementById("insur_gurdian_country_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Country!","error");
+    return false;
+    }
+    var   insur_gurdian_phn_num_ed = document.getElementById("insur_gurdian_phn_num_ed").value;
+    if(  insur_gurdian_phn_num_ed == ""){
+    document.getElementById("insur_gurdian_phn_num_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Phone Number!","error");
+    return false;
+    }
+    var insur_gurdian_postl_ed = document.getElementById("insur_gurdian_postl_ed").value;
+    if(insur_gurdian_postl_ed == ""){
+    document.getElementById("insur_gurdian_postl_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Postal Code!","error");
+    return false;
+    }
+    
+
+    var   insur_gurdian_guar_typ_ed = document.getElementById("insur_gurdian_guar_typ_ed").value;
+    if(  insur_gurdian_guar_typ_ed == ""){
+    document.getElementById("insur_gurdian_guar_typ_ed").focus();
+
+    swal("Oops!","Please Enter Guardian Type!","error");
+    return false;
+    }
+    var insur_gurdian_is_socty_mem_ed = document.getElementById("insur_gurdian_is_socty_mem_ed").value;
+    if(insur_gurdian_is_socty_mem_ed == ""){
+    document.getElementById("insur_gurdian_is_socty_mem_ed").focus();
+
+    swal("Oops!","Please Enter Guardian IS Society Member Or Not!","error");
+    return false;
+    }
+    var   insur_gurdian_is_acc_holder_ed = document.getElementById("insur_gurdian_is_acc_holder_ed").value;
+    if(  insur_gurdian_is_acc_holder_ed == ""){
+    document.getElementById("insur_gurdian_is_acc_holder_ed").focus();
+
+    swal("Oops!","Please Enter Guardian is Account Holder!","error");
+    return false;
+    }
+
+    document.getElementById('insurance_edit_submit').submit();
+}
+
+/////////////////////////////////////
+
+
+///clear insurance tab
+function clear_insurance()
+{
+    document.getElementById('insur_prov_name').value="";
+    document.getElementById('insur_lst_prm_paid').value="";
+    document.getElementById('insur_policy_date').value="";
+    document.getElementById('insur_policy_num').value="";
+    document.getElementById('insur_coverage').value="";
+    document.getElementById('insur_risk').value="";
+    document.getElementById('insur_policy_amount').value="";
+    document.getElementById('insur_premium_date').value="";
+    document.getElementById('insur_premium_amt').value="";
+    document.getElementById('insur_premium_due_date').value="";
+    document.getElementById('remarks_insurance').value="";
+   
+}
+//clear insurance Nominee tab
+function clear_insurance_nominee()
+         
+{
+    document.getElementById('insur_nom_name').value="";
+    document.getElementById('insur_nom_fatr_nme').value="";
+    document.getElementById('insur_nom_reltn').value="";
+    document.getElementById('insur_nom_genmale').checked= false;
+    document.getElementById('insur_nom_genfemale').checked= false;
+    document.getElementById('insur_nom_occptn').value="";
+    document.getElementById('insur_nom_dob').value="";
+    document.getElementById('insur_nom_addr').value="";
+    document.getElementById('insur_nom_lndmark').value="";
+    document.getElementById('insur_nom_village').value="";
+    document.getElementById('insur_nom_pncht_mdl').value="";  
+    document.getElementById('insur_nom_city').value="";
+    document.getElementById('insur_nom_distict').value="";
+    document.getElementById('insur_nom_ste').value="";
+    document.getElementById('insur_nom_country').value="";
+    document.getElementById('insur_nom_postal_cd').value="";
+    document.getElementById('insur_nom_phn_num').value="";
+    document.getElementById('acc_nom_isminor_yes').checked= false;
+    document.getElementById('acc_nom_isminor_no').checked= false;  
+}
+
+//clear insurance Guardian tab
+function clear_insurance_guardian()
+{
+   document.getElementById('insur_gurdian_name').value="";
+   document.getElementById('insur_gurdian_fath_name').value="";
+   document.getElementById('insur_gurdian_reltn').value="";
+   document.getElementById('insur_gurdian_genmale').checked=false;
+   document.getElementById('insur_gurdian_genfemale').checked=false;
+   document.getElementById('insur_gurdian_occupation').value="";
+   document.getElementById('insur_gurdian_dob').value="";
+   document.getElementById('insur_gurdian_minr_acoper_by').value="";
+   document.getElementById('insur_gurdian_addr_typ').value="";
+   document.getElementById('insur_gurdian_addr_line').value="";
+   document.getElementById('insur_gurdian_landmark').value="";  
+   document.getElementById('insur_gurdian_village').value="";
+   document.getElementById('insur_gurdian_pncht_mdl').value="";
+   document.getElementById('insur_gurdian_city').value="";
+   document.getElementById('insur_gurdian_district').value="";
+   document.getElementById('insur_gurdian_ste').value="";
+   document.getElementById('insur_gurdian_country').value="";
+   document.getElementById('insur_gurdian_phn_num').value="";
+   document.getElementById('insur_gurdian_postl').value="";  
+ 
+   document.getElementById('insur_gurdian_guar_typ').value="";
+   document.getElementById('insur_gurdian_is_socty_mem').value="";
+   document.getElementById('insur_gurdian_is_acc_holder').value="";  
+}
+
+
+
+///clear insurance edit tab
+function clear_insuranceEdit()
+{
+    document.getElementById('insur_prov_name_ed').value="";
+    document.getElementById('insur_lst_prm_paid_ed').value="";
+    document.getElementById('insur_policy_date_ed').value="";
+    document.getElementById('insur_policy_num_ed').value="";
+    document.getElementById('insur_coverage_ed').value="";
+    document.getElementById('insur_risk_ed').value="";
+    document.getElementById('insur_policy_amount_ed').value="";
+    document.getElementById('insur_premium_date_ed').value="";
+    document.getElementById('insur_premium_amt_ed').value="";
+    document.getElementById('insur_premium_due_date_ed').value="";
+    document.getElementById('insur_policy_due_date_ed').value="";
+    document.getElementById('remarks_insurance_ed').value="";
+   
+}
+//clear insurance edit Nominee tab
+function clear_insurance_nomineeEdit()
+         
+{
+    document.getElementById('insur_nom_name_ed').value="";
+    document.getElementById('insur_nom_fatr_nme_ed').value="";
+    document.getElementById('insur_nom_reltn_ed').value="";
+    document.getElementById('insur_nom_genmale_ed').checked= false;
+    document.getElementById('insur_nom_genfemale_ed').checked= false;
+    document.getElementById('insur_nom_occptn_ed').value="";
+    document.getElementById('insur_nom_dob_ed').value="";
+    document.getElementById('insur_nom_addr_ed').value="";
+    document.getElementById('insur_nom_lndmark_ed').value="";
+    document.getElementById('insur_nom_village_ed').value="";
+    document.getElementById('insur_nom_pncht_mdl_ed').value="";  
+    document.getElementById('insur_nom_city_ed').value="";
+    document.getElementById('insur_nom_district_ed').value="";
+    document.getElementById('insur_nom_ste_ed').value="";
+    document.getElementById('insur_nom_country_ed').value="";
+    document.getElementById('insur_nom_postal_cd_ed').value="";
+    document.getElementById('insur_nom_phn_num_ed').value="";
+    document.getElementById('acc_nom_isminor_yes').checked= false;
+    document.getElementById('acc_nom_isminor_no').checked= false;  
+}
+
+//clear insurance edit Guardian tab
+function clear_insurance_guardianEdit()
+{
+   document.getElementById('insur_gurdian_name_ed').value="";
+   document.getElementById('insur_gurdian_fath_name_ed').value="";
+   document.getElementById('insur_gurdian_reltn_ed').value="";
+   document.getElementById('insur_gurdian_genmale_ed').checked=false;
+   document.getElementById('insur_gurdian_genfemale_ed').checked=false;
+   document.getElementById('insur_gurdian_occupation_ed').value="";
+   document.getElementById('insur_gurdian_dob_ed').value="";
+   document.getElementById('insur_gurdian_minr_acoper_by_ed').value="";
+   document.getElementById('insur_gurdian_addr_typ_ed').value="";
+   document.getElementById('insur_gurdian_addr_line_ed').value="";
+   document.getElementById('insur_gurdian_landmark_ed').value="";  
+   document.getElementById('insur_gurdian_village_ed').value="";
+   document.getElementById('insur_gurdian_pncht_mdl_ed').value="";
+   document.getElementById('insur_gurdian_city_ed').value="";
+   document.getElementById('insur_gurdian_district_ed').value="";
+   document.getElementById('insur_gurdian_ste_ed').value="";
+   document.getElementById('insur_gurdian_country_ed').value="";
+   document.getElementById('insur_gurdian_phn_num_ed').value="";
+   document.getElementById('insur_gurdian_postl_ed').value="";  
+ 
+   document.getElementById('insur_gurdian_guar_typ_ed').value="";
+   document.getElementById('insur_gurdian_is_socty_mem_ed').value="";
+   document.getElementById('insur_gurdian_is_acc_holder_ed').value="";  
+}
+
+
+
+
+///Selecting state on City for Nominee
+function stateoncity_insurance_nominee() {
+   
+   var selected_city = document.getElementById("insur_nom_city").value;
+    console.log(selected_city)
+obj1=JSON.parse(selected_city);
+console.log("res",obj1.state);
+console.log("ghsa",obj1.city);
+document.getElementById("insur_nom_ste").value = obj1.state;
+ }
+ ///Selecting state on City for guardian
+ function stateoncity_insurance_guardian() {
+   
+   var selected_city = document.getElementById("insur_gurdian_city").value;
+    console.log(selected_city)
+obj1=JSON.parse(selected_city);
+console.log("res",obj1.state);
+console.log("ghsa",obj1.city);
+document.getElementById("insur_gurdian_ste").value = obj1.state;
+ }
+
+ function stateoncity_insurance_nominee() {
+   
+   var selected_city = document.getElementById("insur_nom_city").value;
+    console.log(selected_city)
+obj1=JSON.parse(selected_city);
+console.log("res",obj1.state);
+console.log("ghsa",obj1.city);
+document.getElementById("insur_nom_ste").value = obj1.state;
+ }
+ ///Selecting state on City for guardian
+ function stateoncity_insurance_guardian() {
+   
+   var selected_city = document.getElementById("insur_gurdian_city").value;
+    console.log(selected_city)
+obj1=JSON.parse(selected_city);
+console.log("res",obj1.state);
+console.log("ghsa",obj1.city);
+document.getElementById("insur_gurdian_ste").value = obj1.state;
+ }
+
+
+
+ function stateoncity_insurance_nominee_edit() {
+   
+   var selected_city = document.getElementById("insur_nom_city_ed").value;
+    console.log(selected_city)
+obj1=JSON.parse(selected_city);
+console.log("res",obj1.state);
+console.log("ghsa",obj1.city);
+document.getElementById("insur_nom_ste_ed").value = obj1.state;
+ }
+ ///Selecting state on City for guardian
+ function stateoncity_insurance_guardian_edit() {
+   
+   var selected_city = document.getElementById("insur_gurdian_city_ed").value;
+    console.log(selected_city)
+obj1=JSON.parse(selected_city);
+console.log("res",obj1.state);
+console.log("ghsa",obj1.city);
+document.getElementById("insur_gurdian_ste_ed").value = obj1.state;
+ }
+
+
+
+
+ function edit_row_insurance(oObject)
+ {
+//  alert(oObject)
+ var id = oObject.id;
+//  alert("This object's ID attribute is set to \"" + id + "\"."); 
+  // alert(id.substring(0, str.indexOf("ed")));
+  var rb1=document.getElementById("rf"+id).value;
+//   alert("radio button value"+rb1)
+ document.getElementById("radiobutton1rfed"+rb1).checked=true;
+ var idchecked=$("input[name='radiobutton1rfed']:checked").val();
+//   alert(idchecked);
+ 
+ 
+ var member_id=document.getElementById('radiobutton1rfed'+idchecked).value;
+//  alert("BANK ID -----------------------"+member_id);
+ 
+ document.getElementById("tempinsuranceid").value=member_id;
+document.getElementById("insurance_edit_window").submit();
+ }
+
+
+
+ function view_row_insurance(oObject)
+ {
+    // alert(oObject)
+    var id = oObject.id;
+     //alert("This object's ID attribute is set to \"" + id + "\"."); 
+     // alert(id.substring(0, str.indexOf("ed")));
+     var rb1=document.getElementById("vf"+id).value;
+    //  alert("radio button value"+rb1)
+    document.getElementById("radiobutton1rfvw"+rb1).checked=true;
+    var idchecked=$("input[name='radiobutton1rfvw']:checked").val();
+    //  alert(idchecked);
+    
+    
+    var member_id=document.getElementById('radiobutton1rfvw'+idchecked).value;
+    // alert("BANK ID -----------------------"+member_id);
+    
+    document.getElementById("tempinsuranceid1").value=member_id;
+    // alert(document.getElementById("tempinsuranceid1").value)
+    document.getElementById("insurance_view_window").submit();
+    }
+
+////view screen
+
+function viewtabcontinue()
+{
+   $('#tabs a[href=#insur_nominee_details_vw]').tab('show').addClass("active");
+   $('#tabs a[href=#insurance_details_vw]').removeClass("active");
+}
+
+function viewtabcontinueguardian()
+{
+   $('#tabs a[href=#insur_guardian_details_vw]').tab('show').addClass("active");
+   $('#tabs a[href=#insur_nominee_details_vw]').removeClass("active");
+}
+
+
+
+
+    function delete_row_insurance(oObject)
+    {
+       // alert(oObject)
+       var id = oObject.id;
+        //alert("This object's ID attribute is set to \"" + id + "\"."); 
+       //  alert(id.substring(0, str.indexOf("ed")));
+        var rb1=document.getElementById("del"+id).value;
+       // alert("radio button value"+rb1)
+       document.getElementById("radiobutton1rfdel"+rb1).checked=true;
+       var idchecked=$("input[name='radiobutton1rfdel']:checked").val();
+        //alert(idchecked);
+       
+       
+       var member_id=document.getElementById('radiobutton1rfdel'+idchecked).value;
+       //alert("BANK ID -----------------------"+member_id);
+       
+       document.getElementById("tempinsurdelete").value=member_id;
+      // document.getElementById("acc_master_delete_window").submit();
+   }
+   
+
+
+
+
+
+    function delete_insurance_onconfirm(){
+
+      document.getElementById("insurance_delete_window").submit();
+  }
+
+
+  function isMinor(minor){
+   $('input[name=acc_nom_isminor_ed]').val=minor.value;
+}
+
+
+/* ------------------------------------------------------------------------ Insurance DEtails END ---------------------------------------------------------------------------- */
+
+
+function hideShowedit()
+{
+    // alert("gdj")
+    if(document.getElementById("insu_nom_isminor_yes_ed").checked == true){
+        // alert("vdnv")
+        document.getElementById("cont_insur_nom_det_ed").style.display="block";
+        document.getElementById("insur_nom_up_ed").style.display="none";
+    }
+    else if(document.getElementById("acc_nom_isminor_no_ed").checked == true){
+        // alert("kjkk")
+        document.getElementById("cont_insur_nom_det_ed").style.display="none";
+        document.getElementById("insur_nom_up_ed").style.display="block";
+    }
+}
+
+function hideShowadd()
+{
+    // alert("gdj")
+    if(document.getElementById("insu_nom_isminor_yes").checked == true){
+        // alert("vdnv")
+        document.getElementById("cont_insur_nom_det").style.display="block";
+        document.getElementById("insur_nom_up").style.display="none";
+    }
+    else if(document.getElementById("acc_nom_isminor_no").checked == true){
+        // alert("kjkk")
+        document.getElementById("cont_insur_nom_det").style.display="none";
+        document.getElementById("insur_nom_up").style.display="block";
+
+    }
+}
+
+function submitwithoutguardiandetailsAdd(){
+    document.getElementById('insurance_form').submit();
+}
+function submitwithoutguardiandetailsEdit(){
+    document.getElementById('insurance_edit_submit').submit();
+}

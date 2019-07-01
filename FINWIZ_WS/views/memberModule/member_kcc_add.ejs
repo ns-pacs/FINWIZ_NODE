@@ -273,7 +273,7 @@ Accounts
       <strong style="color:green"><%= message.success_msg %></strong>
     </div>
     <% } %>
-                  <form autocomplete="off" action="/memberDetailsModule/memberDetails/mem_kcc_add" method="POST" autocomplete="off">
+                  <form autocomplete="off" action="/memberDetailsModule/memberDetails/mem_kcc_add" method="POST" id="kccadd" autocomplete="off">
                     <div class="container row mt-2">
 
                       <div class="col-sm-12 col-md-6">
@@ -292,7 +292,7 @@ Accounts
                       <div class="col-sm-12 col-md-6">
                         <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5"
                           style="padding-left:0% !important;">Member Name</label>
-                        <input type="text" class="col-sm-12 col-md-6" name="mem_name" id="mem_name" placeholder="">
+                        <input type="text" class="col-sm-12 col-md-6" name="mem_name" id="mem_name"  onkeypress="return alpha(event)" placeholder="">
                       </div>
                     </div>
 
@@ -324,7 +324,7 @@ Accounts
                       <div class="col-sm-12 col-md-6">
                         <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Card
                           Number</label>
-                        <input type="text" class="col-sm-12 col-md-6" name="card_num" id="card_num" placeholder="">
+                        <input type="text" class="col-sm-12 col-md-6" name="card_num" id="card_num" maxlength="10"  onkeypress="return numeric(event)" placeholder="">
                       </div>
                     </div>
 
@@ -342,7 +342,7 @@ Accounts
                       </div>
                       <div class="col-sm-12 col-md-5"></div>
                       <div class="col-sm-12 col-md-2">
-                        <input type="submit" class="btn" name="sub" id="sub" value="Submit" onclick="KccValidation()">
+                        <input type="button" class="btn" name="sub" id="sub" value="Submit" onclick="KccValidation()">
                       </div>
                     </div>
 
@@ -371,7 +371,7 @@ Accounts
 
                   <h6>EDIT Record</h6>
                   <hr>
-                  <form action="/memberDetailsModule/memberDetails/mem_kcc_edit" method="POST" autocomplete="off">
+                  <form action="/memberDetailsModule/memberDetails/mem_kcc_edit" method="POST" id="kcc_edit" autocomplete="off">
                     <div class="container row mt-2">
 
                       <div class="col-sm-12 col-md-6">
@@ -392,7 +392,7 @@ Accounts
                       <div class="col-sm-12 col-md-6">
                         <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5"
                           style="padding-left:0% !important;">Member Name</label>
-                        <input type="text" class="col-sm-12 col-md-6" name="mem_name2" id="mem_name2" placeholder=""
+                        <input type="text" class="col-sm-12 col-md-6" name="mem_name2" id="mem_name2" onkeypress="return alpha(event)" placeholder=""
                           value="<%=member_Name%>">
                       </div>
                     </div>
@@ -425,8 +425,9 @@ Accounts
                       <div class="col-sm-12 col-md-6">
                         <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Card
                           Number</label>
-                        <input type="number" class="col-sm-12 col-md-6" name="card_num2" id="card_num2" placeholder=""
-                          value="<%=card_Num%>">
+                          <input type="text" class="col-sm-12 col-md-6" name="card_num2" id="card_num2" maxlength="10"  onkeypress="return numeric(event)" placeholder="" value="<%=card_Num%>">
+
+                          
                       </div>
                     </div>
 
@@ -447,7 +448,7 @@ Accounts
                         <input hidden type="number" class="col-sm-12 col-md-6" name="memkcc_edit" id="memkcc_edit"
                           placeholder="" value="<%=member_n_id%>">
 
-                        <input type="submit" class="btn" name="sub_ed" id="sub_ed" value="Submit">
+                        <input type="button" class="btn" name="sub_ed" id="sub_ed" value="Submit" onclick="kcc_edit_validation()">
                       </div>
                     </div>
 

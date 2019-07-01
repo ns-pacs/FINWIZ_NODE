@@ -3686,47 +3686,105 @@ function resetform_memdiv(){
 ///////validations kcc/////
 
 function KccValidation(){
-var div_sel_kcc = document.getElementById("div_sel_kcc").value;
-                                    if(div_sel_kcc == ""){
+var select_mem = document.getElementById("div_sel_kcc").value;
+                                    if(select_mem == ""){
                                                     document.getElementById("div_sel_kcc").focus();
                                                     
                                                     swal("Oops!","Please Select Member Type","error");
                                                     return false;
                                                 }
 
-  var mem_name = document.getElementById("mem_name").value;
-                                                if(mem_name == ""){
+  var member_name = document.getElementById("mem_name").value;
+                                                if(member_name == ""){
                                                  document.getElementById("mem_name").focus();
                                                  
                                                  swal("Oops!","Please Select Member Name","error");
                                                   return false;
                                                             }
 
-   var iss_btwn = document.getElementById("iss_btwn").value;
-                                                     if(iss_btwn == ""){
-                                                         document.getElementById("iss_btwn").focus();
+   var iss_date = document.getElementById("kcc_from_date").value;
+                                                     if(iss_date == ""){
+                                                         document.getElementById("kcc_from_date").focus();
                                                         
                                                           swal("Oops!","Please Select Issued Date From","error");
                                                             return false;
                                                                         }
                                                             
-var   iss_btwn_and= document.getElementById(" iss_btwn_and").value;
-                                           if(  iss_btwn_and== ""){
-                                                         document.getElementById(" iss_btwn_and").focus();
+var   todate= document.getElementById("kcc_to_date").value;
+                                           if(todate== ""){
+                                                         document.getElementById("kcc_to_date").focus();
                                                           
                                                               swal("Oops!","Please Select Issued Date To","error");
                                                                      return false;
                                                                   }
 
-  var card_num = document.getElementById("card_num").value;
-                                    if(card_num == ""){
+  var card_number = document.getElementById("card_num").value;
+                                    if(card_number == ""){
                                                                document.getElementById("card_num").focus();
                                                                
                                                                 swal("Oops!","Please Select Card Number","error");
                                                                 return false;
                                                              }
                                                             
+
+                                                             document.getElementById("kccadd").submit();
                                                             }
+
+
+
+//////////////////////////////////////////////
+
+
+function kcc_edit_validation(){
+    var select_mem = document.getElementById("memid_kcc_ed").value;
+                                        if(select_mem == ""){
+                                                        document.getElementById("memid_kcc_ed").focus();
+                                                        
+                                                        swal("Oops!","Please Select Member Type","error");
+                                                        return false;
+                                                    }
+    
+      var member_name = document.getElementById("mem_name2").value;
+                                                    if(member_name == ""){
+                                                     document.getElementById("mem_name2").focus();
+                                                     
+                                                     swal("Oops!","Please Select Member Name","error");
+                                                      return false;
+                                                                }
+    
+       var iss_date = document.getElementById("kcc_from_date_ed").value;
+                                                         if(iss_date == ""){
+                                                             document.getElementById("kcc_from_date_ed").focus();
+                                                            
+                                                              swal("Oops!","Please Select Issued Date From","error");
+                                                                return false;
+                                                                            }
+                                                                
+    var   todate= document.getElementById("kcc_to_date_ed").value;
+                                               if(todate== ""){
+                                                             document.getElementById("kcc_to_date_ed").focus();
+                                                              
+                                                                  swal("Oops!","Please Select Issued Date To","error");
+                                                                         return false;
+                                                                      }
+    
+      var card_number = document.getElementById("card_num2").value;
+                                        if(card_number == ""){
+                                                                   document.getElementById("card_num2").focus();
+                                                                   
+                                                                    swal("Oops!","Please Select Card Number","error");
+                                                                    return false;
+                                                                 }
+                                                                
+    
+                                                                 document.getElementById("kcc_edit").submit();
+                                                                }
+
+
+
+
+
+
 function resetform_kcc()
 			{
         document.getElementById("mem_name1").value="";

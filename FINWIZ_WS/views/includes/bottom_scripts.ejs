@@ -1405,6 +1405,46 @@ function holiday_date_search() {
                 </script>
 
               
+<!-- premium due date search screen-->
+
+
+<script>
+    //   var d = new Date(90,0,1);
+        $(function() {
+            $( "#premium_date" ).datepicker({
+           
+               dateFormat: 'dd-mm-yy',
+            
+            //    defaultDate:d,
+               changeYear: true,
+                    changeMonth: true,
+                    yearRange: "1950:today"
+            });
+            $(this).on("click", function() {
+                t.datepicker("show");
+            });
+        });
+        </script>
+<script>
+    //   var d = new Date(90,0,1);
+        $(function() {
+            $( "#premium_date1" ).datepicker({
+           
+               dateFormat: 'dd-mm-yy',
+            
+            //    defaultDate:d,
+               changeYear: true,
+                    changeMonth: true,
+                    yearRange: "1950:today"
+            });
+            $(this).on("click", function() {
+                t.datepicker("show");
+            });
+        });
+        </script>
+
+
+
 <!-- premium date-->
 
 <script>
@@ -1640,3 +1680,44 @@ $('#soc_branch_vw').click(function () {
 });
 </script>
 <!-- society Branch END-->
+
+<!------------insurance screen back buttons -->
+<script>
+        $('#insur_nom_bck').click(function () {
+            $('#tabs a[href=#insurance_details]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_nominee_details]').removeClass("active");
+        });
+
+        $('#bck_insur_guad').click(function () {
+            $('#tabs a[href=#insur_nominee_details]').tab('show').addClass("active");
+            $('#tabs a[href=#bck_insur_guad]').removeClass("active");
+        });
+
+        $('#insur_nom_bck_ed').click(function () {
+            $('#tabs a[href=#insurance_details_ed]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_nominee_details_ed]').removeClass("active");
+        });
+
+        $('#bck_insur_guad_ed').click(function () {
+            $('#tabs a[href=#insur_nominee_details_ed]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_guardian_details_ed]').removeClass("active");
+        });
+
+        $('#insur_nom_bck_vw').click(function () {
+            $('#tabs a[href=#insurance_details_vw]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_nominee_details_vw]').removeClass("active");
+        });
+
+        $('#bck_insur_guad_vw').click(function () {
+            $('#tabs a[href=#insur_nominee_details_vw]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_guardian_details_vw]').removeClass("active");
+        });
+
+
+</script>
+
+
+  <script type="text/javascript">
+    
+    
+ </script>
