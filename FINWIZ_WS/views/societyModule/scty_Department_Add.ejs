@@ -316,9 +316,11 @@ Accounts
                                         <div class="container row mt-2">
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="desc_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
-                                                <input type="text" class="col-sm-12 col-md-6" name="desc_add"
-                                                id="desc_add" placeholder="" style="text-transform: capitalize" maxlength="30" onkeypress="return desc(event)">
-                                              </div>
+                                                <!-- changed input type text box to text area field,changes made by swarna -->
+                                                <input type="textarea" class="col-sm-12 col-md-6" name="desc_add"
+                                                id="desc_add" placeholder="" style="text-transform: capitalize" maxlength="" onkeypress="return desc(event)"> </textarea>                                              
+                                            </div>
+
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="sec_name_add" class="mr-sm-4 col-sm-12 col-md-5"
                                                     style="padding-left:0% !important;">Section Name</label>
