@@ -1081,6 +1081,15 @@ if(soc_branch_add_phone_num1.length < 10){
         swal("Invalid","Please Enter valid Phone Number 1","warning");
         return false;
     }
+
+    var phnum1 = /([6-9]{1}[0-9]{9})/;   // Validating the phone Number, changes done by Shivu(NODE)
+if (!phnum1.test(soc_branch_add_phone_num1))
+{
+document.getElementById("soc_branch_add_phone_num1").focus();
+
+swal("Invalid","Please Enter Valid Phone Number","warning");
+return false;
+}
 }
 
  
@@ -1103,7 +1112,17 @@ if(soc_branch_add_phone_num2.length < 10){
         swal("Invalid","Please Enter valid Phone Number 2","warning");
         return false;
     }
-}
+
+    var phnum2 = /([6-9]{1}[0-9]{9})/;   // Validating the phone Number, changes done by Shivu(NODE)
+    if (!phnum2.test(soc_branch_add_phone_num2))
+    {
+    document.getElementById("soc_branch_add_phone_num2").focus();
+    
+    swal("Invalid","Please Enter Valid Phone Number","warning");
+    return false;
+    }
+    }
+
 
 
 
