@@ -284,7 +284,7 @@ Accounts
                       <strong style="color:green"><%= message.success_msg %></strong>
                       </div>
                   <% } %>
-                  <form autocomplete="off" action="/societyModule/societyDetails/search_particular_scty_branch_rec" method="post">
+                  <form autocomplete="off" action="/societyModule/societyDetails/search_particular_scty_branch_rec" method="post"  name="sctyBranch" onsubmit="return societyBranchValidate()"> <!-- shows the error message without enter the data to the either of the field, changes done dy Shivu(Node)--> >
                     <!-- first row start -->
                     <div class="container row mt-4">
                         <!-- bank   -->

@@ -4571,6 +4571,21 @@ function selectBankCode() {
     document.getElementById("society_branch_ser_bnkcd").selectedIndex = bankcode;
   }
   
+  //// Shows the error message without enter the values to either of the fields, Changes done by Shivu(Node) ///
+
+  function societyBranchValidate() {
+    var bankCode = document.forms["sctyBranch"]["society_branch_ser_bnkcd"].value;
+    var branchCode = document.forms["sctyBranch"]["society_branch_ser_brcode"].value;
+    var branchName = document.forms["sctyBranch"]["society_branch_ser_brnme"].value;
+    var branch_neft = document.forms["sctyBranch"]["society_branch_ser_ifsc_neft"].value;
+    var branch_rtgs = document.forms["sctyBranch"]["society_branch_ser_ifsc_rtgs"].value;
+    if (bankCode == "Select" && branchCode == "Select" && branchName =="" && branch_neft =="Select" && branch_rtgs == "Select") {
+      swal("Oops","Please enter either of the field","error");
+      return false;
+    }
+  }
+
+
   //search screen page both  date must be selected
   function searchselectdateboth(){
     var premium_date = document.getElementById("premium_date").value;
