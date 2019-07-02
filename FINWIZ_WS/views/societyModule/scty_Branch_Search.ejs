@@ -292,7 +292,7 @@ Accounts
                         <label for="society_branch_ser_bnkcd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code
                         </label>
                                                      
-                     <select class="col-sm-12 col-md-6" name="society_branch_ser_bnkcd" id="society_branch_ser_bnkcd">
+                     <select class="col-sm-12 col-md-6" name="society_branch_ser_bnkcd" id="society_branch_ser_bnkcd" onchange="selectBankCode()"> <!-- include this function for autopopulated the branch code, done by Shivu(NODE)-->
                        <option>Select</option>
                             <% for(var i=0;i < sctysrch.length;i++) { %>
                                      <option value="<%= sctysrch[i].sbr_ch_bank_code  %>"> <%= sctysrch[i].sbr_ch_bank_code %></option>
@@ -307,7 +307,7 @@ Accounts
                         <label for="society_branch_ser_brcode" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch code
                         </label>
 
-                                                            <select class="col-sm-12 col-md-6" name="society_branch_ser_brcode" id="society_branch_ser_brcode">
+                                                            <select class="col-sm-12 col-md-6" name="society_branch_ser_brcode" id="society_branch_ser_brcode" onchange="selectBranchCode()"> <!-- include this function for autopopulated the bank code, done by Shivu(NODE)-->
                                                               <option>Select</option>
                                                                    <% for(var i=0;i < sctysrch.length;i++) { %>
                                                                             <option value="<%= sctysrch[i].sbr_n_branch_code  %>"> <%= sctysrch[i].sbr_n_branch_code %></option>
@@ -326,7 +326,7 @@ Accounts
                           
                                 <input type="text" class="col-sm-12 col-md-6"
                                                     name="society_branch_ser_brnme" id="society_branch_ser_brnme" placeholder="" 
-                                                    style="text-transform: capitalize">
+                                                    style="text-transform: capitalize" maxlength="20" onkeypress="return desc(event)">
 
                             
                           </div>
