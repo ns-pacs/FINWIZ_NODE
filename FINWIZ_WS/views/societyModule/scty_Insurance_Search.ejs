@@ -283,7 +283,7 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
                                             <strong style="color:green"><%= message.success_msg %></strong>
                                         </div>
                                         <% } %>
-                                            <form action="/societyModule/societyDetails/scty_particular_insurance_search"  autocomplete="off" action="" method="post">
+                                            <form action="/societyModule/societyDetails/scty_particular_insurance_search"  autocomplete="off" id="insurancesearch" method="post">
 
                                                 <div class="container row mb-4">
                                                         <div class="col-sm-12 col-md-6">
@@ -330,7 +330,7 @@ data-target-name="premium_date">
 
 
 
-                                                <input type="submit" class="btn sr" id="ins_reset" value="Search">
+                                                <input type="button" class="btn sr" id="ins_reset" value="Search" onclick="searchselectdateboth()">
                                                 <input type="reset" class="btn sr" value="Reset" onclick="">
 
 

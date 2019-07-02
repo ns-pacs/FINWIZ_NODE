@@ -4570,19 +4570,27 @@ function selectBankCode() {
     var bankcode = document.getElementById("society_branch_ser_brcode").selectedIndex;
     document.getElementById("society_branch_ser_bnkcd").selectedIndex = bankcode;
   }
-
   
+  //search screen page both  date must be selected
+  function searchselectdateboth(){
+    var premium_date = document.getElementById("premium_date").value;
+    var premium_date1 = document.getElementById("premium_date1").value;
+    var pro_name = document.getElementById("pro_name").value;
+    var acc_num = document.getElementById("acc_num").value;
+   if( pro_name=="" && acc_num=="" &&  premium_date =="" && premium_date1 =="" ){
+   swal("Oops!","Please enter either of the fields","error");
+   return false;
+   }
 
-  //// Shows the error message without enter the values to either of the fields, Changes done by Shivu(Node) ///
+   else{
 
-  function societyBranchValidate() {
-    var bankCode = document.forms["sctyBranch"]["society_branch_ser_bnkcd"].value;
-    var branchCode = document.forms["sctyBranch"]["society_branch_ser_brcode"].value;
-    var branchName = document.forms["sctyBranch"]["society_branch_ser_brnme"].value;
-    var branch_neft = document.forms["sctyBranch"]["society_branch_ser_ifsc_neft"].value;
-    var branch_rtgs = document.forms["sctyBranch"]["society_branch_ser_ifsc_rtgs"].value;
-    if (bankCode == "Select" && branchCode == "Select" && branchName =="" && branch_neft =="Select" && branch_rtgs == "Select") {
-      swal("Oops","Please enter either of the field","error");
-      return false;
+    if( premium_date !="" && premium_date1 =="")
+   {
+    document.getElementById("premium_date1").focus();
+   swal("Oops!","Please select both fields of premium due dates","error");
+    return false;
     }
+}
+    document.getElementById("insurancesearch").submit();
+
   }
