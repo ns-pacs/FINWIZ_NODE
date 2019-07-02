@@ -281,16 +281,18 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
                                 <h5>KCC TARGETS</h5>
                             </div>
                             <div class="card-body">
-                                <div class="content">
-
-                                    <h6>Search</h6>
-                                    <hr>
+                                <!-- changed the position of the success message getting displayed,changes made by swarna -->
                                     <% if(locals.message){ %>
 
                                         <div class="text text-center" role="alert">
                                             <strong style="color:green"><%= message.success_msg %></strong>
                                         </div>
                                         <% } %>
+                                <div class="content">
+
+                                    <h6>Search</h6>
+                                    <hr>
+                                    
                                             <form autocomplete="off" action="/societyModule/societyDetails/kcc_target_searcher" method="post">
 
 
