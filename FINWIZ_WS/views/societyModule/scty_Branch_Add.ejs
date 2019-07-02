@@ -423,8 +423,9 @@ Accounts
                                                 
                                             <div class="container row mt-4">
                                                     <div class="col-sm-12 col-md-2">
+                                                        <!-- changed the back button text to back to search text,changed by swarna -->
                                                         <a type="text" class="btn" name="soc_branch_search"
-                                                            id="soc_branch_search" value="Back" href="/societyModule/societyDetails/scty_Branch_Search" >Back</a>
+                                                            id="soc_branch_search" value="Back" href="/societyModule/societyDetails/scty_Branch_Search" >Back to Search</a>
 
                                                     </div>
                                                     <div class="col-sm-12 col-md-3">
@@ -453,9 +454,10 @@ Accounts
                                                                 <label for="soc_branch_add_addline" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Address Line
                                                             <span class="astrix">*</span></label>
-                                                            <input type="text" class="col-sm-12 col-md-6"
+                                                            <!-- changed the Address line field from text box to textarea,changes made by swarna -->
+                                                            <textarea rows="3" class="col-sm-12 col-md-6"
                                                                 name="soc_branch_add_addline" id="soc_branch_add_addline" placeholder="" value=""
-                                                                 maxlength="20" onkeypress="return alphanumeric(event)">
+                                                                 maxlength="" onkeypress=""></textarea>
                                                            
                                                     </div>
                                                    
@@ -934,9 +936,10 @@ Accounts
                                                             <label for="soc_branch_add_addline_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Address Line
                                                         <span class="astrix">*</span></label>
-                                                        <input type="text" class="col-sm-12 col-md-6"
+                                                        <!-- changed the Address line field from text box to textarea,changes made by swarna -->
+                                                        <textarea rows="4" class="col-sm-12 col-md-6"
                                                             name="soc_branch_add_addline_ed" id="soc_branch_add_addline_ed" placeholder="" value="<%=add_line%>" onkeypress="return alphanumeric(event)"
-                                                             maxlength="20" onkeypress="">
+                                                             maxlength="" onkeypress=""></textarea>
                                                        
                                                 </div>
                                                
@@ -946,7 +949,7 @@ Accounts
                                                     <label for="soc_branch_add_lndmark_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Land Mark<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_lndmark_ed"
-                                                        id="soc_branch_add_lndmark_ed" placeholder=""  maxlength="" value="<%=landmark%>" onkeypress="return alphanumeric(event)">
+                                                        id="soc_branch_add_lndmark_ed" placeholder=""  maxlength="" value="<%=landmark%>" onkeypress="return alpha(event)">
 
                                                         
 
@@ -1409,9 +1412,10 @@ Accounts
                                                         <label for="soc_branch_add_addline_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Address Line
                                                     <span class="astrix">*</span></label>
-                                                    <input type="text" class="col-sm-12 col-md-6"
+                                                    <!-- changed the Address line field from text box to textarea,changes made by swarna -->
+                                                    <textarea rows="4" class="col-sm-12 col-md-6"
                                                         name="soc_branch_add_addline_vw" id="soc_branch_add_addline_vw" placeholder="" value="<%=add_line_vw%>"
-                                                         maxlength="20" onkeypress="">
+                                                         maxlength="" onkeypress="">
                                                    
                                             </div>
                                            

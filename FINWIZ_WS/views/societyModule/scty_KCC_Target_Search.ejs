@@ -282,15 +282,15 @@ class="ml-1" style="color: #ffffff;">KCC Credit Limit</a></div>
                             </div>
                             <div class="card-body">
                                 <div class="content">
+                                        <% if(locals.message){ %>
 
+                                            <div class="text text-center" role="alert">
+                                                <strong style="color:green"><%= message.success_msg %></strong>
+                                            </div>
+                                            <% } %>
                                     <h6>Search</h6>
                                     <hr>
-                                    <% if(locals.message){ %>
-
-                                        <div class="text text-center" role="alert">
-                                            <strong style="color:green"><%= message.success_msg %></strong>
-                                        </div>
-                                        <% } %>
+                                   
                                             <form autocomplete="off" action="/societyModule/societyDetails/kcc_target_searcher" method="post">
 
 
