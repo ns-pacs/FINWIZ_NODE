@@ -1013,11 +1013,14 @@ onSelect: function (dateStr) {
         // alert(d1)
         var d2 = $('#holi_to_date_add').datepicker('getDate');
         //alert(d2)
-        if (d2 <= d1) {
-            //alert("entering")
-            swal("Oops!", "Holiday ToDate must be greater than Holiday FromDate. Please Select Valid Holiday ToDate", "error");
-            document.getElementById('holi_to_date_add').value = null;
-        }
+
+        /* To accept the same date in calendar removed the below code,changes made by swarna */
+
+        // if (d2 <= d1) {
+        //     //alert("entering")
+        //     swal("Oops!", "Holiday ToDate must be greater than Holiday FromDate. Please Select Valid Holiday ToDate", "error");
+        //     document.getElementById('holi_to_date_add').value = null;
+        // }
     }
 //compensation date validation function//
  function compensation_date() {
@@ -1025,11 +1028,14 @@ onSelect: function (dateStr) {
         // alert(d1)
         var d2 = $('#comp_to_date_add').datepicker('getDate');
         //alert(d2)
-        if (d2 <= d1) {
-            //alert("entering")
-            swal("Oops!", "Compensation ToDate must be greater than Compensation FromDate. Please Select Valid Compensation ToDate", "error");
-            document.getElementById('comp_to_date_add').value = null;
-        }
+
+         /* To accept the same date in calendar removed the below code,changes made by swarna */
+
+        // if (d2 <= d1) {
+        //     //alert("entering")
+        //     swal("Oops!", "Compensation ToDate must be greater than Compensation FromDate. Please Select Valid Compensation ToDate", "error");
+        //     document.getElementById('comp_to_date_add').value = null;
+        // }
     }
     
     function holiday_date_ed() {
