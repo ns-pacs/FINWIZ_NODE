@@ -1411,31 +1411,30 @@ function holiday_date_search() {
 <script>
     //   var d = new Date(90,0,1);
         $(function() {
-            $( "#premium_date" ).datepicker({
+         var d7 =   $( "#premium_date" ).datepicker({
            
                dateFormat: 'dd-mm-yy',
             
             //    defaultDate:d,
                changeYear: true,
                     changeMonth: true,
-                    yearRange: "1950:today"
-            });
+                 yearRange: "1950:today"
+            }); 
             $(this).on("click", function() {
                 t.datepicker("show");
             });
         });
-        </script>
-<script>
+ 
     //   var d = new Date(90,0,1);
         $(function() {
-            $( "#premium_date1" ).datepicker({
+      $( "#premium_date1" ).datepicker({
            
                dateFormat: 'dd-mm-yy',
             
-            //    defaultDate:d,
-               changeYear: true,
+         //  defaultDate:d7,
+                     changeYear: true,
                     changeMonth: true,
-                    yearRange: "1950:today"
+                    yearRange: "d7:today"
             });
             $(this).on("click", function() {
                 t.datepicker("show");
