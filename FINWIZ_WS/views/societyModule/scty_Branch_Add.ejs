@@ -263,7 +263,7 @@ Accounts
                 <div class="row-sm ">
                     <div class="col-sm-12">
                         <div class="card tp">
-                            <div class="card-header hdr"><h5>BRANCH</h5></div>
+                            <div class="card-header hdr"><h5>Add Record</h5></div>
                             <div class="card-body">
 
 
@@ -295,7 +295,7 @@ Accounts
                                                 <!-- Society branch tab start -->
 
                                             <div id="soc_branch_details" class="container tab-pane show active"><br>
-                                                <h6>ADD RECORD</h6>
+                                                <h5>Branch</h5>
 
                                                 
                                            <!-- flash message -->
@@ -332,7 +332,7 @@ Accounts
                                                             style="padding-left:0% !important;">Branch Code<span
                                                                 class="astrix">*</span></label>
                                                            
-                                                                <select required class="col-sm-12 col-md-6" id="society_branch_brcode" name="society_branch_brcode"  onchange="sctyBankCode()" >
+                                                                <select required class="col-sm-12 col-md-6" id="society_branch_brcode" name="society_branch_brcode"  onchange=" " >
                                                                     <option disabled="" selected="" value="" >Select Branch Code </option>
                                                                     <% for(var i=1;i < branch.length;i++) { %>
                                                                         <option value="<%= branch[i].bcd_ch_branch_code   %>"> <%= branch[i].bcd_ch_branch_code 
@@ -423,12 +423,14 @@ Accounts
                                                 
                                             <div class="container row mt-4">
                                                     <div class="col-sm-12 col-md-2">
+                                                        <!-- changed the text of button Back to Back search,changes made by swarna -->
                                                         <a type="text" class="btn" name="soc_branch_search"
-                                                            id="soc_branch_search" value="Back" href="/societyModule/societyDetails/scty_Branch_Search" >Back</a>
+                                                            id="soc_branch_search" value="Back" href="/societyModule/societyDetails/scty_Branch_Search" >Back to Search</a>
 
                                                     </div>
                                                     <div class="col-sm-12 col-md-3">
-                                                        <input type="button" class="btn bttn" name="clear_soc_branch"
+                                                        
+                                                        <input type="button" class="btn clr clr1" name="clear_soc_branch"
                                                             id="clear_soc_branch" value="Clear Form" onclick="clear_scty_br_Tab1()">
 
                                                     </div>
@@ -443,7 +445,7 @@ Accounts
 
                                             <!-- Society Branch Address Tab Strart -->
                                             <div id="soc_branch_address_details" class="container tab-pane show"><br>
-                                                <h5>Add Records</h5>
+                                                <h5>Branch Address</h5>
                                                 <hr>
                            
                                        
@@ -453,9 +455,10 @@ Accounts
                                                                 <label for="soc_branch_add_addline" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Address Line
                                                             <span class="astrix">*</span></label>
-                                                            <input type="text" class="col-sm-12 col-md-6"
+                                                              <!-- Removed the onkeypress function to accept alphabets,numerics and special characters,changes made by swarna -->
+                                                            <textarea rows="4" cols="50" class="col-sm-12 col-md-6"
                                                                 name="soc_branch_add_addline" id="soc_branch_add_addline" placeholder="" value=""
-                                                                 maxlength="20" onkeypress="return alphanumeric(event)">
+                                                                 maxlength="" onkeypress=""></textarea>
                                                            
                                                     </div>
                                                    
@@ -464,6 +467,7 @@ Accounts
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="soc_branch_add_lndmark" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Land Mark<span class="astrix">*</span></label>
+                                                        <!-- changed the onkeypress function to accept only alphabets instead of alphanumeric,changes made by swarna -->
                                                         <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_lndmark"
                                                             id="soc_branch_add_lndmark" placeholder=""  maxlength="" onkeypress="return alpha(event)">
 
@@ -751,7 +755,7 @@ Accounts
             <div class="row-sm ">
                 <div class="col-sm-12">
                     <div class="card tp">
-                        <div class="card-header hdr"><h5>BRANCH</h5></div>
+                        <div class="card-header hdr"><h5>Edit Record</h5></div>
                         <div class="card-body">
 
 
@@ -783,7 +787,7 @@ Accounts
                                             <!-- Society branch tab start -->
 
                                         <div id="soc_branch_details_ed" class="container tab-pane show active"><br>
-                                            <h6>Edit Records</h6>
+                                            <h6>Branch</h6>
                                             <hr>
                                         
                                         
@@ -924,7 +928,7 @@ Accounts
 
                                         <!-- Society Branch Address Tab Strart -->
                                         <div id="soc_branch_address_details_ed" class="container tab-pane show"><br>
-                                            <h5>Edit Records</h5>
+                                            <h5>Branch Address</h5>
                                             <hr>
                                            
                                    
@@ -1227,7 +1231,7 @@ Accounts
         <div class="row-sm ">
             <div class="col-sm-12">
                 <div class="card tp">
-                    <div class="card-header hdr"><h5>BRANCH</h5></div>
+                    <div class="card-header hdr"><h5>View Record</h5></div>
                     <div class="card-body">
 
 
@@ -1259,7 +1263,7 @@ Accounts
                                         <!-- Society branch tab start -->
 
                                     <div id="soc_branch_details_vw" class="container tab-pane show active"><br>
-                                        <h6>View Records</h6>
+                                        <h6>Branch</h6>
                                         <hr>
                                     
                                         <fieldset disabled="disabled">
@@ -1399,7 +1403,7 @@ Accounts
                                     <!-- Society Branch Address Tab Strart -->
                                     
                                     <div id="soc_branch_address_details_vw" class="container tab-pane show"><br>
-                                        <h5>View Records</h5>
+                                        <h5>Branch Address</h5>
                                         <hr>
                        
                                         <fieldset disabled="disabled">

@@ -214,7 +214,7 @@ Accounts
                                     <span class="navbar-toggler-bar bar3"></span>
                                 </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo"><strong>Accounts</strong> </a>
+                        <a class="navbar-brand" href="#pablo"><strong>SOCIETY</strong> </a>
                     </div>
                     <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -259,7 +259,7 @@ Accounts
                     <div class="col-sm-12">
                         <div class="card tp">
                             <div class="card-header hdr">
-                                <h5>BANK</h5>
+                                <h5>Add Record</h5>
                             </div>
                             <div class="card-body">
 
@@ -300,7 +300,7 @@ Accounts
                                                 <!-- Society bank tab start -->
 
                                                 <div id="soc_bank_details" class="container tab-pane show active"><br>
-                                                    <h6>ADD RECORD</h6>
+                                                    <h6>Bank</h6>
                                                     <hr>
 
 
@@ -346,11 +346,12 @@ Accounts
                                                     <div class="container row mt-4">
                                                         <div class="col-sm-12 col-md-2">
                                                            
-                                                            <a type="text" class="btn"  href="/societyModule/societyDetails/scty_bank_search" name="bck_search" id="bck_search" value="Back to Search">Back</a>
 
+
+                                                            <a type="text" class="btn"  href="/societyModule/societyDetails/scty_bank_search" name="bck_search" id="bck_search" value="Back to Search">Back to Search</a>
                                                         </div>
                                                         <div class="col-sm-12 col-md-3">
-                                                            <input type="button" class="btn bttn" name="clear_soc_bnk" id="clear_soc_bnk" value="Clear Form" onclick="clearSocietyBankTab()">
+                                                            <input type="button" class="btn clr clr1" name="clear_soc_bnk" id="clear_soc_bnk" value="Clear Form" onclick="clearSocietyBankTab()">
 
                                                         </div>
                                                         <div class="col-sm-12 col-md-5"></div>
@@ -386,9 +387,9 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_lndmark" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Land Mark
                                                         <span class="astrix">*</span></label>
+                                                        <!-- changed the onkeypress function to accept only alphabets instead of alphanumeric,changes made by swarna -->
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_lndmark" id="soc_bnk_address_lndmark" placeholder=""
-                                                                value="" style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)">  <!---Changed alphanumeric to numeric as per the requirement by lakshminarayan-->
-
+                                                                value="" style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)">
                                                         </div>
                                                     </div>
                                                     <!-- land mark end -->
@@ -657,7 +658,7 @@ Accounts
                     <div class="col-sm-12">
                         <div class="card tp">
                             <div class="card-header hdr">
-                                <h5>BANK</h5>
+                                <h5>Edit Record</h5>
                             </div>
                             <div class="card-body">
 
@@ -690,7 +691,7 @@ Accounts
                                                 <!-- Society bank tab start -->
 
                                                 <div id="soc_bank_details_ed" class="container tab-pane show active"><br>
-                                                    <h6>EDIT RECORD</h6>
+                                                    <h6>Bank</h6>
                                                     <hr>
 
 
@@ -737,6 +738,10 @@ Accounts
 
                                                             <input hidden type="number" class="col-sm-12 col-md-6" name="socbank_edit" id="socbank_edit"
                                                                 placeholder="" value="<%=societybankid%>">
+
+
+                                                                <!-- Made changes for on hover effect, changed by Swarna -->
+
                                                                 <a type="text" class="btn"  href="/societyModule/societyDetails/scty_bank_search" name="soc_bnk_search_ed" id="soc_bnk_search_ed"   value="Back" >Back</a>
 
                                                         </div>
@@ -760,6 +765,8 @@ Accounts
                                                     <div class="container row mb-4">
                                                         <div class="col-sm-12 col-md-6">
 
+
+
                                                                 <label for="soc_bnk_address_address_line_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
                                                                 <div class="form-group">
                                                                 <label for="exampleFormControlTextarea2"></label>
@@ -769,7 +776,7 @@ Accounts
                                                             <!-- <label for="soc_bnk_address_address_line_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
                                                             <input type="textarea" class="col-sm-12 col-md-6" name="soc_bnk_address_address_line_ed" id="soc_bnk_address_address_line_ed"
                                                                 placeholder=""  value="<%=edit_soc_bnk_address_address_line%>" style="text-transform: capitalize" >    -->
-                                                                
+
 
                                                         </div>
                                                         <!-- addrerss line end -->
@@ -1041,7 +1048,7 @@ Accounts
                         <div class="col-sm-12">
                             <div class="card tp">
                                 <div class="card-header hdr">
-                                    <h5>BANK</h5>
+                                    <h5>View Record</h5>
                                 </div>
                                 <div class="card-body">
 
@@ -1072,7 +1079,7 @@ Accounts
                                                     <!-- Society bank tab start -->
 
                                                     <div id="soc_bank_details_vw" class="container tab-pane show active"><br>
-                                                        <h6>VIEW RECORD</h6>
+                                                        <h6>Bank </h6>
                                                         <hr>
                                                         <fieldset disabled="disabled">
                                                         <!-- bank code start -->

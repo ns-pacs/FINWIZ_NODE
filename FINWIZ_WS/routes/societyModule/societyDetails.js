@@ -385,7 +385,7 @@ router.post('/kcc_target_insert',function(req,res){
   }
   else
   {
-        req.flash('success_msg', 'Record Added successfully');
+        req.flash('success_msg', 'Data inserted successfully');
         res.locals.message=req.flash();
   
   res.render('societyModule/scty_KCC_Target_Add',{
@@ -415,7 +415,7 @@ router.post('/kcc_target_insert',function(req,res){
   
      else
      {
-          req.flash('success_msg', 'Record Added successfully');
+          req.flash('success_msg', 'Data inserted successfully');
           res.locals.message=req.flash();
           res.render('societyModule/scty_KCC_Target_Add',{
           pagetype:"ADD",
@@ -497,7 +497,7 @@ pgdbconnect.query("update society_kcc_targets_details set skcc_ch_financial_year
    else{
    pgdbconnect.query("select * from society_kcc_targets_details where skcc_ch_del_flg=$1",['N'],function(err,kccres1){
 
-      req.flash('success_msg', 'Record updated successfully');
+      req.flash('success_msg', 'Data updated successfully');
       res.locals.message=req.flash();
          res.render('societyModule/scty_KCC_Target_Search',{
 
@@ -644,7 +644,7 @@ router.post('/kcc_credit_insert',function(req,res){
   }
   else
   {
-        req.flash('success_msg', 'Record Added successfully');
+        req.flash('success_msg', 'Data inserted successfully');
         res.locals.message=req.flash();
   
   res.render('societyModule/scty_KCC_Credit_Limit_Add',{
@@ -674,7 +674,7 @@ router.post('/kcc_credit_insert',function(req,res){
   
      else
      {
-          req.flash('success_msg', 'Record Added successfully');
+          req.flash('success_msg', 'Data inserted successfully');
           res.locals.message=req.flash();
           res.render('societyModule/scty_KCC_Credit_Limit_Add',{
           pagetype:"ADD",
@@ -776,7 +776,7 @@ pgdbconnect.query("update society_kcc_credit_limit_details set scl_ch_loan_type=
    else{
    pgdbconnect.query("select * from society_kcc_credit_limit_details where scl_ch_del_flg=$1",['N'],function(err,kccres1){
 
-      req.flash('success_msg', 'Record updated successfully');
+      req.flash('success_msg', 'Data updated successfully');
       res.locals.message=req.flash();
       res.render('societyModule/scty_KCC_Credit_Limit_Search',{
 
