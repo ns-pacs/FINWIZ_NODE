@@ -944,7 +944,8 @@ onSelect: function (dateStr) {
                changeMonth: true,
                changeYear: true,
                YearRange: '1947:2019',
-               minDate: 'now',
+               //To accept the previous dates in calendar, changed by swarna.
+               minDate: '',
            });
            $(this).on("click", function () {
                t.datepicker("show");
@@ -1260,10 +1261,6 @@ function holiday_date_search() {
         $('#tabs a[href=#accounts_nominee]').tab('show').addClass("active");
         $('#tabs a[href=#guardian_details]').removeClass("active");
     });
-    $('#bck_acc_nom_det').click(function () {
-        $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
-        $('#tabs a[href=#joint_holder_details]').removeClass("active");
-    });
     $('#bck_acc_authorize').click(function () {
         $('#tabs a[href=#joint_holder_details]').tab('show').addClass("active");
         $('#tabs a[href=#authorization]').removeClass("active");
@@ -1283,10 +1280,6 @@ function holiday_date_search() {
         $('#tabs a[href=#guardian_details]').removeClass("active");
     });
 
-    $('#bck_acc_nom_det_ed').click(function () {
-        $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
-        $('#tabs a[href=#joint_holder_details]').removeClass("active");
-    });
 
     $('#bck_acc_authorize_ed').click(function () {
         $('#tabs a[href=#joint_holder_details]').tab('show').addClass("active");
@@ -1307,10 +1300,6 @@ function holiday_date_search() {
                 $('#tabs a[href=#guardian_details]').removeClass("active");
             });
 
-            $('#bck_acc_nom_det_vw').click(function () {
-                $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
-                $('#tabs a[href=#joint_holder_details]').removeClass("active");
-            });
 
             $('#bck_acc_authorize_vw').click(function () {
                 $('#tabs a[href=#joint_holder_details]').tab('show').addClass("active");
