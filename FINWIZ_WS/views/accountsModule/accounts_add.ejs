@@ -1457,7 +1457,7 @@ Accounts
                                                     <div class="container row mt-4">
                                                         <div class="col-sm-12 col-md-2">
                                                             <input type="button" class="btn" name="bck_acc_grdn_det"
-                                                                id="bck_acc_nom_det" value="Back">
+                                                                id="bck_acc_nom_det" value="Back" onclick="backJointHolder()">
 
                                                         </div>
                                                         <div class="col-sm-12 col-md-3">
@@ -1910,7 +1910,7 @@ Accounts
                                                                     Period</label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
                                                                     name="acc_intdc_kwn_perd_ed" id="acc_intdc_kwn_perd_ed"
-                                                                    placeholder="" value="<%=ed_acc_intdc_kwn_perd%>" maxlength="10" onkeypress="return alphanumeric(event)">
+                                                                 value="<%=ed_acc_intdc_kwn_perd%>" maxlength="9" placeholder="yyyy-yyyy" onkeypress="return years(event)">
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-6">
@@ -1948,7 +1948,7 @@ Accounts
 
                                                             <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn" name="clear_acc_det_ed"
-                                                                    id="clear_acc_det_ed" value="Clear Form" onclick="clearAccountTab()">
+                                                                    id="clear_acc_det_ed" value="Clear Form" onclick="cleareditaccount_tab()">
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-5"></div>
@@ -2754,7 +2754,7 @@ Accounts
                                                             </div>
                                                             <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn bttn" name="clear_nmnee_ed"
-                                                                    id="clear_nmnee_ed" value="Clear Form">
+                                                                    id="clear_nmnee_ed" value="Clear Form" onclick="edit_clearGuardianTab()">
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-5"></div>
@@ -2861,12 +2861,12 @@ Accounts
                                                         <div class="container row mt-4">
                                                             <div class="col-sm-12 col-md-2">
                                                                 <input type="button" class="btn" name="bck_acc_grdn_det_ed"
-                                                                    id="bck_acc_nom_det_ed" value="Back">
+                                                                    id="bck_acc_nom_det_ed" value="Back" onclick="backJointHolderEdit()" >
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn bttn" name="clear_acc_jnt_hldr_det_ed"
-                                                                    id="clear_acc_jnt_hldr_det_ed" value="Clear Form" onclick="edit_clearJointHolderTab()">
+                                                                    id="clear_acc_jnt_hldr_det_ed" value="Clear Form">
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-5"></div>
@@ -4352,7 +4352,7 @@ Accounts
                                                         <div class="container row mt-4">
                                                             <div class="col-sm-12 col-md-2">
                                                                 <input type="button" class="btn" name="bck_acc_grdn_det_vw"
-                                                                    id="bck_acc_nom_det_vw" value="Back">
+                                                                    id="bck_acc_nom_det_vw" value="Back" onclick="backJointHolderView()">
 
                                                             </div>
                                                             <!-- <div class="col-sm-12 col-md-3">
