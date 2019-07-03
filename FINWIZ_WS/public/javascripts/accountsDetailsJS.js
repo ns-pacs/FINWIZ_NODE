@@ -751,31 +751,30 @@ function edit_jointHolders4(){
 
 
 // Account Tab                                   
-function clearAccountTab(){
-
-   document.getElementById('acc_shrt_nme').value="";
-   document.getElementById('acc_nme').value="";
-   document.getElementById('acc_mem').value="";
-   document.getElementById('acc_num').value="";
-   document.getElementById('acc_typ').value="";
-   document.getElementById('acc_stat').value="";
-   document.getElementById('acc_schm').value="";
-   document.getElementById('acc_cat_typ').value="";
-   document.getElementById('acc_curr_typ').value="";
-   document.getElementById('acc_code').value="";
-   document.getElementById('acc_openg_date').value="";
-   document.getElementById('acc_opng_amt').value="";
-   document.getElementById('acc_curr_bal').value="";
-   document.getElementById('acc_intrst_on_acct').value="";
-   document.getElementById('acc_has_chqbok').value="";
-   document.getElementById('acc_is_sal_acct').value="";
-   document.getElementById('acc_count_pay').value="";
-   document.getElementById('acc_oprn_instrn').value="";
-   document.getElementById('acc_lst_trnscn_date').value="";
-   document.getElementById('acc_intdc_det').value="";
-   document.getElementById('acc_intdc_kwn_perd').value="";
-   document.getElementById('acc_is_main').value="";
-   document.getElementById('acc_desc').value="";
+function cleareditaccount_tab(){
+   document.getElementById('acc_shrt_nme_ed').value="";
+   document.getElementById('acc_nme_ed').value="";
+   document.getElementById('acc_mem_ed').value="";
+   document.getElementById('acc_num_ed').value="";
+   document.getElementById('acc_typ_ed').value="";
+   document.getElementById('acc_stat_ed').value="";
+   document.getElementById('acc_schm_ed').value="";
+   document.getElementById('acc_cat_typ_ed').value="";
+   document.getElementById('acc_curr_typ_ed').value="";
+   document.getElementById('acc_code_ed').value="";
+   document.getElementById('acc_openg_date_ed').value="";
+   document.getElementById('acc_opng_amt_ed').value="";
+   document.getElementById('acc_curr_bal_ed').value="";
+   document.getElementById('acc_intrst_on_acct_ed').value="";
+   document.getElementById('acc_has_chqbok_ed').value="";
+   document.getElementById('acc_is_sal_acct_ed').value="";
+   document.getElementById('acc_count_pay_ed').value="";
+   document.getElementById('acc_oprn_instrn_ed').value="";
+   document.getElementById('acc_lst_trnscn_date_ed').value="";
+   document.getElementById('acc_intdc_det_ed').value="";
+   document.getElementById('acc_intdc_kwn_perd_ed').value="";
+   document.getElementById('acc_is_main_ed').value="";
+   document.getElementById('acc_desc_ed').value="";
 }
 
 
@@ -1612,6 +1611,13 @@ function accountsEdit()
       swal("", "Please Enter Account Number", "error");
       return false;
    }
+      else if(acc_num_ed.length < 16){
+         document.getElementById("acc_num_ed").focus();
+         
+         swal("","Please Enter valid 16 Account Number","warning");
+         return false;
+
+   }
 
    var acc_typ_ed = document.getElementById("acc_typ_ed").value;
    if (acc_typ_ed == "") {
@@ -1730,6 +1736,15 @@ function accountsEdit()
       document.getElementById("acc_intdc_kwn_perd_ed").focus();
       swal("", "Please Enter Introduce Known Period", "error");
       return false;
+   }
+   else{
+      var year= /([1-9]){1}([0-9]){3}([-]){1}([0-9]){4}/;
+      if (!year.test(acc_intdc_kwn_perd_ed)){
+      
+      document.getElementById("acc_intdc_kwn_perd_ed").focus();
+      swal("Oops!","Please Enter valid year","error");
+      return false;
+      }
    }
 
    var acc_is_main_ed = document.getElementById("acc_is_main_ed").value;
