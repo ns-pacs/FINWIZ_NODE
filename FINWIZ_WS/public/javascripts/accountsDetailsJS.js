@@ -1158,174 +1158,211 @@ function nomineeAccDetails() {
 
 //    //Name
 
-//    var acc_nom_name = document.getElementById("acc_nom_name").value;
-//    if (acc_nom_name == "") {
-//       document.getElementById("acc_nom_name").focus();
-//       swal("", "Please Enter Name", "error");
-//       return false;
-//    }
+   var acc_nom_name = document.getElementById("acc_nom_name").value;
+   if (acc_nom_name == "") {
+      document.getElementById("acc_nom_name").focus();
+      swal("", "Please Enter Name", "error");
+      return false;
+   }
 
 
-//    var acc_nom_fatr_nme = document.getElementById("acc_nom_fatr_nme").value;
-//    if (acc_nom_fatr_nme == "") {
-//       document.getElementById("acc_nom_fatr_nme").focus();
-//       swal("", "Please Enter Father Name", "error");
-//       return false;
-//    }
+   var acc_nom_fatr_nme = document.getElementById("acc_nom_fatr_nme").value;
+   if (acc_nom_fatr_nme == "") {
+      document.getElementById("acc_nom_fatr_nme").focus();
+      swal("", "Please Enter Father Name", "error");
+      return false;
+   }
 
-//    var acc_nom_reltn = document.getElementById("acc_nom_reltn").value;
-//    if (acc_nom_reltn == "") {
-//       document.getElementById("acc_nom_reltn").focus();
-//       swal("", "Please Enter Relation", "error");
-//       return false;
-//    }
+   var acc_nom_reltn = document.getElementById("acc_nom_reltn").value;
+   if (acc_nom_reltn == "") {
+      document.getElementById("acc_nom_reltn").focus();
+      swal("", "Please Enter Relation", "error");
+      return false;
+   }
 
-//    var male = document.getElementById("acc_nom_genmale");
-//    var female = document.getElementById("acc_nom_genfemale");
+   var male = document.getElementById("acc_nom_genmale");
+   var female = document.getElementById("acc_nom_genfemale");
    
-//    if (male.checked){
-//       console.log("male Selected");
-//    }else if (female.checked) {
-//       console.log("male Selected");
-//    }
-//    else{
-//        document.getElementById("acc_nom_genmale").autofocus;
-//        swal("","please select the Gender","error");
-//        return false;
-//    }
+   if (male.checked){
+      console.log("male Selected");
+   }else if (female.checked) {
+      console.log("male Selected");
+   }
+   else{
+       document.getElementById("acc_nom_genmale").autofocus;
+       swal("","please select the Gender","error");
+       return false;
+   }
 
-//    var acc_nom_occptn = document.getElementById("acc_nom_occptn").value;
-//    if (acc_nom_occptn == "") {
-//       document.getElementById("acc_nom_occptn").focus();
-//       swal("", "Please Enter Occupation", "error");
-//       return false;
-//    }
+   var acc_nom_occptn = document.getElementById("acc_nom_occptn").value;
+   if (acc_nom_occptn == "") {
+      document.getElementById("acc_nom_occptn").focus();
+      swal("", "Please Enter Occupation", "error");
+      return false;
+   }
 
-//    var acc_nom_dob = document.getElementById("acc_nom_dob").value;
-//    if (acc_nom_dob == "") {
-//       document.getElementById("acc_nom_dob").focus();
-//       swal("", "Please Enter Birth Date", "error");
-//       return false;
-//    }
+   var acc_nom_dob = document.getElementById("acc_nom_dob").value;
+   if (acc_nom_dob == "") {
+      document.getElementById("acc_nom_dob").focus();
+      swal("", "Please Enter Birth Date", "error");
+      return false;
+   }
 
-//    var acc_nom_addr_typ = document.getElementById("acc_nom_addr_typ").value;
-//    if (acc_nom_addr_typ == "") {
-//       document.getElementById("acc_nom_addr_typ").focus();
-//       swal("", "Please Enter Address Type", "error");
-//       return false;
-//    }
+   var acc_nom_addr_typ = document.getElementById("acc_nom_addr_typ").value;
+   if (acc_nom_addr_typ == "") {
+      document.getElementById("acc_nom_addr_typ").focus();
+      swal("", "Please Enter Address Type", "error");
+      return false;
+   }
 
-//    var acc_nom_addr_lin = document.getElementById("acc_nom_addr_lin").value;
-//    if (acc_nom_addr_lin == "") {
-//       document.getElementById("acc_nom_addr_lin").focus();
-//       swal("", "Please Enter Address Line", "error");
-//       return false;
-//    }
+   var acc_nom_addr_lin = document.getElementById("acc_nom_addr_lin").value;
+   if (acc_nom_addr_lin == "") {
+      document.getElementById("acc_nom_addr_lin").focus();
+      swal("", "Please Enter Address Line", "error");
+      return false;
+   }
 
-//    var acc_nom_lnd_mrk = document.getElementById("acc_nom_lnd_mrk").value;
-//    if (acc_nom_lnd_mrk == "") {
-//       document.getElementById("acc_nom_lnd_mrk").focus();
-//       swal("", "Please Enter Landmark", "error");
-//       return false;
-//    }
+   var acc_nom_lnd_mrk = document.getElementById("acc_nom_lnd_mrk").value;
+   if (acc_nom_lnd_mrk == "") {
+      document.getElementById("acc_nom_lnd_mrk").focus();
+      swal("", "Please Enter Landmark", "error");
+      return false;
+   }
 
-//    var acc_nom_vil = document.getElementById("acc_nom_vil").value;
-//    if (acc_nom_vil == "") {
-//       document.getElementById("acc_nom_vil").focus();
-//       swal("", "Please Enter Village", "error");
-//       return false;
-//    }
+   var acc_nom_vil = document.getElementById("acc_nom_vil").value;
+   if (acc_nom_vil == "") {
+      document.getElementById("acc_nom_vil").focus();
+      swal("", "Please Enter Village", "error");
+      return false;
+   }
 
-//    var acc_nom_pncht_mdl = document.getElementById("acc_nom_pncht_mdl").value;
-//    if (acc_nom_pncht_mdl == "") {
-//       document.getElementById("acc_nom_pncht_mdl").focus();
-//       swal("", "Please Enter Panchayat Mandal", "error");
-//       return false;
-//    }
+   var acc_nom_pncht_mdl = document.getElementById("acc_nom_pncht_mdl").value;
+   if (acc_nom_pncht_mdl == "") {
+      document.getElementById("acc_nom_pncht_mdl").focus();
+      swal("", "Please Enter Panchayat Mandal", "error");
+      return false;
+   }
 
-//    var acc_nom_city = document.getElementById("acc_nom_city").value;
-//    if (acc_nom_city == "") {
-//       document.getElementById("acc_nom_city").focus();
-//       swal("", "Please Enter City", "error");
-//       return false;
-//    }
-
-   
-//    var acc_nom_dist = document.getElementById("acc_nom_dist").value;
-//    if (acc_nom_dist == "") {
-//       document.getElementById("acc_nom_dist").focus();
-//       swal("", "Please Enter Disrtict", "error");
-//       return false;
-//    }
+   var acc_nom_city = document.getElementById("acc_nom_city").value;
+   if (acc_nom_city == "") {
+      document.getElementById("acc_nom_city").focus();
+      swal("", "Please Enter City", "error");
+      return false;
+   }
 
    
-//    var acc_nom_state = document.getElementById("acc_nom_state").value;
-//    if (acc_nom_state == "") {
-//       document.getElementById("acc_nom_state").focus();
-//       swal("", "Please Enter State", "error");
-//       return false;
-//    }
+   var acc_nom_dist = document.getElementById("acc_nom_dist").value;
+   if (acc_nom_dist == "") {
+      document.getElementById("acc_nom_dist").focus();
+      swal("", "Please Enter Disrtict", "error");
+      return false;
+   }
 
-//    var acc_nom_postl = document.getElementById("acc_nom_postl").value;
-//    if (acc_nom_postl == "") {
-//       document.getElementById("acc_nom_postl").focus();
-//       swal("", "Please Enter Postal Code", "error");
-//       return false;
-//    }
+   
+   var acc_nom_state = document.getElementById("acc_nom_state").value;
+   if (acc_nom_state == "") {
+      document.getElementById("acc_nom_state").focus();
+      swal("", "Please Enter State", "error");
+      return false;
+   }
 
-//    var acc_nom_phn_num = document.getElementById("acc_nom_phn_num").value;
-//    if (acc_nom_phn_num == "") {
-//       document.getElementById("acc_nom_phn_num").focus();
-//       swal("", "Please Enter Phone Number", "error");
-//       return false;
-//    }
-//    else
-//    {
+   var acc_nom_postl = document.getElementById("acc_nom_postl").value;
+   if (acc_nom_postl == "") {
+      document.getElementById("acc_nom_postl").focus();
+      swal("", "Please Enter Postal Code", "error");
+      return false;
+   }
 
-//            if(acc_nom_phn_num.length < 10){
-//            document.getElementById("acc_nom_phn_num").focus();
+   else{
+
+      if(acc_nom_postl.length < 6){    // Validating the Postal Code, changes done by Shivu(NODE)
+         document.getElementById("acc_nom_postl").focus();
+         
+         swal("","Please Enter Valid Postal Code","error");
+            return false;
+            }
+
+      var postcode = /([1-9]{1}[0-9]{5})/;   // Validating the Postal Code, changes done by Shivu(NODE)
+      if (!postcode.test(acc_nom_postl))
+      {
+      document.getElementById("acc_nom_postl").focus();
+      
+      swal("Invalid","Please Enter Valid Postal Code","warning");
+      return false;
+      }
+   }
+
+   var acc_nom_phn_num = document.getElementById("acc_nom_phn_num").value;
+   if (acc_nom_phn_num == "") {
+      document.getElementById("acc_nom_phn_num").focus();
+      swal("", "Please Enter Phone Number", "error");
+      return false;
+   }
+   else
+   {
+
+           if(acc_nom_phn_num.length < 10){
+           document.getElementById("acc_nom_phn_num").focus();
            
-//            swal("","Please Enter valid Phone Number","error");
-//               return false;
-//               }
+           swal("","Please Enter valid Phone Number","error");
+              return false;
+              }
 
-//             }
+              var phnum1 = /([6-9]{1}[0-9]{9})/;   // Validating the phone Number, changes done by Shivu(NODE)
+              if (!phnum1.test(acc_nom_phn_num))
+              {
+              document.getElementById("acc_nom_phn_num").focus();
+              
+              swal("Invalid","Please Enter Valid Phone Number","warning");
+              return false;
+              }
+
+            }
 
 
-//    var acc_nom_is_socty_mem = document.getElementById("acc_nom_is_socty_mem").value;
-//    if (acc_nom_is_socty_mem == "") {
-//       document.getElementById("acc_nom_is_socty_mem").focus();
-//       swal("", "Please Enter Society Member", "error");
-//       return false;
-//    }
+   var acc_nom_is_socty_mem = document.getElementById("acc_nom_is_socty_mem").value;
+   if (acc_nom_is_socty_mem == "") {
+      document.getElementById("acc_nom_is_socty_mem").focus();
+      swal("", "Please Enter Society Member", "error");
+      return false;
+   }
 
-//    var acc_nom_acct_num = document.getElementById("acc_nom_acct_num").value;
-//    if (acc_nom_acct_num == "") {
-//       document.getElementById("acc_nom_acct_num").focus();
-//       swal("", "Please Account Number", "error");
-//       return false;
-//    }
+   var acc_nom_acct_num = document.getElementById("acc_nom_acct_num").value;
+   if (acc_nom_acct_num == "") {
+      document.getElementById("acc_nom_acct_num").focus();
+      swal("", "Please Account Number", "error");
+      return false;
+   }
 
-//    var acc_nom_adhr_crd_num = document.getElementById("acc_nom_adhr_crd_num").value;
-//    if (acc_nom_adhr_crd_num == "") {
-//       document.getElementById("acc_nom_adhr_crd_num").focus();
-//       swal("", "Please Enter Adhaar Card Number", "error");
-//       return false;
-//    }
+   var acc_nom_adhr_crd_num = document.getElementById("acc_nom_adhr_crd_num").value;
+   if (acc_nom_adhr_crd_num == "") {
+      document.getElementById("acc_nom_adhr_crd_num").focus();
+      swal("", "Please Enter Adhaar Card Number", "error");
+      return false;
+   }
 
-//    else
-//             {
-//                     if (acc_nom_adhr_crd_num.length <12)
-//                     {
-//                             document.getElementById("acc_nom_adhr_crd_num").focus();
+   else
+            {
+                    if (acc_nom_adhr_crd_num.length <12)
+                    {
+                            document.getElementById("acc_nom_adhr_crd_num").focus();
                             
-//                             swal("","Please Enter Valid AADHAR Number","error");
-//                             return false;
-//                      }
+                            swal("","Please Enter Valid AADHAR Number","error");
+                            return false;
+                     }
+
+                     var adhaarnum = /([1-9]{1}[0-9]{11})/;   // Validating the Adhaar Number, changes done by Shivu(NODE)
+                     if (!adhaarnum.test(acc_nom_adhr_crd_num))
+                     {
+                     document.getElementById("acc_nom_adhr_crd_num").focus();
+                     
+                     swal("Invalid","Please Enter Valid Adhaar Number","warning");
+                     return false;
+                     }
                             
             
                   
-//             }
+            }
 
    if( (document.getElementById("acc_nom_isminor_yes").checked==false) && (document.getElementById("acc_nom_isminor_no").checked==false) ){
          document.getElementById("acc_nom_isminor_yes").autofocus;
@@ -1491,6 +1528,15 @@ function guardianAccDetails() {
               return false;
               }
 
+              var phnum1 = /([6-9]{1}[0-9]{9})/;   // Validating the phone Number, changes done by Shivu(NODE)
+              if (!phnum1.test(acc_gurdian_phn_num))
+              {
+              document.getElementById("acc_gurdian_phn_num").focus();
+              
+              swal("Invalid","Please Enter Valid Phone Number","warning");
+              return false;
+              }
+
             }
    
    var acc_gurdian_postl = document.getElementById("acc_gurdian_postl").value;
@@ -1498,6 +1544,24 @@ function guardianAccDetails() {
       document.getElementById("acc_gurdian_postl").focus();
       swal("", "Please Enter Postal Code", "error");
       return false;
+   }
+   else{
+
+      if(acc_gurdian_postl.length < 6){    // Validating the Postal Code, changes done by Shivu(NODE)
+         document.getElementById("acc_gurdian_postl").focus();
+         
+         swal("","Please Enter Valid Postal Code","error");
+            return false;
+            }
+
+      var postcode = /([1-9]{1}[0-9]{5})/;   // Validating the Postal Code, changes done by Shivu(NODE)
+      if (!postcode.test(acc_gurdian_postl))
+      {
+      document.getElementById("acc_gurdian_postl").focus();
+      
+      swal("Invalid","Please Enter Valid Postal Code","warning");
+      return false;
+      }
    }
 
    var acc_gurdian_addr_ste = document.getElementById("acc_gurdian_addr_ste").value;
@@ -1915,6 +1979,25 @@ function nomineeEdit()
       return false;
    }
 
+   else{
+
+      if(acc_nom_postl_ed.length < 6){    // Validating the Postal Code, changes done by Shivu(NODE)
+         document.getElementById("acc_nom_postl_ed").focus();
+         
+         swal("","Please Enter Valid Postal Code","error");
+            return false;
+            }
+
+      var postcode = /([1-9]{1}[0-9]{5})/;   // Validating the Postal Code, changes done by Shivu(NODE)
+      if (!postcode.test(acc_nom_postl_ed))
+      {
+      document.getElementById("acc_nom_postl_ed").focus();
+      
+      swal("Invalid","Please Enter Valid Postal Code","warning");
+      return false;
+      }
+   }
+
    var acc_nom_phn_num_ed = document.getElementById("acc_nom_phn_num_ed").value;
    if (acc_nom_phn_num_ed == "") {
       document.getElementById("acc_nom_phn_num_ed").focus();
@@ -1928,6 +2011,15 @@ function nomineeEdit()
            document.getElementById("acc_nom_phn_num_ed").focus();
            
            swal("","Please Enter valid Phone Number","error");
+              return false;
+              }
+
+              var phnum1 = /([6-9]{1}[0-9]{9})/;   // Validating the phone Number, changes done by Shivu(NODE)
+              if (!phnum1.test(acc_nom_phn_num_ed))
+              {
+              document.getElementById("acc_nom_phn_num_ed").focus();
+              
+              swal("Invalid","Please Enter Valid Phone Number","warning");
               return false;
               }
 
@@ -1963,6 +2055,15 @@ function nomineeEdit()
                             
                             swal("","Please Enter Valid AADHAR Number","error");
                             return false;
+                     }
+
+                     var adhaarnum = /([1-9]{1}[0-9]{11})/;   // Validating the Adhaar Number, changes done by Shivu(NODE)
+                     if (!adhaarnum.test(acc_nom_adhr_crd_num_ed))
+                     {
+                     document.getElementById("acc_nom_adhr_crd_num_ed").focus();
+                     
+                     swal("Invalid","Please Enter Valid Adhaar Number","warning");
+                     return false;
                      }
                             
             
@@ -2155,6 +2256,15 @@ function guardianEdit(){
               return false;
               }
 
+              var phnum1 = /([6-9]{1}[0-9]{9})/;   // Validating the phone Number, changes done by Shivu(NODE)
+              if (!phnum1.test(acc_gurdian_phn_num_ed))
+              {
+              document.getElementById("acc_gurdian_phn_num_ed").focus();
+              
+              swal("Invalid","Please Enter Valid Phone Number","warning");
+              return false;
+              }
+
             }
    
    var acc_gurdian_postl_ed = document.getElementById("acc_gurdian_postl_ed").value;
@@ -2162,6 +2272,25 @@ function guardianEdit(){
       document.getElementById("acc_gurdian_postl_ed").focus();
       swal("", "Please Enter Postal Code", "error");
       return false;
+   }
+
+   else{
+
+      if(acc_gurdian_postl_ed.length < 6){    // Validating the Postal Code, changes done by Shivu(NODE)
+         document.getElementById("acc_gurdian_postl_ed").focus();
+         
+         swal("","Please Enter Valid Postal Code","error");
+            return false;
+            }
+
+      var postcode = /([1-9]{1}[0-9]{5})/;   // Validating the Postal Code, changes done by Shivu(NODE)
+      if (!postcode.test(acc_nom_postl_ed))
+      {
+      document.getElementById("acc_gurdian_postl_ed").focus();
+      
+      swal("Invalid","Please Enter Valid Postal Code","warning");
+      return false;
+      }
    }
 
    var acc_gurdian_addr_ste_ed = document.getElementById("acc_gurdian_addr_ste_ed").value;
@@ -2446,5 +2575,38 @@ console.log("result of branch code arr",accschemearr)
 });
 /*ACCOUNTS ADD DETAILS-END*/
 
+// Back Navigation of Joint holder to Nominee In Accounts Add Details 
 
+function backJointHolder(){
+   if(document.getElementById("acc_nom_isminor_no").checked == true){
+      $('#tabs a[href=#accounts_nominee]').tab('show').addClass("active");
+      $('#tabs a[href=#joint_holder_details]').removeClass("active");
+   }
+   else if(document.getElementById("acc_nom_isminor_yes").checked == true){
+      $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
+      $('#tabs a[href=#joint_holder_details]').removeClass("active");
+   }
+}
+
+function backJointHolderEdit(){
+   if(document.getElementById("acc_nom_isminor_no_ed").checked == true){
+      $('#tabs a[href=#accounts_nominee]').tab('show').addClass("active");
+      $('#tabs a[href=#joint_holder_details]').removeClass("active");
+   }
+   else if(document.getElementById("acc_nom_isminor_yes_ed").checked == true){
+      $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
+      $('#tabs a[href=#joint_holder_details]').removeClass("active");
+   }
+}
+
+function backJointHolderView(){
+   if(document.getElementById("acc_nom_isminor_no_vw").checked == true){
+      $('#tabs a[href=#accounts_nominee]').tab('show').addClass("active");
+      $('#tabs a[href=#joint_holder_details]').removeClass("active");
+   }
+   else if(document.getElementById("acc_nom_isminor_yes_vw").checked == true){
+      $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
+      $('#tabs a[href=#joint_holder_details]').removeClass("active");
+   }
+}
 
