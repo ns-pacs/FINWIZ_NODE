@@ -1081,6 +1081,15 @@ if(soc_branch_add_phone_num1.length < 10){
         swal("Invalid","Please Enter valid Phone Number 1","warning");
         return false;
     }
+
+    var phnum1 = /([6-9]{1}[0-9]{9})/;   // Validating the phone Number, changes done by Shivu(NODE)
+if (!phnum1.test(soc_branch_add_phone_num1))
+{
+document.getElementById("soc_branch_add_phone_num1").focus();
+
+swal("Invalid","Please Enter Valid Phone Number","warning");
+return false;
+}
 }
 
  
@@ -1103,7 +1112,17 @@ if(soc_branch_add_phone_num2.length < 10){
         swal("Invalid","Please Enter valid Phone Number 2","warning");
         return false;
     }
-}
+
+    var phnum2 = /([6-9]{1}[0-9]{9})/;   // Validating the phone Number, changes done by Shivu(NODE)
+    if (!phnum2.test(soc_branch_add_phone_num2))
+    {
+    document.getElementById("soc_branch_add_phone_num2").focus();
+    
+    swal("Invalid","Please Enter Valid Phone Number","warning");
+    return false;
+    }
+    }
+
 
 
 
@@ -4551,9 +4570,7 @@ function selectBankCode() {
     var bankcode = document.getElementById("society_branch_ser_brcode").selectedIndex;
     document.getElementById("society_branch_ser_bnkcd").selectedIndex = bankcode;
   }
-
   
-
   //// Shows the error message without enter the values to either of the fields, Changes done by Shivu(Node) ///
 
   function societyBranchValidate() {
@@ -4566,4 +4583,29 @@ function selectBankCode() {
       swal("Oops","Please enter either of the field","error");
       return false;
     }
+  }
+
+
+  //search screen page both  date must be selected
+  function searchselectdateboth(){
+    var premium_date = document.getElementById("premium_date").value;
+    var premium_date1 = document.getElementById("premium_date1").value;
+    var pro_name = document.getElementById("pro_name").value;
+    var acc_num = document.getElementById("acc_num").value;
+   if( pro_name=="" && acc_num=="" &&  premium_date =="" && premium_date1 =="" ){
+   swal("Oops!","Please enter either of the fields","error");
+   return false;
+   }
+
+   else{
+
+    if( premium_date !="" && premium_date1 =="")
+   {
+    document.getElementById("premium_date1").focus();
+   swal("Oops!","Please select both fields of premium due dates","error");
+    return false;
+    }
+}
+    document.getElementById("insurancesearch").submit();
+
   }
