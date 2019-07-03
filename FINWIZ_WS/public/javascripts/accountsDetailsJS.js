@@ -2303,8 +2303,16 @@ function accountsView()
 
 function nomineeView()
 {
-   $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
+   if(document.getElementById("acc_nom_isminor_no_vw").checked == true){
+   $('#tabs a[href=#joint_holder_details]').tab('show').addClass("active");
    $('#tabs a[href=#accounts_nominee]').removeClass("active");
+   }
+
+   else if (document.getElementById("acc_nom_isminor_yes_vw").checked == true)
+   {
+      $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
+      $('#tabs a[href=#accounts_nominee]').removeClass("active");
+   }
 }
 
 function guardianView(){
@@ -2437,3 +2445,6 @@ console.log("result of branch code arr",accschemearr)
 
 });
 /*ACCOUNTS ADD DETAILS-END*/
+
+
+
