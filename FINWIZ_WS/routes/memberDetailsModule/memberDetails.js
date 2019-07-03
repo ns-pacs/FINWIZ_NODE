@@ -1954,7 +1954,7 @@ console.log('fyear',fyear);
 console.log('sharesinclude',sharesinclude);
 console.log("mem div id",memdivid)
 console.log("editable data",fyear,share,sharesinclude,sharefree,sharecapital,dividendamount,DividendArrears,DividendPayable,FinalAmount,OtherIncome,memberid,TotalDiviodend,memdivid)
-pgdbconnect.query("update member_dividend set md_ch_financial_year=$1,md_n_num_shares=$2,md_n_num_shares_included=$3,md_n_share_fee=$4,md_n_share_capital=$5,md_n_dividend_amt=$6,md_n_dividend_payable=$7,md_n_dividend_arrears=$8,md_n_final_amt=$9,md_n_others_income=$10,md_ch_member_id=$11,md_n_tot_dividend_payable=$12 where md_n_member_dividend_id=$13",
+pgdbconnect.query("update member_dividend set md_ch_financial_year=$1,md_n_num_shares=$2,md_n_num_shares_included=$3,md_n_share_fee=$4,md_n_share_capital=$5,mkd_n_dividend_amt=$6,md_n_dividend_payable=$7,md_n_dividend_arrears=$8,md_n_final_amt=$9,md_n_others_income=$10,md_ch_member_id=$11,md_n_tot_dividend_payable=$12 where md_n_member_dividend_id=$13",
 [fyear,share,sharesinclude,sharefree,sharecapital,dividendamount,DividendPayable,DividendArrears,FinalAmount,OtherIncome,memberid,TotalDiviodend,memdivid],function(err,Dividendedit){
     if (err)
     {
@@ -2021,8 +2021,8 @@ router.post('/mem_kcc_func',function(req,res){
 
     var mem_name=req.body.mem_name1;
     var card_num=req.body.card_num1;
-    console.log("data to search",mem_name,card_num)
-    pgdbconnect.query("select * from member_card_details where ((mcd_ch_member_name=$1 or mcd_ch_card_number=$2) and (mcd_ch_del_flg ='N')) ",[mem_name,card_num],function(err,ressearch1){
+    console.log("data to search11111111",mem_name,card_num)
+    pgdbconnect.query("select * from member_card_details where (mcd_ch_member_name=$1 or mcd_ch_card_number=$2) and (mcd_ch_del_flg =$3)",[mem_name,card_num,'N'],function(err,ressearch1){
         console.log("search result",ressearch1)
         if(err)
         {

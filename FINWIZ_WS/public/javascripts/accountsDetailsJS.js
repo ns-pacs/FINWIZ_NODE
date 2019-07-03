@@ -571,6 +571,17 @@ function numeric(empcd)
 }
 /* ACCOUNTS Limits- END*/
 
+
+/*ACCOUNTS SEARCH PAGE*/
+/*RESET SEARCH */
+function reset_account()
+{
+   document.getElementById("mem_typ").value='';
+   document.getElementById("acc_sch_account_number").value='';
+   document.getElementById("acc_sch_account_status").value='';
+
+}
+
 /*ACCOUNTS ADD DETAILS-START*/
 // Only Alphabets for required functions
 function alphanumeric(memid)
@@ -659,6 +670,7 @@ function guardian_gen(guardgen){
 function jointHolders1(){
    if(document.getElementById('acc_jnt_hldr_has_jnt_hldr_1').selectedIndex == "2"){
       document.getElementById('acc_jnt_hldr_jnt_hldr_1').disabled = true;
+      document.getElementById('acc_jnt_hldr_jnt_hldr_1').value="";
    }
    else{
       document.getElementById('acc_jnt_hldr_jnt_hldr_1').disabled = false;
@@ -669,6 +681,7 @@ function jointHolders1(){
 function jointHolders2(){
    if(document.getElementById('acc_jnt_hldr_has_jnt_hldr_2').selectedIndex == "2"){
       document.getElementById('acc_jnt_hldr_jnt_hldr_2').disabled = true;
+      document.getElementById('acc_jnt_hldr_jnt_hldr_2').value="";
    }
    else{
       document.getElementById('acc_jnt_hldr_jnt_hldr_2').disabled = false;
@@ -679,6 +692,7 @@ function jointHolders2(){
 function jointHolders3(){
    if(document.getElementById('acc_jnt_hldr_has_jnt_hldr_3').selectedIndex == "2"){
       document.getElementById('acc_jnt_hldr_jnt_hldr_3').disabled = true;
+      document.getElementById('acc_jnt_hldr_jnt_hldr_3').value="";
    }
    else{
       document.getElementById('acc_jnt_hldr_jnt_hldr_3').disabled = false;
@@ -689,6 +703,7 @@ function jointHolders3(){
 function jointHolders4(){
    if(document.getElementById('acc_jnt_hldr_has_jnt_hldr_4').selectedIndex == "2"){
       document.getElementById('acc_jnt_hldr_jnt_hldr_4').disabled = true;
+      document.getElementById('acc_jnt_hldr_jnt_hldr_4').value="";
    }
    else{
       document.getElementById('acc_jnt_hldr_jnt_hldr_4').disabled = false;
@@ -1520,32 +1535,70 @@ function jointHolderAccDetails() {
    var acc_jnt_hldr_has_jnt_hldr_1 = document.getElementById("acc_jnt_hldr_has_jnt_hldr_1").value;
    if (acc_jnt_hldr_has_jnt_hldr_1 == "") {
       document.getElementById("acc_jnt_hldr_has_jnt_hldr_1").focus();
+      swal("", "Please Enter Has Joint Holder 1", "error");
+      return false;
+   }
+   else {
+      //alert("ddfksjh")
+      if(acc_jnt_hldr_has_jnt_hldr_1 == 'Yes' && document.getElementById("acc_jnt_hldr_jnt_hldr_1").value==""){
+       //  alert("xmcv")
+         document.getElementById("acc_jnt_hldr_jnt_hldr_1").focus();
       swal("", "Please Enter Joint Holder 1", "error");
       return false;
+      }
    }
 
 
    var acc_jnt_hldr_has_jnt_hldr_2 = document.getElementById("acc_jnt_hldr_has_jnt_hldr_2").value;
    if (acc_jnt_hldr_has_jnt_hldr_2 == "") {
       document.getElementById("acc_jnt_hldr_has_jnt_hldr_2").focus();
+      swal("", "Please Enter Has Joint Holder 2", "error");
+      return false;
+   }
+
+   else {
+     // alert("ddfksjh")
+      if(acc_jnt_hldr_has_jnt_hldr_2 == 'Yes' && document.getElementById("acc_jnt_hldr_jnt_hldr_2").value==""){
+        // alert("xmcv")
+         document.getElementById("acc_jnt_hldr_jnt_hldr_2").focus();
       swal("", "Please Enter Joint Holder 2", "error");
       return false;
+      }
    }
 
    var acc_jnt_hldr_has_jnt_hldr_3 = document.getElementById("acc_jnt_hldr_has_jnt_hldr_3").value;
    if (acc_jnt_hldr_has_jnt_hldr_3 == "") {
       document.getElementById("acc_jnt_hldr_has_jnt_hldr_3").focus();
-      swal("", "Please Enter Joint Holder 2", "error");
+      swal("", "Please Enter Has Joint Holder 3", "error");
       return false;
    }
+
+   else {
+      // alert("ddfksjh")
+       if(acc_jnt_hldr_has_jnt_hldr_3 == 'Yes' && document.getElementById("acc_jnt_hldr_jnt_hldr_3").value==""){
+         // alert("xmcv")
+          document.getElementById("acc_jnt_hldr_jnt_hldr_3").focus();
+       swal("", "Please Enter Joint Holder 3", "error");
+       return false;
+       }
+    }
 
    var acc_jnt_hldr_has_jnt_hldr_4 = document.getElementById("acc_jnt_hldr_has_jnt_hldr_4").value;
    if (acc_jnt_hldr_has_jnt_hldr_4 == "") {
       document.getElementById("acc_jnt_hldr_has_jnt_hldr_4").focus();
-      swal("", "Please Enter Joint Holder 4", "error");
+      swal("", "Please Enter Has Joint Holder 4", "error");
       return false;
    }
-                            
+   
+   else {
+      // alert("ddfksjh")
+       if(acc_jnt_hldr_has_jnt_hldr_4 == 'Yes' && document.getElementById("acc_jnt_hldr_jnt_hldr_4").value==""){
+         // alert("xmcv")
+          document.getElementById("acc_jnt_hldr_jnt_hldr_4").focus();
+       swal("", "Please Enter Joint Holder 4", "error");
+       return false;
+       }
+    }
 
    $('#tabs a[href=#authorization]').tab('show').addClass("active");
    $('#tabs a[href=#joint_holder_details]').removeClass("active");
@@ -2146,6 +2199,15 @@ if (acc_jnt_hldr_has_jnt_hldr_1_ed == "") {
    swal("", "Please Enter Joint Holder 1", "error");
    return false;
 }
+else {
+  // alert("ddfksjh")
+   if(acc_jnt_hldr_has_jnt_hldr_1_ed == 'Yes' && document.getElementById("acc_jnt_hldr_jnt_hldr_1_ed").value==""){
+     // alert("xmcv")
+      document.getElementById("acc_jnt_hldr_jnt_hldr_1_ed").focus();
+   swal("", "Please Enter Joint Holder 1", "error");
+   return false;
+   }
+}
 
 
 var acc_jnt_hldr_has_jnt_hldr_2_ed = document.getElementById("acc_jnt_hldr_has_jnt_hldr_2_ed").value;
@@ -2154,12 +2216,30 @@ if (acc_jnt_hldr_has_jnt_hldr_2_ed == "") {
    swal("", "Please Enter Joint Holder 2", "error");
    return false;
 }
+else {
+   //alert("ddfksjh")
+   if(acc_jnt_hldr_has_jnt_hldr_2_ed == 'Yes' && document.getElementById("acc_jnt_hldr_jnt_hldr_2_ed").value==""){
+     // alert("xmcv")
+      document.getElementById("acc_jnt_hldr_jnt_hldr_2_ed").focus();
+   swal("", "Please Enter Joint Holder 2", "error");
+   return false;
+   }
+}
 
 var acc_jnt_hldr_has_jnt_hldr_3_ed = document.getElementById("acc_jnt_hldr_has_jnt_hldr_3_ed").value;
 if (acc_jnt_hldr_has_jnt_hldr_3_ed == "") {
    document.getElementById("acc_jnt_hldr_has_jnt_hldr_3_ed").focus();
-   swal("", "Please Enter Joint Holder 2", "error");
+   swal("", "Please Enter Joint Holder 3", "error");
    return false;
+}
+else {
+  // alert("ddfksjh")
+   if(acc_jnt_hldr_has_jnt_hldr_3_ed == 'Yes' && document.getElementById("acc_jnt_hldr_jnt_hldr_3_ed").value==""){
+     // alert("xmcv")
+      document.getElementById("acc_jnt_hldr_jnt_hldr_3_ed").focus();
+   swal("", "Please Enter Joint Holder 3", "error");
+   return false;
+   }
 }
 
 var acc_jnt_hldr_has_jnt_hldr_4_ed = document.getElementById("acc_jnt_hldr_has_jnt_hldr_4_ed").value;
@@ -2167,6 +2247,15 @@ if (acc_jnt_hldr_has_jnt_hldr_4_ed == "") {
    document.getElementById("acc_jnt_hldr_has_jnt_hldr_4_ed").focus();
    swal("", "Please Enter Joint Holder 4", "error");
    return false;
+}
+else {
+  // alert("ddfksjh")
+   if(acc_jnt_hldr_has_jnt_hldr_4_ed == 'Yes' && document.getElementById("acc_jnt_hldr_jnt_hldr_4_ed").value==""){
+     // alert("xmcv")
+      document.getElementById("acc_jnt_hldr_jnt_hldr_4_ed").focus();
+   swal("", "Please Enter Joint Holder 4", "error");
+   return false;
+   }
 }
 
    $('#tabs a[href=#authorization]').tab('show').addClass("active");
@@ -2214,8 +2303,16 @@ function accountsView()
 
 function nomineeView()
 {
-   $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
+   if(document.getElementById("acc_nom_isminor_no_vw").checked == true){
+   $('#tabs a[href=#joint_holder_details]').tab('show').addClass("active");
    $('#tabs a[href=#accounts_nominee]').removeClass("active");
+   }
+
+   else if (document.getElementById("acc_nom_isminor_yes_vw").checked == true)
+   {
+      $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
+      $('#tabs a[href=#accounts_nominee]').removeClass("active");
+   }
 }
 
 function guardianView(){
@@ -2348,3 +2445,6 @@ console.log("result of branch code arr",accschemearr)
 
 });
 /*ACCOUNTS ADD DETAILS-END*/
+
+
+

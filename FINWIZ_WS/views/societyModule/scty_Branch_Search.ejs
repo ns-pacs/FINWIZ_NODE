@@ -284,15 +284,20 @@ Accounts
                       <strong style="color:green"><%= message.success_msg %></strong>
                       </div>
                   <% } %>
-                  <form autocomplete="off" action="/societyModule/societyDetails/search_particular_scty_branch_rec" method="post">
+                  <form autocomplete="off" action="/societyModule/societyDetails/search_particular_scty_branch_rec" method="post"  name="sctyBranch" onsubmit="return societyBranchValidate()"> <!-- shows the error message without enter the data to the either of the field, changes done dy Shivu(Node)--> 
                     <!-- first row start -->
                     <div class="container row mt-4">
                         <!-- bank   -->
                       <div class="col-sm-12 col-md-6">
                         <label for="society_branch_ser_bnkcd" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code
                         </label>
+<<<<<<< HEAD
 
                      <select class="col-sm-12 col-md-6" name="society_branch_ser_bnkcd" id="society_branch_ser_bnkcd">
+=======
+                                                     
+                     <select class="col-sm-12 col-md-6" name="society_branch_ser_bnkcd" id="society_branch_ser_bnkcd" onchange="selectBankCode()"> <!-- include this function for autopopulated the branch code, done by Shivu(NODE)-->
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                        <option>Select</option>
                             <% for(var i=0;i < sctysrch.length;i++) { %>
                                      <option value="<%= sctysrch[i].sbr_ch_bank_code  %>"> <%= sctysrch[i].sbr_ch_bank_code %></option>
@@ -307,7 +312,7 @@ Accounts
                         <label for="society_branch_ser_brcode" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch code
                         </label>
 
-                                                            <select class="col-sm-12 col-md-6" name="society_branch_ser_brcode" id="society_branch_ser_brcode">
+                                                            <select class="col-sm-12 col-md-6" name="society_branch_ser_brcode" id="society_branch_ser_brcode" onchange="selectBranchCode()"> <!-- include this function for autopopulated the bank code, done by Shivu(NODE)-->
                                                               <option>Select</option>
                                                                    <% for(var i=0;i < sctysrch.length;i++) { %>
                                                                             <option value="<%= sctysrch[i].sbr_n_branch_code  %>"> <%= sctysrch[i].sbr_n_branch_code %></option>
@@ -325,8 +330,13 @@ Accounts
                             </label>
 
                                 <input type="text" class="col-sm-12 col-md-6"
+<<<<<<< HEAD
                                                     name="society_branch_ser_brnme" id="society_branch_ser_brnme" placeholder=""
                                                     style="text-transform: capitalize">
+=======
+                                                    name="society_branch_ser_brnme" id="society_branch_ser_brnme" placeholder="" 
+                                                    style="text-transform: capitalize" maxlength="20" onkeypress="return desc(event)">
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
 
 
                           </div>
@@ -376,8 +386,14 @@ Accounts
     <div class="d-sm-none d-md-block col-md-10"></div>
     <a type="text" name="btnUplEmp" id="btnUplEmp" class="btn add1 add3" href="/societyModule/societyDetails/scty_branch_add?key=ADD"
     value="Add">Add</a>
+<<<<<<< HEAD
     <input type="button" class="btn print1" id="notif" value="Print" onclick="prin()" >
 
+=======
+    <!-- Added the print function ,changes made by swarna -->
+    <input type="button" class="btn print1" id="notif" value="Print" onclick="prin()";>
+    
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
 </div>
 
                     <div id="dtBasicExample_wrapper table-responsive" class="dataTables_wrapper dt-bootstrap4">

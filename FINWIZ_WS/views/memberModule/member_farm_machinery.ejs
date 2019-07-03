@@ -53,6 +53,43 @@
                     </li>
 
                     <li id="sub_menu">
+                      <a href="#">
+                          <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                          <strong class="fnt">Bank</strong>
+                      </a>
+                      <ul class="hid mt-1 sub_col">
+
+                          <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search" style="color: #ffffff">Associated
+                                      Bank</a></div>
+
+                          <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search" style="color: #ffffff">Associated Branch</a></div>
+
+                          <div class="sub_mar">
+                              <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search" style="color: #ffffff">Associated Bank Account Master</a>
+                          </div>
+
+                          <div class="sub_mar">
+                              <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search" style="color: #ffffff">Associated Bank Cheque Book</a>
+                          </div>
+
+                          <div class="sub_mar">
+                              <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search" style="color: #ffffff">Associated Bank Account Type</a>
+                          </div>
+
+                          <div class="sub_mar">
+                              <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search" style="color: #ffffff">Associated Bank Deposit Returns</a>
+                          </div>
+
+
+                          <div class="sub_mar">
+                              <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search" style="color: #ffffff">Associated Bank Deposit Master</a>
+                          </div>
+
+                      </ul>
+                  </li>
+
+
+                    <li id="sub_menu">
                         <a href="#">
                             <i class="material-icons" style="font-size: 25px;">group</i>
                             <strong class="fnt">Accounts</strong>
@@ -123,44 +160,6 @@ Accounts
                             <strong class="fnt">Loans</strong>
                         </a>
                     </li>
-
-
-                    <li id="sub_menu">
-                        <a href="#">
-                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
-                            <strong class="fnt">Bank</strong>
-                        </a>
-                        <ul class="hid mt-1 sub_col">
-
-                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search" style="color: #ffffff">Associated
-                                        Bank</a></div>
-
-                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search" style="color: #ffffff">Associated Branch</a></div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search" style="color: #ffffff">Associated Bank Account Master</a>
-                            </div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search" style="color: #ffffff">Associated Bank Cheque Book</a>
-                            </div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search" style="color: #ffffff">Associated Bank Account Type</a>
-                            </div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search" style="color: #ffffff">Associated Bank Deposit Returns</a>
-                            </div>
-
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search" style="color: #ffffff">Associated Bank Deposit Master</a>
-                            </div>
-
-                        </ul>
-                    </li>
-
 
                     <li>
                         <a href="/login/market">
@@ -289,7 +288,7 @@ Accounts
 
                         </div>
                         <div class="col-sm-12 col-md-6">
-                          <label for="vehiclename" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechicle Name</label>
+                          <label for="vehiclename" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vehicle Name</label>
                           <input required class="col-sm-12 col-md-6" id="vehiclename" name="vehiclename" type="text" />
 
                         </div>
@@ -297,7 +296,7 @@ Accounts
 
                       <div class="container row mt-2">
                         <div class="col-sm-12 col-md-6">
-                          <label for="vehicle_reg_num" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechilce Register Number</label>
+                          <label for="vehicle_reg_num" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vehilce Register Number</label>
                           <input required type="text" class="col-sm-12 col-md-6" name="vehicle_reg_num" id="vehicle_reg_num" placeholder="" onkeypress="return alphanumeric(event)" maxlength="10">
 
                         </div>
@@ -312,7 +311,7 @@ Accounts
 
                       <div class="container row mt-2">
                           <div class="col-sm-12 col-md-12">
-                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Vechicle Description</label>
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Vehicle Description</label>
                             <div class="form-group">
                                 <label for="vehicledescription"></label>
                                 <textarea required class=" col-sm-12 col-md-9 textarea2" id="vehicledescription" name="vehicledescription" rows="3"></textarea>
@@ -393,7 +392,7 @@ Accounts
 
                         </div>
                         <div class="col-sm-12 col-md-6">
-                          <label for="vehiclename_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechicle Name</label>
+                          <label for="vehiclename_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vehicle Name</label>
                           <input required class="col-sm-12 col-md-6" id="vehiclename_ed" name="vehiclename_ed" type="text" value="<%=vehiclename%>" />
 
                         </div>
@@ -416,7 +415,7 @@ Accounts
 
                       <div class="container row mt-2">
                           <div class="col-sm-12 col-md-12">
-                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Vechicle Description</label>
+                            <label for="ent_fee" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Vehicle Description</label>
                             <div class="form-group">
                                 <label for="vehicledescription_ed"></label>
                                 <textarea required class=" col-sm-12 col-md-9 textarea2" id="vehicledescription_ed" name="vehicledescription_ed" rows="3" value="<%=vehicle_desc%>"><%=vehicle_desc%></textarea>
@@ -499,7 +498,7 @@ Accounts
 
                         </div>
                         <div class="col-sm-12 col-md-6">
-                          <label for="vehiclename_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vechicle Name</label>
+                          <label for="vehiclename_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Vehicle Name</label>
                           <input ReadOnly class="col-sm-12 col-md-6" id="vehiclename_vw" name="vehicle_reg_num_vw" type="text" value="<%=vehiclename%>" />
 
                         </div>
@@ -522,7 +521,7 @@ Accounts
 
                       <div class="container row mt-2">
                           <div class="col-sm-12 col-md-12">
-                            <label for="vehicledescription_vw" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Vechicle Description</label>
+                            <label for="vehicledescription_vw" class="mr-sm-4 col-sm-12 col-md-3" style="padding-left:0% !important;">Vehicle Description</label>
                             <div class="form-group">
                                 <label for="vehicledescription_vw"></label>
                                 <textarea ReadOnly class=" col-sm-12 col-md-9 textarea2" id="vehicledescription_vw" name="vehicledescription_vw" rows="3"><%=vehicle_desc%></textarea>

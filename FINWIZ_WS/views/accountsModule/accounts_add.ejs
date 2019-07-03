@@ -494,7 +494,7 @@ Accounts
                                                                 style="padding-left:0% !important;">Opening Date</label>
 
                                                             <input type="text" class="col-sm-12 col-md-6"
-                                                                name="acc_openg_date" id="acc_openg_date" placeholder=""
+                                                                name="acc_openg_date" id="acc_openg_date" placeholder="" readonly
                                                                 required>
                                                             <span><i class="material-icons iicon1 iicon11"
                                                                     name="ic_acc_openg_date" id="ic_acc_openg_date"
@@ -615,7 +615,7 @@ Accounts
                                                                 style="padding-left:0% !important;">Last Transaction
                                                                 Date</label>
                                                             <input type="text" class="col-sm-12 col-md-6"
-                                                                name="acc_lst_trnscn_date" id="acc_lst_trnscn_date"
+                                                                name="acc_lst_trnscn_date" id="acc_lst_trnscn_date" readonly
                                                                 placeholder="" required>
                                                             <span><i class="material-icons iicon1 iicon11"
                                                                     name="ic_acc_lst_trnscn_date"
@@ -2866,7 +2866,7 @@ Accounts
                                                             </div>
                                                             <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn bttn" name="clear_acc_jnt_hldr_det_ed"
-                                                                    id="clear_acc_jnt_hldr_det_ed" value="Clear Form">
+                                                                    id="clear_acc_jnt_hldr_det_ed" value="Clear Form" onclick="edit_clearJointHolderTab()">
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-5"></div>
@@ -2936,7 +2936,7 @@ Accounts
                                                             </div>
                                                             <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn bttn" name="clear_acc_auth_det_ed"
-                                                                    id="clear_acc_auth_det_ed" value="Clear Form">
+                                                                    id="clear_acc_auth_det_ed" value="Clear Form" onclick="edit_clearAuthorizationTab()">
 
                                                             </div>
                                                             <div class="col-sm-12 col-md-5"></div>
@@ -3367,14 +3367,14 @@ Accounts
 
                                                     <!-- by NODE Team For back to search to the Account search page  -->
 
-                                                    <a type="button" name="bck_search_vw" id="bck_search_vw" class="btn"
+                                                    <a type="text" name="bck_search_vw" id="bck_search_vw" class="btn"
                                                 href="/accountsModule/accountsDetails/acc_search" value="Back to Search">Back to Search</a>
 
-                                                            <div class="col-sm-12 col-md-3">
+                                                            <!-- <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn" name="clear_acc_det_vw"
                                                                     id="clear_acc_det_vw" value="Clear Form" onclick="clearAccountTab()">
 
-                                                            </div>
+                                                            </div> -->
                                                             <div class="col-sm-12 col-md-5"></div>
                                                             <div class="col-sm-12 col-md-2">
                                                                 <input type="button" class="btn" name="cont_acc_nom_det_vw"
@@ -3824,12 +3824,12 @@ Accounts
                                                                     id="bck_acc_det_vw" value="Back">
 
                                                             </div>
-                                                            <div class="col-sm-12 col-md-3">
+                                                            <!-- <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn bttn"
                                                                     name="clear_acc_nom_det_vw" id="clear_acc_nom_det_vw"
                                                                     value="Clear Form" onclick="clearNomineeTab()">
 
-                                                            </div>
+                                                            </div> -->
                                                             <div class="col-sm-12 col-md-5"></div>
                                                             <div class="col-sm-12 col-md-2">
                                                                 <input type="button" class="btn" name="cont_acc_grdn_det_vw"
@@ -4234,11 +4234,11 @@ Accounts
                                                                     id="bck_loan_vw" value="Back">
 
                                                             </div>
-                                                            <div class="col-sm-12 col-md-3">
+                                                            <!-- <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn bttn" name="clear_nmnee_vw"
                                                                     id="clear_nmnee_vw" value="Clear Form">
 
-                                                            </div>
+                                                            </div> -->
                                                             <div class="col-sm-12 col-md-5"></div>
                                                             <div class="col-sm-12 col-md-2">
                                                                 <input type="button" class="btn" name="save_vw" id="save_vw"
@@ -4355,11 +4355,11 @@ Accounts
                                                                     id="bck_acc_nom_det_vw" value="Back">
 
                                                             </div>
-                                                            <div class="col-sm-12 col-md-3">
+                                                            <!-- <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn bttn" name="clear_acc_jnt_hldr_det_vw"
                                                                     id="clear_acc_jnt_hldr_det_vw" value="Clear Form">
 
-                                                            </div>
+                                                            </div> -->
                                                             <div class="col-sm-12 col-md-5"></div>
                                                             <div class="col-sm-12 col-md-2">
                                                                 <input type="button" class="btn" name="cont_acc_auth_det_vw" id="cont_acc_auth_det_vw"
@@ -4430,7 +4430,7 @@ Accounts
                                                                     id="bck_acc_authorize_vw" value="Back">
 
                                                             </div>
-                                                            <div class="col-sm-12 col-md-3">
+                                                            <!-- <div class="col-sm-12 col-md-3">
                                                                 <input type="button" class="btn bttn" name="clear_acc_auth_det_vw"
                                                                     id="clear_acc_auth_det_vw" value="Clear Form">
 
@@ -4439,7 +4439,7 @@ Accounts
                                                             <div class="col-sm-12 col-md-2">
                                                                 <input type="button" class="btn" name="acc_det_save_vw" id="acc_det_save_vw"
                                                                     value="Save">
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                     <!-- Account Authorization Tab End -->

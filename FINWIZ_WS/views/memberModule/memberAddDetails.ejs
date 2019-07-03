@@ -2625,33 +2625,14 @@ Accounts
 
 
 
-                                                      <!-- <label for="member_typ"
-                                                        class="mr-sm-4 col-sm-12 col-md-5"
-                                                        style="padding-left:0% !important;">Gender</label>
-
-                                                    <div
-                                                        class="custom-control custom-radio custom-control-inline rad1 rad2">
-                                                        <input type="radio" class="custom-control-input1"
-                                                            id="radio-1_ed" name="selectedop_ed" value="male">
-                                                        <label class="custom-control-label1"
-                                                            for="radio-1_ed">Male </label>
-                                                    </div>
-
-
-                                                    <div
-                                                        class="custom-control custom-radio custom-control-inline rad3">
-                                                        <input type="radio" class="custom-control-input1"
-                                                            id="radio-1_ed" name="selectedop_ed" value="female">
-                                                        <label class="custom-control-label1"
-                                                            for="radio-2_ed">Female</label>
-                                                    </div> -->
+                                               
 
                                                 </div>
 
                                                 <div class="col-sm-12 col-md-6">
 
 
-                                                    <%if(edit_selectedop=='Male'){%>
+                                                    <%if(edit_sgender=='Male'){%>
                                                         <label for="gender" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;"> Gender <span class="astrix">*</span></label>
 
                                                         <div  class="custom-control custom-radio custom-control-inline rad1 rad2">
@@ -2671,7 +2652,7 @@ Accounts
                                                         </div>
 
                                                         <%}
-                                                        else if(edit_selectedop=='Female'){%>
+                                                        else if(edit_sgender=='Female'){%>
                                                             <label for="gender" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;"> Gender <span class="astrix">*</span></label>
 
                                                             <div
@@ -2694,32 +2675,6 @@ Accounts
                                                             </div>
                                                             <%}%>
 
-
-
-
-                                                     <!-- <label for="member_typ"
-                                                        class="mr-sm-4 col-sm-12 col-md-5"
-                                                        style="padding-left:0% !important;">Spouse
-                                                        Gender</label>
-
-                                                    <div
-                                                        class="custom-control custom-radio custom-control-inline rad1 rad2">
-                                                        <label class="custom-control-label1"
-                                                            for="genmale">Male</label>
-                                                        <input type="radio" class="custom-control-input1"
-                                                            id="genmale_ed" name="sgender_ed">
-
-                                                    </div>
-
-
-                                                    <div
-                                                        class="custom-control custom-radio custom-control-inline rad3">
-                                                        <label class="custom-control-label1"
-                                                            for="genfemale">Female</label>
-                                                        <input type="radio" class="custom-control-input1"
-                                                            id="genfemale_ed" name="sgender_ed">
-
-                                                    </div>  -->
 
                                                 </div>
 
@@ -3487,10 +3442,8 @@ Accounts
                                                         <select type="text" class="col-sm-12 col-md-6"
                                                             name="rsy_ed" id="rsy_ed">
                                                             <option><%= edit_rsy%></option>
-                                                          
-                                                    <!--<input type="text" class="col-sm-12 col-md-6" name="rsy_ed"
-                                                        maxlength="4" id="rsy_ed" placeholder="  " value="<%= edit_rsy%>"
-                                                        onkeypress="return numeric(event)">-->
+                                                        </select> 
+                                                   
                                                 </div>
 
                                             </div>
@@ -3682,6 +3635,7 @@ Accounts
                                                          <select type="text" class="col-sm-12 col-md-6"
                                                             name="year_ed" id="year_ed">
                                                             <option><%=edit_year%></option>
+                                                        </select>
                                                 </div>
                                             </div>
                                             <div class="container row mt-4">
