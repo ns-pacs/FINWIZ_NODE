@@ -1689,6 +1689,115 @@ function cheque_edit_clear()
     document.getElementById('exampleFormControlTextarea2').value="";
 
 }
+
+
+function editpagesubmit()
+{
+    var Short_name_ed = document.getElementById("Short_name_ed").value;
+    if(Short_name_ed == ""){
+    document.getElementById("Short_name_ed").focus();
+    swal("Oops!","Please Enter Short Name","error");
+    return false;
+    }
+    var master_deposit_name_ed = document.getElementById("master_deposit_name_ed").value;
+    if(master_deposit_name_ed == ""){
+    document.getElementById("master_deposit_name_ed").focus();
+    swal("Oops!","Please Enter Name ","error");
+    return false;
+    }
+    var deposit_gl_name_ed = document.getElementById("deposit_gl_name_ed").value;
+    if(deposit_gl_name_ed == ""){
+    document.getElementById("deposit_gl_name_ed").focus();
+    swal("Oops!","Please Enter GL Code ","error");
+    return false;
+    }
+    var deposit_accnum_ed = document.getElementById("deposit_accnum_ed").value;
+    if(deposit_accnum_ed == ""){
+    document.getElementById("deposit_accnum_ed").focus();
+    swal("Oops!","Please Enter Account Number","error");
+    return false;
+    }
+    var add_bnkdep_typ_ed = document.getElementById("add_bnkdep_typ_ed").value;
+    if(add_bnkdep_typ_ed == ""){
+    document.getElementById("add_bnkdep_typ_ed").focus();
+    swal("Oops!","Please Enter Bank Deposit Type","error");
+    return false;
+    }
+    var add_bnk_depnum_ed = document.getElementById("add_bnk_depnum_ed").value;
+    if(add_bnk_depnum_ed == ""){
+    document.getElementById("add_bnk_depnum_ed").focus();
+    swal("Oops!","Please Enter Bank Deposit Number","error");
+    return false;
+    }
+    var deposit_opening_bal_ed = document.getElementById("deposit_opening_bal_ed").value;
+    if(deposit_opening_bal_ed == ""){
+    document.getElementById("deposit_opening_bal_ed").focus();
+    swal("Oops!","Please Enter Opening Balance","error");
+    return false;
+    }
+    var deposit_closing_bal_ed = document.getElementById("deposit_closing_bal_ed").value;
+    if(deposit_closing_bal_ed == ""){
+    document.getElementById("deposit_closing_bal_ed").focus();
+    swal("Oops!","Please Enter Current Balance","error");
+    return false;
+    }
+    var deposit_opening_date_ed = document.getElementById("deposit_opening_date_ed").value;
+    if(deposit_opening_date_ed == ""){
+    document.getElementById("deposit_opening_date_ed").focus();
+    swal("Oops!","Please Enter Deposit opening Date","error");
+    return false;
+    }
+    var deposit_favor_ed = document.getElementById("deposit_favor_ed").value;
+    if(deposit_favor_ed == ""){
+    document.getElementById("deposit_favor_ed").focus();
+    swal("Oops!","Please Enter Favoring field","error");
+    return false;
+    }
+    var deposit_interest_rate_ed = document.getElementById("deposit_interest_rate_ed").value;
+    if(deposit_interest_rate_ed == ""){
+    document.getElementById("deposit_interest_rate_ed").focus();
+    swal("Oops!","Please Enter Interest Rate","error");
+    return false;
+    }
+    var deposit_maturity_date_ed = document.getElementById("deposit_maturity_date_ed").value;
+    if(deposit_maturity_date_ed == ""){
+    document.getElementById("deposit_maturity_date_ed").focus();
+    swal("Oops!","Please Enter Maturity date","error");
+    return false;
+    }
+    var deposit_interest_date_ed = document.getElementById("deposit_interest_date_ed").value;
+    if(deposit_interest_date_ed == ""){
+    document.getElementById("deposit_interest_date_ed").focus();
+    swal("Oops!","Please Enter Interest paid Date","error");
+    return false;
+    }
+    var acc_type_ed = document.getElementById("acc_type_ed").value;
+    if(acc_type_ed == ""){
+    document.getElementById("acc_type_ed").focus();
+    swal("Oops!","Please Enter Account Type","error");
+    return false;
+    }
+    var acc_br_master_ed = document.getElementById("acc_br_master_ed").value;
+    if(acc_br_master_ed == ""){
+    document.getElementById("acc_br_master_ed").focus();
+    swal("Oops!","Please Select Associate Branch Master","error");
+    return false;
+    }
+    var exampleFormControlTextarea2 = document.getElementById("exampleFormControlTextarea2").value;
+    if(exampleFormControlTextarea2 == ""){
+    document.getElementById("exampleFormControlTextarea2").focus();
+    swal("Oops!","Please Description Field","error");
+    return false;
+    }
+    
+      document.getElementById('editassociatedepositmaster').submit();
+}
+
+
+
+
+
+
     /*Associated Deposit Master Details- End*/
 
 
