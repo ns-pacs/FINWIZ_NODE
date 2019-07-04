@@ -1308,11 +1308,11 @@ document.getElementById('assobnk_acc_typ').value="";
     return false;
     }
     else {
-        alert(chequeleaves)
+       
     if(chequeleaves < '10' || chequeleaves > '100'){
-            alert(chequeleaves)
+           
             document.getElementById("num_chq_leaves").focus();
-            swal("Invalid!","Please Enter Cheque Leaves above 10 and 100","error");
+            swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
             return false;
     }
 }
