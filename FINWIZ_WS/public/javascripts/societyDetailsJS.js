@@ -305,7 +305,7 @@ function societyBankAddress(){
                     { 
                         document.getElementById("soc_bnk_address_url").focus();
                         
-                        swal("Oops!","Please Enter a Valid URL","warning");
+                        swal("Oops!","Please Enter a Valid URL,For Ex www.google.com or https://www.google.com/google.com or google.com","warning");
                         return false;
                  }
     }
@@ -676,7 +676,7 @@ function societyBankAddress_ed(){
                     { 
                         document.getElementById("soc_bnk_address_url_ed").focus();
                         
-                        swal("Oops!","Please Enter a Valid URL","warning");
+                        swal("Oops!","Please Enter a Valid URL,For Ex www.google.com or https://www.google.com/google.com or google.com","warning");
                         return false;
                  }
     }
