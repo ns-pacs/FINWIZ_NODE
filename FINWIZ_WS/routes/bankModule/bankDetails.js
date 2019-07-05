@@ -1750,6 +1750,7 @@ var branch_id;
                     pgdbconnect.query("select * from associate_branch where ab_ch_branch_id=$1 order by ab_ch_branch_id ",[branchid],function(err,searchres)
             
                     {
+                        if(err) throw err;
                         console.log("searchres",searchres)
                         var br_brcode = searchres.rows[0].abb_ch_bank_code;
                         var br_brname = searchres.rows[0].abb_ch_bank_name;
@@ -1807,10 +1808,10 @@ var branch_id;
             var delid= req.body.tempbankdelid;
             console.log("id to delete",delid)
             pgdbconnect.query("update associate_branch set abb_ch_del_flg=$1 where ab_ch_branch_id=$2",['Y',delid],function(err,delres){
-        
+                if(err) throw err;
                 console.log("deleted result",delres);
                 pgdbconnect.query("select * from associate_branch where abb_ch_del_flg=$1",['N'],function(err,searchres){
-        
+                    if(err) throw err;
                pgdbconnect.query("select * from associate_branch where abb_ch_del_flg='N'",function(err,braresu){
     
             if(err) throw err;

@@ -663,8 +663,7 @@ document.getElementById("ph_num2").focus();
 swal("Oops!","Please Enter Phone Number","error");
 return false;
 }
-else
-{
+
 
 if(ph_num2.length < 10){
 document.getElementById("ph_num2").focus();
@@ -672,7 +671,16 @@ document.getElementById("ph_num2").focus();
 swal("Invalid","Please Enter valid  Second Phone Number","warning");
 return false;
                  }
-}
+                 else{
+                     if(ph_num1==ph_num2)
+                     {
+                    document.getElementById("ph_num2").focus();
+
+                    swal("phone number should not be same");
+                    return false;
+                 }
+                }
+
 
 
 // E-Mail ID
@@ -716,8 +724,7 @@ document.getElementById("con_per1").focus();
 swal("Oops!","Please Enter Contact person 1","error");
 return false;
 }
-else
-{
+
 
 if(con_per1.length < 10){
 document.getElementById("con_per1").focus();
@@ -725,7 +732,24 @@ document.getElementById("con_per1").focus();
 swal("Invalid","Please Enter valid  Contact person 1","warning");
 return false;
                  }
-}
+                 else 
+                 {
+                     if(ph_num1==con_per1)
+                     {
+                        document.getElementById("con_per1").focus();
+
+                        swal("contact number should not be same");
+                        return false;
+                     }
+                     else if(ph_num2==con_per1)
+                     {
+                        document.getElementById("con_per1").focus();
+
+                        swal("contact number should not be same");
+                        return false;
+                     }
+                 }
+
 
 //Contact Person 2
 
