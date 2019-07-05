@@ -1133,6 +1133,15 @@ function master_edit_clear()
 
   /*Associated Bank Account Type- START*/
 
+  function acc_type_clear()
+{
+    document.getElementById('ass_bnk_type_code_ad').value="";
+    document.getElementById('bnk_acc_type_ad').value="";
+    document.getElementById('ban_acc_typ_desc_ad').value="";
+    
+   
+}
+
     function acc_type_edit_clear()
 {
     document.getElementById('ass_bnk_type_code_ed').value="";
@@ -1160,6 +1169,27 @@ function master_edit_clear()
         return false;
         }
         document.getElementById('bnkacctype').submit();
+    
+     }
+
+     function associated_bank_acctype_Edit()
+     {
+        var ass_bnk_type_code_ed = document.getElementById("ass_bnk_type_code_ed").value;
+        if(ass_bnk_type_code_ed == ""){
+        document.getElementById("ass_bnk_type_code_ed").focus();
+        swal("Oops!","Please Enter Account Code","error");
+        return false;
+        }
+    
+        // Account Status
+
+        var bnk_acc_type_ed = document.getElementById("bnk_acc_type_ed").value;
+        if(bnk_acc_type_ed == ""){
+        document.getElementById("bnk_acc_type_ed").focus();
+        swal("Oops!","Please Enter Bank Account Type","error");
+        return false;
+        }
+        document.getElementById('updt_bnkacctype').submit();
     
      }
 
