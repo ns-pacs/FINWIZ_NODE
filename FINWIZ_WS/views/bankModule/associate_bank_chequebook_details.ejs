@@ -432,7 +432,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                    
                                     <h6>EDIT RECORD</h6>
                                     <hr>
-                                    <form action="/bankModule/bankDetails/update_cheque_edit" method="post" >
+                                    <form action="/bankModule/bankDetails/update_cheque_edit" method="post" id=chequebook_details_edit >
 
                                     <div class="content">
                                         <div class="container row mb-4">
@@ -548,9 +548,9 @@ style="color: #ffffff;">Account Transaction</a></div>
                                             </div>
                                             <div class="col-sm-12 col-md-5"></div>
                                             <div class="col-sm-12 col-md-2">
-                                                    <input hidden type="text" class="btn" name="chequebookchk_ed" id="chequebookchk_ed"   value="<%=cheque_book_id%>" onclick="chequebooks()" >
+                                                    <input hidden type="text" class="btn" name="chequebookchk_ed" id="chequebookchk_ed"   value="<%=cheque_book_id%>" onclick="chequebooks_edit()" >
 
-                                                <input type="submit" class="btn" name="sub" id="chequebook"   value="Submit" onclick="chequebooks()" >
+                                                <input type="submit" class="btn" name="sub" id="chequebook"   value="Submit" onclick="chequebooks_edit()" >
                                             </div>
                                         </div>
 

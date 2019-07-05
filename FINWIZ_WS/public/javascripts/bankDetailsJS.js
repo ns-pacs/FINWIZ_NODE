@@ -1349,7 +1349,114 @@ document.getElementById('chequebook_details').submit();
       
  
 
- 
+ //  Associate Bank Cheque Book Edit validation
+
+
+ function chequebooks_edit(){
+
+    var chqbookbrmaster_ed = document.getElementById("ass_chqbok_brmaster_ed").value;
+    if(chqbookbrmaster_ed == ""){
+    document.getElementById("ass_chqbok_brmaster_ed").focus();
+    
+    swal("Oops!","Please Enter Associated Branch Master","error");
+    return false;
+    }
+    
+    
+    // associate Bank Number
+    
+    var assbanknum_ed = document.getElementById("ass_bnk_num_ed").value;
+    if(assbanknum_ed == ""){
+    document.getElementById("ass_bnk_num_ed").focus();
+    
+    swal("Oops!","Please Enter associate Bank Number","error");
+    return false;
+    }
+    
+    
+    // category_master Code
+    
+    var category_master_ed = document.getElementById("category_master_ed").value;
+    if(category_master_ed == ""){
+    document.getElementById("category_master_ed").focus();
+    
+    swal("Oops!","Please Enter Category Master","error");
+    return false;
+    }
+    
+    
+    
+    //chequebook number
+    
+    var chequebooknumber_ed = document.getElementById("chq_bok_num_ed").value;
+    if(chequebooknumber_ed == ""){
+    document.getElementById("chq_bok_num_ed").focus();
+    
+    swal("Oops!","Please Enter Chequebook Number","error");
+    return false;
+    }
+    
+    
+    
+    // series
+    
+    
+    var series_ed = document.getElementById("series_ed").value;
+    if(series_ed == ""){
+    document.getElementById("series_ed").focus();
+    
+    swal("Oops!","Please Enter Chequebook Series","error");
+    return false;
+    }
+    
+    //no of cheque leaves
+    var chequeleaves_ed = document.getElementById("num_chq_leaves_ed").value;
+    if(chequeleaves_ed == ""){
+    document.getElementById("num_chq_leaves_ed").focus();
+    swal("Oops!","Please Enter Number of Cheque Leaves","error");
+    return false;
+    }
+    else {
+       
+    if(chequeleaves_ed < '10' || chequeleaves_ed > '100'){
+           
+            document.getElementById("num_chq_leaves_ed").focus();
+            swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
+            return false;
+    }
+}
+   
+    // start number
+    var startnumber_ed = document.getElementById("start_num_ed").value;
+    if(startnumber_ed == ""){
+    document.getElementById("start_num_ed").focus();
+    
+    swal("Oops!","Please Enter Starting number of Cheque Leaves","error");
+    return false;
+    }
+
+    //end number
+    var endnumber_ed = document.getElementById("end_num_ed").value;
+    if(endnumber_ed == ""){
+    document.getElementById("end_num_ed").focus();
+    
+    swal("Oops!","Please Enter End Number of Cheque Leaves","error");
+    return false;
+    }
+
+    //cheque book status
+    var chqstatus_ed = document.getElementById("chq_book_status_ed").value;
+    if(chqstatus_ed == ""){
+    document.getElementById("chq_book_status_ed").focus();
+    
+    swal("Oops!","Please select Cheque book Status","error");
+    return false;
+    }
+    
+document.getElementById('chequebook_details_edit').submit();
+ }
+      
+
 function cheque_edit_row(oObject)
 {
 // alert(oObject)

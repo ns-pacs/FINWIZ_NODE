@@ -388,7 +388,7 @@ Accounts
 
                                                             <!-- <label for="soc_bnk_address_address_line" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
                                                             <input type="textarea" class="col-sm-12 col-md-6" name="soc_bnk_address_address_line" id="soc_bnk_address_address_line" placeholder=""
-                                                                value="" style="text-transform: capitalize" > 
+                                                                value="" style="text-transform: capitalize" > -->
 
 
                                                          </div>  
@@ -398,7 +398,7 @@ Accounts
                                                             <label for="soc_bnk_address_lndmark" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Land Mark
                                                         <span class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_lndmark" id="soc_bnk_address_lndmark" placeholder=""
-                                                                value="" style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)">  <!---Changed alphanumeric to numeric as per the requirement by lakshminarayan-->
+                                                                value="" style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)">  <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
 
                                                         </div>
                                                     </div>
@@ -598,7 +598,7 @@ Accounts
                                                             <option value="Smt">Smt</option>
                                                             </select>
                                                             <input type="text" class="col-sm-12 col-md-3" name="soc_bnk_name1" maxlength="20"
-                                                            id="soc_bnk_name1" placeholder="" value="" style="height:1.9em">
+                                                            id="soc_bnk_name1" placeholder="" value="" style="height:1.9em" onkeypress="return alpha(event)">  <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
 
 
                                                         </div>
@@ -622,7 +622,7 @@ Accounts
                                                             <option value="Smt">Smt</option>
                                                             </select>
                                                             <input type="text" class="col-sm-12 col-md-3" name="soc_bnk_name2" maxlength="20"
-                                                            id="soc_bnk_name2" placeholder="" value="" style="height:1.9em">
+                                                            id="soc_bnk_name2" placeholder="" value="" style="height:1.9em" onkeypress="return alpha(event)">  <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
                                                         </div>
                                                     </div>
                                                     <!-- key contact person2 end -->
@@ -775,7 +775,7 @@ Accounts
                                                                 <label for="soc_bnk_address_address_line_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
                                                                 <div class="form-group">
                                                                 <label for="exampleFormControlTextarea2"></label>
-                                                                <textarea class=" col-sm-12 col-md-6" id="soc_bnk_address_address_line_ed" name="soc_bnk_address_address_line_ed"></textarea>  <!---Changed input type from "text" to "textarea" as per the requirement by lakshminarayan-->
+                                                                <textarea class=" col-sm-12 col-md-6" id="soc_bnk_address_address_line_ed" name="soc_bnk_address_address_line_ed" value="<%=edit_soc_bnk_address_address_line%>" > <%=edit_soc_bnk_address_address_line%></textarea>  <!---Changed input type from "text" to "textarea" as per the requirement by lakshminarayan-->
                                                                 </div>
 
                                                             <!-- <label for="soc_bnk_address_address_line_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
@@ -979,7 +979,7 @@ Accounts
                                                             <option value="Smt">Smt</option>
                                                             </select>
                                                             <input type="text" class="col-sm-12 col-md-3" name="soc_bnk_name1_ed" maxlength="20"
-                                                            id="soc_bnk_name1_ed" placeholder="" value="<%=edit_soc_bnk_name1%>" style="height:1.9em">
+                                                            id="soc_bnk_name1_ed" placeholder="" value="<%=edit_soc_bnk_name1%>" style="height:1.9em" onkeypress="return alpha(event)"> <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
 
 
 
@@ -1005,7 +1005,7 @@ Accounts
                                                             <option value="Smt">Smt</option>
                                                             </select>
                                                             <input type="text" class="col-sm-12 col-md-3" name="soc_bnk_name2_ed" maxlength="20"
-                                                            id="soc_bnk_name2_ed" placeholder="" value="<%=edit_soc_bnk_name2%>" style="height:1.9em">
+                                                            id="soc_bnk_name2_ed" placeholder="" value="<%=edit_soc_bnk_name2%>" style="height:1.9em" onkeypress="return alpha(event)"> <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
 
 
 
@@ -1154,7 +1154,7 @@ Accounts
                                                                     <label for="soc_bnk_address_address_line_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
                                                                     <div class="form-group">
                                                                         <label for="exampleFormControlTextarea2"></label>
-                                                                        <textarea class=" col-sm-12 col-md-6" id="exampleFormControlTextarea2" name="exampleFormControlTextarea2"></textarea>
+                                                                        <textarea class=" col-sm-12 col-md-6" id="exampleFormControlTextarea2" name="exampleFormControlTextarea2"value="<%=view_soc_bnk_address_address_line%>" > <%=view_soc_bnk_address_address_line%></textarea>
                                                                     </div>
 
                                                             </div>
