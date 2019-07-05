@@ -1547,7 +1547,7 @@ var branch_id;
   
     console.log("Bank Branch Details",record_bnk_cd,record_bnk_name,record_branch_code,record_branch_name,ifsc_cd,ifsc_rtgs,micr_code,add_line1,district,state,pincode,land_mark,ph_num1,ph_num2,email,url,con_per1,con_per2);
 
-    pgdbconnect.query("insert into associate_branch (abb_n_bank_code, abb_ch_bank_name, abb_n_branch_code, abb_ch_branch_name, abb_n_ifs_code_neft, abb_n_ifs_code_rtgs, abb_n_micr_code, abb_ch_address_line1, abb_ch_district, abb_ch_state, abb_n_pincode, abb_ch_landmark, abb_n_phone_number1, abb_n_phone_number2, abb_ch_email, abb_ch_url, abb_n_contact_person1, abb_n_contact_person2, ab_ch_branch_id,abb_ch_del_flg) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20)",[record_bnk_cd,record_bnk_name,record_branch_code,record_branch_name,ifsc_cd,ifsc_rtgs,micr_code,add_line1,district,state,pincode,land_mark,ph_num1,ph_num2,email,url,con_per1,con_per2, branch_id,'N'],function(err,loginres){
+    pgdbconnect.query("insert into associate_branch (abb_ch_bank_code, abb_ch_bank_name, abb_n_branch_code, abb_ch_branch_name, abb_n_ifs_code_neft, abb_n_ifs_code_rtgs, abb_n_micr_code, abb_ch_address_line1, abb_ch_district, abb_ch_state, abb_n_pincode, abb_ch_landmark, abb_n_phone_number1, abb_n_phone_number2, abb_ch_email, abb_ch_url, abb_n_contact_person1, abb_n_contact_person2, ab_ch_branch_id,abb_ch_del_flg) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20)",[record_bnk_cd,record_bnk_name,record_branch_code,record_branch_name,ifsc_cd,ifsc_rtgs,micr_code,add_line1,district,state,pincode,land_mark,ph_num1,ph_num2,email,url,con_per1,con_per2, branch_id,'N'],function(err,loginres){
         if(err) throw err;
       
            
@@ -1622,7 +1622,7 @@ var branch_id;
         
                 {
                     console.log("searchres",searchres)
-        var br_brcode = searchres.rows[0].abb_n_bank_code;
+        var br_brcode = searchres.rows[0].abb_ch_bank_code;
         var br_brname = searchres.rows[0].abb_ch_bank_name;
         var br_code=  searchres.rows[0].abb_n_branch_code;
         var br_name =  searchres.rows[0].abb_ch_branch_name;
@@ -1707,7 +1707,7 @@ var branch_id;
         
         console.log("edit details",bank_cd_ed,bnk_name_ed,branch_cd_ed,
         branch_name_ed,ifsc_cd_ed,ifsc_rtgs_ed,micr_code_ed,add_line1_ed,district_ed,state_ed,pincode_ed,land_mark_ed,ph_num1_ed,ph_num2_ed,email_ed,br_url,con_per1_ed,con_per2_ed,branch_edit);
-        pgdbconnect.query('update associate_branch set abb_n_bank_code=$1,abb_ch_bank_name=$2,abb_n_branch_code=$3,abb_ch_branch_name=$4,abb_n_ifs_code_neft=$5,abb_n_ifs_code_rtgs=$6,abb_n_micr_code=$7,abb_ch_address_line1=$8,abb_ch_district=$9,abb_ch_state=$10,abb_n_pincode=$11,abb_ch_landmark=$12,abb_n_phone_number1=$13,abb_n_phone_number2=$14,abb_ch_email=$15,abb_ch_url=$16,abb_n_contact_person1=$17,abb_n_contact_person2=$18 where ab_ch_branch_id=$19',[bank_cd_ed,bnk_name_ed,branch_cd_ed,
+        pgdbconnect.query('update associate_branch set abb_ch_bank_code=$1,abb_ch_bank_name=$2,abb_n_branch_code=$3,abb_ch_branch_name=$4,abb_n_ifs_code_neft=$5,abb_n_ifs_code_rtgs=$6,abb_n_micr_code=$7,abb_ch_address_line1=$8,abb_ch_district=$9,abb_ch_state=$10,abb_n_pincode=$11,abb_ch_landmark=$12,abb_n_phone_number1=$13,abb_n_phone_number2=$14,abb_ch_email=$15,abb_ch_url=$16,abb_n_contact_person1=$17,abb_n_contact_person2=$18 where ab_ch_branch_id=$19',[bank_cd_ed,bnk_name_ed,branch_cd_ed,
             branch_name_ed,ifsc_cd_ed,ifsc_rtgs_ed,micr_code_ed,add_line1_ed,district_ed,state_ed,pincode_ed,land_mark_ed,ph_num1_ed,ph_num2_ed,email_ed,br_url,con_per1_ed,con_per2_ed,branch_edit],function(err,result){
     
                 if(err) throw err;
@@ -1751,7 +1751,7 @@ var branch_id;
             
                     {
                         console.log("searchres",searchres)
-                        var br_brcode = searchres.rows[0].abb_n_bank_code;
+                        var br_brcode = searchres.rows[0].abb_ch_bank_code;
                         var br_brname = searchres.rows[0].abb_ch_bank_name;
                         var br_code=  searchres.rows[0].abb_n_branch_code;
                         var br_name =  searchres.rows[0].abb_ch_branch_name;
@@ -1775,7 +1775,7 @@ var branch_id;
         
                
                             br_brcode:br_brcode,
-                            br_brname:br_brname,  
+                            br_brname:br_brname,
                             br_code:br_code,  
                             br_name:br_name, 
                            

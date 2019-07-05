@@ -552,8 +552,8 @@ style="color: #ffffff;">Account Transaction</a></div>
                                         <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code
                                             <span class="astrix">*</span></label>
                                         <select class="col-sm-12 col-md-6" id="bank_cd_ed" name="bank_cd_ed" onchange="bankEditCode()">
-                                            <option  ><%=br_brcode%> </option>
-                                            <% for(var i=1;i < banks.length;i++) { %>
+                                            <option><%=br_brcode%> </option>
+                                            <% for(var i=0;i < banks.length;i++) { %>
                                                 <option value="<%= banks[i].bcd_ch_bank_code  %>"> <%= banks[i].bcd_ch_bank_code %></option>
                                                                           <% } %>
                                         </select>
@@ -648,7 +648,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                 <label for="bnk_acc_num" class="mr-sm-4 col-sm-12 col-md-5 ste">State <span class="astrix">*</span>
                                                 </label>
                                                 <select name="state_ed" class="col-sm-12 col-md-6" id="state_ed">
-                                                    <option selected="" disabled="" value=""><%=br_state%></option>
+                                                    <option><%=br_state%></option>
                                                     <% for(var i=1;i < states.length;i++) { %>
 
                                                     <option value="<%= states[i].comm_code_desc  %>">
@@ -830,7 +830,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code NEFT
                                                     <span class="astrix">*</span></label>
-                                                <input type="text" class="col-sm-12 col-md-6"  value="<%=br_brcode%> " name="ifsc_cd_vw"
+                                                <input type="text" class="col-sm-12 col-md-6"  value="<%=br_neft%> " name="ifsc_cd_vw"
                                                     id="ifsc_cd_vw" placeholder="" maxlength="11"
                                                     onkeypress="return alphanumeric(event)"
                                                     style="text-transform:uppercase">
