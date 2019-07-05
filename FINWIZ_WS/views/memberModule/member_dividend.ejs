@@ -275,10 +275,11 @@ Accounts
                     <hr>
                      <!-- flash msg -->
        <% if(locals.message){ %>
-
+       
         <div class="text text-center" role="alert">
             <strong style="color:green"><%= message.success_msg %></strong>
         </div>
+    
     <% } %>
                     <form action="/memberDetailsModule/memberDetails/mem_div_insert" id="divv" method="POST" autocomplete="off">
 
