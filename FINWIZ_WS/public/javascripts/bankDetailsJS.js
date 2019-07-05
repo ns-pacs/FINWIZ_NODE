@@ -1339,12 +1339,15 @@ document.getElementById('assobnk_acc_typ').value="";
     }
     else {
        
-    if(chequeleaves < '10' || chequeleaves > '100'){
-           
-            document.getElementById("num_chq_leaves").focus();
-            swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
-            return false;
+    var chequeleavesPat = /([1-9]{1}[0-9]{2})/;
+    if (!chequeleavesPat.test(chequeleaves))
+    {
+    document.getElementById("num_chq_leaves").focus();
+    
+    swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
+    return false;
     }
+
 }
    
     // start number
@@ -1447,13 +1450,15 @@ document.getElementById('chequebook_details').submit();
     return false;
     }
     else {
-       
-    if(chequeleaves_ed < '10' || chequeleaves_ed > '100'){
-           
-            document.getElementById("num_chq_leaves_ed").focus();
-            swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
-            return false;
+    var chequeleavesPat = /([1-9]{1}[0-9]{2})/;
+    if (!chequeleavesPat.test(chequeleaves_ed))
+    {
+    document.getElementById("num_chq_leaves_ed").focus();
+    
+    swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
+    return false;
     }
+
 }
    
     // start number
@@ -2028,7 +2033,92 @@ function editpagesubmit()
 
 ////////////////////////////////////////////////////////////////////////////
 
+function associated_bank_deposit_edit()
+{
+   
 
+// Associated Bank Deposit Master
+
+   var asso_depo_mstr_ed = document.getElementById("asso_depo_mstr_ed").value;
+   if(asso_depo_mstr_ed == ""){
+   document.getElementById("asso_depo_mstr_ed").focus();
+   swal("Oops!","Please Enter Bank Deposit Master","error");
+   return false;
+   }
+
+   // Return Date
+
+   var deposit_opening_date = document.getElementById("deposit_opening_date").value;
+   if(deposit_opening_date == ""){
+   document.getElementById("deposit_opening_date").focus();
+   swal("Oops!","Please Enter Return Date","error");
+   return false;
+   }
+
+   // TDS Amount
+
+     var asso_depo_tdsamt_ed = document.getElementById("asso_depo_tdsamt_ed").value;
+     if(asso_depo_tdsamt_ed == ""){
+     document.getElementById("asso_depo_tdsamt_ed").focus();
+     swal("Oops!","Please Enter TDS Amount","error");
+     return false;
+     }
+     else{
+         var tds_amt_ed = /([0-9]){0,8}([.]){0,1}([0-9]){0,2}/;
+         if (!tds_amt_ed.test(asso_depo_tdsamt_ed))
+         {
+         document.getElementById("asso_depo_tdsamt_ed").focus();
+         
+         swal("Invalid","Please Enter Valid Amount","error");
+         return false;
+         }
+     }
+
+   // Recived Amount
+
+   var asso_depo_amt_ed = document.getElementById("asso_depo_amt_ed").value;
+   if(asso_depo_amt_ed == ""){
+   document.getElementById("asso_depo_amt_ed").focus();
+   swal("Oops!","Please Enter Recived Amount","error");
+   return false;
+   }
+   else{
+       var rcv_amt_ed = /([0-9]){0,8}([.]){0,1}([0-9]){0,2}/;
+       if (!rcv_amt_ed.test(asso_depo_amt_ed))
+       {
+       document.getElementById("asso_depo_amt_ed").focus();
+       
+       swal("Invalid","Please Enter Valid Amount","error");
+       return false;
+       }
+   }
+
+ 
+
+   // Total Amount
+
+   var asso_depo_totalamt_ed = document.getElementById("asso_depo_totalamt_ed").value;
+   if(asso_depo_totalamt_ed == ""){
+   document.getElementById("asso_depo_totalamt_ed").focus();
+   swal("Oops!","Please Enter Total Amount","error");
+   return false;
+   }
+   else{
+       var ttl_amt_ed = /([0-9]){0,8}([.]){0,1}([0-9]){0,2}/;
+       if (!ttl_amt_ed.test(asso_depo_totalamt_ed))
+       {
+       document.getElementById("asso_depo_totalamt_ed").focus();
+       
+       swal("Invalid","Please Enter Valid Amount","error");
+       return false;
+       }
+   }
+
+   document.getElementById('bnk_deposit_return_ed').submit();
+
+}
+
+////////////////////////////////////////////////////////////////////////////
      // Associated Bank Account Type Clear Function
 
      function clearAssociatedBankDeposit()

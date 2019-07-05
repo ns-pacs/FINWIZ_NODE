@@ -2957,14 +2957,17 @@ function chequeDetails(){
       }
 
       else{
-        
-        if (scty_no_lev_per_bk_add < '10' || scty_no_lev_per_bk_add > '100')
-        {
-                document.getElementById("scty_no_lev_per_bk_add").focus();
-                
-                swal("Invalid","Please Enter Valid Cheque leaves","warning");
-                return false;
+
+
+                 var Soc_chequeleavesPat = /([1-9]{1}[0-9]{2})/;
+                 if (!Soc_chequeleavesPat.test(scty_no_lev_per_bk_add))
+                 {
+                 document.getElementById("scty_no_lev_per_bk_add").focus();
+                 swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
+                 return false;
                  }
+             
+
                 }
       
           
@@ -3074,6 +3077,15 @@ function editChequeDetails(){
       document.getElementById("scty_no_lev_per_bk_add_ed").focus();
       swal("Oops!","Please Enter Department Name","error");
       return false;
+      }
+      else{
+        var Soc_chequeleavesPat = /([1-9]{1}[0-9]{2})/;
+        if (!Soc_chequeleavesPat.test(scty_no_lev_per_bk_add_ed))
+        {
+        document.getElementById("scty_no_lev_per_bk_add_ed").focus();
+        swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
+        return false;
+        }
       }
       
           
