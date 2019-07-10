@@ -214,7 +214,7 @@ Accounts
                                     <span class="navbar-toggler-bar bar3"></span>
                                 </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo"><strong>Accounts</strong> </a>
+                        <a class="navbar-brand" href="#pablo"><strong>SOCIETY</strong> </a>
                     </div>
                     <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -259,7 +259,7 @@ Accounts
                     <div class="col-sm-12">
                         <div class="card tp">
                             <div class="card-header hdr">
-                                <h5>BANK</h5>
+                                <h5>Add Record</h5>
                             </div>
                             <div class="card-body">
 
@@ -300,7 +300,7 @@ Accounts
                                                 <!-- Society bank tab start -->
 
                                                 <div id="soc_bank_details" class="container tab-pane show active"><br>
-                                                    <h6>ADD RECORD</h6>
+                                                    <h5>Bank</h5>
                                                     <hr>
 
 
@@ -346,11 +346,11 @@ Accounts
                                                     <div class="container row mt-4">
                                                         <div class="col-sm-12 col-md-2">
                                                            
-                                                            <a type="button" class="btn"  href="/societyModule/societyDetails/scty_bank_search" name="bck_search" id="bck_search" value="Back to Search">Back</a>
+                                                            <a type="text" class="btn"  href="/societyModule/societyDetails/scty_bank_search" name="bck_search" id="bck_search" value="Back to Search">Back to search</a>
 
                                                         </div>
                                                         <div class="col-sm-12 col-md-3">
-                                                            <input type="button" class="btn bttn" name="clear_soc_bnk" id="clear_soc_bnk" value="Clear Form" onclick="clearSocietyBankTab()">
+                                                            <input type="button" class="btn clr clr1" name="clear_soc_bnk" id="clear_soc_bnk" value="Clear Form" onclick="clearSocietyBankTab()">
 
                                                         </div>
                                                         <div class="col-sm-12 col-md-5"></div>
@@ -368,19 +368,37 @@ Accounts
                                                     <!-- address line start -->
                                                     <div class="container row mb-4">
                                                         <div class="col-sm-12 col-md-6">
-                                                            <label for="soc_bnk_address_address_line" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
-                                                            <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_address_line" id="soc_bnk_address_address_line" placeholder=""
-                                                                value="" style="text-transform: capitalize" maxlength="20" onkeypress="return alphanumeric(event)">
 
-                                                        </div>
+                                                                <label for="soc_bnk_address_address_line" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
+                                                                <div class="form-group">
+                                                                    <label for="exampleFormControlTextarea2"></label>
+                                                                    <textarea class=" col-sm-12 col-md-6" id="soc_bnk_address_address_line" name="soc_bnk_address_address_line"></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                            <!-- <label for="soc_bnk_address_address_line" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
+                                                            <input type="textarea" class="col-sm-12 col-md-6" name="soc_bnk_address_address_line" id="soc_bnk_address_address_line" placeholder=""
+                                                                value="" style="text-transform: capitalize" 
+
+                                                                <label for="soc_bnk_address_address_line" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
+                                                                <div class="form-group">
+                                                                <label for="exampleFormControlTextarea2"></label>
+                                                                <textarea class=" col-sm-12 col-md-6" id="soc_bnk_address_address_line" name="soc_bnk_address_address_line"></textarea>  <!---Changed input type from "text" to "textarea" as per the requirement by lakshminarayan-->
+                                                              
+
+                                                            <!-- <label for="soc_bnk_address_address_line" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
+                                                            <input type="textarea" class="col-sm-12 col-md-6" name="soc_bnk_address_address_line" id="soc_bnk_address_address_line" placeholder=""
+                                                                value="" style="text-transform: capitalize" > -->
+
+
+                                                     
                                                         <!-- addrerss line end -->
-
                                                         <!-- land mark start -->
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_lndmark" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Land Mark
                                                         <span class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_lndmark" id="soc_bnk_address_lndmark" placeholder=""
-                                                                value="" style="text-transform: capitalize" maxlength="20" onkeypress="return alphanumeric(event)">
+                                                                value="" style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)">  <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
 
                                                         </div>
                                                     </div>
@@ -435,10 +453,19 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_district" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">District</label>
 
-                                                            <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_district" id="soc_bnk_address_district" placeholder=""
+                                                            <!--<select class="col-sm-12 col-md-6" name="soc_bnk_address_district"
+                                                            id="soc_bnk_address_district">
+                                                            <option disabled="" selected="" value="">Select
+                                                            </option>
+                                                      
+                                                                <option value="">
+                                                                </option>
+                                                               
+                                                            </select>-->
+							    
+							    <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_district" id="soc_bnk_address_district" placeholder=""
                                                             style="text-transform: capitalize" maxlength="" onkeypress="return alpha(event)">
-       
-                                                            </select>
+							    
                                                         </div>
                                                     </div>
                                                     <!-- district end -->
@@ -539,7 +566,7 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_latitude" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Latitude</label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_latitude" id="soc_bnk_address_latitude" placeholder=""
-                                                                value="" style="text-transform: capitalize" maxlength="" onkeypress="" >
+                                                                value="" style="text-transform: capitalize" maxlength="" onkeypress="return numeric(event)" >  <!---Changed alphanumeric to numeric as per the requirement by lakshminarayan-->
 
 
                                                         </div>
@@ -550,7 +577,7 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_Longitude" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Longitude</label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_Longitude" id="soc_bnk_address_Longitude" placeholder=""
-                                                                value="" style="text-transform: capitalize" maxlength="" onkeypress="">
+                                                                value="" style="text-transform: capitalize" maxlength="" onkeypress="return numeric(event)">  <!---Changed alphanumeric to numeric as per the requirement by lakshminarayan-->
 
                                                         </div>
                                                         <!-- longitude end -->
@@ -571,7 +598,7 @@ Accounts
                                                             <option value="Smt">Smt</option>
                                                             </select>
                                                             <input type="text" class="col-sm-12 col-md-3" name="soc_bnk_name1" maxlength="20"
-                                                            id="soc_bnk_name1" placeholder="" value="" style="height:1.9em">
+                                                            id="soc_bnk_name1" placeholder="" value="" style="height:1.9em" onkeypress="return alpha(event)">  <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
 
 
                                                         </div>
@@ -595,7 +622,7 @@ Accounts
                                                             <option value="Smt">Smt</option>
                                                             </select>
                                                             <input type="text" class="col-sm-12 col-md-3" name="soc_bnk_name2" maxlength="20"
-                                                            id="soc_bnk_name2" placeholder="" value="" style="height:1.9em">
+                                                            id="soc_bnk_name2" placeholder="" value="" style="height:1.9em" onkeypress="return alpha(event)">  <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
                                                         </div>
                                                     </div>
                                                     <!-- key contact person2 end -->
@@ -641,7 +668,7 @@ Accounts
                     <div class="col-sm-12">
                         <div class="card tp">
                             <div class="card-header hdr">
-                                <h5>BANK</h5>
+                                <h5>Edit Record</h5>
                             </div>
                             <div class="card-body">
 
@@ -674,7 +701,7 @@ Accounts
                                                 <!-- Society bank tab start -->
 
                                                 <div id="soc_bank_details_ed" class="container tab-pane show active"><br>
-                                                    <h6>EDIT RECORD</h6>
+                                                    <h6>Bank</h6>
                                                     <hr>
 
 
@@ -721,7 +748,7 @@ Accounts
 
                                                             <input hidden type="number" class="col-sm-12 col-md-6" name="socbank_edit" id="socbank_edit"
                                                                 placeholder="" value="<%=societybankid%>">
-                                                                <a type="button" class="btn"  href="/societyModule/societyDetails/scty_bank_search" name="soc_bnk_search_ed" id="soc_bnk_search_ed"   value="Back" >Back</a>
+                                                                <a type="text" class="btn"  href="/societyModule/societyDetails/scty_bank_search" name="soc_bnk_search_ed" id="soc_bnk_search_ed"   value="Back" >Back</a>
 
                                                         </div>
                                                         <div class="col-sm-12 col-md-3">
@@ -743,10 +770,19 @@ Accounts
                                                     <!-- address line start -->
                                                     <div class="container row mb-4">
                                                         <div class="col-sm-12 col-md-6">
-                                                            <label for="soc_bnk_address_address_line_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
-                                                            <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_address_line_ed" id="soc_bnk_address_address_line_ed"
-                                                                placeholder=""  value="<%=edit_soc_bnk_address_address_line%>" style="text-transform: capitalize" maxlength="20"
-                                                                onkeypress="return alphanumeric(event)">
+
+                                                
+                                                                <label for="soc_bnk_address_address_line_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
+                                                                <div class="form-group">
+                                                                <label for="exampleFormControlTextarea2"></label>
+                                                                <textarea class=" col-sm-12 col-md-6" id="soc_bnk_address_address_line_ed" name="soc_bnk_address_address_line_ed" value="<%=edit_soc_bnk_address_address_line%>" > <%=edit_soc_bnk_address_address_line%></textarea>  <!---Changed input type from "text" to "textarea" as per the requirement by lakshminarayan-->
+                                                                </div>
+
+                                                            <!-- <label for="soc_bnk_address_address_line_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
+                                                            <input type="textarea" class="col-sm-12 col-md-6" name="soc_bnk_address_address_line_ed" id="soc_bnk_address_address_line_ed"
+                                                                placeholder=""  value="<%=edit_soc_bnk_address_address_line%>" style="text-transform: capitalize" >    -->
+                                                        
+
 
                                                         </div>
                                                         <!-- addrerss line end -->
@@ -756,7 +792,7 @@ Accounts
                                                             <label for="soc_bnk_address_lndmark_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Land Mark
                                     <span class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_lndmark_ed" id="soc_bnk_address_lndmark_ed" placeholder=""
-                                                                value="<%=edit_soc_bnk_address_lndmark%>" style="text-transform: capitalize" maxlength="20" onkeypress="return alphanumeric(event)">
+                                                                value="<%=edit_soc_bnk_address_lndmark%>" style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)"> <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
 
                                                         </div>
                                                     </div>
@@ -808,8 +844,17 @@ Accounts
                                                         <!-- district start -->
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_district_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">District</label>
-                                                            <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_district_ed" id="soc_bnk_address_district_ed" placeholder="" value="<%= edit_soc_bnk_address_district %>"
-                                                                style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)" >
+                                                           <!-- <select class="col-sm-12 col-md-6" name="soc_bnk_address_district_ed"
+                                                            id="soc_bnk_address_district_ed">
+                                                            <option disabled="" selected="" value="">Select
+                                                            </option>
+                                                      
+                                                                <option value="">
+                                                                </option>
+                                                               
+                                                            </select>-->
+ <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_district_ed" id="soc_bnk_address_district_ed" placeholder="" value="<%= edit_soc_bnk_address_district %>"
+                                                            style="text-transform: capitalize" maxlength="20" onkeypress="return alpha(event)" >
 
                                                         </div>
                                                     </div>
@@ -901,7 +946,7 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_latitude_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Latitude</label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_latitude_ed" id="soc_bnk_address_latitude_ed" placeholder=""
-                                                            value="<%= edit_soc_bnk_address_latitude%>" style="text-transform: capitalize" maxlength="" onkeypress="" >
+                                                            value="<%= edit_soc_bnk_address_latitude%>" style="text-transform: capitalize" maxlength="" onkeypress="return numeric(event)" > <!---Changed alphanumeric to numeric as per the requirement by lakshminarayan-->
 
                                                         </div>
                                                     </div>
@@ -913,7 +958,7 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="soc_bnk_address_Longitude_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Longitude</label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_Longitude_ed" id="soc_bnk_address_Longitude_ed" placeholder=""
-                                                            value="<%= edit_soc_bnk_address_Longitude%>" style="text-transform: capitalize" maxlength="" onkeypress="">
+                                                            value="<%= edit_soc_bnk_address_Longitude%>" style="text-transform: capitalize" maxlength="" onkeypress="return numeric(event)">  <!---Changed alphanumeric to numeric as per the requirement by lakshminarayan-->
 
                                                         </div>
                                                         <!-- longitude end -->
@@ -934,7 +979,7 @@ Accounts
                                                             <option value="Smt">Smt</option>
                                                             </select>
                                                             <input type="text" class="col-sm-12 col-md-3" name="soc_bnk_name1_ed" maxlength="20"
-                                                            id="soc_bnk_name1_ed" placeholder="" value="<%=edit_soc_bnk_name1%>" style="height:1.9em">
+                                                            id="soc_bnk_name1_ed" placeholder="" value="<%=edit_soc_bnk_name1%>" style="height:1.9em" onkeypress="return alpha(event)"> <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
 
 
 
@@ -960,7 +1005,7 @@ Accounts
                                                             <option value="Smt">Smt</option>
                                                             </select>
                                                             <input type="text" class="col-sm-12 col-md-3" name="soc_bnk_name2_ed" maxlength="20"
-                                                            id="soc_bnk_name2_ed" placeholder="" value="<%=edit_soc_bnk_name2%>" style="height:1.9em">
+                                                            id="soc_bnk_name2_ed" placeholder="" value="<%=edit_soc_bnk_name2%>" style="height:1.9em" onkeypress="return alpha(event)"> <!---Changed alphanumeric to alpha as per the requirement by lakshminarayan-->
 
 
 
@@ -1009,7 +1054,7 @@ Accounts
                         <div class="col-sm-12">
                             <div class="card tp">
                                 <div class="card-header hdr">
-                                    <h5>BANK</h5>
+                                    <h5>View Record</h5>
                                 </div>
                                 <div class="card-body">
 
@@ -1040,7 +1085,7 @@ Accounts
                                                     <!-- Society bank tab start -->
 
                                                     <div id="soc_bank_details_vw" class="container tab-pane show active"><br>
-                                                        <h6>VIEW RECORD</h6>
+                                                        <h6>Bank </h6>
                                                         <hr>
                                                         <fieldset disabled="disabled">
                                                         <!-- bank code start -->
@@ -1081,7 +1126,7 @@ Accounts
 
                                                                 <input hidden type="number" class="col-sm-12 col-md-6" name="socbank_view" id="socbank_view"
                                                                 placeholder="" value="<%=societybankid%>">
-                                                                <a type="button" class="btn"  href="/societyModule/societyDetails/scty_bank_search" name="soc_bnk_search_vw" id="soc_bnk_search_vw"   value="Back" >Back</a>
+                                                                <a type="text" class="btn"  href="/societyModule/societyDetails/scty_bank_search" name="soc_bnk_search_vw" id="soc_bnk_search_vw"   value="Back" >Back</a>
 
                                                             </div>
                                                             <!-- <div class="col-sm-12 col-md-3">
@@ -1106,10 +1151,11 @@ Accounts
                                                         <!-- address line start -->
                                                         <div class="container row mb-4">
                                                             <div class="col-sm-12 col-md-6">
-                                                                <label for="soc_bnk_address_address_line_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
-                                                                <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_address_line_vw" id="soc_bnk_address_address_line_vw"
-                                                                    placeholder="" value="<%=view_soc_bnk_address_address_line%>" style="text-transform: capitalize"
-                                                                    maxlength="20" onkeypress="return alphanumeric(event)">
+                                                                    <label for="soc_bnk_address_address_line_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Address Line</label>
+                                                                    <div class="form-group">
+                                                                        <label for="exampleFormControlTextarea2"></label>
+                                                                        <textarea class=" col-sm-12 col-md-6" id="exampleFormControlTextarea2" name="exampleFormControlTextarea2"value="<%=view_soc_bnk_address_address_line%>" > <%=view_soc_bnk_address_address_line%></textarea>
+                                                                    </div>
 
                                                             </div>
                                                             <!-- addrerss line end -->
@@ -1169,8 +1215,15 @@ Accounts
                                                             <!-- district start -->
                                                             <div class="col-sm-12 col-md-6">
                                                                 <label for="soc_bnk_address_district_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">District</label>
-                                                                <input type="text" class="col-sm-12 col-md-6" name="soc_bnk_address_district_vw" id="soc_bnk_address_district_vw" placeholder="" onkeypress="return alpha(event)"
-                                                                style="text-transform: capitalize" value="<%=view_soc_bnk_address_district%>" >
+                                                                <select class="col-sm-12 col-md-6" name="soc_bnk_address_district_vw"
+                                                                id="soc_bnk_address_district_vw">
+                                                                <option disabled="" selected="" value="">Select
+                                                                </option>
+                                                          
+                                                                    <option value="">
+                                                                    </option>
+                                                                   
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </fieldset>

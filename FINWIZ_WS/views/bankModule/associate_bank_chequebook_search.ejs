@@ -75,7 +75,52 @@
 
                         </ul>
                     </li>
-                   <li id="sub_menu">
+
+                    <li id="sub_menu" class="active">
+                      <a href="#">
+                          <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                          <strong class="fnt">Bank</strong>
+                      </a>
+                      <ul class="hid mt-1 sub_col">
+
+                          <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
+                                  style="color: #ffffff">Associated
+                                  Bank</a></div>
+
+                          <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
+                                  style="color: #ffffff">Associated Branch</a></div>
+
+                          <div class="sub_mar">
+                              <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                  style="color: #ffffff">Associated Bank Account Master</a>
+                          </div>
+
+                          <div class="sub_mar">
+                              <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
+                                  style="color: #ffffff">Associated Bank Cheque Book</a>
+                          </div>
+
+                          <div class="sub_mar">
+                              <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
+                                  style="color: #ffffff">Associated Bank Account Type</a>
+                          </div>
+
+                      <div class="sub_mar">
+                          <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                              style="color: #ffffff">Associated Bank Deposit Returns</a>
+                      </div>
+
+
+                      <div class="sub_mar">
+                          <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                              style="color: #ffffff">Associated Bank Deposit Master</a>
+                      </div>
+
+                      </ul>
+                  </li>
+
+
+     <li id="sub_menu">
 <a href="#">
 <i class="material-icons" style="font-size: 25px;">group</i>
 <strong class="fnt">Accounts</strong>
@@ -150,50 +195,6 @@ style="color: #ffffff;">Account Transaction</a></div>
                             <strong class="fnt">Loans</strong>
                         </a>
                     </li>
-
-
-                    <li id="sub_menu" class="active">
-                      <a href="#">
-                          <i class="material-icons" style="font-size: 25px;">account_balance</i>
-                          <strong class="fnt">Bank</strong>
-                      </a>
-                      <ul class="hid mt-1 sub_col">
-
-                          <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
-                                  style="color: #ffffff">Associated
-                                  Bank</a></div>
-
-                          <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
-                                  style="color: #ffffff">Associated Branch</a></div>
-
-                          <div class="sub_mar">
-                              <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
-                                  style="color: #ffffff">Associated Bank Account Master</a>
-                          </div>
-
-                          <div class="sub_mar">
-                              <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
-                                  style="color: #ffffff">Associated Bank Cheque Book</a>
-                          </div>
-
-                          <div class="sub_mar">
-                              <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
-                                  style="color: #ffffff">Associated Bank Account Type</a>
-                          </div>
-
-                      <div class="sub_mar">
-                          <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
-                              style="color: #ffffff">Associated Bank Deposit Returns</a>
-                      </div>
-
-
-                      <div class="sub_mar">
-                          <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
-                              style="color: #ffffff">Associated Bank Deposit Master</a>
-                      </div>
-
-                      </ul>
-                  </li>
 
                     <li>
                         <a href="/login/market">
@@ -343,7 +344,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                         <div class="col-sm-12 col-md-6">
                           <label for="opn_shr_bal" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Associated Bank Account
                             Number</label>
-                          <input type="text" class="col-sm-12 col-md-6" name="chq_bnk_acc_num" id="chq_bnk_acc_num"
+                          <input type="text" class="col-sm-12 col-md-6" name="chq_bnk_acc_num" id="chq_bnk_acc_num" maxlength="16"
                             placeholder="" onkeypress="return numeric(event)">
                         </div>
                       </div>

@@ -12,7 +12,7 @@
 function alpha(alpbts)
 {
    var charCode = (alpbts.which) ? alpbts.which : alpbts.keyCode;
-   if (charCode > 31 
+   if (charCode > 32
          && (charCode < 65 || charCode > 90 ) && (charCode < 97 || charCode > 122)  && (charCode > 47 || charCode < 58) )
       return false;
    return true;
@@ -49,6 +49,16 @@ function numeric(empcd)
       return false;
    return true;
 }
+
+function desc(alpbts)
+{
+   var charCode = (alpbts.which) ? alpbts.which : alpbts.keyCode;
+   if (charCode > 32 
+         && (charCode < 65 || charCode > 90 ) && (charCode < 97 || charCode > 122)  && (charCode > 47 || charCode < 58) )
+      return false;
+   return true;
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -653,8 +663,7 @@ document.getElementById("ph_num2").focus();
 swal("Oops!","Please Enter Phone Number","error");
 return false;
 }
-else
-{
+
 
 if(ph_num2.length < 10){
 document.getElementById("ph_num2").focus();
@@ -662,7 +671,16 @@ document.getElementById("ph_num2").focus();
 swal("Invalid","Please Enter valid  Second Phone Number","warning");
 return false;
                  }
-}
+                 else{
+                     if(ph_num1==ph_num2)
+                     {
+                    document.getElementById("ph_num2").focus();
+
+                    swal("phone number should not be same");
+                    return false;
+                 }
+                }
+
 
 
 // E-Mail ID
@@ -691,7 +709,7 @@ if (!re.test(url))
 { 
  document.getElementById("url").focus();
  
- swal("Oops!","Please Enter a Valid URL","warning");
+ swal("Oops!","Please Enter a Valid URL,For Ex www.google.com or https://www.google.com/google.com or google.com","warning");
  return false;
 }
 }
@@ -706,8 +724,7 @@ document.getElementById("con_per1").focus();
 swal("Oops!","Please Enter Contact person 1","error");
 return false;
 }
-else
-{
+
 
 if(con_per1.length < 10){
 document.getElementById("con_per1").focus();
@@ -715,7 +732,24 @@ document.getElementById("con_per1").focus();
 swal("Invalid","Please Enter valid  Contact person 1","warning");
 return false;
                  }
-}
+                 else 
+                 {
+                     if(ph_num1==con_per1)
+                     {
+                        document.getElementById("con_per1").focus();
+
+                        swal("contact number should not be same");
+                        return false;
+                     }
+                     else if(ph_num2==con_per1)
+                     {
+                        document.getElementById("con_per1").focus();
+
+                        swal("contact number should not be same");
+                        return false;
+                     }
+                 }
+
 
 //Contact Person 2
 
@@ -1123,6 +1157,15 @@ function master_edit_clear()
 
   /*Associated Bank Account Type- START*/
 
+  function acc_type_clear()
+{
+    document.getElementById('ass_bnk_type_code_ad').value="";
+    document.getElementById('bnk_acc_type_ad').value="";
+    document.getElementById('ban_acc_typ_desc_ad').value="";
+    
+   
+}
+
     function acc_type_edit_clear()
 {
     document.getElementById('ass_bnk_type_code_ed').value="";
@@ -1150,6 +1193,27 @@ function master_edit_clear()
         return false;
         }
         document.getElementById('bnkacctype').submit();
+    
+     }
+
+     function associated_bank_acctype_Edit()
+     {
+        var ass_bnk_type_code_ed = document.getElementById("ass_bnk_type_code_ed").value;
+        if(ass_bnk_type_code_ed == ""){
+        document.getElementById("ass_bnk_type_code_ed").focus();
+        swal("Oops!","Please Enter Account Code","error");
+        return false;
+        }
+    
+        // Account Status
+
+        var bnk_acc_type_ed = document.getElementById("bnk_acc_type_ed").value;
+        if(bnk_acc_type_ed == ""){
+        document.getElementById("bnk_acc_type_ed").focus();
+        swal("Oops!","Please Enter Bank Account Type","error");
+        return false;
+        }
+        document.getElementById('updt_bnkacctype').submit();
     
      }
 
@@ -1298,13 +1362,16 @@ document.getElementById('assobnk_acc_typ').value="";
     return false;
     }
     else {
-        alert(chequeleaves)
-    if(chequeleaves < '10' || chequeleaves > '100'){
-            alert(chequeleaves)
-            document.getElementById("num_chq_leaves").focus();
-            swal("Invalid!","Please Enter Cheque Leaves above 10 and 100","error");
-            return false;
+       
+    var chequeleavesPat = /([1-9]{1}[0-9]{2})/;
+    if (!chequeleavesPat.test(chequeleaves))
+    {
+    document.getElementById("num_chq_leaves").focus();
+    
+    swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
+    return false;
     }
+
 }
    
     // start number
@@ -1339,7 +1406,116 @@ document.getElementById('chequebook_details').submit();
       
  
 
- 
+ //  Associate Bank Cheque Book Edit validation
+
+
+ function chequebooks_edit(){
+
+    var chqbookbrmaster_ed = document.getElementById("ass_chqbok_brmaster_ed").value;
+    if(chqbookbrmaster_ed == ""){
+    document.getElementById("ass_chqbok_brmaster_ed").focus();
+    
+    swal("Oops!","Please Enter Associated Branch Master","error");
+    return false;
+    }
+    
+    
+    // associate Bank Number
+    
+    var assbanknum_ed = document.getElementById("ass_bnk_num_ed").value;
+    if(assbanknum_ed == ""){
+    document.getElementById("ass_bnk_num_ed").focus();
+    
+    swal("Oops!","Please Enter associate Bank Number","error");
+    return false;
+    }
+    
+    
+    // category_master Code
+    
+    var category_master_ed = document.getElementById("category_master_ed").value;
+    if(category_master_ed == ""){
+    document.getElementById("category_master_ed").focus();
+    
+    swal("Oops!","Please Enter Category Master","error");
+    return false;
+    }
+    
+    
+    
+    //chequebook number
+    
+    var chequebooknumber_ed = document.getElementById("chq_bok_num_ed").value;
+    if(chequebooknumber_ed == ""){
+    document.getElementById("chq_bok_num_ed").focus();
+    
+    swal("Oops!","Please Enter Chequebook Number","error");
+    return false;
+    }
+    
+    
+    
+    // series
+    
+    
+    var series_ed = document.getElementById("series_ed").value;
+    if(series_ed == ""){
+    document.getElementById("series_ed").focus();
+    
+    swal("Oops!","Please Enter Chequebook Series","error");
+    return false;
+    }
+    
+    //no of cheque leaves
+    var chequeleaves_ed = document.getElementById("num_chq_leaves_ed").value;
+    if(chequeleaves_ed == ""){
+    document.getElementById("num_chq_leaves_ed").focus();
+    swal("Oops!","Please Enter Number of Cheque Leaves","error");
+    return false;
+    }
+    else {
+    var chequeleavesPat = /([1-9]{1}[0-9]{2})/;
+    if (!chequeleavesPat.test(chequeleaves_ed))
+    {
+    document.getElementById("num_chq_leaves_ed").focus();
+    
+    swal("Invalid!","Please Enter Cheque Leaves between 10 to 100","error");
+    return false;
+    }
+
+}
+   
+    // start number
+    var startnumber_ed = document.getElementById("start_num_ed").value;
+    if(startnumber_ed == ""){
+    document.getElementById("start_num_ed").focus();
+    
+    swal("Oops!","Please Enter Starting number of Cheque Leaves","error");
+    return false;
+    }
+
+    //end number
+    var endnumber_ed = document.getElementById("end_num_ed").value;
+    if(endnumber_ed == ""){
+    document.getElementById("end_num_ed").focus();
+    
+    swal("Oops!","Please Enter End Number of Cheque Leaves","error");
+    return false;
+    }
+
+    //cheque book status
+    var chqstatus_ed = document.getElementById("chq_book_status_ed").value;
+    if(chqstatus_ed == ""){
+    document.getElementById("chq_book_status_ed").focus();
+    
+    swal("Oops!","Please select Cheque book Status","error");
+    return false;
+    }
+    
+document.getElementById('chequebook_details_edit').submit();
+ }
+      
+
 function cheque_edit_row(oObject)
 {
 // alert(oObject)
@@ -1679,6 +1855,115 @@ function cheque_edit_clear()
     document.getElementById('exampleFormControlTextarea2').value="";
 
 }
+
+
+function editpagesubmit()
+{
+    var Short_name_ed = document.getElementById("Short_name_ed").value;
+    if(Short_name_ed == ""){
+    document.getElementById("Short_name_ed").focus();
+    swal("Oops!","Please Enter Short Name","error");
+    return false;
+    }
+    var master_deposit_name_ed = document.getElementById("master_deposit_name_ed").value;
+    if(master_deposit_name_ed == ""){
+    document.getElementById("master_deposit_name_ed").focus();
+    swal("Oops!","Please Enter Name ","error");
+    return false;
+    }
+    var deposit_gl_name_ed = document.getElementById("deposit_gl_name_ed").value;
+    if(deposit_gl_name_ed == ""){
+    document.getElementById("deposit_gl_name_ed").focus();
+    swal("Oops!","Please Enter GL Code ","error");
+    return false;
+    }
+    var deposit_accnum_ed = document.getElementById("deposit_accnum_ed").value;
+    if(deposit_accnum_ed == ""){
+    document.getElementById("deposit_accnum_ed").focus();
+    swal("Oops!","Please Enter Account Number","error");
+    return false;
+    }
+    var add_bnkdep_typ_ed = document.getElementById("add_bnkdep_typ_ed").value;
+    if(add_bnkdep_typ_ed == ""){
+    document.getElementById("add_bnkdep_typ_ed").focus();
+    swal("Oops!","Please Enter Bank Deposit Type","error");
+    return false;
+    }
+    var add_bnk_depnum_ed = document.getElementById("add_bnk_depnum_ed").value;
+    if(add_bnk_depnum_ed == ""){
+    document.getElementById("add_bnk_depnum_ed").focus();
+    swal("Oops!","Please Enter Bank Deposit Number","error");
+    return false;
+    }
+    var deposit_opening_bal_ed = document.getElementById("deposit_opening_bal_ed").value;
+    if(deposit_opening_bal_ed == ""){
+    document.getElementById("deposit_opening_bal_ed").focus();
+    swal("Oops!","Please Enter Opening Balance","error");
+    return false;
+    }
+    var deposit_closing_bal_ed = document.getElementById("deposit_closing_bal_ed").value;
+    if(deposit_closing_bal_ed == ""){
+    document.getElementById("deposit_closing_bal_ed").focus();
+    swal("Oops!","Please Enter Current Balance","error");
+    return false;
+    }
+    var deposit_opening_date_ed = document.getElementById("deposit_opening_date_ed").value;
+    if(deposit_opening_date_ed == ""){
+    document.getElementById("deposit_opening_date_ed").focus();
+    swal("Oops!","Please Enter Deposit opening Date","error");
+    return false;
+    }
+    var deposit_favor_ed = document.getElementById("deposit_favor_ed").value;
+    if(deposit_favor_ed == ""){
+    document.getElementById("deposit_favor_ed").focus();
+    swal("Oops!","Please Enter Favoring field","error");
+    return false;
+    }
+    var deposit_interest_rate_ed = document.getElementById("deposit_interest_rate_ed").value;
+    if(deposit_interest_rate_ed == ""){
+    document.getElementById("deposit_interest_rate_ed").focus();
+    swal("Oops!","Please Enter Interest Rate","error");
+    return false;
+    }
+    var deposit_maturity_date_ed = document.getElementById("deposit_maturity_date_ed").value;
+    if(deposit_maturity_date_ed == ""){
+    document.getElementById("deposit_maturity_date_ed").focus();
+    swal("Oops!","Please Enter Maturity date","error");
+    return false;
+    }
+    var deposit_interest_date_ed = document.getElementById("deposit_interest_date_ed").value;
+    if(deposit_interest_date_ed == ""){
+    document.getElementById("deposit_interest_date_ed").focus();
+    swal("Oops!","Please Enter Interest paid Date","error");
+    return false;
+    }
+    var acc_type_ed = document.getElementById("acc_type_ed").value;
+    if(acc_type_ed == ""){
+    document.getElementById("acc_type_ed").focus();
+    swal("Oops!","Please Enter Account Type","error");
+    return false;
+    }
+    var acc_br_master_ed = document.getElementById("acc_br_master_ed").value;
+    if(acc_br_master_ed == ""){
+    document.getElementById("acc_br_master_ed").focus();
+    swal("Oops!","Please Select Associate Branch Master","error");
+    return false;
+    }
+    var exampleFormControlTextarea2 = document.getElementById("exampleFormControlTextarea2").value;
+    if(exampleFormControlTextarea2 == ""){
+    document.getElementById("exampleFormControlTextarea2").focus();
+    swal("Oops!","Please Description Field","error");
+    return false;
+    }
+    
+      document.getElementById('editassociatedepositmaster').submit();
+}
+
+
+
+
+
+
     /*Associated Deposit Master Details- End*/
 
 
@@ -1772,7 +2057,92 @@ function cheque_edit_clear()
 
 ////////////////////////////////////////////////////////////////////////////
 
+function associated_bank_deposit_edit()
+{
+   
 
+// Associated Bank Deposit Master
+
+   var asso_depo_mstr_ed = document.getElementById("asso_depo_mstr_ed").value;
+   if(asso_depo_mstr_ed == ""){
+   document.getElementById("asso_depo_mstr_ed").focus();
+   swal("Oops!","Please Enter Bank Deposit Master","error");
+   return false;
+   }
+
+   // Return Date
+
+   var deposit_opening_date = document.getElementById("deposit_opening_date").value;
+   if(deposit_opening_date == ""){
+   document.getElementById("deposit_opening_date").focus();
+   swal("Oops!","Please Enter Return Date","error");
+   return false;
+   }
+
+   // TDS Amount
+
+     var asso_depo_tdsamt_ed = document.getElementById("asso_depo_tdsamt_ed").value;
+     if(asso_depo_tdsamt_ed == ""){
+     document.getElementById("asso_depo_tdsamt_ed").focus();
+     swal("Oops!","Please Enter TDS Amount","error");
+     return false;
+     }
+     else{
+         var tds_amt_ed = /([0-9]){0,8}([.]){0,1}([0-9]){0,2}/;
+         if (!tds_amt_ed.test(asso_depo_tdsamt_ed))
+         {
+         document.getElementById("asso_depo_tdsamt_ed").focus();
+         
+         swal("Invalid","Please Enter Valid Amount","error");
+         return false;
+         }
+     }
+
+   // Recived Amount
+
+   var asso_depo_amt_ed = document.getElementById("asso_depo_amt_ed").value;
+   if(asso_depo_amt_ed == ""){
+   document.getElementById("asso_depo_amt_ed").focus();
+   swal("Oops!","Please Enter Recived Amount","error");
+   return false;
+   }
+   else{
+       var rcv_amt_ed = /([0-9]){0,8}([.]){0,1}([0-9]){0,2}/;
+       if (!rcv_amt_ed.test(asso_depo_amt_ed))
+       {
+       document.getElementById("asso_depo_amt_ed").focus();
+       
+       swal("Invalid","Please Enter Valid Amount","error");
+       return false;
+       }
+   }
+
+ 
+
+   // Total Amount
+
+   var asso_depo_totalamt_ed = document.getElementById("asso_depo_totalamt_ed").value;
+   if(asso_depo_totalamt_ed == ""){
+   document.getElementById("asso_depo_totalamt_ed").focus();
+   swal("Oops!","Please Enter Total Amount","error");
+   return false;
+   }
+   else{
+       var ttl_amt_ed = /([0-9]){0,8}([.]){0,1}([0-9]){0,2}/;
+       if (!ttl_amt_ed.test(asso_depo_totalamt_ed))
+       {
+       document.getElementById("asso_depo_totalamt_ed").focus();
+       
+       swal("Invalid","Please Enter Valid Amount","error");
+       return false;
+       }
+   }
+
+   document.getElementById('bnk_deposit_return_ed').submit();
+
+}
+
+////////////////////////////////////////////////////////////////////////////
      // Associated Bank Account Type Clear Function
 
      function clearAssociatedBankDeposit()

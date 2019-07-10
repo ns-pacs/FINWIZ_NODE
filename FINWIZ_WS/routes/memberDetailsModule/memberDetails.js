@@ -1596,7 +1596,7 @@ console.log("member id to edit",memid)
     var finacialyear =  searchres.rows[0].md_ch_financial_year;
     var shareinclude =  searchres.rows[0].md_n_num_shares_included;
     var sharecapital=  searchres.rows[0].md_n_share_capital;
-var divdentAmt=  searchres.rows[0].bad_n_dividend_amt;
+var divdentAmt=  searchres.rows[0].md_n_dividend_amt;
     var divarr =  searchres.rows[0].md_n_dividend_arrears;
     var income =  searchres.rows[0].md_n_others_income;
     var finalamt =  searchres.rows[0].md_n_final_amt;
@@ -1667,7 +1667,7 @@ var totdivpay = searchres.rows[0].md_n_tot_dividend_payable;
 var finacialyear =  searchres.rows[0].md_ch_financial_year;
 var shareinclude =  searchres.rows[0].md_n_num_shares_included;
 var sharecapital=  searchres.rows[0].md_n_share_capital;
-var divdentAmt=  searchres.rows[0].bad_n_dividend_amt;
+var divdentAmt=  searchres.rows[0].md_n_dividend_amt;
 var divarr =  searchres.rows[0].md_n_dividend_arrears;
 var income =  searchres.rows[0].md_n_others_income;
 var finalamt =  searchres.rows[0].md_n_final_amt;
@@ -1868,7 +1868,7 @@ pgdbconnect.query("select * from member_dividend",function(err,result) {
     if(result.rowCount==0){
         memberdivid=1;
 console.log("dividend details",TotalDiviodendpayable,memberdivid,mid,mid1,share,sharesinclude,sharefree,sharecapital,dividendamount,DividendArrears,DividendPayable,FinalAmount,OtherIncome)
-pgdbconnect.query("insert into member_dividend(md_n_member_dividend_id,md_ch_member_id,md_ch_financial_year,md_n_num_shares,md_n_num_shares_included,md_n_share_fee,md_n_share_capital,md_n_dividend_payable,md_n_dividend_arrears,bad_n_dividend_amt,md_n_tot_dividend_payable,md_n_final_amt,md_n_others_income,md_ch_del_flg) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)",[memberdivid,mid,mid1,share,sharesinclude,sharefree,sharecapital,DividendPayable,DividendArrears,dividendamount,TotalDiviodendpayable,FinalAmount,OtherIncome,'N'],function(err,Dividendres1){
+pgdbconnect.query("insert into member_dividend(md_n_member_dividend_id,md_ch_member_id,md_ch_financial_year,md_n_num_shares,md_n_num_shares_included,md_n_share_fee,md_n_share_capital,md_n_dividend_payable,md_n_dividend_arrears,md_n_dividend_amt,md_n_tot_dividend_payable,md_n_final_amt,md_n_others_income,md_ch_del_flg) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)",[memberdivid,mid,mid1,share,sharesinclude,sharefree,sharecapital,DividendPayable,DividendArrears,dividendamount,TotalDiviodendpayable,FinalAmount,OtherIncome,'N'],function(err,Dividendres1){
             if (err)
             {
                        console.error('Error with table query', err);
@@ -1901,7 +1901,7 @@ pgdbconnect.query("insert into member_dividend(md_n_member_dividend_id,md_ch_mem
 
 console.log("dividend details",TotalDiviodendpayable,memberdivid,mid,mid1,share,sharesinclude,sharefree,sharecapital,dividendamount,DividendArrears,DividendPayable,FinalAmount,OtherIncome)
 
-pgdbconnect.query("insert into member_dividend(md_n_member_dividend_id,md_ch_member_id,md_ch_financial_year,md_n_num_shares,md_n_num_shares_included,md_n_share_fee,md_n_share_capital,md_n_dividend_payable,md_n_dividend_arrears,bad_n_dividend_amt,md_n_tot_dividend_payable,md_n_final_amt,md_n_others_income,md_ch_del_flg) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)",[memberdivid,mid,mid1,share,sharesinclude,sharefree,sharecapital,DividendPayable,DividendArrears,dividendamount,TotalDiviodendpayable,FinalAmount,OtherIncome,'N'],function(err,Dividendres1){
+pgdbconnect.query("insert into member_dividend(md_n_member_dividend_id,md_ch_member_id,md_ch_financial_year,md_n_num_shares,md_n_num_shares_included,md_n_share_fee,md_n_share_capital,md_n_dividend_payable,md_n_dividend_arrears,md_n_dividend_amt,md_n_tot_dividend_payable,md_n_final_amt,md_n_others_income,md_ch_del_flg) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)",[memberdivid,mid,mid1,share,sharesinclude,sharefree,sharecapital,DividendPayable,DividendArrears,dividendamount,TotalDiviodendpayable,FinalAmount,OtherIncome,'N'],function(err,Dividendres1){
     if (err)
     {
                console.error('Error with table query', err);
@@ -1954,7 +1954,7 @@ console.log('fyear',fyear);
 console.log('sharesinclude',sharesinclude);
 console.log("mem div id",memdivid)
 console.log("editable data",fyear,share,sharesinclude,sharefree,sharecapital,dividendamount,DividendArrears,DividendPayable,FinalAmount,OtherIncome,memberid,TotalDiviodend,memdivid)
-pgdbconnect.query("update member_dividend set md_ch_financial_year=$1,md_n_num_shares=$2,md_n_num_shares_included=$3,md_n_share_fee=$4,md_n_share_capital=$5,bad_n_dividend_amt=$6,md_n_dividend_payable=$7,md_n_dividend_arrears=$8,md_n_final_amt=$9,md_n_others_income=$10,md_ch_member_id=$11,md_n_tot_dividend_payable=$12 where md_n_member_dividend_id=$13",
+pgdbconnect.query("update member_dividend set md_ch_financial_year=$1,md_n_num_shares=$2,md_n_num_shares_included=$3,md_n_share_fee=$4,md_n_share_capital=$5,md_n_dividend_amt=$6,md_n_dividend_payable=$7,md_n_dividend_arrears=$8,md_n_final_amt=$9,md_n_others_income=$10,md_ch_member_id=$11,md_n_tot_dividend_payable=$12 where md_n_member_dividend_id=$13",
 [fyear,share,sharesinclude,sharefree,sharecapital,dividendamount,DividendPayable,DividendArrears,FinalAmount,OtherIncome,memberid,TotalDiviodend,memdivid],function(err,Dividendedit){
     if (err)
     {
@@ -2021,8 +2021,8 @@ router.post('/mem_kcc_func',function(req,res){
 
     var mem_name=req.body.mem_name1;
     var card_num=req.body.card_num1;
-    console.log("data to search",mem_name,card_num)
-    pgdbconnect.query("select * from member_card_details where ((mcd_ch_member_name=$1 or mcd_ch_card_number=$2) and (mcd_ch_del_flg ='N')) ",[mem_name,card_num],function(err,ressearch1){
+    console.log("data to search11111111",mem_name,card_num)
+    pgdbconnect.query("select * from member_card_details where (mcd_ch_member_name=$1 or mcd_ch_card_number=$2) and (mcd_ch_del_flg =$3)",[mem_name,card_num,'N'],function(err,ressearch1){
         console.log("search result",ressearch1)
         if(err)
         {
@@ -3106,12 +3106,12 @@ pgdbconnect.query("select * from member_details where md_ch_del_flg=$1",['N'],fu
 {
     if(err) throw err;
 
-    pgdbconnect.query("select * from common_code_tbl where code_id='CTY'limit 50",function(err,result2)
+    pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result2)
     {
         if(err) throw err;
        // console.log("result2 is", result2);
 
-        pgdbconnect.query("select * from common_code_tbl where code_id='STA' limit 50",function(err,result4)
+        pgdbconnect.query("select * from common_code_tbl where code_id='STA' ",function(err,result4)
         {
             if(err) throw err;
        // console.log("Bank code details is", reslt);

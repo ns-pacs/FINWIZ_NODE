@@ -775,72 +775,83 @@ onSelect: function (dateStr) {
 
 </script>
 <!-- DatePicker End -->
-<!-- datepicker for account renewal search screen -->
+<!-- datepicker for accounts -->
 <script>
-    // Accounts Page date pickers
+    // Accounts Page  opening date pickers
+
     $('[data-toggle=acc_openg_date]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="acc_openg_date"]');
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1947:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
         });
     });
-    $('[data-toggle=acc_lst_trnscn_date]').each(function () {
+
+// Accounts page last transaction date picker
+
+  $('[data-toggle=acc_lst_trnscn_date]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="acc_lst_trnscn_date"]');
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1947:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
         });
     });
+
+    // accounts nominee date of birth
     $('[data-toggle=acc_nom_dob]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="acc_nom_dob"]');
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1947:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
         });
     });
-    $('[data-toggle=acc_nom_dob]').each(function () {
-        var target = $(this).data('target-name');
-        var t = $('input[name="acc_nom_dob"]');
-        t.datepicker({
-            dateFormat: 'dd-mm-yy',
-            maxDate: 'today',
-        });
-        $(this).on("click", function () {
-            t.datepicker("show");
-        });
-    });
-    // Guardian Datepicker
+
+    // Accounts Guardian DOB Datepicker
     $('[data-toggle=acc_gurdian_dob]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="acc_gurdian_dob"]');
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1947:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
         });
     });
-    // Autorization Datepicker
+    //  accounts Autorization Datepicker
     $('[data-toggle=acc_approval_date]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="acc_approval_date"]');
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "now:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
@@ -853,6 +864,9 @@ onSelect: function (dateStr) {
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1947:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
@@ -864,52 +878,55 @@ onSelect: function (dateStr) {
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1947:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
         });
     });
+
     $('[data-toggle=acc_nom_dob_ed]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="acc_nom_dob_ed"]');
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1947:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
         });
     });
-    $('[data-toggle=acc_nom_dob_ed]').each(function () {
-        var target = $(this).data('target-name');
-        var t = $('input[name="acc_nom_dob_ed"]');
-        t.datepicker({
-            dateFormat: 'dd-mm-yy',
-            maxDate: 'today',
-        });
-        $(this).on("click", function () {
-            t.datepicker("show");
-        });
-    });
-    // Guardian Datepicker
+    
+
     $('[data-toggle=acc_gurdian_dob_ed]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="acc_gurdian_dob_ed"]');
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1947:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
         });
     });
-    // Autorization Datepicker
+    
     $('[data-toggle=acc_approval_date_ed]').each(function () {
         var target = $(this).data('target-name');
         var t = $('input[name="acc_approval_date_ed"]');
         t.datepicker({
             dateFormat: 'dd-mm-yy',
             maxDate: 'today',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1947:2019",
         });
         $(this).on("click", function () {
             t.datepicker("show");
@@ -927,7 +944,8 @@ onSelect: function (dateStr) {
                changeMonth: true,
                changeYear: true,
                YearRange: '1947:2019',
-               minDate: 'now',
+               //To accept the previous dates in calendar, changed by swarna.
+               minDate: '',
            });
            $(this).on("click", function () {
                t.datepicker("show");
@@ -1013,11 +1031,14 @@ onSelect: function (dateStr) {
         // alert(d1)
         var d2 = $('#holi_to_date_add').datepicker('getDate');
         //alert(d2)
-        if (d2 <= d1) {
-            //alert("entering")
-            swal("Oops!", "Holiday ToDate must be greater than Holiday FromDate. Please Select Valid Holiday ToDate", "error");
-            document.getElementById('holi_to_date_add').value = null;
-        }
+
+        /* To accept the same date in calendar removed the below code,changes made by swarna */
+
+        // if (d2 <= d1) {
+        //     //alert("entering")
+        //     swal("Oops!", "Holiday ToDate must be greater than Holiday FromDate. Please Select Valid Holiday ToDate", "error");
+        //     document.getElementById('holi_to_date_add').value = null;
+        // }
     }
 //compensation date validation function//
  function compensation_date() {
@@ -1025,11 +1046,14 @@ onSelect: function (dateStr) {
         // alert(d1)
         var d2 = $('#comp_to_date_add').datepicker('getDate');
         //alert(d2)
-        if (d2 <= d1) {
-            //alert("entering")
-            swal("Oops!", "Compensation ToDate must be greater than Compensation FromDate. Please Select Valid Compensation ToDate", "error");
-            document.getElementById('comp_to_date_add').value = null;
-        }
+
+         /* To accept the same date in calendar removed the below code,changes made by swarna */
+
+        // if (d2 <= d1) {
+        //     //alert("entering")
+        //     swal("Oops!", "Compensation ToDate must be greater than Compensation FromDate. Please Select Valid Compensation ToDate", "error");
+        //     document.getElementById('comp_to_date_add').value = null;
+        // }
     }
     
     function holiday_date_ed() {
@@ -1237,10 +1261,6 @@ function holiday_date_search() {
         $('#tabs a[href=#accounts_nominee]').tab('show').addClass("active");
         $('#tabs a[href=#guardian_details]').removeClass("active");
     });
-    $('#bck_acc_nom_det').click(function () {
-        $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
-        $('#tabs a[href=#joint_holder_details]').removeClass("active");
-    });
     $('#bck_acc_authorize').click(function () {
         $('#tabs a[href=#joint_holder_details]').tab('show').addClass("active");
         $('#tabs a[href=#authorization]').removeClass("active");
@@ -1260,10 +1280,6 @@ function holiday_date_search() {
         $('#tabs a[href=#guardian_details]').removeClass("active");
     });
 
-    $('#bck_acc_nom_det_ed').click(function () {
-        $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
-        $('#tabs a[href=#joint_holder_details]').removeClass("active");
-    });
 
     $('#bck_acc_authorize_ed').click(function () {
         $('#tabs a[href=#joint_holder_details]').tab('show').addClass("active");
@@ -1284,10 +1300,6 @@ function holiday_date_search() {
                 $('#tabs a[href=#guardian_details]').removeClass("active");
             });
 
-            $('#bck_acc_nom_det_vw').click(function () {
-                $('#tabs a[href=#guardian_details]').tab('show').addClass("active");
-                $('#tabs a[href=#joint_holder_details]').removeClass("active");
-            });
 
             $('#bck_acc_authorize_vw').click(function () {
                 $('#tabs a[href=#joint_holder_details]').tab('show').addClass("active");
@@ -1405,6 +1417,45 @@ function holiday_date_search() {
                 </script>
 
               
+<!-- premium due date search screen-->
+
+
+<script>
+    //   var d = new Date(90,0,1);
+        $(function() {
+         var d7 =   $( "#premium_date" ).datepicker({
+           
+               dateFormat: 'dd-mm-yy',
+            
+            //    defaultDate:d,
+               changeYear: true,
+                    changeMonth: true,
+                 yearRange: "1950:today"
+            }); 
+            $(this).on("click", function() {
+                t.datepicker("show");
+            });
+        });
+ 
+    //   var d = new Date(90,0,1);
+        $(function() {
+      $( "#premium_date1" ).datepicker({
+           
+               dateFormat: 'dd-mm-yy',
+            
+         //  defaultDate:d7,
+                     changeYear: true,
+                    changeMonth: true,
+                    yearRange: "d7:today"
+            });
+            $(this).on("click", function() {
+                t.datepicker("show");
+            });
+        });
+        </script>
+
+
+
 <!-- premium date-->
 
 <script>
@@ -1640,3 +1691,44 @@ $('#soc_branch_vw').click(function () {
 });
 </script>
 <!-- society Branch END-->
+
+<!------------insurance screen back buttons -->
+<script>
+        $('#insur_nom_bck').click(function () {
+            $('#tabs a[href=#insurance_details]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_nominee_details]').removeClass("active");
+        });
+
+        $('#bck_insur_guad').click(function () {
+            $('#tabs a[href=#insur_nominee_details]').tab('show').addClass("active");
+            $('#tabs a[href=#bck_insur_guad]').removeClass("active");
+        });
+
+        $('#insur_nom_bck_ed').click(function () {
+            $('#tabs a[href=#insurance_details_ed]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_nominee_details_ed]').removeClass("active");
+        });
+
+        $('#bck_insur_guad_ed').click(function () {
+            $('#tabs a[href=#insur_nominee_details_ed]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_guardian_details_ed]').removeClass("active");
+        });
+
+        $('#insur_nom_bck_vw').click(function () {
+            $('#tabs a[href=#insurance_details_vw]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_nominee_details_vw]').removeClass("active");
+        });
+
+        $('#bck_insur_guad_vw').click(function () {
+            $('#tabs a[href=#insur_nominee_details_vw]').tab('show').addClass("active");
+            $('#tabs a[href=#insur_guardian_details_vw]').removeClass("active");
+        });
+
+
+</script>
+
+
+  <script type="text/javascript">
+    
+    
+ </script>

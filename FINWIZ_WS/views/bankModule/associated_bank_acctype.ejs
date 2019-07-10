@@ -56,6 +56,42 @@
                         </ul>
                     </li>
 
+                    <li id="sub_menu" class="active">
+                        <a href="#">
+                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                            <strong class="fnt">Bank</strong>
+                        </a>
+                        <ul class="hid mt-1 sub_col">
+
+                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search" style="color: #ffffff">Associated
+                                        Bank</a></div>
+
+                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search" style="color: #ffffff">Associated Branch</a></div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search" style="color: #ffffff">Associated Bank Account Master</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search" style="color: #ffffff">Associated Bank Cheque Book</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search" style="color: #ffffff">Associated Bank Account Type</a>
+                            </div>
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search" style="color: #ffffff">Associated Bank Deposit Returns</a>
+                            </div>
+
+
+                            <div class="sub_mar">
+                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search" style="color: #ffffff">Associated Bank Deposit Master</a>
+                            </div>
+
+                        </ul>
+                    </li>
+
                     <li id="sub_menu">
                         <a href="#">
                             <i class="material-icons" style="font-size: 25px;">group</i>
@@ -128,44 +164,6 @@ Accounts
                         </a>
                     </li>
 
-
-                    <li id="sub_menu" class="active">
-                        <a href="#">
-                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
-                            <strong class="fnt">Bank</strong>
-                        </a>
-                        <ul class="hid mt-1 sub_col">
-
-                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search" style="color: #ffffff">Associated
-                                        Bank</a></div>
-
-                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search" style="color: #ffffff">Associated Branch</a></div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search" style="color: #ffffff">Associated Bank Account Master</a>
-                            </div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search" style="color: #ffffff">Associated Bank Cheque Book</a>
-                            </div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search" style="color: #ffffff">Associated Bank Account Type</a>
-                            </div>
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search" style="color: #ffffff">Associated Bank Deposit Returns</a>
-                            </div>
-
-
-                            <div class="sub_mar">
-                                <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search" style="color: #ffffff">Associated Bank Deposit Master</a>
-                            </div>
-
-                        </ul>
-                    </li>
-
-
                     <li>
                         <a href="/login/market">
                             <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
@@ -222,7 +220,7 @@ Accounts
                                     <span class="navbar-toggler-bar bar3"></span>
                                 </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo"><strong>Members</strong> </a>
+                        <a class="navbar-brand" href="#pablo"><strong>BANK</strong> </a>
                     </div>
                     <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -272,6 +270,8 @@ Accounts
                                 <div class="text text-center" role="alert"
                                 background-color: red;>
                                 <strong style="color:green"><%= message.success_msg %></strong>
+                                type: 'info',
+                                timer: 500
                                 </div>
                             <% } %>
                                         <h6>Add Records</h6>
@@ -282,7 +282,7 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                             <label for="ass_branch_master" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Code
                                                                 </label>
-                                                                <input type="text" class="col-sm-12 col-md-6" name="ass_bnk_type_code_ad"
+                                                                <input type="text" class="col-sm-12 col-md-6" name="ass_bnk_type_code_ad" maxlength="6"
                                                                 id="ass_bnk_type_code_ad" placeholder="" onkeypress="return alphanumeric(event)">
 
 
@@ -316,7 +316,7 @@ Accounts
 
                                                                <div class="form-group">
                                                                     <label for="exampleFormControlTextarea3"></label>
-                                                                    <textarea class=" col-sm-12 col-md-9 textarea6" name="ban_acc_typ_desc_ad" id="ban_acc_typ_desc_ad" rows="3"></textarea>
+                                                                    <textarea class=" col-sm-12 col-md-9 textarea6" name="ban_acc_typ_desc_ad" id="ban_acc_typ_desc_ad" rows="3" onkeypress="return desc(event)"></textarea>
                                                                   </div>
                                                         </div>
                                                     </div>
@@ -329,7 +329,7 @@ Accounts
                                                         </div>
                                                         <div class="col-sm-12 col-md-3">
                                                             <input type="reset" class="btn clr clr1" name="clear_frm_ad" id="clear_frm_ad"
-                                                                value="Clear Form">
+                                                                value="Clear Form" onclick="acc_type_clear()">
 
                                                         </div>
                                                         <div class="col-sm-12 col-md-5"></div>
@@ -368,7 +368,7 @@ Accounts
                                                                         <label for="ass_branch_master" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;"> Code
                                                                             </label>
                                                                             <input type="text" class="col-sm-12 col-md-6" name="ass_bnk_type_code_ed"
-                                                                            id="ass_bnk_type_code_ed" value="<%=bnk_typ_code%>" placeholder="">
+                                                                            id="ass_bnk_type_code_ed" value="<%=bnk_typ_code%>" maxlength="6" placeholder="">
 
 
 
@@ -399,7 +399,7 @@ Accounts
 
                                                                            <div class="form-group">
                                                                                 <label for="exampleFormControlTextarea3"></label>
-                                                                                <textarea class=" col-sm-12 col-md-9 textarea1" name="ban_acc_typ_desc_ed" id="ban_acc_typ_desc_ed" value="" rows="3"><%=bnk_acc_desc%></textarea>
+                                                                                <textarea class=" col-sm-12 col-md-9 textarea1" name="ban_acc_typ_desc_ed" id="ban_acc_typ_desc_ed" value="" rows="3" onkeypress="return desc(event)"><%=bnk_acc_desc%></textarea>
                                                                               </div>
                                                                     </div>
                                                                 </div>
@@ -418,7 +418,7 @@ Accounts
                                                                     <div class="col-sm-12 col-md-5"></div>
                                                                     <div class="col-sm-12 col-md-2">
                                                                             <input hidden type="text" class="btn" name="asso_id_ed" id="asso_id_ed" value="<%=bnk_acc_typ_id%>">
-                                                                        <input type="submit" class="btn" name="sub_ed" id="sub_ed" value="Submit">
+                                                                        <input type="button" class="btn" name="sub_ed" id="sub_ed" value="Submit" onclick="associated_bank_acctype_Edit()">
                                                                     </div>
                                                                 </div>
 

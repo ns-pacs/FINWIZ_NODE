@@ -1916,9 +1916,9 @@ router.post('/delete_societybank_data',function(req,res){
        console.log("deleted result",delres);
        pgdbconnect.query("select * from society_bank where sb_ch_del_flg=$1 order by sb_n_id",['N'],function(err,searchres){
 
-           pgdbconnect.query("select * from society_bank where sb_ch_del_flg='N'",function(err,bankreslt){
-
-               if(err) throw err;
+         pgdbconnect.query("select * from bank_code_details limit 50",function(err,bankreslt) 
+         {
+           if(err) throw err;
            console.log("deleted result11",searchres);
  
    req.flash('success_msg', 'Record Deleted successfully');
@@ -2822,15 +2822,15 @@ router.post('/delete_scty_br_populate',function(req,res){
  
 
 
- //Insurance Add screen
- router.get('/scty_insurance_add',function(req,res){
-    res.render('societyModule/scty_Insurance_Add');
- });
+//  //Insurance Add screen
+//  router.get('/scty_insurance_add',function(req,res){
+//     res.render('societyModule/scty_Insurance_Add');
+//  });
 
- //Insurance Search screen
- router.get('/scty_insurance_search',function(req,res){
-    res.render('societyModule/scty_Insurance_Search');
- });
+//  //Insurance Search screen
+//  router.get('/scty_insurance_search',function(req,res){
+//     res.render('societyModule/scty_Insurance_Search');
+//  });
 
 
  
@@ -4122,5 +4122,894 @@ else if(scty_brch_name =='' && scty_acc_num != '' && scty_ctgry != '' && scty_ch
 
 /* ------------------------------------------------------------------------ CHEQUE DETAILS END ---------------------------------------------------------------------------- */
 
+
+
+/* ------------------------------------------------------------------------ Insurance DEtails start ---------------------------------------------------------------------------- */
+
+
+ ////search particular insurance record///
+
+ router.post('/scty_particular_insurance_search',function(req,res){
+
+
+
+   var pro_name = req.body.pro_name;   
+      var acc_num = req.body.Pol_num;    
+      var premium_date = req.body.premium_date;   
+      var premium_date1 = req.body.premium_date1;    
+      
+      if(pro_name!='' && acc_num!='' && premium_date!='' && premium_date1!='')
+   {
+           pro_name = req.body.pro_name;   
+   acc_num = req.body.Pol_num;   
+   premium_date = req.body.premium_date;   
+   premium_date1 = req.body.premium_date1;    
+   
+   }
+      else if(pro_name!='' && acc_num=='' && premium_date=='' && premium_date1=='')
+   {
+           pro_name = req.body.pro_name;   
+   acc_num = null;   
+   premium_date = null ;   
+   premium_date1 = null;    
+   
+   }
+      else if(pro_name=='select' && acc_num!='' && premium_date=='' && premium_date1=='')
+   {
+           pro_name = null;   
+   acc_num = req.body.Pol_num;   
+   premium_date = null ;   
+   premium_date1 = null;    
+   
+   }
+      else if(pro_name=='select' && acc_num=='' && premium_date!='' && premium_date1!='')
+   {
+           pro_name = null;   
+   acc_num = null;   
+   premium_date = req.body.premium_date ;   
+   premium_date1 = req.body.premium_date1;    
+   
+   }
+      else if(pro_name!='' && acc_num!='' && premium_date=='' && premium_date1=='')
+   {
+           pro_name = req.body.pro_name;   
+   acc_num = req.body.Pol_num;   
+   premium_date =null;   
+   premium_date1 = null;    
+   
+   }
+      else if(pro_name!='' && acc_num=='' && premium_date!='' && premium_date1!='')
+   {
+           pro_name = req.body.pro_name;   
+   acc_num = null;   
+   premium_date = req.body.premium_date;   
+   premium_date1 = req.body.premium_date1;    
+   
+   }
+      else if(pro_name=='select' && acc_num!='' && premium_date!='' && premium_date1!='')
+   {
+           pro_name = null; 
+   acc_num = req.body.Pol_num;   
+   premium_date = req.body.premium_date;   
+   premium_date1 = req.body.premium_date1;    
+   
+   }
+   
+   
+   
+   pgdbconnect.query(" select * from society_insurance_details where  (sid_ch_provider_name=$1 or sid_n_policy_num=$2 or (sid_d_premium_date between $3 and $4)) and (sid_ch_del_flg='N') ", [pro_name, acc_num, premium_date, premium_date1],function(err,result4){
+                if(err) throw err;                                                                   
+   
+    res.render('societyModule/scty_Insurance_Search',{
+         insurancedetails:result4.rows,
+         moment:moment
+       });
+   });
+   
+   
+   });
+   ////////insurance inseration for "Add Screen"////////////
+   
+   
+    //Insurance Search screen
+    router.get('/scty_insurance_search',function(req,res){
+   
+      pgdbconnect.query("select * from society_insurance_details where sid_ch_del_flg='N'",function(err,result4)
+      {
+          if(err) throw err;
+       res.render('societyModule/scty_Insurance_Search',{
+         insurancedetails:result4.rows,
+         moment:moment
+       });
+    });
+   
+   });
+   
+    //Insurance Add screen
+    router.get('/scty_insurance_add',function(req,res){
+      var divtype="ADD";
+      pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+      {
+          if(err) throw err;
+       
+   
+      pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2)
+      {
+          if(err) throw err;
+      res.render('societyModule/scty_Insurance_Add',{
+         insu_cities:result1.rows,
+         insu_states:result2.rows,
+         pagetype:divtype,
+         moment:moment
+      });
+    });
+    });
+   });
+   
+   router.post('/scty_insurance_add_insurance',function(req,res){
+      var divtype="ADD";
+   
+      console.log("DIV TYPE",divtype);
+      console.log("Hii");
+   
+    var insur_prov_name= req.body.insur_prov_name;
+    var insur_lst_prm_paid= req.body.insur_lst_prm_paid;
+    var insur_policy_date= req.body.insur_policy_date;
+    var insur_policy_num= req.body.insur_policy_num;
+    var insur_coverage= req.body.insur_coverage;
+    var insur_risk= req.body.insur_risk;
+    var insur_policy_amount= req.body.insur_policy_amount;
+    var insur_premium_date= req.body.insur_premium_date;
+    var insur_premium_amt= req.body.insur_premium_amt;
+    var insur_premium_due_date= req.body.insur_premium_due_date;
+    var insur_policy_due_date= req.body.insur_policy_due_date;
+    var remarks_insurance= req.body.remarks_insurance;
+   
+     
+   //Insurance Nominee Details
+   
+   
+    var insur_nom_name= req.body.insur_nom_name;
+    var insur_nom_fatr_nme= req.body.insur_nom_fatr_nme;
+    var insur_nom_reltn= req.body.insur_nom_reltn;
+    var insur_nom_gen= req.body.insur_nom_gen;
+    var insur_nom_occptn= req.body.insur_nom_occptn;
+    var insur_nom_dob= req.body.insur_nom_dob;
+    var insur_nom_addr= req.body.insur_nom_addr;
+    var insur_nom_lndmark= req.body.insur_nom_lndmark;
+    var insur_nom_village= req.body.insur_nom_village;
+    var insur_nom_pncht_mdl= req.body.insur_nom_pncht_mdl;
+    var insur_nom_city= JSON.parse(req.body.insur_nom_city).city ;
+    var insur_nom_district= req.body.insur_nom_district;
+    var insur_nom_ste= req.body.insur_nom_ste;
+    var insur_nom_country= req.body.insur_nom_country;
+    var insur_nom_postal_cd= req.body.insur_nom_postal_cd;
+    var insur_nom_phn_num= req.body.insur_nom_phn_num;
+    var acc_nom_isminor= req.body.acc_nom_isminor;
+   
+    // Insuarnce Guardian Details 
+    if(acc_nom_isminor=='Yes'){
+    var insur_gurdian_name= req.body.insur_gurdian_name;
+    var insur_gurdian_fath_name= req.body.insur_gurdian_fath_name;
+    var insur_gurdian_reltn= req.body.insur_gurdian_reltn;
+    var insur_gurdian_gender= req.body.insur_gurdian_gender;
+    var insur_gurdian_occupation= req.body.insur_gurdian_occupation;
+    var insur_gurdian_dob= req.body.insur_gurdian_dob;
+    var insur_gurdian_minr_acoper_by= req.body.insur_gurdian_minr_acoper_by;
+    var insur_gurdian_addr_typ= req.body.insur_gurdian_addr_typ;
+    var insur_gurdian_addr_line= req.body.insur_gurdian_addr_line;
+    var insur_gurdian_landmark= req.body.insur_gurdian_landmark;
+    var insur_gurdian_village= req.body.insur_gurdian_village;
+    var insur_gurdian_pncht_mdl= req.body.insur_gurdian_pncht_mdl;
+    var insur_gurdian_city= JSON.parse(req.body.insur_nom_city).city ;
+    var insur_gurdian_district= req.body.insur_gurdian_district;
+    var insur_gurdian_ste= req.body.insur_gurdian_ste;
+    var insur_gurdian_country= req.body.insur_gurdian_country;
+    var insur_gurdian_phn_num= req.body.insur_gurdian_phn_num;
+    var insur_gurdian_postl= req.body.insur_gurdian_postl;
+   //  var insur_gurdian_add_ste= req.body.insur_gurdian_add_ste;
+    var insur_gurdian_guar_typ= req.body.insur_gurdian_guar_typ;
+    var insur_gurdian_is_socty_mem= req.body.insur_gurdian_is_socty_mem;
+    var insur_gurdian_is_acc_holder= req.body.insur_gurdian_is_acc_holder;
+   
+   console.log(insur_prov_name,insur_lst_prm_paid,insur_policy_date,insur_policy_num,insur_coverage,insur_risk,insur_policy_amount,insur_premium_date,insur_premium_amt,insur_premium_due_date,insur_policy_due_date,remarks_insurance
+   
+      ,insur_nom_name,insur_nom_fatr_nme,insur_nom_reltn,insur_nom_gen, insur_nom_occptn, insur_nom_dob,insur_nom_addr,insur_nom_lndmark,
+      insur_nom_village,insur_nom_pncht_mdl, insur_nom_city,insur_nom_district,insur_nom_ste,insur_nom_country,insur_nom_postal_cd,insur_nom_phn_num,acc_nom_isminor,
+     
+      insur_gurdian_name,insur_gurdian_fath_name,insur_gurdian_reltn,insur_gurdian_gender,insur_gurdian_occupation,insur_gurdian_dob,
+      insur_gurdian_minr_acoper_by,insur_gurdian_addr_typ,insur_gurdian_addr_line,insur_gurdian_landmark,insur_gurdian_village,insur_gurdian_pncht_mdl,
+      insur_gurdian_city,insur_gurdian_district,insur_gurdian_ste,insur_gurdian_country,insur_gurdian_phn_num,insur_gurdian_postl,
+      insur_gurdian_guar_typ,insur_gurdian_is_socty_mem,insur_gurdian_is_acc_holder);
+   }
+
+   else{
+      console.log("getting into else condition")
+      
+      var insur_gurdian_name= null; 
+      var insur_gurdian_fath_name= null;
+      var insur_gurdian_reltn= null;
+      var insur_gurdian_gender= null;
+      var insur_gurdian_occupation= null;
+      var insur_gurdian_dob= null;
+      var insur_gurdian_minr_acoper_by= null; 
+      var insur_gurdian_addr_typ= null;
+      var insur_gurdian_addr_line= null;
+      var insur_gurdian_landmark= null; 
+      var insur_gurdian_village= null; 
+      var insur_gurdian_pncht_mdl= null; 
+      var insur_gurdian_city= null; 
+      var insur_gurdian_district= null; 
+      var insur_gurdian_ste= null; 
+      var insur_gurdian_country= null; 
+      var insur_gurdian_phn_num= null; 
+      var insur_gurdian_postl= null; 
+      var insur_gurdian_guar_typ= null;
+      var insur_gurdian_is_socty_mem= null;
+      var insur_gurdian_is_acc_holder= null; 
+
+   }
+      var  insurance_id
+      pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+         {
+             if(err) throw err;
+          
+      
+         pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2)
+         {
+             if(err) throw err;
+            
+             pgdbconnect.query("select * from society_insurance_details",function(err,resu){
+                
+               if(resu.rowCount==0){
+              insurance_id = 1;
+   
+             pgdbconnect.query("insert into society_insurance_details (sid_ch_provider_name,sid_d_last_premium_paid,sid_d_policy_date,sid_n_policy_num,sid_ch_coverage,sid_ch_risk, sid_n_policy_amt,sid_d_premium_date,sid_n_premium_amt,sid_d_premium_due_date,sid_d_policy_due_date,sid_ch_remarks, sid_ch_del_flg,sid_n_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)",[insur_prov_name,insur_lst_prm_paid,insur_policy_date,insur_policy_num,insur_coverage,insur_risk,insur_policy_amount,insur_premium_date,insur_premium_amt,insur_premium_due_date,insur_policy_due_date,remarks_insurance,'N',insurance_id],function(err,loginres)
+             {
+             if(err) throw err;           
+               console.log("Result of Insurance Details");
+   
+               pgdbconnect.query("insert into society_insurance_nominee_details (snd_ch_name, snd_ch_father_name, snd_ch_relation, snd_ch_gender, snd_ch_occupation, snd_d_dob, snd_ch_addr, snd_ch_land_mark, snd_ch_panchayat_mandal, snd_ch_village, snd_ch_city,snd_ch_state, snd_ch_country, snd_n_postal_code, snd_n_phone_num,snd_ch_district,snd_ch_is_minor,snd_ch_del_flg,snd_n_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19)",[ insur_nom_name,insur_nom_fatr_nme,insur_nom_reltn,insur_nom_gen, insur_nom_occptn, insur_nom_dob,insur_nom_addr,insur_nom_lndmark,insur_nom_pncht_mdl,insur_nom_village, insur_nom_city,insur_nom_ste,insur_nom_country,insur_nom_postal_cd,insur_nom_phn_num,insur_nom_district,acc_nom_isminor ,'N',insurance_id],function(err,loginres)
+              {
+               if(err) throw err;
+                 console.log("Result of Nominee Details");
+   
+   
+                 pgdbconnect.query("insert into society_insurance_guardian_details ( sgd_ch_name, sgd_ch_father_name, sgd_ch_relation, sgd_ch_gender, sgd_ch_occupation, sgd_d_dob, sgd_ch_minor_act_ope_by, sgd_ch_addr_type, sgd_ch_addr_line, sgd_ch_lamndmark,sgd_ch_village, sgd_ch_pncht_mdl, sgd_ch_city, sgd_ch_district, sgd_ch_state, sgd_ch_country, sgd_n_phone_num, sgd_n_poatal_code, sgd_ch_guardian_type, sgd_ch_is_society_mem,sgd_ch_is_acct_hldr, sgd_ch_del_flg,sgd_n_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23)",[insur_gurdian_name,insur_gurdian_fath_name,insur_gurdian_reltn,insur_gurdian_gender,insur_gurdian_occupation,insur_gurdian_dob,insur_gurdian_minr_acoper_by,insur_gurdian_addr_typ,insur_gurdian_addr_line,insur_gurdian_landmark,insur_gurdian_village,insur_gurdian_pncht_mdl,insur_gurdian_city,insur_gurdian_district,insur_gurdian_ste,insur_gurdian_country,insur_gurdian_phn_num,insur_gurdian_postl,insur_gurdian_guar_typ,insur_gurdian_is_socty_mem,insur_gurdian_is_acc_holder,'N',insurance_id],function(err,loginres)
+                       {
+                  if(err) throw err;
+                    console.log("Result of Guardian Details");
+   
+                    req.flash('success_msg', 'Data inserted successfully');
+                    res.locals.message=req.flash();
+   
+          res.render('societyModule/scty_Insurance_Add',{
+          insu_cities:result1.rows,
+          insu_states:result2.rows,
+          pagetype:divtype,
+          moment:moment
+       });
+      });
+      });
+   });
+               }
+               else
+   {
+   
+       pgdbconnect.query("select max(sid_n_id) from society_insurance_details",function(err,resul) {
+           console.log("max value check",resul)
+           console.log("max value check",resul.rows[0].max)
+         
+           insurance_id=parseInt(resul.rows[0].max)+1;
+           console.log("insu",insurance_id);
+           pgdbconnect.query("insert into society_insurance_details (sid_ch_provider_name,sid_d_last_premium_paid,sid_d_policy_date,sid_n_policy_num,sid_ch_coverage,sid_ch_risk, sid_n_policy_amt,sid_d_premium_date,sid_n_premium_amt,sid_d_premium_due_date,sid_d_policy_due_date,sid_ch_remarks, sid_ch_del_flg,sid_n_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)",[insur_prov_name,insur_lst_prm_paid,insur_policy_date,insur_policy_num,insur_coverage,insur_risk,insur_policy_amount,insur_premium_date,insur_premium_amt,insur_premium_due_date,insur_policy_due_date,remarks_insurance,'N',insurance_id],function(err,loginres)
+             {
+             if(err) throw err;
+               console.log("Result of Insurance Details",loginres);
+   
+               pgdbconnect.query("insert into society_insurance_nominee_details (snd_ch_name, snd_ch_father_name, snd_ch_relation, snd_ch_gender, snd_ch_occupation, snd_d_dob, snd_ch_addr, snd_ch_land_mark, snd_ch_panchayat_mandal, snd_ch_village, snd_ch_city,snd_ch_state, snd_ch_country, snd_n_postal_code, snd_n_phone_num,snd_ch_district,snd_ch_is_minor,snd_ch_del_flg,snd_n_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19)",[ insur_nom_name,insur_nom_fatr_nme,insur_nom_reltn,insur_nom_gen, insur_nom_occptn, insur_nom_dob,insur_nom_addr,insur_nom_lndmark,insur_nom_pncht_mdl,insur_nom_village, insur_nom_city,insur_nom_ste,insur_nom_country,insur_nom_postal_cd,insur_nom_phn_num,insur_nom_district,acc_nom_isminor ,'N',insurance_id],function(err,loginres)
+              {
+               if(err) throw err;
+                 console.log("Result of Nominee Details");
+   
+   
+                 pgdbconnect.query("insert into society_insurance_guardian_details ( sgd_ch_name, sgd_ch_father_name, sgd_ch_relation, sgd_ch_gender, sgd_ch_occupation, sgd_d_dob, sgd_ch_minor_act_ope_by, sgd_ch_addr_type, sgd_ch_addr_line, sgd_ch_lamndmark,sgd_ch_village, sgd_ch_pncht_mdl, sgd_ch_city, sgd_ch_district, sgd_ch_state, sgd_ch_country, sgd_n_phone_num, sgd_n_poatal_code, sgd_ch_guardian_type, sgd_ch_is_society_mem,sgd_ch_is_acct_hldr,sgd_ch_del_flg,sgd_n_id) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23)",[insur_gurdian_name,insur_gurdian_fath_name,insur_gurdian_reltn,insur_gurdian_gender,insur_gurdian_occupation,insur_gurdian_dob,insur_gurdian_minr_acoper_by,insur_gurdian_addr_typ,insur_gurdian_addr_line,insur_gurdian_landmark,insur_gurdian_village,insur_gurdian_pncht_mdl,insur_gurdian_city,insur_gurdian_district,insur_gurdian_ste,insur_gurdian_country,insur_gurdian_phn_num,insur_gurdian_postl,insur_gurdian_guar_typ,insur_gurdian_is_socty_mem,insur_gurdian_is_acc_holder,'N',insurance_id],function(err,loginres)
+                       {
+                  if(err) throw err;
+                    console.log("Result of Guardian Details");
+   
+                    req.flash('success_msg', 'Data inserted successfully');
+                    res.locals.message=req.flash();
+     res.render('societyModule/scty_Insurance_Add',{
+         insu_cities:result1.rows,
+          insu_states:result2.rows,
+          pagetype:divtype,
+          moment:moment
+       });
+      });
+      });
+   });
+       });
+      }
+   });
+   });
+   });
+   });
+   
+   
+   ////insurance Edit  Screen start//////////
+   
+   router.post('/insurance_edit',function(req,res){
+      console.log("populate insurance fields");
+      var divtype="EDIT";
+    console.log("DIV TYPE on edit populate",divtype);
+   
+      //Bank Branch details-start//
+   var tempinsuranceid= req.body.tempinsuranceid;
+   console.log("bank id to edit",tempinsuranceid)
+   
+           pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+           {
+               if(err) throw err;
+            
+           
+           pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2)
+           {
+               if(err) throw err;
+   
+               pgdbconnect.query("select * from society_insurance_details where sid_n_id=$1 order by sid_n_id ",[tempinsuranceid],function(err,reslt){
+                  console.log("searchres",reslt)
+   
+                  pgdbconnect.query("select * from society_insurance_nominee_details where snd_n_id=$1 order by snd_n_id",[tempinsuranceid],function(err,reslt1){
+                  console.log("searchres",reslt1)
+   
+                  
+                  pgdbconnect.query("select * from society_insurance_guardian_details where sgd_n_id=$1 order by sgd_n_id",[tempinsuranceid],function(err,reslt2){
+                     console.log("searchres",reslt2)
+       
+   //insurance tab 
+    var insur_prov_name= reslt.rows[0].sid_ch_provider_name;
+    console.log("reslt.rows[0].sid_ch_provider_name",reslt.rows[0].sid_ch_provider_name);
+    var insur_lst_prm_paid= reslt.rows[0].sid_d_last_premium_paid;
+    var insur_policy_date= reslt.rows[0].sid_d_policy_date;
+    var insur_policy_num= reslt.rows[0].sid_n_policy_num;
+    var insur_coverage= reslt.rows[0].sid_ch_coverage;
+    var insur_risk= reslt.rows[0].sid_ch_risk;
+    var insur_policy_amount= reslt.rows[0].sid_n_policy_amt;
+    var insur_premium_date= reslt.rows[0].sid_d_premium_date;
+    var insur_premium_amt= reslt.rows[0].sid_n_premium_amt;
+    var insur_premium_due_date= reslt.rows[0].sid_d_premium_due_date;
+    var insur_policy_due_date= reslt.rows[0].sid_d_policy_due_date;
+    var remarks_insurance= reslt.rows[0].sid_ch_remarks;
+   
+   //Insurance Nominee Details
+   var insur_nom_name= reslt1.rows[0].snd_ch_name;
+   var insur_nom_fatr_nme= reslt1.rows[0].snd_ch_father_name;
+   var insur_nom_reltn= reslt1.rows[0].snd_ch_relation;
+   var insur_nom_gen= reslt1.rows[0].snd_ch_gender;
+   var insur_nom_occptn= reslt1.rows[0].snd_ch_occupation;
+   var insur_nom_dob= reslt1.rows[0].snd_d_dob;
+   var insur_nom_addr= reslt1.rows[0].snd_ch_addr;
+   var insur_nom_lndmark= reslt1.rows[0].snd_ch_land_mark;
+   var insur_nom_village= reslt1.rows[0].snd_ch_village;
+   var insur_nom_pncht_mdl= reslt1.rows[0].snd_ch_panchayat_mandal;
+   var insur_nom_city=   reslt1.rows[0].snd_ch_city ;
+   var insur_nom_district= reslt1.rows[0].snd_ch_district;
+   var insur_nom_ste= reslt1.rows[0].snd_ch_state;
+   var insur_nom_country= reslt1.rows[0].snd_ch_country;
+   var insur_nom_postal_cd= reslt1.rows[0].snd_n_postal_code;
+   var insur_nom_phn_num= reslt1.rows[0].snd_n_phone_num;
+   var acc_nom_isminor= reslt1.rows[0].snd_ch_is_minor;
+   
+   // Insuarnce Guardian Details 
+   
+   
+   
+   var insur_gurdian_name= reslt2.rows[0].sgd_ch_name;
+   var insur_gurdian_fath_name= reslt2.rows[0].sgd_ch_father_name;
+   var insur_gurdian_reltn= reslt2.rows[0].sgd_ch_relation;
+   var insur_gurdian_gender= reslt2.rows[0].sgd_ch_gender;
+   var insur_gurdian_occupation= reslt2.rows[0].sgd_ch_occupation;
+   var insur_gurdian_dob= reslt2.rows[0].sgd_d_dob;
+   var insur_gurdian_minr_acoper_by= reslt2.rows[0].sgd_ch_minor_act_ope_by;
+   var insur_gurdian_addr_typ= reslt2.rows[0].sgd_ch_addr_type;
+   var insur_gurdian_addr_line= reslt2.rows[0].sgd_ch_addr_line;
+   var insur_gurdian_landmark= reslt2.rows[0].sgd_ch_lamndmark;
+   var insur_gurdian_village= reslt2.rows[0].sgd_ch_village;
+   var insur_gurdian_pncht_mdl= reslt2.rows[0].sgd_ch_pncht_mdl;
+   var insur_gurdian_city= reslt2.rows[0].sgd_ch_city ;
+   var insur_gurdian_district= reslt2.rows[0].sgd_ch_district;
+   var insur_gurdian_ste= reslt2.rows[0].sgd_ch_state;
+   var insur_gurdian_country= reslt2.rows[0].sgd_ch_country;
+   var insur_gurdian_phn_num= reslt2.rows[0].sgd_n_phone_num;
+   var insur_gurdian_postl= reslt2.rows[0].sgd_n_poatal_code;
+   //  var insur_gurdian_add_ste= reslt2.rows[0].insur_gurdian_add_ste;
+   var insur_gurdian_guar_typ= reslt2.rows[0].sgd_ch_guardian_type;
+   var insur_gurdian_is_socty_mem= reslt2.rows[0].sgd_ch_is_society_mem;
+   var insur_gurdian_is_acc_holder= reslt2.rows[0].sgd_ch_is_acct_hldr;
+   
+   
+   
+   
+   
+   
+   
+        res.render('societyModule/scty_Insurance_Add',{
+         
+          insur_prov_name:insur_prov_name,
+          
+          insur_lst_prm_paid: insur_lst_prm_paid,
+          insur_policy_date: insur_policy_date,
+          insur_policy_num: insur_policy_num,
+          insur_coverage: insur_coverage,
+          insur_risk:insur_risk,
+          insur_policy_amount: insur_policy_amount,
+          insur_premium_date: insur_premium_date,
+          insur_premium_amt: insur_premium_amt,
+          insur_premium_due_date:insur_premium_due_date,
+          insur_policy_due_date:insur_policy_due_date,
+          remarks_insurance: remarks_insurance,
+   
+   
+          insur_nom_name: insur_nom_name,
+          insur_nom_fatr_nme:insur_nom_fatr_nme,
+          insur_nom_reltn: insur_nom_reltn,
+          insur_nom_gen: insur_nom_gen,
+          insur_nom_occptn: insur_nom_occptn,
+          insur_nom_dob: insur_nom_dob,
+          insur_nom_addr: insur_nom_addr,
+          insur_nom_lndmark: insur_nom_lndmark,
+          insur_nom_village: insur_nom_village,
+          insur_nom_pncht_mdl:insur_nom_pncht_mdl,
+          insur_nom_city:   insur_nom_city,
+          insur_nom_district: insur_nom_district,
+          insur_nom_ste: insur_nom_ste,
+          insur_nom_country: insur_nom_country,
+          insur_nom_postal_cd:insur_nom_postal_cd,
+          insur_nom_phn_num: insur_nom_phn_num,
+          acc_nom_isminor: acc_nom_isminor,
+   
+   
+   
+   
+          insur_gurdian_name: insur_gurdian_name,
+          insur_gurdian_fath_name: insur_gurdian_fath_name,
+          insur_gurdian_reltn: insur_gurdian_reltn,
+          insur_gurdian_gender: insur_gurdian_gender,
+          insur_gurdian_occupation: insur_gurdian_occupation,
+          insur_gurdian_dob: insur_gurdian_dob,
+          insur_gurdian_minr_acoper_by:insur_gurdian_minr_acoper_by,
+          insur_gurdian_addr_typ: insur_gurdian_addr_typ,
+          insur_gurdian_addr_line: insur_gurdian_addr_line,
+          insur_gurdian_landmark: insur_gurdian_landmark,
+          insur_gurdian_village: insur_gurdian_village,
+          insur_gurdian_pncht_mdl: insur_gurdian_pncht_mdl,
+          insur_gurdian_city: insur_gurdian_city,
+          insur_gurdian_district: insur_gurdian_district,
+          insur_gurdian_ste: insur_gurdian_ste,
+          insur_gurdian_country: insur_gurdian_country,
+          insur_gurdian_phn_num: insur_gurdian_phn_num,
+          insur_gurdian_postl: insur_gurdian_postl,
+         //  insur_gurdian_add_ste: insur_gurdian_add_ste,
+          insur_gurdian_guar_typ: insur_gurdian_guar_typ,
+          insur_gurdian_is_socty_mem: insur_gurdian_is_socty_mem,
+          insur_gurdian_is_acc_holder: insur_gurdian_is_acc_holder,
+   
+    
+          insu_cities:result1.rows,
+          insu_states:result2.rows,
+          pagetype:"EDIT",
+          moment:moment,
+          tempinsuranceid:tempinsuranceid,
+          insurancedetails:reslt,
+         
+     });
+   
+      });
+   });
+   });
+   });
+   });
+   });
+   
+   // insurance Edit screen End//////////
+   
+   //////Insurance Update//////
+   
+   
+   router.post('/update_insurance_edit',function(req,res){
+      console.log("editing insurance details");
+      
+      var insur_prov_name_ed= req.body.insur_prov_name_ed;
+      var insur_lst_prm_paid_ed= req.body.insur_lst_prm_paid_ed;
+      var insur_policy_date_ed= req.body.insur_policy_date_ed;
+      var insur_policy_num_ed= req.body.insur_policy_num_ed;
+      var insur_coverage_ed= req.body.insur_coverage_ed;
+      var insur_risk_ed= req.body.insur_risk_ed;
+      var insur_policy_amount_ed= req.body.insur_policy_amount_ed;
+      var insur_premium_date_ed= req.body.insur_premium_date_ed;
+      var insur_premium_amt_ed= req.body.insur_premium_amt_ed;
+      var insur_premium_due_date_ed= req.body.insur_premium_due_date_ed;
+      var insur_policy_due_date_ed= req.body.insur_policy_due_date_ed;
+      var remarks_insurance_ed= req.body.remarks_insurance_ed;
+   
+     console.log("update insurance 1st tab details",insur_prov_name_ed,insur_lst_prm_paid_ed,insur_policy_date_ed, insur_policy_num_ed, insur_coverage_ed, insur_risk_ed, insur_policy_amount_ed, insur_premium_date_ed,
+      insur_premium_amt_ed, insur_premium_due_date_ed, insur_policy_due_date_ed, remarks_insurance_ed);
+       
+     //Insurance Nominee edit update Details
+     
+     
+      var insur_nom_name_ed= req.body.insur_nom_name_ed;
+      var insur_nom_fatr_nme_ed= req.body.insur_nom_fatr_nme_ed;
+      var insur_nom_reltn_ed= req.body.insur_nom_reltn_ed;
+      var insur_nom_gen_ed= req.body.insur_nom_gen_ed;
+      var insur_nom_occptn_ed= req.body.insur_nom_occptn_ed;
+      var insur_nom_dob_ed= req.body.insur_nom_dob_ed;
+      var insur_nom_addr_ed= req.body.insur_nom_addr_ed;
+      var insur_nom_lndmark_ed= req.body.insur_nom_lndmark_ed;
+      var insur_nom_village_ed= req.body.insur_nom_village_ed;
+      var insur_nom_pncht_mdl_ed= req.body.insur_nom_pncht_mdl_ed;
+      var insur_nom_city_ed= req.body.insur_nom_city_ed;
+      var insur_nom_district_ed= req.body.insur_nom_district_ed;
+      var insur_nom_ste_ed= req.body.insur_nom_ste_ed;
+      var insur_nom_country_ed= req.body.insur_nom_country_ed;
+      var insur_nom_postal_cd_ed= req.body.insur_nom_postal_cd_ed;
+      var insur_nom_phn_num_ed= req.body.insur_nom_phn_num_ed;
+      var acc_nom_isminor_ed= req.body.acc_nom_isminor_ed;
+   
+    console.log("update insurance nominee detail", insur_nom_name_ed, insur_nom_fatr_nme_ed, insur_nom_reltn_ed, insur_nom_gen_ed, insur_nom_occptn_ed, insur_nom_dob_ed,
+      insur_nom_addr_ed, insur_nom_lndmark_ed, insur_nom_village_ed, insur_nom_pncht_mdl_ed,insur_nom_city_ed, insur_nom_district_ed, insur_nom_ste_ed, insur_nom_country_ed,
+      insur_nom_postal_cd_ed,
+      insur_nom_phn_num_ed,
+      acc_nom_isminor_ed);
+
+      if(acc_nom_isminor_ed=='Yes'){
+   
+      // Insuarnce Guardian edit update Details 
+      var insur_gurdian_name_ed= req.body.insur_gurdian_name_ed;
+      var insur_gurdian_fath_name_ed= req.body.insur_gurdian_fath_name_ed;
+      var insur_gurdian_reltn_ed= req.body.insur_gurdian_reltn_ed;
+      var insur_gurdian_gender_ed= req.body.insur_gurdian_gender_ed;
+      var insur_gurdian_occupation_ed= req.body.insur_gurdian_occupation_ed;
+      var insur_gurdian_dob_ed= req.body.insur_gurdian_dob_ed;
+      var insur_gurdian_minr_acoper_by_ed= req.body.insur_gurdian_minr_acoper_by_ed;
+      var insur_gurdian_addr_typ_ed= req.body.insur_gurdian_addr_typ_ed;
+      var insur_gurdian_addr_line_ed= req.body.insur_gurdian_addr_line_ed;
+      var insur_gurdian_landmark_ed= req.body.insur_gurdian_landmark_ed;
+      var insur_gurdian_village_ed= req.body.insur_gurdian_village_ed;
+      var insur_gurdian_pncht_mdl_ed= req.body.insur_gurdian_pncht_mdl_ed;
+      var insur_gurdian_city_ed= req.body.insur_nom_city_ed;
+      var insur_gurdian_district_ed= req.body.insur_gurdian_district_ed;
+      var insur_gurdian_ste_ed= req.body.insur_gurdian_ste_ed;
+      var insur_gurdian_country_ed= req.body.insur_gurdian_country_ed;
+      var insur_gurdian_phn_num_ed= req.body.insur_gurdian_phn_num_ed;
+      var insur_gurdian_postl_ed= req.body.insur_gurdian_postl_ed;
+   
+      var insur_gurdian_guar_typ_ed= req.body.insur_gurdian_guar_typ_ed;
+      var insur_gurdian_is_socty_mem_ed= req.body.insur_gurdian_is_socty_mem_ed;
+      var insur_gurdian_is_acc_holder_ed= req.body.insur_gurdian_is_acc_holder_ed;
+   
+     console.log( "update insurance guardian",insur_gurdian_name_ed,insur_gurdian_fath_name_ed,  insur_gurdian_reltn_ed, insur_gurdian_gender_ed,   insur_gurdian_occupation_ed,
+      insur_gurdian_dob_ed, insur_gurdian_minr_acoper_by_ed, insur_gurdian_addr_typ_ed, insur_gurdian_addr_line_ed,  insur_gurdian_landmark_ed, 
+      insur_gurdian_village_ed, insur_gurdian_pncht_mdl_ed,  insur_gurdian_city_ed,  insur_gurdian_district_ed,  insur_gurdian_ste_ed,  insur_gurdian_country_ed,
+      insur_gurdian_phn_num_ed, insur_gurdian_postl_ed, insur_gurdian_guar_typ_ed,insur_gurdian_is_socty_mem_ed, insur_gurdian_is_acc_holder_ed);
+      
+      }
+      else{
+ var insur_gurdian_name_ed= null; 
+var insur_gurdian_fath_name_ed= null; 
+var insur_gurdian_reltn_ed= null; 
+var insur_gurdian_gender_ed= null; 
+var insur_gurdian_occupation_ed= null;
+var insur_gurdian_dob_ed= null; 
+var insur_gurdian_minr_acoper_by_ed= null; 
+var insur_gurdian_addr_typ_ed= null; 
+var insur_gurdian_addr_line_ed= null; 
+var insur_gurdian_landmark_ed= null; 
+var insur_gurdian_village_ed= null;
+var insur_gurdian_pncht_mdl_ed= null; 
+var insur_gurdian_city_ed= null; 
+var insur_gurdian_district_ed= null; 
+var insur_gurdian_ste_ed= null; 
+var insur_gurdian_country_ed= null; 
+var insur_gurdian_phn_num_ed= null; 
+var insur_gurdian_postl_ed= null; 
+
+var insur_gurdian_guar_typ_ed= null; 
+var insur_gurdian_is_socty_mem_ed= null; 
+var insur_gurdian_is_acc_holder_ed= null; 
+
+      }
+   ///hidden id//
+
+      var insurancehiddenid=req.body.insurancehiddenid;
+      console.log('iddd',insurancehiddenid)
+     
+       pgdbconnect.query('update  society_insurance_details set sid_ch_provider_name=$1,sid_d_last_premium_paid=$2,sid_d_policy_date=$3,sid_n_policy_num=$4,sid_ch_coverage=$5,sid_ch_risk=$6, sid_n_policy_amt=$7,sid_d_premium_date=$8,sid_n_premium_amt=$9,sid_d_premium_due_date=$10,sid_d_policy_due_date=$11,sid_ch_remarks=$12  where sid_n_id=$13',
+       [insur_prov_name_ed,insur_lst_prm_paid_ed,insur_policy_date_ed, insur_policy_num_ed, insur_coverage_ed, insur_risk_ed, insur_policy_amount_ed, insur_premium_date_ed,insur_premium_amt_ed, insur_premium_due_date_ed, insur_policy_due_date_ed, remarks_insurance_ed,insurancehiddenid],function(err,result)
+         {
+         if(err) throw err;           
+           console.log("Result of Insurance Details",result);
+   
+           pgdbconnect.query("update  society_insurance_nominee_details set snd_ch_name=$1, snd_ch_father_name=$2, snd_ch_relation=$3, snd_ch_gender=$4, snd_ch_occupation=$5, snd_d_dob=$6, snd_ch_addr=$7, snd_ch_land_mark=$8, snd_ch_panchayat_mandal=$9, snd_ch_village=$10, snd_ch_city=$11,snd_ch_state=$12, snd_ch_country=$13, snd_n_postal_code=$14, snd_n_phone_num=$15,snd_ch_district=$16,snd_ch_is_minor=$17 where snd_n_id=$18",[insur_nom_name_ed, insur_nom_fatr_nme_ed, insur_nom_reltn_ed, insur_nom_gen_ed, insur_nom_occptn_ed, insur_nom_dob_ed, insur_nom_addr_ed, insur_nom_lndmark_ed,insur_nom_pncht_mdl_ed, insur_nom_village_ed, insur_nom_city_ed, insur_nom_ste_ed,insur_nom_country_ed,  insur_nom_postal_cd_ed, insur_nom_phn_num_ed,insur_nom_district_ed,acc_nom_isminor_ed,insurancehiddenid],function(err,loginres)
+          {
+           if(err) throw err;
+             console.log("Result of Nominee Details");
+   
+   
+             pgdbconnect.query("update  society_insurance_guardian_details set sgd_ch_name=$1, sgd_ch_father_name=$2, sgd_ch_relation=$3, sgd_ch_gender=$4, sgd_ch_occupation=$5, sgd_d_dob=$6, sgd_ch_minor_act_ope_by=$7, sgd_ch_addr_type=$8, sgd_ch_addr_line=$9, sgd_ch_lamndmark=$10,sgd_ch_village=$11, sgd_ch_pncht_mdl=$12, sgd_ch_city=$13, sgd_ch_district=$14, sgd_ch_state=$15, sgd_ch_country=$16, sgd_n_phone_num=$17, sgd_n_poatal_code=$18, sgd_ch_guardian_type=$19, sgd_ch_is_society_mem=$20,sgd_ch_is_acct_hldr=$21 where sgd_n_id=$22",[insur_gurdian_name_ed,insur_gurdian_fath_name_ed,  insur_gurdian_reltn_ed, insur_gurdian_gender_ed,   insur_gurdian_occupation_ed, insur_gurdian_dob_ed, insur_gurdian_minr_acoper_by_ed, insur_gurdian_addr_typ_ed, insur_gurdian_addr_line_ed,  insur_gurdian_landmark_ed,  insur_gurdian_village_ed, insur_gurdian_pncht_mdl_ed,  insur_gurdian_city_ed,  insur_gurdian_district_ed,  insur_gurdian_ste_ed,  insur_gurdian_country_ed,insur_gurdian_phn_num_ed, insur_gurdian_postl_ed, insur_gurdian_guar_typ_ed,insur_gurdian_is_socty_mem_ed, insur_gurdian_is_acc_holder_ed,insurancehiddenid],function(err,loginres)
+             {
+              if(err) throw err;
+                console.log("Result of Guardian Details");
+                pgdbconnect.query("select * from society_insurance_details where sid_ch_del_flg='N'",function(err,result4)
+                {
+                    if(err) throw err;
+                 
+        //
+          
+     //flash messege
+     req.flash('success_msg', 'Data Updated successfully');
+     res.locals.message=req.flash();
+     
+              res.render('societyModule/scty_Insurance_Search',{
+               insurancedetails:result4.rows,
+               moment:moment
+              });
+            
+          });
+              
+          });
+      
+      });
+   });
+   });
+   
+   ////////////////insurance view screen//////
+   
+   router.post('/insurance_view',function(req,res){
+      console.log("populate fields");
+      var divtype="VIEW";
+    console.log("DIV TYPE on VIEW populate",divtype);
+   
+      //Bank Branch view details-start//
+   var vw_tempinsuranceid= req.body.tempinsuranceid1;
+   console.log(" id to view",vw_tempinsuranceid)
+   
+   pgdbconnect.query("select * from common_code_tbl where code_id='CTY'",function(err,result1)
+   {
+       if(err) throw err;
+    
+   
+   pgdbconnect.query("select * from common_code_tbl where code_id='STA'",function(err,result2)
+   {
+       if(err) throw err;  
+   
+       pgdbconnect.query("select * from society_insurance_details where sid_n_id=$1 order by sid_n_id ",[vw_tempinsuranceid],function(err,reslt){
+         if(err) throw err; 
+          console.log("searchres",reslt)
+   
+          pgdbconnect.query("select * from society_insurance_nominee_details where snd_n_id=$1 order by snd_n_id ",[vw_tempinsuranceid],function(err,reslt1){
+            if(err) throw err; 
+          console.log("nominee",reslt1)
+   
+          
+          pgdbconnect.query("select * from society_insurance_guardian_details where sgd_n_id=$1 order by sgd_n_id ",[vw_tempinsuranceid],function(err,reslt2){
+            if(err) throw err; 
+             console.log("searchres",reslt2)
+   
+   //insurance tab 
+   var insur_prov_name_vw= reslt.rows[0].sid_ch_provider_name;
+   var insur_lst_prm_paid_vw= reslt.rows[0].sid_d_last_premium_paid;
+   var insur_policy_date_vw= reslt.rows[0].sid_d_policy_date;
+   var insur_policy_num_vw= reslt.rows[0].sid_n_policy_num;
+   var insur_coverage_vw= reslt.rows[0].sid_ch_coverage;
+   var insur_risk_vw= reslt.rows[0].sid_ch_risk;
+   var insur_policy_amount_vw= reslt.rows[0].sid_n_policy_amt;
+   var insur_premium_date_vw= reslt.rows[0].sid_d_premium_date;
+   var insur_premium_amt_vw= reslt.rows[0].sid_n_premium_amt;
+   var insur_premium_due_date_vw= reslt.rows[0].sid_d_premium_due_date;
+   var insur_policy_due_date_vw= reslt.rows[0].sid_d_policy_due_date;
+   var remarks_insurance_vw= reslt.rows[0].sid_ch_remarks;
+   
+   //Insurance Nominee Details
+   var insur_nom_name_vw= reslt1.rows[0].snd_ch_name;
+   console.log("sss",insur_nom_name_vw);
+   var insur_nom_fatr_nme_vw= reslt1.rows[0].snd_ch_father_name;
+   var insur_nom_reltn_vw= reslt1.rows[0].snd_ch_relation;
+   var insur_nom_gen_vw= reslt1.rows[0].snd_ch_gender;
+   var insur_nom_occptn_vw= reslt1.rows[0].snd_ch_occupation;
+   var insur_nom_dob_vw= reslt1.rows[0].snd_d_dob;
+   var insur_nom_addr_vw= reslt1.rows[0].snd_ch_addr;
+   var insur_nom_lndmark_vw= reslt1.rows[0].snd_ch_land_mark;
+   var insur_nom_village_vw= reslt1.rows[0].snd_ch_village;
+   var insur_nom_pncht_mdl_vw= reslt1.rows[0].snd_ch_panchayat_mandal;
+   var insur_nom_city_vw=   reslt1.rows[0].snd_ch_city ;
+   var insur_nom_district_vw= reslt1.rows[0].snd_ch_district;
+   var insur_nom_ste_vw= reslt1.rows[0].snd_ch_state;
+   var insur_nom_country_vw= reslt1.rows[0].snd_ch_country;
+   var insur_nom_postal_cd_vw= reslt1.rows[0].snd_n_postal_code;
+   var insur_nom_phn_num_vw= reslt1.rows[0].snd_n_phone_num;
+   var acc_nom_isminor_vw= reslt1.rows[0].snd_ch_is_minor;
+   
+   // Insuarnce Guardian Details 
+   
+   
+   
+   var insur_gurdian_name_vw= reslt2.rows[0].sgd_ch_name;
+   var insur_gurdian_fath_name_vw= reslt2.rows[0].sgd_ch_father_name;
+   var insur_gurdian_reltn_vw= reslt2.rows[0].sgd_ch_relation;
+   var insur_gurdian_gender_vw= reslt2.rows[0].sgd_ch_gender;
+   var insur_gurdian_occupation_vw= reslt2.rows[0].sgd_ch_occupation;
+   var insur_gurdian_dob_vw= reslt2.rows[0].sgd_d_dob;
+   var insur_gurdian_minr_acoper_by_vw= reslt2.rows[0].sgd_ch_minor_act_ope_by;
+   var insur_gurdian_addr_typ_vw= reslt2.rows[0].sgd_ch_addr_type;
+   var insur_gurdian_addr_line_vw= reslt2.rows[0].sgd_ch_addr_line;
+   var insur_gurdian_landmark_vw= reslt2.rows[0].sgd_ch_lamndmark;
+   var insur_gurdian_village_vw= reslt2.rows[0].sgd_ch_village;
+   var insur_gurdian_pncht_mdl_vw= reslt2.rows[0].sgd_ch_pncht_mdl;
+   var insur_gurdian_city_vw= reslt2.rows[0].sgd_ch_city ;
+   var insur_gurdian_district_vw= reslt2.rows[0].sgd_ch_district;
+   var insur_gurdian_ste_vw= reslt2.rows[0].sgd_ch_state;
+   var insur_gurdian_country_vw= reslt2.rows[0].sgd_ch_country;
+   var insur_gurdian_phn_num_vw= reslt2.rows[0].sgd_n_phone_num;
+   var insur_gurdian_postl_vw= reslt2.rows[0].sgd_n_poatal_code;
+   //  var insur_gurdian_add_ste_vw= reslt2.rows[0].insur_gurdian_add_ste;
+   var insur_gurdian_guar_typ_vw= reslt2.rows[0].sgd_ch_guardian_type;
+   var insur_gurdian_is_socty_mem_vw= reslt2.rows[0].sgd_ch_is_society_mem;
+   var insur_gurdian_is_acc_holder_vw= reslt2.rows[0].sgd_ch_is_acct_hldr;
+   
+   
+   
+   res.render('societyModule/scty_Insurance_Add',{
+   
+   insur_prov_name_vw:insur_prov_name_vw,
+   insur_lst_prm_paid_vw : insur_lst_prm_paid_vw,
+   insur_policy_date_vw: insur_policy_date_vw,
+   insur_policy_num_vw: insur_policy_num_vw,
+   insur_coverage_vw: insur_coverage_vw,
+   insur_risk_vw:insur_risk_vw,
+   insur_policy_amount_vw: insur_policy_amount_vw,
+   insur_premium_date_vw: insur_premium_date_vw,
+   insur_premium_amt_vw: insur_premium_amt_vw,
+   insur_premium_due_date_vw:insur_premium_due_date_vw,
+   insur_policy_due_date_vw:insur_policy_due_date_vw,
+   remarks_insurance_vw: remarks_insurance_vw,
+   
+   
+   insur_nom_name_vw: insur_nom_name_vw,
+   insur_nom_fatr_nme_vw:insur_nom_fatr_nme_vw,
+   insur_nom_reltn_vw: insur_nom_reltn_vw,
+   insur_nom_gen_vw: insur_nom_gen_vw,
+   insur_nom_occptn_vw: insur_nom_occptn_vw,
+   insur_nom_dob_vw: insur_nom_dob_vw,
+   insur_nom_addr_vw: insur_nom_addr_vw,
+   insur_nom_lndmark_vw: insur_nom_lndmark_vw,
+   insur_nom_village_vw: insur_nom_village_vw,
+   insur_nom_pncht_mdl_vw:insur_nom_pncht_mdl_vw,
+   insur_nom_city_vw:   insur_nom_city_vw,
+   insur_nom_district_vw: insur_nom_district_vw,
+   insur_nom_ste_vw: insur_nom_ste_vw,
+   insur_nom_country_vw: insur_nom_country_vw,
+   insur_nom_postal_cd_vw:insur_nom_postal_cd_vw,
+   insur_nom_phn_num_vw: insur_nom_phn_num_vw,
+   acc_nom_isminor_vw: acc_nom_isminor_vw,
+   
+   
+   
+   
+   insur_gurdian_name_vw: insur_gurdian_name_vw,
+   insur_gurdian_fath_name_vw: insur_gurdian_fath_name_vw,
+   insur_gurdian_reltn_vw: insur_gurdian_reltn_vw,
+   insur_gurdian_gender_vw: insur_gurdian_gender_vw,
+   insur_gurdian_occupation_vw: insur_gurdian_occupation_vw,
+   insur_gurdian_dob_vw: insur_gurdian_dob_vw,
+   insur_gurdian_minr_acoper_by_vw:insur_gurdian_minr_acoper_by_vw,
+   insur_gurdian_addr_typ_vw: insur_gurdian_addr_typ_vw,
+   insur_gurdian_addr_line_vw: insur_gurdian_addr_line_vw,
+   insur_gurdian_landmark_vw: insur_gurdian_landmark_vw,
+   insur_gurdian_village_vw: insur_gurdian_village_vw,
+   insur_gurdian_pncht_mdl_vw: insur_gurdian_pncht_mdl_vw,
+   insur_gurdian_city_vw: insur_gurdian_city_vw,
+   insur_gurdian_district_vw: insur_gurdian_district_vw,
+   insur_gurdian_ste_vw: insur_gurdian_ste_vw,
+   insur_gurdian_country_vw: insur_gurdian_country_vw,
+   insur_gurdian_phn_num_vw: insur_gurdian_phn_num_vw,
+   insur_gurdian_postl_vw: insur_gurdian_postl_vw,
+   //  insur_gurdian_add_ste_vw: insur_gurdian_add_ste_vw,
+   insur_gurdian_guar_typ_vw: insur_gurdian_guar_typ_vw,
+   insur_gurdian_is_socty_mem_vw: insur_gurdian_is_socty_mem_vw,
+   insur_gurdian_is_acc_holder_vw :insur_gurdian_is_acc_holder_vw,
+   
+   
+   insu_cities:result1.rows,
+   insu_states:result2.rows,
+   pagetype:"VIEW",
+   moment:moment,
+   vw_tempinsuranceid:vw_tempinsuranceid,
+   insurancedetails:reslt,
+   
+   
+   });
+   });
+   });
+   });
+   });
+   });
+   });
+      
+           
+   router.post('/insurance_delete',function(req,res){
+      console.log("populate fields");
+      var divtype="DELETE";
+    console.log("DIV TYPE on edit populate",divtype);
+   
+   
+    
+    
+      var tempinsurdelete= req.body.tempinsurdelete;
+      console.log("id to delete",tempinsurdelete)
+      pgdbconnect.query("update society_insurance_details set sid_ch_del_flg=$1 where sid_n_id=$2",['Y',tempinsurdelete],function(err,delres1){
+   
+          console.log("deleted result",delres1);
+         
+          pgdbconnect.query("update society_insurance_nominee_details set snd_ch_del_flg=$1 where snd_n_id=$2",['Y',tempinsurdelete],function(err,delres2){
+   
+            console.log("deleted result",delres2);
+   
+   
+            pgdbconnect.query("update society_insurance_guardian_details set sgd_ch_del_flg=$1 where sgd_n_id=$2",['Y',tempinsurdelete],function(err,delres3){
+   
+               console.log("deleted result",delres3);
+               
+                
+   
+                  pgdbconnect.query("select * from society_insurance_details where sid_ch_del_flg=$1",['N'],function(err,result6){
+                     //  pgdbconnect.query("select * from society_insurance_nominee_details where snd_ch_del_flg=$1",['N'],function(err,result9){
+                     //    pgdbconnect.query("select * from society_insurance_guardian_details where sgd_ch_del_flg=$1",['N'],function(err,result9){
+      //Bank Branch details-start
+      //flash
+      req.flash('success_msg', 'Record Deleted successfully');
+      res.locals.message=req.flash();
+          res.render('societyModule/scty_Insurance_Search',{
+              
+              insurancedetails:result6.rows,
+              tempinsurdelete:tempinsurdelete,
+          pagetype:"DELETE",
+          moment:moment
+          
+       
+      });
+   });
+   });
+   });
+   });
+   });
+   
+   
+    //KCC Target Add screen
+    router.get('/scty_kcc_trgt_add',function(req,res){
+       res.render('societyModule/scty_KCC_Target_Add',{
+           pagetype:'ADD'
+       });
+    });
+   
+    //KCC Target Search screen
+    router.get('/scty_kcc_trgt_search',function(req,res){
+       res.render('societyModule/scty_KCC_Target_Search');
+    });
+   
+    //KCC Credit Limit Add screen
+    router.get('/scty_kcc_cr_lim_add',function(req,res){
+       res.render('societyModule/scty_KCC_Credit_Limit_Add',{
+          pagetype:'ADD'
+    });
+    });
+   
+    //KCC Credit Limit Search screen
+    router.get('/scty_kcc_cr_lim_search',function(req,res){
+       res.render('societyModule/scty_KCC_Credit_Limit_Search');
+    });
+   
+/* ------------------------------------------------------------------------ Insurance DEtails END ---------------------------------------------------------------------------- */
 
  module.exports=router;

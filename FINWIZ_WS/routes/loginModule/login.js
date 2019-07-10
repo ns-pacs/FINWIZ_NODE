@@ -47,7 +47,7 @@ function(username, password, done)
 
 passport.serializeUser(function(user, done) {
   console.log("serializeUser");
-  done(null, user.rows[0].ud_n_emp_id);
+  done(null, user.rows[0].ud_ch_emp_id);
 });
 
 passport.deserializeUser(function(user_id,done) 
@@ -64,7 +64,7 @@ router.post('/logincheck',
   passport.authenticate('local', { failureRedirect: '/' }),
   function(req, res) {
     console.log("within Login check");
-      var empid=req.user.rows['0'].ud_n_emp_id;
+      var empid=req.user.rows['0'].ud_ch_emp_id;
       var empname=req.user.rows['0'].ud_ch_emp_name;
       var password=req.user.rows['0'].ud_ch_password;
       var emailid=req.user.rows['0'].ud_ch_email_id;
@@ -80,7 +80,7 @@ module.exports.emailid="";
 module.exports.roleid="";
 module.exports.rolename="";
 
-   pgdbconnecthrm.query("SELECT ud_ch_login_allowed,ud_n_emp_id,ud_ch_emp_name,ud_ch_password,ud_ch_email_id,ud_ch_role_id,ud_ch_role_name from user_details where ud_n_emp_id = $1 and ud_ch_login_allowed=$2  and(ud_ch_del_flg=$3)",
+   pgdbconnecthrm.query("SELECT ud_ch_login_allowed,ud_ch_emp_id,ud_ch_emp_name,ud_ch_password,ud_ch_email_id,ud_ch_role_id,ud_ch_role_name from user_details where ud_ch_emp_id = $1 and ud_ch_login_allowed=$2  and(ud_ch_del_flg=$3)",
                       [empid,'Y','N'],function(err,result){
        if(err) throw err;
 

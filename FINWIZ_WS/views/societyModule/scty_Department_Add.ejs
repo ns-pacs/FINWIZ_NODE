@@ -220,7 +220,7 @@ Accounts
                                     <span class="navbar-toggler-bar bar3"></span>
                                 </button>
                         </div>
-                        <a class="navbar-brand" href="#pablo"><strong>Societies</strong> </a>
+                        <a class="navbar-brand" href="#pablo"><strong>SOCIETY</strong> </a>
                     </div>
                     <button class="navbar-toggler dot" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -291,9 +291,10 @@ Accounts
                                                     name="dept_code_add">
                                                     <option disabled="" selected="" value="">Select
                                                     </option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
+                                                      <!-- changed the dropdown values as per the requirenment,changes made by swarrna -->
+                                                    <option value="001">001</option>
+                                                    <option value="002">002</option>
+                                                    <option value="003">003</option>
 
                                                 </select>
 
@@ -315,9 +316,10 @@ Accounts
                                         </div>
                                         <div class="container row mt-2">
                                             <div class="col-sm-12 col-md-6">
+                                                <!-- changed textbox field to textarea field.changes made by swarna -->
                                                 <label for="desc_add" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
-                                                <input type="text" class="col-sm-12 col-md-6" name="desc_add"
-                                                id="desc_add" placeholder="" style="text-transform: capitalize" maxlength="30" onkeypress="return desc(event)">
+                                                <textarea rows="3" class="col-sm-12 col-md-6" name="desc_add"
+                                                id="desc_add" placeholder="" style="text-transform: capitalize" maxlength="" onkeypress=""></textarea>
                                               </div>
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="sec_name_add" class="mr-sm-4 col-sm-12 col-md-5"
@@ -419,8 +421,8 @@ Accounts
                                     <div class="container row mt-2">
                                         <div class="col-sm-12 col-md-6">
                                             <label for="desc_vw" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
-                                            <input type="text" class="col-sm-12 col-md-6" name="desc_vw"
-                                            id="desc_vw" placeholder="" style="text-transform: capitalize" value="<%=vw_scdes_name%>">
+                                            <textarea rows="4" class="col-sm-12 col-md-6" name="desc_vw"
+                                            id="desc_vw" placeholder="" style="text-transform: capitalize" value="<%=vw_scdes_name%>"></textarea>
 
                                           </div>
                                         <div class="col-sm-12 col-md-6">
@@ -505,9 +507,10 @@ Accounts
                                             name="dept_code_ed">
                                             <option value="<%=ed_scdep_cd%>"><%=ed_scdep_cd%>
                                             </option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                            <!-- changed the dropdown value as per the requirenment,changed by swarna-->
+                                            <option value="001">001</option>
+                                            <option value="002">002</option>
+                                            <option value="003">003</option>
                                         </select>
 
 
@@ -518,7 +521,7 @@ Accounts
                                             <select class="col-sm-12 col-md-6" id="dept_name_ed"
                                             name="dept_name_ed">
                                             <option value="<%=ed_scdep_name%>"><%=ed_scdep_name%> 
-                                            </option>
+                                            </option>           
                                             <option value="Member">Member</option>
                                             <option value="Deposits">Deposits</option>
                                             <option value="Loans">Loans</option>
@@ -530,8 +533,9 @@ Accounts
                                 <div class="container row mt-2">
                                     <div class="col-sm-12 col-md-6">
                                         <label for="desc_ed" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Description</label>
-                                        <input type="text" class="col-sm-12 col-md-6" name="desc_ed"
-                                        id="desc_ed" placeholder="" style="text-transform: capitalize" value="<%=ed_scdes_name%>" maxlength="30" onkeypress="return desc(event)">
+                                        <!-- changed the field textarea to textbox as per the requirenment,changed by swarna -->
+                                        <textarea rows="4" class="col-sm-12 col-md-6" name="desc_ed"
+                                        id="desc_ed" placeholder="" style="text-transform: capitalize" value="<%=ed_scdes_name%>" maxlength="30" onkeypress=" "></textarea>
 
                                       </div>
                                     <div class="col-sm-12 col-md-6">

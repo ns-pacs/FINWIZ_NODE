@@ -1447,7 +1447,7 @@ else if( search_brbank_code!='' && search_brbank_name!='' && search_branch_code!
        
         console.log(search_brbank_code,search_brbank_name,search_branch_code,search_branch_name,search_ifsc_cd,search_ifsc_rtgs,search_micr_cd);
         
-        pgdbconnect.query("select * from associate_branch where ((abb_n_bank_code=$1 or abb_ch_bank_name=$2 or abb_n_branch_code=$3 or abb_ch_branch_name=$4 or abb_n_ifs_code_neft=$5 or abb_n_ifs_code_rtgs=$6 or abb_n_micr_code=$7) and abb_ch_del_flg='N') ",[search_brbank_code,search_brbank_name,search_branch_code,search_branch_name,search_ifsc_cd,search_ifsc_rtgs,search_micr_cd],function(err,searchbrres) 
+        pgdbconnect.query("select * from associate_branch where ((abb_ch_bank_code=$1 or abb_ch_bank_name=$2 or abb_n_branch_code=$3 or abb_ch_branch_name=$4 or abb_n_ifs_code_neft=$5 or abb_n_ifs_code_rtgs=$6 or abb_n_micr_code=$7) and abb_ch_del_flg='N') ",[search_brbank_code,search_brbank_name,search_branch_code,search_branch_name,search_ifsc_cd,search_ifsc_rtgs,search_micr_cd],function(err,searchbrres) 
         {
             if(err) throw err;
             console.log("searchbrres is", searchbrres.rows);
@@ -1500,7 +1500,7 @@ var branch_id;
   
     console.log("Bank Branch Details",record_bnk_cd,record_bnk_name,record_branch_code,record_branch_name,ifsc_cd,ifsc_rtgs,micr_code,add_line1,district,state,pincode,land_mark,ph_num1,ph_num2,email,url,con_per1,con_per2,branch_id);
 
-    pgdbconnect.query("insert into associate_branch (abb_n_bank_code, abb_ch_bank_name, abb_n_branch_code, abb_ch_branch_name, abb_n_ifs_code_neft, abb_n_ifs_code_rtgs, abb_n_micr_code, abb_ch_address_line1, abb_ch_district, abb_ch_state, abb_n_pincode, abb_ch_landmark, abb_n_phone_number1, abb_n_phone_number2, abb_ch_email, abb_ch_url, abb_n_contact_person1, abb_n_contact_person2, ab_ch_branch_id,abb_ch_del_flg) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20)",[record_bnk_cd,record_bnk_name,record_branch_code,record_branch_name,ifsc_cd,ifsc_rtgs,micr_code,add_line1,district,state,pincode,land_mark,ph_num1,ph_num2,email,url,con_per1,con_per2, branch_id,'N'],function(err,loginres){
+    pgdbconnect.query("insert into associate_branch (abb_ch_bank_code, abb_ch_bank_name, abb_n_branch_code, abb_ch_branch_name, abb_n_ifs_code_neft, abb_n_ifs_code_rtgs, abb_n_micr_code, abb_ch_address_line1, abb_ch_district, abb_ch_state, abb_n_pincode, abb_ch_landmark, abb_n_phone_number1, abb_n_phone_number2, abb_ch_email, abb_ch_url, abb_n_contact_person1, abb_n_contact_person2, ab_ch_branch_id,abb_ch_del_flg) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20)",[record_bnk_cd,record_bnk_name,record_branch_code,record_branch_name,ifsc_cd,ifsc_rtgs,micr_code,add_line1,district,state,pincode,land_mark,ph_num1,ph_num2,email,url,con_per1,con_per2, branch_id,'N'],function(err,loginres){
         if(err) throw err;
       
            
@@ -1547,7 +1547,7 @@ var branch_id;
   
     console.log("Bank Branch Details",record_bnk_cd,record_bnk_name,record_branch_code,record_branch_name,ifsc_cd,ifsc_rtgs,micr_code,add_line1,district,state,pincode,land_mark,ph_num1,ph_num2,email,url,con_per1,con_per2);
 
-    pgdbconnect.query("insert into associate_branch (abb_n_bank_code, abb_ch_bank_name, abb_n_branch_code, abb_ch_branch_name, abb_n_ifs_code_neft, abb_n_ifs_code_rtgs, abb_n_micr_code, abb_ch_address_line1, abb_ch_district, abb_ch_state, abb_n_pincode, abb_ch_landmark, abb_n_phone_number1, abb_n_phone_number2, abb_ch_email, abb_ch_url, abb_n_contact_person1, abb_n_contact_person2, ab_ch_branch_id,abb_ch_del_flg) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20)",[record_bnk_cd,record_bnk_name,record_branch_code,record_branch_name,ifsc_cd,ifsc_rtgs,micr_code,add_line1,district,state,pincode,land_mark,ph_num1,ph_num2,email,url,con_per1,con_per2, branch_id,'N'],function(err,loginres){
+    pgdbconnect.query("insert into associate_branch (abb_ch_bank_code, abb_ch_bank_name, abb_n_branch_code, abb_ch_branch_name, abb_n_ifs_code_neft, abb_n_ifs_code_rtgs, abb_n_micr_code, abb_ch_address_line1, abb_ch_district, abb_ch_state, abb_n_pincode, abb_ch_landmark, abb_n_phone_number1, abb_n_phone_number2, abb_ch_email, abb_ch_url, abb_n_contact_person1, abb_n_contact_person2, ab_ch_branch_id,abb_ch_del_flg) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20)",[record_bnk_cd,record_bnk_name,record_branch_code,record_branch_name,ifsc_cd,ifsc_rtgs,micr_code,add_line1,district,state,pincode,land_mark,ph_num1,ph_num2,email,url,con_per1,con_per2, branch_id,'N'],function(err,loginres){
         if(err) throw err;
       
            
@@ -1622,7 +1622,7 @@ var branch_id;
         
                 {
                     console.log("searchres",searchres)
-        var br_brcode = searchres.rows[0].abb_n_bank_code;
+        var br_brcode = searchres.rows[0].abb_ch_bank_code;
         var br_brname = searchres.rows[0].abb_ch_bank_name;
         var br_code=  searchres.rows[0].abb_n_branch_code;
         var br_name =  searchres.rows[0].abb_ch_branch_name;
@@ -1707,7 +1707,7 @@ var branch_id;
         
         console.log("edit details",bank_cd_ed,bnk_name_ed,branch_cd_ed,
         branch_name_ed,ifsc_cd_ed,ifsc_rtgs_ed,micr_code_ed,add_line1_ed,district_ed,state_ed,pincode_ed,land_mark_ed,ph_num1_ed,ph_num2_ed,email_ed,br_url,con_per1_ed,con_per2_ed,branch_edit);
-        pgdbconnect.query('update associate_branch set abb_n_bank_code=$1,abb_ch_bank_name=$2,abb_n_branch_code=$3,abb_ch_branch_name=$4,abb_n_ifs_code_neft=$5,abb_n_ifs_code_rtgs=$6,abb_n_micr_code=$7,abb_ch_address_line1=$8,abb_ch_district=$9,abb_ch_state=$10,abb_n_pincode=$11,abb_ch_landmark=$12,abb_n_phone_number1=$13,abb_n_phone_number2=$14,abb_ch_email=$15,abb_ch_url=$16,abb_n_contact_person1=$17,abb_n_contact_person2=$18 where ab_ch_branch_id=$19',[bank_cd_ed,bnk_name_ed,branch_cd_ed,
+        pgdbconnect.query('update associate_branch set abb_ch_bank_code=$1,abb_ch_bank_name=$2,abb_n_branch_code=$3,abb_ch_branch_name=$4,abb_n_ifs_code_neft=$5,abb_n_ifs_code_rtgs=$6,abb_n_micr_code=$7,abb_ch_address_line1=$8,abb_ch_district=$9,abb_ch_state=$10,abb_n_pincode=$11,abb_ch_landmark=$12,abb_n_phone_number1=$13,abb_n_phone_number2=$14,abb_ch_email=$15,abb_ch_url=$16,abb_n_contact_person1=$17,abb_n_contact_person2=$18 where ab_ch_branch_id=$19',[bank_cd_ed,bnk_name_ed,branch_cd_ed,
             branch_name_ed,ifsc_cd_ed,ifsc_rtgs_ed,micr_code_ed,add_line1_ed,district_ed,state_ed,pincode_ed,land_mark_ed,ph_num1_ed,ph_num2_ed,email_ed,br_url,con_per1_ed,con_per2_ed,branch_edit],function(err,result){
     
                 if(err) throw err;
@@ -1750,8 +1750,9 @@ var branch_id;
                     pgdbconnect.query("select * from associate_branch where ab_ch_branch_id=$1 order by ab_ch_branch_id ",[branchid],function(err,searchres)
             
                     {
+                        if(err) throw err;
                         console.log("searchres",searchres)
-                        var br_brcode = searchres.rows[0].abb_n_bank_code;
+                        var br_brcode = searchres.rows[0].abb_ch_bank_code;
                         var br_brname = searchres.rows[0].abb_ch_bank_name;
                         var br_code=  searchres.rows[0].abb_n_branch_code;
                         var br_name =  searchres.rows[0].abb_ch_branch_name;
@@ -1775,7 +1776,7 @@ var branch_id;
         
                
                             br_brcode:br_brcode,
-                            br_brname:br_brname,  
+                            br_brname:br_brname,
                             br_code:br_code,  
                             br_name:br_name, 
                            
@@ -1807,10 +1808,10 @@ var branch_id;
             var delid= req.body.tempbankdelid;
             console.log("id to delete",delid)
             pgdbconnect.query("update associate_branch set abb_ch_del_flg=$1 where ab_ch_branch_id=$2",['Y',delid],function(err,delres){
-        
+                if(err) throw err;
                 console.log("deleted result",delres);
                 pgdbconnect.query("select * from associate_branch where abb_ch_del_flg=$1",['N'],function(err,searchres){
-        
+                    if(err) throw err;
                pgdbconnect.query("select * from associate_branch where abb_ch_del_flg='N'",function(err,braresu){
     
             if(err) throw err;
@@ -4169,7 +4170,7 @@ router.post('/update_deposit_edit',function(req,res){
 
 
  router.post('/search_particular_deposit_rec', function(req,res){
-console.log("search particular record");
+console.log("search particular record depositt");
 
 var gl_cd = req.body.gl_cd;
 var ac_deposit_num = req.body.ac_deposit_num;
@@ -4317,7 +4318,7 @@ router.post('/asso_bank_acc_deposit_insert',function(req,res){
 
             asso_depo_id,asso_depo_mstr_ad,asso_depo_date_ad,asso_depo_amt_ad,asso_depo_tdsamt_ad,asso_depo_totalamt_ad,'N'
 
-    pgdbconnect.query("insert into associate_bank_deposit_returns(abdr_ch_deposit_id, abdr_ch_associate_bank_deposit_master, abdr_d_return_date, abdr_n_receive_amt, abdr_n_tds_amt, abdr_n_total_amt, abdr_ch_del_flg)values ($1,$2,$3,$4,$5,$6,$7)",[asso_depo_id,asso_depo_mstr_ad,asso_depo_date_ad,asso_depo_amt_ad,asso_depo_tdsamt_ad,asso_depo_totalamt_ad,'N'],function(err,rslt) {
+    pgdbconnect.query("insert into associate_bank_deposit_returns(abdr_n_deposit_id, abdr_ch_associate_bank_deposit_master, abdr_d_return_date, abdr_n_receive_amt, abdr_n_tds_amt, abdr_n_total_amt, abdr_ch_del_flg)values ($1,$2,$3,$4,$5,$6,$7)",[asso_depo_id,asso_depo_mstr_ad,asso_depo_date_ad,asso_depo_amt_ad,asso_depo_tdsamt_ad,asso_depo_totalamt_ad,'N'],function(err,rslt) {
         if(err) throw err;
 
         //flash messege
@@ -4331,14 +4332,14 @@ router.post('/asso_bank_acc_deposit_insert',function(req,res){
         }
     else
     {
-        pgdbconnect.query("select max(abdr_ch_deposit_id) from associate_bank_deposit_returns",function(err,reslt) {
+        pgdbconnect.query("select max(abdr_n_deposit_id) from associate_bank_deposit_returns",function(err,reslt) {
             console.log("max value check",reslt)
             console.log("max value check",reslt.rows[0].max)
           
             asso_depo_id=parseInt(reslt.rows[0].max)+1;
             console.log("when more rows exxxists",asso_depo_id);
 
-            pgdbconnect.query("insert into associate_bank_deposit_returns(abdr_ch_deposit_id, abdr_ch_associate_bank_deposit_master, abdr_d_return_date, abdr_n_receive_amt, abdr_n_tds_amt, abdr_n_total_amt, abdr_ch_del_flg)values ($1,$2,$3,$4,$5,$6,$7)",[asso_depo_id,asso_depo_mstr_ad,asso_depo_date_ad,asso_depo_amt_ad,asso_depo_tdsamt_ad,asso_depo_totalamt_ad,'N'],function(err,rslt) {
+            pgdbconnect.query("insert into associate_bank_deposit_returns(abdr_n_deposit_id, abdr_ch_associate_bank_deposit_master, abdr_d_return_date, abdr_n_receive_amt, abdr_n_tds_amt, abdr_n_total_amt, abdr_ch_del_flg)values ($1,$2,$3,$4,$5,$6,$7)",[asso_depo_id,asso_depo_mstr_ad,asso_depo_date_ad,asso_depo_amt_ad,asso_depo_tdsamt_ad,asso_depo_totalamt_ad,'N'],function(err,rslt) {
                 if(err) throw err;
         console.log("data",rslt);
                 //flash messege
@@ -4363,11 +4364,11 @@ router.post('/asso_bank_acc_deposit_edit', function(req,res){
     var edit_rtrn_typ= req.body.edit_rtrn_typ;
   console.log("cheque id to edit",edit_rtrn_typ)
 
-  pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_ch_deposit_id=$1 order by abdr_ch_deposit_id",[edit_rtrn_typ],function(err,rsl)
+  pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_n_deposit_id=$1 order by abdr_n_deposit_id",[edit_rtrn_typ],function(err,rsl)
    {
     if(err) throw err;
     console.log("Editing Details",rsl);
-    var ed_dep_id = rsl.rows[0].abdr_ch_deposit_id;
+    var ed_dep_id = rsl.rows[0].abdr_n_deposit_id;
     var ed_dep_master = rsl.rows[0].abdr_ch_associate_bank_deposit_master;
     var ed_dep_rtrndt = rsl.rows[0].abdr_d_return_date;
     var ed_dep_recvamt = rsl.rows[0].abdr_n_receive_amt;
@@ -4405,11 +4406,11 @@ router.post('/asso_bank_acc_deposit_update', function(req,res){
     var up_dep_id=req.body.return_dep_ed;
     console.log(up_dep_id);
     
-      pgdbconnect.query("update associate_bank_deposit_returns set abdr_ch_associate_bank_deposit_master=$1, abdr_d_return_date=$2, abdr_n_receive_amt=$3, abdr_n_tds_amt=$4, abdr_n_total_amt=$5 where abdr_ch_deposit_id=$6",[up_dep_master,up_dep_rtrndt,up_dep_recvamt,up_dep_tdsamt,up_dep_ttlamt,up_dep_id],function(err,rsl)
+      pgdbconnect.query("update associate_bank_deposit_returns set abdr_ch_associate_bank_deposit_master=$1, abdr_d_return_date=$2, abdr_n_receive_amt=$3, abdr_n_tds_amt=$4, abdr_n_total_amt=$5 where abdr_n_deposit_id=$6",[up_dep_master,up_dep_rtrndt,up_dep_recvamt,up_dep_tdsamt,up_dep_ttlamt,up_dep_id],function(err,rsl)
        {
         if(err) throw err;
     
-        pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_ch_del_flg=$1 order by abdr_ch_deposit_id",['N'], function(err,resl){
+        pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_ch_del_flg=$1 order by abdr_n_deposit_id",['N'], function(err,resl){
 
 
         
@@ -4436,10 +4437,10 @@ router.post('/asso_bank_acc_deposit_view', function(req,res){
 
     var view_rtrn_typ= req.body.view_rtrn_typ;
   console.log("acc id to view",view_rtrn_typ)
-  pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_ch_deposit_id=$1 order by abdr_ch_deposit_id",[view_rtrn_typ],function(err,rsl)
+  pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_n_deposit_id=$1 order by abdr_n_deposit_id",[view_rtrn_typ],function(err,rsl)
   {
     if(err) throw err;
-    var vw_dep_id = rsl.rows[0].abdr_ch_deposit_id;
+    var vw_dep_id = rsl.rows[0].abdr_n_deposit_id;
     var vw_dep_master = rsl.rows[0].abdr_ch_associate_bank_deposit_master;
     var vw_dep_rtrndt = rsl.rows[0].abdr_d_return_date;
     var vw_dep_recvamt = rsl.rows[0].abdr_n_receive_amt;
@@ -4468,12 +4469,12 @@ router.post('/asso_bank_acc_deposit_delete', function(req,res){
     var delete_rtrn_typ= req.body.delete_rtrn_typ;
   console.log("acc id to delete",delete_rtrn_typ)
 
-  pgdbconnect.query("update associate_bank_deposit_returns set abdr_ch_del_flg=$1 where abdr_ch_deposit_id=$2 ",['Y',delete_rtrn_typ],function(err,rsl)
+  pgdbconnect.query("update associate_bank_deposit_returns set abdr_ch_del_flg=$1 where abdr_n_deposit_id=$2 ",['Y',delete_rtrn_typ],function(err,rsl)
    {
     if(err) throw err;
     console.log("delete Details",rsl.rows);
 
-    pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_ch_del_flg=$1 order by abdr_ch_deposit_id",['N'] ,function(err,resl) 
+    pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_ch_del_flg=$1 order by abdr_n_deposit_id",['N'] ,function(err,resl) 
     {
         if(err) throw err;
         console.log("search bank type is", resl.rows);
@@ -4687,7 +4688,7 @@ else if(ser_ass_bnk_depmas=='' && return_date!='' && return_date1!='' && return_
 
 router.get('/asso_bank_deposit_returns_search',function(req,res){
 
-    pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_ch_del_flg=$1 order by abdr_ch_deposit_id",['N'], function(err,resl){
+    pgdbconnect.query("select * from associate_bank_deposit_returns where abdr_ch_del_flg=$1 order by abdr_n_deposit_id",['N'], function(err,resl){
 
 
     res.render('bankModule/associated_bank_deposit_returns_search',{

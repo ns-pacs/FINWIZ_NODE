@@ -55,7 +55,52 @@
 
                                         </ul>
                                     </li>
-                               <li id="sub_menu">
+
+                                    <li id="sub_menu"class="active">
+                                        <a href="#">
+                                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                                            <strong class="fnt">Bank</strong>
+                                        </a>
+                                        <ul class="hid mt-1 sub_col">
+
+                                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
+                                                    style="color: #ffffff">Associated
+                                                    Bank</a></div>
+
+                                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
+                                                    style="color: #ffffff">Associated Branch</a></div>
+
+                                            <div class="sub_mar">
+                                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                                    style="color: #ffffff">Associated Bank Account Master</a>
+                                            </div>
+
+                                            <div class="sub_mar">
+                                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
+                                                    style="color: #ffffff">Associated Bank Cheque Book</a>
+                                            </div>
+
+                                            <div class="sub_mar">
+                                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
+                                                    style="color: #ffffff">Associated Bank Account Type</a>
+                                            </div>
+
+                                        <div class="sub_mar">
+                                            <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                                                style="color: #ffffff">Associated Bank Deposit Returns</a>
+                                        </div>
+
+
+                                        <div class="sub_mar">
+                                            <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                                                style="color: #ffffff">Associated Bank Deposit Master</a>
+                                        </div>
+
+                                        </ul>
+                                    </li>
+
+
+  <li id="sub_menu">
 <a href="#">
 <i class="material-icons" style="font-size: 25px;">group</i>
 <strong class="fnt">Accounts</strong>
@@ -129,50 +174,6 @@ style="color: #ffffff;">Account Transaction</a></div>
                                             <i class="material-icons" style="font-size: 25px;">file_upload</i>
                                             <strong class="fnt">Loans</strong>
                                         </a>
-                                    </li>
-
-
-                                    <li id="sub_menu"class="active">
-                                        <a href="#">
-                                            <i class="material-icons" style="font-size: 25px;">account_balance</i>
-                                            <strong class="fnt">Bank</strong>
-                                        </a>
-                                        <ul class="hid mt-1 sub_col">
-
-                                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
-                                                    style="color: #ffffff">Associated
-                                                    Bank</a></div>
-
-                                            <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
-                                                    style="color: #ffffff">Associated Branch</a></div>
-
-                                            <div class="sub_mar">
-                                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
-                                                    style="color: #ffffff">Associated Bank Account Master</a>
-                                            </div>
-
-                                            <div class="sub_mar">
-                                                <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
-                                                    style="color: #ffffff">Associated Bank Cheque Book</a>
-                                            </div>
-
-                                            <div class="sub_mar">
-                                                <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
-                                                    style="color: #ffffff">Associated Bank Account Type</a>
-                                            </div>
-
-                                        <div class="sub_mar">
-                                            <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
-                                                style="color: #ffffff">Associated Bank Deposit Returns</a>
-                                        </div>
-
-
-                                        <div class="sub_mar">
-                                            <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
-                                                style="color: #ffffff">Associated Bank Deposit Master</a>
-                                        </div>
-
-                                        </ul>
                                     </li>
 
                                     <li>
@@ -340,14 +341,14 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                 <label for="add_bnkdep_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Deposit Type
                                                 </label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="add_bnkdep_typ" id="add_bnkdep_typ"
-                                                    placeholder="  ">
+                                                    placeholder="  " onkeypress="return alpha(event)">
 
                                             </div>
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="add_bnk_depnum" class="mr-sm-4 col-sm-12 col-md-5 " style="padding-left:0% !important;">Bank Deposit Number
 
                                                 </label>
-                                                <input type="number" class="col-sm-12 col-md-6" name="add_bnk_depnum"
+                                                <input type="text" class="col-sm-12 col-md-6" name="add_bnk_depnum"
                                                     id="add_bnk_depnum" placeholder="  " onkeypress="return numeric(event)">
 
                                             </div>
@@ -357,15 +358,15 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                 <label for="add_ob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Balance
 
                                                 </label>
-                                                <input type="number" class="col-sm-12 col-md-6" name="deposit_opening_bal"
-                                                    id="deposit_opening_bal" placeholder="" step="0.01" onkeypress="return numeric(event)">
+                                                <input type="text" class="col-sm-12 col-md-6" name="deposit_opening_bal"
+                                                    id="deposit_opening_bal" placeholder=""  onkeypress="return amount(event)">
 
                                             </div>
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="add_cb" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Current Balance
                                                 </label>
-                                                <input type="number" class="col-sm-12 col-md-6" name="deposit_closing_bal"
-                                                    id="deposit_closing_bal" placeholder="" step="0.01" onkeypress="return numeric(event)">
+                                                <input type="text" class="col-sm-12 col-md-6" name="deposit_closing_bal"
+                                                    id="deposit_closing_bal" placeholder="" onkeypress="return amount(event)">
 
                                             </div>
                                         </div>
@@ -495,7 +496,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                 <div class="card tp">
                     <div class="card-header hdr"><h5>ASSOCIATE BANK DEPOSIT MASTER DETAILS</h5></div>
                     <div class="card-body">
-                        <form action="../../bankModule/bankDetails/update_deposit_edit" method="post" id="edit" autocomplete="off">
+                        <form action="../../bankModule/bankDetails/update_deposit_edit" method="post" id="editassociatedepositmaster" autocomplete="off">
 
                         <h6>Edit Records</h6>
                         <hr>
@@ -536,7 +537,7 @@ style="color: #ffffff;">Account Transaction</a></div>
 
                                     </label>
                                     <input type="text" class="col-sm-12 col-md-6" name="deposit_accnum_ed"
-                                        id="deposit_accnum_ed" placeholder="  " value="<%=dep_acc_num%>">
+                                        id="deposit_accnum_ed" placeholder="  " value="<%=dep_acc_num%>" maxlength="16">
                                 </div>
                             </div>
 
@@ -552,7 +553,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                     <label for="add_bnk_depnum" class="mr-sm-4 col-sm-12 col-md-5 " style="padding-left:0% !important;">Bank Deposit Number
 
                                     </label>
-                                    <input type="number" class="col-sm-12 col-md-6" name="add_bnk_depnum_ed"
+                                    <input type="text" class="col-sm-12 col-md-6" name="add_bnk_depnum_ed"
                                         id="add_bnk_depnum_ed" placeholder="  " value="<%=dep_depnum%>">
 
 
@@ -564,16 +565,16 @@ style="color: #ffffff;">Account Transaction</a></div>
                                     <label for="add_ob" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Opening Balance
 
                                     </label>
-                                    <input type="number" class="col-sm-12 col-md-6" name="deposit_opening_bal_ed"
-                                        id="deposit_opening_bal_ed" placeholder=" " value="<%=dep_obal%>" step="0.01">
+                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_opening_bal_ed"
+                                        id="deposit_opening_bal_ed" placeholder=" " value="<%=dep_obal%>" onkeypress="return amount(event)">
 
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
                                     <label for="add_cb" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Current Balance
                                     </label>
-                                    <input type="number" class="col-sm-12 col-md-6" name="deposit_closing_bal_ed"
-                                        id="deposit_closing_bal_ed" placeholder="" value="<%=deposit_closing_bal%>" step="0.01">
+                                    <input type="text" class="col-sm-12 col-md-6" name="deposit_closing_bal_ed"
+                                        id="deposit_closing_bal_ed" placeholder="" value="<%=deposit_closing_bal%>" onkeypress="return amount(event)">
                                 </div>
                             </div>
 
@@ -683,7 +684,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                 </div>
                                 <div class="col-sm-12 col-md-5"></div>
                                 <div class="col-sm-12 col-md-2">
-                                    <input type="submit" class="btn" name="sub_ed" id="sub_ed" value="Submit" >
+                                    <input type="button" class="btn" name="sub_ed" id="sub_ed" value="Submit" onclick="editpagesubmit()">
                                 </div>
                             </div>
                         </form>

@@ -105,14 +105,14 @@ Accounts
                         </ul>
                     </li>
 
-                  
+
                       <li id="sub_menu" class="active">
             <a href="#">
                 <i class="material-icons" style="font-size: 25px;">group</i>
                 <strong class="fnt">Society</strong>
             </a>
             <ul class="hid sub_col">
-                 
+
                                     <div class="sub_mar"><a style="color: #ffffff;" href="/societyModule/societyDetails/scty_holiday_lst_search" class="">
                                       Holiday List</a></div>
 
@@ -120,10 +120,10 @@ Accounts
                                     Department</a></div>
                                     <div class="sub_mar"><a style="color: #ffffff;" href="/societyModule/societyDetails/scty_bank_search" class="">
                                       Bank</a></div>
-        
+
                                       <div class="sub_mar"><a style="color: #ffffff;" href="/societyModule/societyDetails/scty_branch_search" class="">
                                           Branch</a></div>
-            
+
                                           <div class="sub_mar"><a href="/societyModule/societyDetails/scty_chq_book_det_search"
                                               class="ml" style="color: #ffffff;">ChequeBook Details</a></div>
 
@@ -140,11 +140,11 @@ Accounts
 
                                     <div class="sub_mar"> <a href="/societyModule/societyDetails/scty_kcc_cr_lim_search"
                                     class="ml" style="color: #ffffff;">KCC Credit Limit</a></div>
-                                        
-          
-          
-            
-                               
+
+
+
+
+
                             </ul>
         </li>
               <li>
@@ -163,7 +163,7 @@ Accounts
                     </li>
 
 
-                   
+
                     <li>
                         <a href="/login/market">
                             <i class="material-icons" style="font-size: 25px;">local_grocery_store</i>
@@ -263,7 +263,7 @@ Accounts
                 <div class="row-sm ">
                     <div class="col-sm-12">
                         <div class="card tp">
-                            <div class="card-header hdr"><h5>BRANCH</h5></div>
+                            <div class="card-header hdr"><h5>Add Record</h5></div>
                             <div class="card-body">
 
 
@@ -285,7 +285,7 @@ Accounts
                                                     <a class="nav-link txt_col show" data-toggle="tab"
                                                         href="#soc_branch_address_details">Branch Address</a>
                                                 </li>
-                                                
+
                                             </ul>
                                             <!-- Nav pills -->
 
@@ -295,9 +295,9 @@ Accounts
                                                 <!-- Society branch tab start -->
 
                                             <div id="soc_branch_details" class="container tab-pane show active"><br>
-                                                <h6>ADD RECORD</h6>
+                                                <h5>Branch</h5>
 
-                                                
+
                                            <!-- flash message -->
                                             <% if(locals.message){ %>
                                                <div class="text text-center" role="alert"
@@ -306,15 +306,15 @@ Accounts
                                                 </div>
                                              <% } %>
                                                 <hr>
-                                            
-                                           
+
+
                                                 <!-- bank name start -->
                                                 <div class="container row mb-4">
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="society_branch_bnkcode" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Bank Code<span
                                                                 class="astrix">*</span></label>
-                                                          
+
                                                             <select required  class="col-sm-12 col-md-6" id="society_branch_bnkcode" name="society_branch_bnkcode" onchange= "sctyBankName()">
 
                                                                 <option disabled="" selected="" value="">Select Bank Code
@@ -331,20 +331,25 @@ Accounts
                                                         <label for="society_branch_brcode" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Branch Code<span
                                                                 class="astrix">*</span></label>
-                                                           
+<<<<<<< HEAD
+
                                                                 <select required class="col-sm-12 col-md-6" id="society_branch_brcode" name="society_branch_brcode"  onchange="sctyBankCode()" style="text-transform: capitalize">
+=======
+                                                           
+                                                                <select required class="col-sm-12 col-md-6" id="society_branch_brcode" name="society_branch_brcode"  onchange="sctyBankCode()" >
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                                                                     <option disabled="" selected="" value="" >Select Branch Code </option>
                                                                     <% for(var i=1;i < branch.length;i++) { %>
-                                                                        <option value="<%= branch[i].bcd_ch_branch_code   %>"> <%= branch[i].bcd_ch_branch_code 
+                                                                        <option value="<%= branch[i].bcd_ch_branch_code   %>"> <%= branch[i].bcd_ch_branch_code
                                                                              %></option>
                                                                                                   <% } %>
-                                                                </select>  
-                                                           
+                                                                </select>
+
 
                                                     </div>
                                                     <!-- branch code end -->
                                                 </div>
-                                       
+
 
                                             <!-- branch name -->
                                             <div class="container row mb-4">
@@ -354,7 +359,7 @@ Accounts
                                                                 class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6"
                                                             name="society_branch_brname" id="society_branch_brname" placeholder="" value="" onkeypress="return alpha(event)"
-                                                            style="text-transform: capitalize">
+                                                            >
 
                                                     </div>
                                                     <!-- branch name end -->
@@ -370,11 +375,11 @@ Accounts
                                                                 <option value="Metro">Metro</option>
                                                                 <option value="Semi Urban">Semi Urban</option>
                                                                 <option value="Rural">Rural</option>
-                                                               
+
                                                             </select>
 
                                                     </div>
-                                                  
+
                                                 </div>
                                                   <!-- branch type end -->
                           <!-- IFS Code NEFT -->
@@ -384,8 +389,8 @@ Accounts
                                                             style="padding-left:0% !important;">IFS Code NEFT<span
                                                                 class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6"
-                                                            name="society_branch_ifsc_neft" id="society_branch_ifsc_neft" placeholder="" value="" maxlength="11"
-                                                            style="text-transform: capitalize">
+                                                            name="society_branch_ifsc_neft" id="society_branch_ifsc_neft" placeholder="" value="" maxlength="11" 
+                                                            style="text-transform: uppercase">
 
                                                     </div>
                                                     <!-- IFS Code NEFT end -->
@@ -396,12 +401,18 @@ Accounts
                                                             style="padding-left:0% !important;">IFS Code RTGS<span
                                                                 class="astrix">*</span></label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
+<<<<<<< HEAD
                                                                 name="society_branch_ifsc_rtgs" id="society_branch_ifsc_rtgs" placeholder="" value="" maxlength="11"  style="text-transform: capitalize">
+
+
+=======
+                                                                name="society_branch_ifsc_rtgs" id="society_branch_ifsc_rtgs" placeholder="" value="" maxlength="11"  style="text-transform: uppercase">
                                                                 
                                                            
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
 
                                                     </div>
-                                                  
+
                                                 </div>
                                                   <!-- IFS Code RTGS end -->
                          <!-- MICR code -->
@@ -412,22 +423,23 @@ Accounts
                                                                 class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6"
                                                             name="society_branch_micr_cd" id="society_branch_micr_cd" placeholder="" value=""
-                                                            style="text-transform: capitalize" maxlength="9" onkeypress="return numeric(event)">
+                                                             maxlength="9" onkeypress="return numeric(event)">
 
                                                     </div>
                                              </div>
                                                     <!-- MICR code end -->
-                 
-                                            
-                            
-                                                
+
+
+
+
                                             <div class="container row mt-4">
-                                                    <div class="col-sm-12 col-md-2">
+                                                    <div class="col-sm-12 col-md-3">
+                                                        <!-- changed the back button text to back to search text,changed by swarna -->
                                                         <a type="text" class="btn" name="soc_branch_search"
-                                                            id="soc_branch_search" value="Back" href="/societyModule/societyDetails/scty_Branch_Search" >Back</a>
+                                                            id="soc_branch_search" value="Back" href="/societyModule/societyDetails/scty_Branch_Search" >Back to Search</a>
 
                                                     </div>
-                                                    <div class="col-sm-12 col-md-3">
+                                                    <div class="col-sm-12 col-md-2">
                                                         <input type="button" class="btn bttn" name="clear_soc_branch"
                                                             id="clear_soc_branch" value="Clear Form" onclick="clear_scty_br_Tab1()">
 
@@ -443,31 +455,37 @@ Accounts
 
                                             <!-- Society Branch Address Tab Strart -->
                                             <div id="soc_branch_address_details" class="container tab-pane show"><br>
-                                                <h5>Add Records</h5>
+                                                <h5>Branch Address</h5>
                                                 <hr>
-                           
-                                       
+
+
                                                     <!-- Address line 2start -->
                                                 <div class="container row mt-4">
                                                         <div class="col-sm-12 col-md-6">
                                                                 <label for="soc_branch_add_addline" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Address Line
                                                             <span class="astrix">*</span></label>
-                                                            <input type="text" class="col-sm-12 col-md-6"
+                                                            <!-- changed the Address line field from text box to textarea,changes made by swarna -->
+                                                            <textarea rows="3" class="col-sm-12 col-md-6"
                                                                 name="soc_branch_add_addline" id="soc_branch_add_addline" placeholder="" value=""
+<<<<<<< HEAD
                                                                 style="text-transform: capitalize" maxlength="20" onkeypress="return alphanumeric(event)">
+
+=======
+                                                                 maxlength="" onkeypress=""></textarea>
                                                            
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                                                     </div>
-                                                   
+
                                                     <!-- Address line 2 end -->
                         <!-- land mark start -->
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="soc_branch_add_lndmark" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Land Mark<span class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_lndmark"
-                                                            id="soc_branch_add_lndmark" placeholder="" style="text-transform: capitalize" maxlength="" onkeypress="return alpha(event)">
+                                                            id="soc_branch_add_lndmark" placeholder=""  maxlength="" onkeypress="return alpha(event)">
 
-                                                            
+
 
                                                     </div>
                                                 </div>
@@ -479,7 +497,7 @@ Accounts
                                                         <label for="soc_branch_add_village" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Village<span class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_village"
-                                                            id="soc_branch_add_village" placeholder="" style="text-transform: capitalize" maxlength="" onkeypress="return alpha(event)">
+                                                            id="soc_branch_add_village" placeholder=""  maxlength="" onkeypress="return alpha(event)">
                                                     </div>
                                          <!-- village end -->
                                                     <!-- panchayath mandal start -->
@@ -487,8 +505,13 @@ Accounts
                                                                 <label for="soc_branch_add_pch_mndal" class="mr-sm-4 col-sm-12 col-md-5"
                                                                 style="padding-left:0% !important;">Panchayath Mandal</label>
                                                                 <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_pch_mndal"
+<<<<<<< HEAD
                                                                 id="soc_branch_add_pch_mndal" placeholder="" style="text-transform: capitalize" maxlength="" onkeypress="return alpha(event)">
+
+=======
+                                                                id="soc_branch_add_pch_mndal" placeholder=""  maxlength="" onkeypress="return alpha(event)">
     
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                                                         </div>
                                                     </div>
                                                  <!-- panchayath mandal end -->
@@ -510,22 +533,40 @@ Accounts
                                                                 <%= cities[i].comm_code_desc %></option>
                                                             <% } %>
                                                         </select>
-                                                       
+
                                                             </div>
                                                             <!-- city end -->
                                       <!-- Distict start -->
                                                             <div class="col-sm-12 col-md-6">
                                                         <label for="soc_branch_add_distict" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">District<span class="astrix">*</span></label>
-                                                            <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_distict"
-                                                            id="soc_branch_add_distict" placeholder="" style="text-transform: capitalize" style="text-transform: capitalize" onkeypress="return alpha(event)">
+                                                            <!-- <select class="col-sm-12 col-md-6" name="soc_branch_add_distict"
+                                                            id="soc_branch_add_distict">
+                                                            <option disabled="" selected="" value="">Select
+                                                            </option>
 
+                                                                <option value="">
+                                                                </option>
+<<<<<<< HEAD
+
+                                                            </select> -->
+                                                            <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_distict"
+                                                            id="soc_branch_add_distict" placeholder="" style="text-transform: capitalize" maxlength="10" onkeypress="return alpha(event)">
+=======
+                                                               
+                                                            </select> -->
+
+                                                            
+                                                        <input type="text" class="col-sm-12 col-md-6"
+                                                        name="soc_branch_add_distict" id="soc_branch_add_distict" placeholder="" >
+
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                                                     </div>
-                                                    
+
                                                 </div>
                                      <!-- district end -->
 
-                                   
+
 
 
 
@@ -534,7 +575,7 @@ Accounts
                                                     <div class="col-sm-12 col-md-6">
                                                             <label for="soc_branch_add_state" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">State<span class="astrix">*</span></label>
-                                                          
+
                                                         <select name="soc_branch_add_state" id="soc_branch_add_state"
                                                         class="col-sm-12 col-md-6" style="width:50%">
                                                         <option  value="">Select
@@ -557,22 +598,22 @@ Accounts
                                                             id="soc_branch_add_country">
                                                             <option  selected="" value="INDIA">INDIA
                                                             </option>
-                                                      
+
                                                         </select>
-                                                                       
-            
+
+
                                                                 </div>
                                                             </div>
                                                  <!-- country  end -->
 
                                       <!--postal code start  -->
                                       <div class="container row mt-4">
-                                                    
+
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="soc_branch_add_postalcd" class="mr-sm-4 col-sm-12 col-md-5"
                                                     style="padding-left:0% !important;">Postal Code<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6"
-                                                    name="soc_branch_add_postalcd" id="soc_branch_add_postalcd" placeholder="" value=""  maxlength="6" onkeypress="return numeric(event)" style="text-transform: capitalize">
+                                                    name="soc_branch_add_postalcd" id="soc_branch_add_postalcd" placeholder="" value=""  maxlength="6" onkeypress="return numeric(event)" >
                                             </div>
                               <!-- postal code end -->
 
@@ -582,19 +623,19 @@ Accounts
                                                     style="padding-left:0% !important;">Phone Number1<span
                                                         class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6"
-                                                        name="soc_branch_add_phone_num1" id="soc_branch_add_phone_num1" placeholder="" value="" maxlength="10" onkeypress="return numeric(event)" style="text-transform: capitalize">
+                                                        name="soc_branch_add_phone_num1" id="soc_branch_add_phone_num1" placeholder="" value="" maxlength="10" onkeypress="return numeric(event)" >
                                             </div>
                                         </div>
                             <!--  phone number 1 end-->
-                    
+
                                    <!--Phone number 2 start  -->
                                                 <div class="container row mt-4">
-                                                    
+
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="soc_branch_add_phone_num2" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Phone Number2<span class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6"
-                                                            name="soc_branch_add_phone_num2" id="soc_branch_add_phone_num2" placeholder="" value="" maxlength="10" onkeypress="return numeric(event)"  style="text-transform: capitalize">
+                                                            name="soc_branch_add_phone_num2" id="soc_branch_add_phone_num2" placeholder="" value="" maxlength="10" onkeypress="return numeric(event)"  >
                                                     </div>
                                       <!-- phone number 2end -->
 
@@ -605,30 +646,30 @@ Accounts
                                                                     class="astrix">*</span></label>
                                                                     <input type="text" class="col-sm-12 col-md-6"
                                                                 name="soc_branch_add_email1" id="soc_branch_add_email1" placeholder="" value=""
-                                                                style="text-transform: capitalize" maxlength="" >
+                                                                 maxlength="" >
 
                                                 </div>
                                             </div>
                                              <!-- email 1 end-->
                                  <!-- url  start -->
-                                            
+
                                                 <div class="container row mt-4">
                                                     <div  class="col-sm-12 col-md-6">
                                                             <label for="soc_branch_add_url" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">URL<span class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_url"
-                                                            id="soc_branch_add_url" placeholder="" value="" style="text-transform: capitalize" >
+                                                            id="soc_branch_add_url" placeholder="" value=""  >
 
                                                          </div>
                                             <!-- url  end -->
-                                            
+
                                               <!-- Latitude start -->
                                                     <div class="col-sm-12 col-md-6">
-                                        
+
                                                             <label for="soc_branch_add_latitude" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Latitude<span class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_latitude"
-                                                            id="soc_branch_add_latitude" placeholder="" value="" style="text-transform: capitalize"  onkeypress="return alphanumeric(event)">
+                                                            id="soc_branch_add_latitude" placeholder="" value=""   onkeypress="return numeric(event)"> <!-- Changed from alphanumeric to numeric as per the requirement done by Shivu(NODE)-->
 
                                                     </div>
                                                 </div>
@@ -640,12 +681,12 @@ Accounts
                                                             <label for="soc_branch_add_longitude" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Longitude<span class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_longitude"
-                                                            id="soc_branch_add_longitude" placeholder="" value="" style="text-transform: capitalize"  onkeypress="return alphanumeric(event)">
+                                                            id="soc_branch_add_longitude" placeholder="" value=""   onkeypress="return numeric(event)"> <!-- Changed from alphanumeric to numeric as per the requirement done by Shivu(NODE)-->
 
                                                     </div>
-                                                
+
                                                    <!-- longitude end -->
-                                                                                             
+
                             <!-- key contact person1 start-->
                                                     <div class="col-sm-12 col-md-6">
                                                         <label for="soc_br_address_key_con_per1" class="mr-sm-4 col-sm-12 col-md-5"
@@ -667,9 +708,9 @@ Accounts
 
                                                     </div>
                                                 </div>
-                                                                                               
+
                          <!-- key contact person1 end-->
-                                               
+
                                  <!-- key contact person2 start-->
                                                 <div class="container row mt-4">
                                                         <div class="col-sm-12 col-md-6">
@@ -690,16 +731,16 @@ Accounts
                                                         <input type="text" class="col-sm-12 col-md-3" name="soc_br_name2"
                                                         id="soc_br_name2" placeholder="" value="" style="height:1.9em" onkeypress="return alpha(event)">
 
-                                                           
-                                                           
+
+
                                                     </div>
                                                 </div>
-                   
+
                       <!-- key contact person2 end-->
 
-                      
-                     
-                                                
+
+
+
                                                 <div class="container row mt-4">
                                                     <div class="col-sm-12 col-md-2">
                                                         <input type="button" class="btn" name="soc_branch"
@@ -740,7 +781,7 @@ Accounts
             <div class="row-sm ">
                 <div class="col-sm-12">
                     <div class="card tp">
-                        <div class="card-header hdr"><h5>BRANCH</h5></div>
+                        <div class="card-header hdr"><h5>Edit Record</h5></div>
                         <div class="card-body">
 
 
@@ -762,7 +803,7 @@ Accounts
                                                 <a class="nav-link txt_col show" data-toggle="tab"
                                                     href="#soc_branch_address_details_ed">Branch Address</a>
                                             </li>
-                                            
+
                                         </ul>
                                         <!-- Nav pills -->
 
@@ -772,17 +813,17 @@ Accounts
                                             <!-- Society branch tab start -->
 
                                         <div id="soc_branch_details_ed" class="container tab-pane show active"><br>
-                                            <h6>Edit Records</h6>
+                                            <h6>Branch</h6>
                                             <hr>
-                                        
-                                        
+
+
                                             <!-- bank name start -->
                                             <div class="container row mb-4">
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="society_branch_bnkcode_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Bank Code<span
                                                             class="astrix">*</span></label>
-                                                        
+
                                                         <select required  class="col-sm-12 col-md-6" id="society_branch_bnkcode_ed" name="society_branch_bnkcode_ed" onchange= "sctyBankName()">
 
                                                                 <option  value="<%=scty_bank_code%>"><%=scty_bank_code%>
@@ -800,12 +841,18 @@ Accounts
                                                     <label for="society_branch_brcode_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Branch Code<span
                                                             class="astrix">*</span></label>
+<<<<<<< HEAD
+
+
+                                                            <select required class="col-sm-12 col-md-6" id="society_branch_brcode_ed" name="society_branch_brcode_ed"  onchange="sctyBankCode()" style="text-transform: capitalize">
+=======
                                                            
                                                         
-                                                            <select required class="col-sm-12 col-md-6" id="society_branch_brcode_ed" name="society_branch_brcode_ed"  onchange="sctyBankCode()" style="text-transform: capitalize">
+                                                            <select required class="col-sm-12 col-md-6" id="society_branch_brcode_ed" name="society_branch_brcode_ed"  onchange="sctyBankCode()" >
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                                                                     <option value="<%=scty_br_code%>" ><%=scty_br_code%> </option>
                                                                     <% for(var i=1;i < branch.length;i++) { %>
-                                                                        <option value="<%= branch[i].bcd_ch_branch_code   %>"> <%= branch[i].bcd_ch_branch_code 
+                                                                        <option value="<%= branch[i].bcd_ch_branch_code   %>"> <%= branch[i].bcd_ch_branch_code
                                                                              %></option>
                                                                                                   <% } %>
                                                                 </select>
@@ -813,7 +860,7 @@ Accounts
                                                 </div>
                                                 <!-- branch code end -->
                                             </div>
-                                     
+
 
                                         <!-- branch name -->
                                         <div class="container row mb-4">
@@ -823,7 +870,7 @@ Accounts
                                                             class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6"
                                                         name="society_branch_brname_ed" id="society_branch_brname_ed" placeholder="" value="<%=br_name%>" onkeypress="return alpha(event)"
-                                                        style="text-transform: capitalize">
+                                                        >
 
                                                 </div>
                                                 <!-- branch name end -->
@@ -839,12 +886,12 @@ Accounts
                                                             <option value="Metro">Metro</option>
                                                             <option value="Semi Urban">Semi Urban</option>
                                                             <option value="Rural">Rural</option>
-                                                           
+
                                                         </select>
-                                                       
+
 
                                                 </div>
-                                              
+
                                             </div>
                                               <!-- branch type end -->
                       <!-- IFS Code NEFT -->
@@ -855,7 +902,7 @@ Accounts
                                                             class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6"
                                                         name="society_branch_ifsc_neft_ed" id="society_branch_ifsc_neft_ed" placeholder="" value="<%=neft%>" maxlength="11"
-                                                        style="text-transform: capitalize">
+                                                        style="text-transform: uppercase">
 
                                                 </div>
                                                 <!-- IFS Code NEFT end -->
@@ -866,12 +913,18 @@ Accounts
                                                         style="padding-left:0% !important;">IFS Code RTGS<span
                                                             class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6"
+<<<<<<< HEAD
                                                             name="society_branch_ifsc_rtgs_ed" id="society_branch_ifsc_rtgs_ed" placeholder="" value="<%=rtgs%>" maxlength="11"  style="text-transform: capitalize">
+
+
+=======
+                                                            name="society_branch_ifsc_rtgs_ed" id="society_branch_ifsc_rtgs_ed" placeholder="" value="<%=rtgs%>" maxlength="11"  style="text-transform: uppercase">
                                                             
                                                        
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
 
                                                 </div>
-                                              
+
                                             </div>
                                               <!-- IFS Code RTGS end -->
                      <!-- MICR code -->
@@ -882,25 +935,25 @@ Accounts
                                                             class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6"
                                                         name="society_branch_micr_cd_ed" id="society_branch_micr_cd_ed" placeholder="" value="<%=micr%>" onkeypress="return numeric(event)"
-                                                        style="text-transform: capitalize" maxlength="9" >
+                                                         maxlength="9" >
 
                                                 </div>
                                                 </div>
                                                 <!-- MICR code end -->
-             
-                                        
-                        
-                                            
+
+
+
+
                                                 <div class="container row mt-4">
                                                         <div class="col-sm-12 col-md-2">
                                                             <a type="text" class="btn" name="soc_branch_search_ed"
                                                                 id="soc_branch_search_ed" value="Back" href="/societyModule/societyDetails/scty_Branch_Search">Back</a>
-    
+
                                                         </div>
                                                         <div class="col-sm-12 col-md-3">
                                                             <input type="button" class="btn bttn" name="clear_soc_branch_ed"
                                                                 id="clear_soc_branch_ed" value="Clear Form" onclick="scty_br_Tab1_edit_clearform()">
-    
+
                                                         </div>
                                                         <div class="col-sm-12 col-md-5"></div>
                                                         <div class="col-sm-12 col-md-2">
@@ -913,31 +966,37 @@ Accounts
 
                                         <!-- Society Branch Address Tab Strart -->
                                         <div id="soc_branch_address_details_ed" class="container tab-pane show"><br>
-                                            <h5>Edit Records</h5>
+                                            <h5>Branch Address</h5>
                                             <hr>
-                                           
-                                   
+
+
                                                 <!-- Address line start -->
                                             <div class="container row mt-4">
                                                     <div class="col-sm-12 col-md-6">
                                                             <label for="soc_branch_add_addline_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Address Line
                                                         <span class="astrix">*</span></label>
-                                                        <input type="text" class="col-sm-12 col-md-6"
+                                                        <!-- changed the Address line field from text box to textarea,changes made by swarna -->
+                                                        <textarea rows="4" class="col-sm-12 col-md-6"
                                                             name="soc_branch_add_addline_ed" id="soc_branch_add_addline_ed" placeholder="" value="<%=add_line%>" onkeypress="return alphanumeric(event)"
+<<<<<<< HEAD
                                                             style="text-transform: capitalize" maxlength="20" onkeypress="">
+
+=======
+                                                             maxlength="" onkeypress=""></textarea>
                                                        
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                                                 </div>
-                                               
+
                                                 <!-- Address line  end -->
                     <!-- land mark start -->
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="soc_branch_add_lndmark_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Land Mark<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_lndmark_ed"
-                                                        id="soc_branch_add_lndmark_ed" placeholder="" style="text-transform: capitalize" maxlength="" value="<%=landmark%>" onkeypress="return alphanumeric(event)">
+                                                        id="soc_branch_add_lndmark_ed" placeholder=""  maxlength="" value="<%=landmark%>" onkeypress="return alpha(event)">
 
-                                                        
+
 
                                                 </div>
                                             </div>
@@ -949,7 +1008,7 @@ Accounts
                                                     <label for="soc_branch_add_village_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Village<span class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_village_ed"
-                                                        id="soc_branch_add_village_ed" placeholder="" style="text-transform: capitalize" maxlength=""  value="<%=vill%>" onkeypress="return alpha(event)">
+                                                        id="soc_branch_add_village_ed" placeholder=""  maxlength=""  value="<%=vill%>" onkeypress="return alpha(event)">
 
                                                 </div>
                                      <!-- village end -->
@@ -958,7 +1017,7 @@ Accounts
                                                             <label for="soc_branch_add_pch_mndal_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                             style="padding-left:0% !important;">Panchayath Mandal</label>
                                                             <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_pch_mndal_ed"
-                                                            id="soc_branch_add_pch_mndal_ed" placeholder="" style="text-transform: capitalize" maxlength="" value="<%=panchayath%>" onkeypress="return alpha(event)">
+                                                            id="soc_branch_add_pch_mndal_ed" placeholder=""  maxlength="" value="<%=panchayath%>" onkeypress="return alpha(event)">
 
                                                     </div>
                                                 </div>
@@ -980,9 +1039,9 @@ Accounts
                                                                             <option value='{"city":"<%=cities[i].comm_code_desc%>","state":"<%=cities[i].state_code%>"}'>
                                                                             <%= cities[i].comm_code_desc %></option>
                                                                         <% } %>
-                                                                       
+
                                                                 </select>
-        
+
 
                                                         </div>
                                                         <!-- city end -->
@@ -990,9 +1049,26 @@ Accounts
                                                         <div class="col-sm-12 col-md-6">
                                                     <label for="soc_branch_add_distict_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Distict<span class="astrix">*</span></label>
-                                                        <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_distict_ed"
-                                                                    id="soc_branch_add_distict_ed" placeholder="" style="text-transform: capitalize" maxlength="" value="<%=dist%>" onkeypress="return alpha(event)">
-        
+                                                        <!-- <select class="col-sm-12 col-md-6" name="soc_branch_add_distict_ed"
+                                                        id="soc_branch_add_distict_ed">
+                                                        <option disabled="" selected="" value="">Select
+                                                        </option>
+
+                                                            <option value="">
+                                                            </option>
+<<<<<<< HEAD
+
+                                                        </select> -->
+                                                        <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_distict_ed" value="<%=dist%>"
+                                                            id="soc_branch_add_distict_ed" placeholder="" style="text-transform: capitalize" maxlength="10" onkeypress="return alpha(event)">
+=======
+                                                           
+                                                        </select> -->
+
+                                                        <input type="text" class="col-sm-12 col-md-6"
+                                                        name="soc_branch_add_distict_ed" id="soc_branch_add_distict_ed" placeholder="" value="<%=dist%>"
+                                                          >
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
 
 
                                                 </div>
@@ -1010,14 +1086,14 @@ Accounts
                                                         id="soc_branch_add_state_ed">
                                                         <option  value="<%=state%>"><%=state%>
                                                         </option>
-                                                  
+
                                                         <% for(var i=1;i < states.length;i++) { %>
 
                                                             <option value="<%= states[i].comm_code_desc  %>">
                                                                 <%= states[i].comm_code_desc %></option>
-    
+
                                                             <% } %>
-                                                           
+
                                                     </select>
 
                                                 </div>
@@ -1030,24 +1106,24 @@ Accounts
                                                         id="soc_branch_add_country_ed">
                                                         <option >INDIA
                                                         </option>
-                                                  
-                                        
-                                                           
+
+
+
                                                     </select>
-                                                                   
-        
+
+
                                                             </div>
                                                         </div>
                                              <!-- country  end -->
 
                                   <!--postal code start  -->
                                   <div class="container row mt-4">
-                                                
+
                                         <div class="col-sm-12 col-md-6">
                                             <label for="soc_branch_add_postalcd_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                 style="padding-left:0% !important;">Postal Code<span class="astrix">*</span></label>
                                                 <input type="text" class="col-sm-12 col-md-6"
-                                                name="soc_branch_add_postalcd_ed" id="soc_branch_add_postalcd_ed" placeholder="" value="<%=postal%>"  maxlength="6" style="text-transform: capitalize" onkeypress="return numeric(event)">
+                                                name="soc_branch_add_postalcd_ed" id="soc_branch_add_postalcd_ed" placeholder="" value="<%=postal%>"  maxlength="6"  onkeypress="return numeric(event)">
                                         </div>
                           <!-- postal code end -->
 
@@ -1057,19 +1133,19 @@ Accounts
                                                 style="padding-left:0% !important;">Phone Number1<span
                                                     class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6"
-                                                    name="soc_branch_add_phone_num1_ed" id="soc_branch_add_phone_num1_ed" placeholder="" value="<%=phno1%>"   style="text-transform: capitalize" onkeypress="return numeric(event)">
+                                                    name="soc_branch_add_phone_num1_ed" id="soc_branch_add_phone_num1_ed" placeholder="" value="<%=phno1%>"   onkeypress="return numeric(event)">
                                         </div>
                                     </div>
                         <!--  phone number 1 end-->
-                
+
                                <!--Phone number 2 start  -->
                                             <div class="container row mt-4">
-                                                
+
                                                 <div class="col-sm-12 col-md-6">
                                                     <label for="soc_branch_add_phone_num2_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Phone Number2<span class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6"
-                                                        name="soc_branch_add_phone_num2_ed" id="soc_branch_add_phone_num2_ed" placeholder="" value="<%=phno2%>"   style="text-transform: capitalize" onkeypress="return numeric(event)">
+                                                        name="soc_branch_add_phone_num2_ed" id="soc_branch_add_phone_num2_ed" placeholder="" value="<%=phno2%>"   onkeypress="return numeric(event)">
                                                 </div>
                                   <!-- phone number 2end -->
 
@@ -1080,7 +1156,7 @@ Accounts
                                                                 class="astrix">*</span></label>
                                                                 <input type="text" class="col-sm-12 col-md-6"
                                                             name="soc_branch_add_email1_ed" id="soc_branch_add_email1_ed" placeholder="" value="<%=email%>"
-                                                            style="text-transform: capitalize" >
+                                                             >
                                                 </div>
                                             </div>
                                <!-- email 1 end -->
@@ -1090,21 +1166,26 @@ Accounts
                                                         <label for="soc_branch_add_url_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">URL<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_url_ed"
-                                                        id="soc_branch_add_url_ed" placeholder="" value="<%=url%>" style="text-transform: capitalize" maxlength=""
+                                                        id="soc_branch_add_url_ed" placeholder="" value="<%=url%>" maxlength=""
                                                     laceholder="" value=""
-                                                        style="text-transform: capitalize"  >
+                                                        >
                                                      </div>
                                         <!-- url end -->
-                                        
+
 
                                             <!-- Latitude start -->
                                                 <div class="col-sm-12 col-md-6">
-                                                       
+
                                                         <label for="soc_branch_add_latitude_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Latitude<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_latitude_ed"
+<<<<<<< HEAD
                                                         id="soc_branch_add_latitude_ed" placeholder="" value="<%=lat%>" style="text-transform: capitalize" maxlength="" onkeypress="return alphanumeric(event)">
+
+=======
+                                                        id="soc_branch_add_latitude_ed" placeholder="" value="<%=lat%>"  maxlength="" onkeypress="return numeric(event)"> <!-- Changed from alphanumeric to numeric as per the requirement done by Shivu(NODE)-->
                                             
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                                                 </div>
                                             </div>
                                         <!-- Latitude end -->
@@ -1114,7 +1195,7 @@ Accounts
                                                         <label for="soc_branch_add_longitude_ed" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Longitude<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_longitude_ed"
-                                                        id="soc_branch_add_longitude_ed" placeholder="" value="<%=long%>" style="text-transform: capitalize" maxlength="" onkeypress="return alphanumeric(event)">
+                                                        id="soc_branch_add_longitude_ed" placeholder="" value="<%=long%>"  maxlength="" onkeypress="return numeric(event)"> <!-- Changed from alphanumeric to numeric as per the requirement done by Shivu(NODE)-->
 
 
                                                 </div>
@@ -1139,7 +1220,7 @@ Accounts
                                                 </div>
                                             </div>
                                             <!-- key contact person1 end-->
-                   
+
                                            <!-- key contact person2 start -->
                                             <div class="container row mt-4">
                                                     <div class="col-sm-12 col-md-6">
@@ -1161,24 +1242,24 @@ Accounts
 
                                                 </div>
                                             </div>
-                                          
-                 
-                                            
+
+
+
                                                 <div class="container row mt-4">
                                                         <div class="col-sm-12 col-md-2">
                                                                 <input hidden type="number" class="col-sm-12 col-md-6" name="br_edit" id="br_edit"
                                                                 placeholder="" value="<%=br_id_edit%>">
                                                             <input type="button" class="btn" name="soc_branch_ed" href="/societyModule/societyDetails/scty_Branch_Search"
                                                                 id="soc_branch_ed" value="Back">
-    
+
                                                         </div>
                                                         <div class="col-sm-12 col-md-3">
                                                             <input type="button" class="btn bttn" name="clear_soc_branch_address_ed"
                                                                 id="clear_soc_branch_address_ed" value="Clear Form" onclick="scty_br_Tab2_edit_clearform()">
-    
+
                                                         </div>
                                                         <div class="col-sm-12 col-md-5"></div>
-                                                         <div class="col-sm-12 col-md-2"> 
+                                                         <div class="col-sm-12 col-md-2">
                                                         <input type="button" class="btn" name="soc_branch_save_ed" id="soc_branch_save_ed"
                                                             value="Save" onclick="societybranchDetailsedittab2()">
                                                     </div>
@@ -1206,7 +1287,7 @@ Accounts
         <div class="row-sm ">
             <div class="col-sm-12">
                 <div class="card tp">
-                    <div class="card-header hdr"><h5>BRANCH</h5></div>
+                    <div class="card-header hdr"><h5>View Record</h5></div>
                     <div class="card-body">
 
 
@@ -1228,7 +1309,7 @@ Accounts
                                             <a class="nav-link txt_col show" data-toggle="tab"
                                                 href="#soc_branch_address_details_vw">Branch Address</a>
                                         </li>
-                                        
+
                                     </ul>
                                     <!-- Nav pills -->
 
@@ -1238,9 +1319,9 @@ Accounts
                                         <!-- Society branch tab start -->
 
                                     <div id="soc_branch_details_vw" class="container tab-pane show active"><br>
-                                        <h6>View Records</h6>
+                                        <h6>Branch</h6>
                                         <hr>
-                                    
+
                                         <fieldset disabled="disabled">
                                         <!-- bank name start -->
                                         <div class="container row mb-4">
@@ -1251,10 +1332,10 @@ Accounts
                                                         <select class="col-sm-12 col-md-6" id="society_branch_bnkcode_vw"
                                                         name="society_branch_bnkcode_vw">
                                                         <option disabled selected value="<%=scty_bank_code_vw%>"><%=scty_bank_code_vw%></option>
-                                                       
-                                                       
+
+
                                                     </select>
-                                                    
+
 
                                             </div>
                                             <!-- bank name end -->
@@ -1265,15 +1346,21 @@ Accounts
                                                     style="padding-left:0% !important;">Branch Code<span
                                                         class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6"
+<<<<<<< HEAD
                                                         name="society_branch_brcode_vw" id="society_branch_brcode_vw" placeholder="" value="<%=scty_br_code_vw%>"   style="text-transform: capitalize">
+
+
+=======
+                                                        name="society_branch_brcode_vw" id="society_branch_brcode_vw" placeholder="" value="<%=scty_br_code_vw%>"   >
                                                         
                                                    
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
 
                                             </div>
                                             <!-- branch code end -->
                                         </div>
                                         </fieldset>
-                           
+
 
                                     <!-- branch name -->
                                     <fieldset disabled="disabled">
@@ -1284,7 +1371,7 @@ Accounts
                                                         class="astrix">*</span></label>
                                                 <input type="text" class="col-sm-12 col-md-6"
                                                     name="society_branch_brname_vw" id="society_branch_brname_vw" placeholder="" value="<%=br_name_vw%>"
-                                                    style="text-transform: capitalize">
+                                                    >
 
                                             </div>
                                             <!-- branch name end -->
@@ -1300,12 +1387,12 @@ Accounts
                                                         <option value="Metro">Metro</option>
                                                         <option value="Semi Urban">Semi Urban</option>
                                                         <option value="Rural">Rural</option>
-                                                       
+
                                                     </select>
-                                                   
+
 
                                             </div>
-                                          
+
                                         </div>
                                         </fieldset>
                                           <!-- branch type end -->
@@ -1318,7 +1405,7 @@ Accounts
                                                         class="astrix">*</span></label>
                                                 <input type="text" class="col-sm-12 col-md-6"
                                                     name="society_branch_ifsc_neft_vw" id="society_branch_ifsc_neft_vw" placeholder="" value="<%=neft_vw%>"
-                                                    style="text-transform: capitalize">
+                                                    >
 
                                             </div>
                                             <!-- IFS Code NEFT end -->
@@ -1329,12 +1416,18 @@ Accounts
                                                     style="padding-left:0% !important;">IFS Code RTGS<span
                                                         class="astrix">*</span></label>
                                                         <input type="text" class="col-sm-12 col-md-6"
+<<<<<<< HEAD
                                                         name="society_branch_ifsc_rtgs_vw" id="society_branch_ifsc_rtgs_vw" placeholder="" value="<%=rtgs_vw%>"   style="text-transform: capitalize">
+
+
+=======
+                                                        name="society_branch_ifsc_rtgs_vw" id="society_branch_ifsc_rtgs_vw" placeholder="" value="<%=rtgs_vw%>"   >
                                                         
                                                    
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
 
                                             </div>
-                                          
+
                                         </div>
                                         </fieldset>
                                           <!-- IFS Code RTGS end -->
@@ -1347,25 +1440,25 @@ Accounts
                                                         class="astrix">*</span></label>
                                                 <input type="number" class="col-sm-12 col-md-6"
                                                     name="society_branch_micr_cd_vw" id="society_branch_micr_cd_vw" placeholder="" value="<%=micr_vw%>"
-                                                    style="text-transform: capitalize" maxlength="9" >
+                                                     maxlength="9" >
 
                                             </div>
                                             </div>
                                             </fieldset>
                                             <!-- MICR code end -->
-         
-                                    
-                    
-                                        
+
+
+
+
                                     <div class="container row mt-4">
                                             <div class="col-sm-12 col-md-2">
-                                                
+
                                                     <a type="text" class="btn"
                                                     href="/societyModule/societyDetails/scty_branch_search"
                                                     name="soc_branch_search_vw" id="soc_branch_search_vw" value="Back">Back</a>
 
                                             </div>
-                      
+
                                             <div class="col-sm-12 col-md-8"></div>
                                             <div class="col-sm-12 col-md-2">
                                                 <input type="button" class="btn" name="con_soc_branch_vw" id="con_soc_branch_vw"
@@ -1376,11 +1469,11 @@ Accounts
                                     <!-- Society branch Tab End -->
 
                                     <!-- Society Branch Address Tab Strart -->
-                                    
+
                                     <div id="soc_branch_address_details_vw" class="container tab-pane show"><br>
-                                        <h5>View Records</h5>
+                                        <h5>Branch Address</h5>
                                         <hr>
-                       
+
                                         <fieldset disabled="disabled">
                                             <!-- Address line start -->
                                         <div class="container row mt-4">
@@ -1388,21 +1481,27 @@ Accounts
                                                         <label for="soc_branch_add_addline_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Address Line
                                                     <span class="astrix">*</span></label>
-                                                    <input type="text" class="col-sm-12 col-md-6"
+                                                    <!-- changed the Address line field from text box to textarea,changes made by swarna -->
+                                                    <textarea rows="4" class="col-sm-12 col-md-6"
                                                         name="soc_branch_add_addline_vw" id="soc_branch_add_addline_vw" placeholder="" value="<%=add_line_vw%>"
+<<<<<<< HEAD
                                                         style="text-transform: capitalize" maxlength="20" onkeypress="">
+
+=======
+                                                         maxlength="" onkeypress="">
                                                    
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                                             </div>
-                                           
+
                                             <!-- Address line  end -->
                 <!-- land mark start -->
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="soc_branch_add_lndmark_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                     style="padding-left:0% !important;">Land Mark<span class="astrix">*</span></label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_lndmark_vw"
-                                                    id="soc_branch_add_lndmark_vw" placeholder="" style="text-transform: capitalize" maxlength="" value="<%=landmark_vw%>" onkeypress="">
+                                                    id="soc_branch_add_lndmark_vw" placeholder=""  maxlength="" value="<%=landmark_vw%>" onkeypress="">
 
-                                                    
+
 
                                             </div>
                                         </div>
@@ -1416,7 +1515,7 @@ Accounts
                                                 <label for="soc_branch_add_village_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                     style="padding-left:0% !important;">Village<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_village_vw"
-                                                        id="soc_branch_add_village_vw" placeholder="" style="text-transform: capitalize" maxlength=""  value="<%=vill_vw%>" onkeypress="">
+                                                        id="soc_branch_add_village_vw" placeholder=""  maxlength=""  value="<%=vill_vw%>" onkeypress="">
                                             </div>
                                  <!-- village end -->
                                             <!-- panchayath mandal start -->
@@ -1424,7 +1523,7 @@ Accounts
                                                         <label for="soc_branch_add_pch_mndal_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Panchayath Mandal</label>
                                                         <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_pch_mndal_vw"
-                                                        id="soc_branch_add_pch_mndal_vw" placeholder="" style="text-transform: capitalize" maxlength="" value="<%=panchayath_vw%>" onkeypress="">
+                                                        id="soc_branch_add_pch_mndal_vw" placeholder=""  maxlength="" value="<%=panchayath_vw%>" onkeypress="">
 
                                                 </div>
                                             </div>
@@ -1442,10 +1541,10 @@ Accounts
                                                     id="soc_branch_add_city_vw">
                                                     <option disabled="" selected="" value="<%=city_vw%>"><%=city_vw%>
                                                     </option>
-                                              
+
                                                         <option value="">
                                                         </option>
-                                                       
+
                                                 </select>
 
                                                     </div>
@@ -1454,9 +1553,31 @@ Accounts
                                                     <div class="col-sm-12 col-md-6">
                                                 <label for="soc_branch_add_distict_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                     style="padding-left:0% !important;">Distict<span class="astrix">*</span></label>
+<<<<<<< HEAD
+
+                                                    <select class="col-sm-12 col-md-6" name="soc_branch_add_distict_vw"
+=======
                                                    
-                                                    <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_distict_vw"
-                                                    id="soc_branch_add_distict_vw" placeholder="" style="text-transform: capitalize" maxlength="" onkeypress="" value="<%=dist_vw%>">
+                                                    <!-- <select class="col-sm-12 col-md-6" name="soc_branch_add_distict_vw"
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
+                                                        id="soc_branch_add_distict_vw">
+                                                        <option disabled="" selected="" value="">Select
+                                                        </option>
+
+                                                            <option value="">
+                                                            </option>
+<<<<<<< HEAD
+
+                                                        </select>
+=======
+                                                           
+                                                        </select> -->
+
+                                                        <input type="text" class="col-sm-12 col-md-6"
+                                                    name="soc_branch_add_distict_vw" id="soc_branch_add_distict_vw" placeholder="" value="<%=dist_vw%>"
+                                                    >
+
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
 
                                             </div>
                                         </div>
@@ -1475,9 +1596,9 @@ Accounts
                                                     id="soc_branch_add_state_vw">
                                                     <option disabled="" selected="" value="<%=state_vw%>"><%=state_vw%>
                                                     </option>
-                                              
-                                                       
-                                                       
+
+
+
                                                 </select>
 
                                             </div>
@@ -1490,13 +1611,13 @@ Accounts
                                                     id="soc_branch_add_country_vw">
                                                     <option disabled="" selected="" value="<%=cntry_vw%>"><%=cntry_vw%>
                                                     </option>
-                                              
+
                                                         <option value="">
                                                         </option>
-                                                       
+
                                                 </select>
-                                                               
-    
+
+
                                                         </div>
                                                     </div>
                                                     </fieldset>
@@ -1505,12 +1626,12 @@ Accounts
                               <!--postal code start  -->
                               <fieldset disabled="disabled">
                               <div class="container row mt-4">
-                                            
+
                                     <div class="col-sm-12 col-md-6">
                                         <label for="soc_branch_add_postalcd_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                             style="padding-left:0% !important;">Postal Code<span class="astrix">*</span></label>
                                             <input type="number" class="col-sm-12 col-md-6"
-                                            name="soc_branch_add_postalcd_vw" id="soc_branch_add_postalcd_vw" placeholder="" value="<%=postal_vw%>"   style="text-transform: capitalize">
+                                            name="soc_branch_add_postalcd_vw" id="soc_branch_add_postalcd_vw" placeholder="" value="<%=postal_vw%>"   >
                                     </div>
                       <!-- postal code end -->
 
@@ -1520,21 +1641,21 @@ Accounts
                                             style="padding-left:0% !important;">Phone Number1<span
                                                 class="astrix">*</span></label>
                                                 <input type="number" class="col-sm-12 col-md-6"
-                                                name="soc_branch_add_phone_num1_vw" id="soc_branch_add_phone_num1_vw" placeholder="" value="<%=phno1_vw%>"   style="text-transform: capitalize">
+                                                name="soc_branch_add_phone_num1_vw" id="soc_branch_add_phone_num1_vw" placeholder="" value="<%=phno1_vw%>"   >
                                     </div>
                                 </div>
                                 </fieldset>
                     <!--  phone number 1 end-->
-            
+
                            <!--Phone number 2 start  -->
                            <fieldset disabled="disabled">
                                         <div class="container row mt-4">
-                                            
+
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="soc_branch_add_phone_num2_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                     style="padding-left:0% !important;">Phone Number2<span class="astrix">*</span></label>
                                                     <input type="number" class="col-sm-12 col-md-6"
-                                                    name="soc_branch_add_phone_num2_vw" id="soc_branch_add_phone_num2_vw" placeholder="" value="<%=phno2_vw%>"   style="text-transform: capitalize">
+                                                    name="soc_branch_add_phone_num2_vw" id="soc_branch_add_phone_num2_vw" placeholder="" value="<%=phno2_vw%>"   >
                                             </div>
                               <!-- phone number 2end -->
 
@@ -1545,7 +1666,7 @@ Accounts
                                                             class="astrix">*</span></label>
                                                             <input type="text" class="col-sm-12 col-md-6"
                                                         name="soc_branch_add_email1_vw" id="soc_branch_add_email1_vw" placeholder="" value="<%=email_vw%>"
-                                                        style="text-transform: capitalize" maxlength="" onkeypress="">
+                                                         maxlength="" onkeypress="">
                                             </div>
                                         </div>
                                         </fieldset>
@@ -1557,18 +1678,23 @@ Accounts
                                                     <label for="soc_branch_add_url_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                     style="padding-left:0% !important;">URL<span class="astrix">*</span></label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_url_vw"
+<<<<<<< HEAD
                                                     id="soc_branch_add_url_vw" placeholder="" value="<%=url_vw%>" style="text-transform: capitalize" maxlength="">
+
+=======
+                                                    id="soc_branch_add_url_vw" placeholder="" value="<%=url_vw%>"  maxlength="">
                                                 
+>>>>>>> d800d5c0b810667e6614c98c2f2fd472f40f6742
                                                  </div>
                                       <!-- url end -->
-                                    
+
 
                                     <!-- latitude  start -->
                                             <div class="col-sm-12 col-md-6">
                                                     <label for="soc_branch_add_latitude_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                         style="padding-left:0% !important;">Latitude<span class="astrix">*</span></label>
                                                     <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_latitude_vw"
-                                                        id="soc_branch_add_latitude_vw" placeholder="" value="<%=lat_vw%>" style="text-transform: capitalize" maxlength="" onkeypress="">
+                                                        id="soc_branch_add_latitude_vw" placeholder="" value="<%=lat_vw%>"  maxlength="" onkeypress="">
 
                                             </div>
                                         </div>
@@ -1578,11 +1704,11 @@ Accounts
                            <fieldset disabled="disabled">
                                         <div class="container row mt-4">
                                             <div class="col-sm-12 col-md-6">
-                                               
+
                                                     <label for="soc_branch_add_longitude_vw" class="mr-sm-4 col-sm-12 col-md-5"
                                                     style="padding-left:0% !important;">Longitude<span class="astrix">*</span></label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="soc_branch_add_longitude_vw"
-                                                    id="soc_branch_add_longitude_vw" placeholder="" value="<%=long_vw%>" style="text-transform: capitalize" maxlength="" onkeypress="">
+                                                    id="soc_branch_add_longitude_vw" placeholder="" value="<%=long_vw%>"  maxlength="" onkeypress="">
 
 
                                             </div>
@@ -1611,7 +1737,7 @@ Accounts
                                         </div>
                                         </fieldset>
                                           <!-- key contact person1 end -->
-                                    
+
                                  <!-- key contact person2 start -->
                                   <fieldset disabled="disabled">
                                         <div class="container row mt-4">
@@ -1633,25 +1759,25 @@ Accounts
                                                     <input type="text" class="col-sm-12 col-md-3" name="soc_br_name2_vw"
                                                     id="soc_br_name2_vw" placeholder="" value="<%=pname2_vw%>" style="height:1.9em">
 
-                                                
-                                                    
-                                                
 
-                                                   
+
+
+
+
                                             </div>
                                         </div>
                                     </fieldset>
-             
-                                        
+
+
                                             <div class="container row mt-4">
                                                     <div class="col-sm-12 col-md-2">
                                                         <input type="button" class="btn" name="soc_branch_vw"
                                                             id="soc_branch_vw" value="Back" href="/societyModule/societyDetails/scty_Branch_Search">
 
                                                     </div>
-                         
+
                                                     <div class="col-sm-12 col-md-5"></div>
-                                                   
+
                                                 </div>
                                     </div>
                                     <!-- Society Branch Address Tab End -->
@@ -1671,7 +1797,7 @@ Accounts
 <!-- view end -->
 <%}%>
 
-        
+
         <% include ../includes/footer %>
 </div>
 </div>

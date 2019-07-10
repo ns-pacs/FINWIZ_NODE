@@ -57,7 +57,53 @@
 
                                 </ul>
                             </li>
-                   <li id="sub_menu">
+
+                            <li id="sub_menu" class="active">
+                                <a href="#">
+                                    <i class="material-icons" style="font-size: 25px;">account_balance</i>
+                                    <strong class="fnt">Bank</strong>
+                                </a>
+                                <ul class="hid mt-1 sub_col">
+
+                                    <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
+                                            style="color: #ffffff">Associated
+                                            Bank</a></div>
+
+                                    <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
+                                            style="color: #ffffff">Associated Branch</a></div>
+
+                                    <div class="sub_mar">
+                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
+                                            style="color: #ffffff">Associated Bank Account Master</a>
+                                    </div>
+
+                                    <div class="sub_mar">
+                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
+                                            style="color: #ffffff">Associated Bank Cheque Book</a>
+                                    </div>
+
+                                    <div class="sub_mar">
+                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
+                                            style="color: #ffffff">Associated Bank Account Type</a>
+                                    </div>
+
+                                <div class="sub_mar">
+                                    <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
+                                        style="color: #ffffff">Associated Bank Deposit Returns</a>
+                                </div>
+
+
+                                <div class="sub_mar">
+                                    <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
+                                        style="color: #ffffff">Associated Bank Deposit Master</a>
+                                </div>
+
+                                </ul>
+                            </li>
+
+
+
+  <li id="sub_menu">
 <a href="#">
 <i class="material-icons" style="font-size: 25px;">group</i>
 <strong class="fnt">Accounts</strong>
@@ -132,50 +178,6 @@ style="color: #ffffff;">Account Transaction</a></div>
                                     <strong class="fnt">Loans</strong>
                                 </a>
                             </li>
-
-                            <li id="sub_menu" class="active">
-                                <a href="#">
-                                    <i class="material-icons" style="font-size: 25px;">account_balance</i>
-                                    <strong class="fnt">Bank</strong>
-                                </a>
-                                <ul class="hid mt-1 sub_col">
-
-                                    <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_bank_search"
-                                            style="color: #ffffff">Associated
-                                            Bank</a></div>
-
-                                    <div class="sub_mar"><a class="ml" href="/bankModule/bankDetails/asso_branch_search"
-                                            style="color: #ffffff">Associated Branch</a></div>
-
-                                    <div class="sub_mar">
-                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_account_master_search"
-                                            style="color: #ffffff">Associated Bank Account Master</a>
-                                    </div>
-
-                                    <div class="sub_mar">
-                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_cheque_book_search"
-                                            style="color: #ffffff">Associated Bank Cheque Book</a>
-                                    </div>
-
-                                    <div class="sub_mar">
-                                        <a class="ml" href="/bankModule/bankDetails/asso_bank_account_search"
-                                            style="color: #ffffff">Associated Bank Account Type</a>
-                                    </div>
-
-                                <div class="sub_mar">
-                                    <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_returns_search"
-                                        style="color: #ffffff">Associated Bank Deposit Returns</a>
-                                </div>
-
-
-                                <div class="sub_mar">
-                                    <a class="ml" href="/bankModule/bankDetails/asso_bank_deposit_master_search"
-                                        style="color: #ffffff">Associated Bank Deposit Master</a>
-                                </div>
-
-                                </ul>
-                            </li>
-
 
                             <li>
                                 <a href="/login/market">
@@ -347,7 +349,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                         class="astrix">*</span>
                                                 </label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="record_branch_name"
-                                                    id="record_branch_name" placeholder="">
+                                                    id="record_branch_name" placeholder=""  onkeypress="return alpha(event)" >
 
                                             </div>
                                         </div>
@@ -432,7 +434,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                 <label for="dept" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Land Mark
                                                 </label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="land_mark"
-                                                    id="land_mark" placeholder="">
+                                                    id="land_mark" maxlength="30" placeholder="">
 
                                             </div>
                                         </div>
@@ -550,8 +552,8 @@ style="color: #ffffff;">Account Transaction</a></div>
                                         <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Bank Code
                                             <span class="astrix">*</span></label>
                                         <select class="col-sm-12 col-md-6" id="bank_cd_ed" name="bank_cd_ed" onchange="bankEditCode()">
-                                            <option  ><%=br_brcode%> </option>
-                                            <% for(var i=1;i < banks.length;i++) { %>
+                                            <option><%=br_brcode%> </option>
+                                            <% for(var i=0;i < banks.length;i++) { %>
                                                 <option value="<%= banks[i].bcd_ch_bank_code  %>"> <%= banks[i].bcd_ch_bank_code %></option>
                                                                           <% } %>
                                         </select>
@@ -585,7 +587,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                         <div class="col-sm-12 col-md-6">
                                             <label for="member_id" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Branch Name
                                                 <span class="astrix">*</span></label>
-                                                <input type="text" class="col-sm-12 col-md-6" class="form-contro" value="<%=br_name%>" id="branch_name_ed" name="branch_name_ed">
+                                                <input type="text" class="col-sm-12 col-md-6" class="form-contro" value="<%=br_name%>" id="branch_name_ed" name="branch_name_ed"  onkeypress="return alpha(event)">
 
                                         </div>
                                     </div>
@@ -646,7 +648,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                 <label for="bnk_acc_num" class="mr-sm-4 col-sm-12 col-md-5 ste">State <span class="astrix">*</span>
                                                 </label>
                                                 <select name="state_ed" class="col-sm-12 col-md-6" id="state_ed">
-                                                    <option selected="" disabled="" value=""><%=br_state%></option>
+                                                    <option><%=br_state%></option>
                                                     <% for(var i=1;i < states.length;i++) { %>
 
                                                     <option value="<%= states[i].comm_code_desc  %>">
@@ -670,7 +672,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                                 <label for="dept" class="mr-sm-4 col-sm-12 col-md-5" style="padding-left:0% !important;">Land Mark
                                                 </label>
                                                 <input type="text" class="col-sm-12 col-md-6" name="land_mark_ed" value="<%=br_land%>"
-                                                    id="land_mark_ed" placeholder="">
+                                                    id="land_mark_ed" maxlength="30" placeholder="">
 
                                             </div>
                                         </div>
@@ -828,7 +830,7 @@ style="color: #ffffff;">Account Transaction</a></div>
                                             <div class="col-sm-12 col-md-6">
                                                 <label for="member_typ" class="mr-sm-4 col-sm-12 col-md-5"  oncopy="return false" onpaste="return false" style="padding-left:0% !important;">IFS Code NEFT
                                                     <span class="astrix">*</span></label>
-                                                <input type="text" class="col-sm-12 col-md-6"  value="<%=br_brcode%> " name="ifsc_cd_vw"
+                                                <input type="text" class="col-sm-12 col-md-6"  value="<%=br_neft%> " name="ifsc_cd_vw"
                                                     id="ifsc_cd_vw" placeholder="" maxlength="11"
                                                     onkeypress="return alphanumeric(event)"
                                                     style="text-transform:uppercase">
